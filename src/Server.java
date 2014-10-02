@@ -2,11 +2,13 @@
 public class Server {
 
 	/*
-	I kan hente dette ned for at se om alt fungere. I kan evt. indskrive en ny kommentar her for at fors¿ge.
+	I kan hente dette ned for at se om alt fungere. I kan evt. indskrive en ny kommentar her for at forsoge.
 	*/
 	
 	
 	//ny comment
 	
 	//HHP
+	
+	//Vilde test
 }
