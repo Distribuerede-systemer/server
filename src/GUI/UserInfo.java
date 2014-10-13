@@ -20,9 +20,6 @@ public class UserInfo extends JPanel {
 	private JButton btnSubmit;
 	private JButton btnMainmenu;
 	private JButton btnLogout;
-
-
-
 	private JLabel lblNewLabel;
 
 	/**
@@ -129,8 +126,6 @@ public class UserInfo extends JPanel {
 		btnSubmit.addActionListener(l);
 		btnMainmenu.addActionListener(l);
 		btnLogout.addActionListener(l);
-		
-		
 	}
 
 	public JTextField getTxtField_UserID() {
