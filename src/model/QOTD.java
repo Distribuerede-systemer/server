@@ -26,7 +26,7 @@ public class QOTD {
         try {
             aSocket = new DatagramSocket();
             byte [] m = new byte[1024];
-            InetAddress aHost = InetAddress.getByName("cygnus-x.net");
+            InetAddress aHost = InetAddress.getByName("qotd.nngn.net");
             int serverPort = 17;
             System.out.println("Testing 1");
 
@@ -37,12 +37,18 @@ public class QOTD {
 
             //modtager informationer
             byte[] buffer = new byte[1024];
+            
+
             DatagramPacket reply = new DatagramPacket(buffer, buffer.length);
+            aSocket.receive(reply);
             System.out.println("Testing 2.5");
 
-          
+            byte[] res = reply.getData();
             System.out.println(reply);
             System.out.println("Reply: " + new String(reply.getData()));
+            System.out.println(res);
+         
+            
             
             //løsning søges på aSocet.receive
             aSocket.receive(reply);
