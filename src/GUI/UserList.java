@@ -90,9 +90,9 @@ public class UserList extends JPanel {
         btnAdd.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
 
-          String firstName = JOptionPane.showInputDialog(null, "First Name", 1);
-          String lastName = JOptionPane.showInputDialog(null, "Last Name", 2);
-          String eMail = JOptionPane.showInputDialog(null, "Email", 3);
+          String firstName = JOptionPane.showInputDialog(null, "First Name", null);
+          String lastName = JOptionPane.showInputDialog(null, "Last Name", null);
+          String eMail = JOptionPane.showInputDialog(null, "Email", null);
           
         	}
         });
