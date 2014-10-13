@@ -5,5 +5,26 @@
 	<classpathentry kind="lib" path="libs/forecastio-lib-java.jar"/>
 	<classpathentry kind="lib" path="libs/gson-2.3.jar"/>
 	<classpathentry kind="lib" path="libs/opensaml-2.6.3.jar"/>
+	<classpathentry kind="lib" path="libs/jcl-over-slf4j-1.7.5.jar"/>
+	<classpathentry kind="lib" path="libs/joda-time-2.2.jar"/>
+	<classpathentry kind="lib" path="libs/bcprov-jdk15on-1.51.jar"/>
+	<classpathentry kind="lib" path="libs/commons-codec-1.7.jar"/>
+	<classpathentry kind="lib" path="libs/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="libs/commons-httpclient-3.1.jar"/>
+	<classpathentry kind="lib" path="libs/commons-lang-2.6.jar"/>
+	<classpathentry kind="lib" path="libs/esapi-2.0.1.jar"/>
+	<classpathentry kind="lib" path="libs/jul-to-slf4j-1.7.5.jar"/>
+	<classpathentry kind="lib" path="libs/log4j-over-slf4j-1.7.5.jar"/>
+	<classpathentry kind="lib" path="libs/not-yet-commons-ssl-0.3.9.jar"/>
+	<classpathentry kind="lib" path="libs/openws-1.5.3.jar"/>
+	<classpathentry kind="lib" path="libs/slf4j-api-1.7.5.jar"/>
+	<classpathentry kind="lib" path="libs/velocity-1.7.jar"/>
+	<classpathentry kind="lib" path="libs/xmlsec-1.5.6.jar"/>
+	<classpathentry kind="lib" path="libs/xmltooling-1.4.3.jar"/>
+	<classpathentry kind="lib" path="libs/endorsed/serializer-2.10.0.jar"/>
+	<classpathentry kind="lib" path="libs/endorsed/xalan-2.7.1.jar"/>
+	<classpathentry kind="lib" path="libs/endorsed/xercesImpl-2.10.0.jar"/>
+	<classpathentry kind="lib" path="libs/endorsed/xml-apis-2.10.0.jar"/>
+	<classpathentry kind="lib" path="libs/endorsed/xml-resolver-1.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
