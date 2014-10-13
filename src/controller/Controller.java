@@ -22,6 +22,16 @@ public class Controller extends Model {
 		}
 	}
 	
+	// Metode til at godkende bruger (hardcoded)
+	
+	public boolean authenticate(String username, String password)
+	{
+		if(username.equals("username") && password.equals("password"))
+			return true;
+		else
+			return false;
+	}
+	
 // Metoder for Notes
 	
 	public void saveNotes(String text, String created) {
