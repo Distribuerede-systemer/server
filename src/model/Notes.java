@@ -46,12 +46,8 @@ public class Notes extends Model {
 	}
 	
 	public void getNote () throws SQLException {
-	
-		doUpdate("select * from notes;");
-		
-		
-		
-		sqlStatement = doQuery("SELECT * FROM table");
+			
+		sqlStatement = doQuery("SELECT * FROM notes");
 			
 	}
 
