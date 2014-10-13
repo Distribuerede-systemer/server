@@ -1,10 +1,9 @@
 
 package model;
-
-import com.ibatis.common.jdbc.ScriptRunner;
-
 import java.io.*;
 import java.sql.*;
+
+import com.ibatis.common.jdbc.ScriptRunner;
 
 
 /**
@@ -19,7 +18,7 @@ public abstract class Model {
     private static String databaseName = "cbscalendar";
 
     private Statement stmt;
-    private Connection conn = null;
+    protected Connection conn = null;
     protected PreparedStatement sqlStatement;
     protected ResultSet resultSet;
 
