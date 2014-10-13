@@ -16,14 +16,16 @@ public class NoteList extends JPanel {
 	 * Create the panel.
 	 */
 	public NoteList() {
-		setLayout(new BorderLayout(0, 0));
 		setSize(new Dimension(1366, 768));
+		setLayout(null);
 		
 		scrollBar = new JScrollBar();
-		add(scrollBar, BorderLayout.EAST);
+		scrollBar.setBounds(1349, 0, 17, 768);
+		add(scrollBar);
 		
 		table = new JTable();
-		add(table, BorderLayout.CENTER);
+		table.setBounds(0, 0, 1349, 768);
+		add(table);
 	}
 
 }
