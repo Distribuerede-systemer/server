@@ -1,12 +1,15 @@
 package model;
 
-public class Notes {
+import java.sql.SQLException;
+
+public class Notes extends Model {
 	
 	private int noteID;
 	private String text;
 	private String dateTime;
 	
 	public Notes(int noteID, String text, String dateTime) {
+		super();
 		this.noteID = noteID;
 		this.text = text;
 		this.dateTime = dateTime;
@@ -39,9 +42,16 @@ public class Notes {
 	
 	public void saveNote () {
 		
+		
 	}
 	
-	public void getNote () {
+	public void getNote () throws SQLException {
+	
+		doUpdate("select * from notes;");
+		
+		sqlStatement = doQuery("SELECT * FROM table");
+		sqlStatement.setInt(), x);
+		
 		
 	}
 
