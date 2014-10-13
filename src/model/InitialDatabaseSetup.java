@@ -15,7 +15,7 @@ import java.sql.Statement;
 public class InitialDatabaseSetup {
 
 	/** The Constant URL. Her skal info fra Henrik ind. */
-	private static String URL = "jdbc:mysql://localhost:3306/";
+	private static String URL = "jdbc:mysql://localhost:3306/cbscalendar";
 	/** The Constant USERNAME. */
 	private static String USERNAME = "root";
 	/** The Constant PASSWORD. */
@@ -40,9 +40,10 @@ public class InitialDatabaseSetup {
 	 * The insert new person. Her skal vi have oprettet vores SQL statements
 	 */
 	private PreparedStatement createTable = null;
-	private String createTables = "SET SESSION FOREIGN_KEY_CHECKS=0;\n" + 
+	private String createTables = "CREATE SCHEMA IF NOT EXISTS `cbscalendar` ;\n"+
+			"SET SESSION FOREIGN_KEY_CHECKS=0;\n" + 
 			"\n" + 
-			"DROP TABLE Accounts;\n" + 
+			"DROP TABLE Accounts;\n"+ 
 			"DROP TABLE Exchange;\n" + 
 			"DROP TABLE Transactions;\n" + 
 			"DROP TABLE Users;\n" + 
