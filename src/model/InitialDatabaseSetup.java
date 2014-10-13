@@ -15,7 +15,7 @@ import java.sql.Statement;
 public class InitialDatabaseSetup {
 
 	/** The Constant URL. Her skal info fra Henrik ind. */
-	private static String URL = "jdbc:mysql://localhost:3306/";
+	private static String URL = "jdbc:mysql://localhost:3306/cbscalendar";
 	/** The Constant USERNAME. */
 	private static String USERNAME = "root";
 	/** The Constant PASSWORD. */
@@ -40,79 +40,155 @@ public class InitialDatabaseSetup {
 	 * The insert new person. Her skal vi have oprettet vores SQL statements
 	 */
 	private PreparedStatement createTable = null;
+	private String createTables =
+			"SET SESSION FOREIGN_KEY_CHECKS=0;\n" + 
+			"\n" + 
+			"DROP TABLE Accounts;\n"+ 
+			"DROP TABLE Exchange;\n" + 
+			"DROP TABLE Transactions;\n" + 
+			"DROP TABLE Users;\n" + 
+			"\n" + 
+			"/* Create Tables */\n" + 
+			"\n" + 
+			"CREATE TABLE locationdata\n" + 
+			"(\n" + 
+			"	locationdataid int NOT NULL AUTO_INCREMENT,\n" + 
+			"	longitude int NOT NULL,\n" + 
+			"	latitude int UNIQUE,\n" + 
+			"	PRIMARY KEY (locationdataid)\n" + 
+			");\n" + 
+			"\n" + 
+			"\n" + 
+			"CREATE TABLE roles\n" + 
+			"(\n" + 
+			"	roleid int NOT NULL AUTO_INCREMENT,\n" + 
+			"	userid int NOT NULL,\n" + 
+			"	type varchar(200) NOT NULL,\n" + 
+			"	PRIMARY KEY (roleid)\n" + 
+			");\n" + 
+			"\n" + 
+			"\n" + 
+			"CREATE TABLE users\n" + 
+			"(\n" + 
+			"	userid int NOT NULL AUTO_INCREMENT,\n" + 
+			"	email varchar(40) NOT NULL,\n" + 
+			"	active boolean,\n" + 
+			"	created datetime,\n" + 
+			"	PRIMARY KEY (userid)\n" + 
+			");\n" + 
+			"\n" + 
+			"\n" + 
+			"CREATE TABLE userevents\n" + 
+			"(\n" + 
+			"	userid int NOT NULL,\n" + 
+			"	eventid int NOT NULL\n" + 
+			");\n" + 
+			"\n" + 
+			"\n" + 
+			"CREATE TABLE notes\n" + 
+			"(\n" + 
+			"	noteid int NOT NULL AUTO_INCREMENT,\n" + 
+			"	eventid int NOT NULL,\n" + 
+			"	createdby int NOT NULL,\n" + 
+			"	text text,\n" + 
+			"	created datetime NOT NULL,\n" + 
+			"	PRIMARY KEY (noteid)\n" + 
+			");\n" + 
+			"\n" + 
+			"\n" + 
+			"CREATE TABLE events\n" + 
+			"(\n" + 
+			"	eventid int NOT NULL AUTO_INCREMENT,\n" + 
+			"	type int NOT NULL,\n" + 
+			"	location int,\n" + 
+			"	createdby int NOT NULL,\n" + 
+			"	start datetime NOT NULL,\n" + 
+			"	end datetime NOT NULL,\n" + 
+			"	name varchar(0) NOT NULL,\n" + 
+			"	text text NOT NULL,\n" + 
+			"	PRIMARY KEY (eventid)\n" + 
+			");\n" + 
+			"\n" + 
+			"\n" + 
+			"CREATE TABLE weather\n" + 
+			"(\n" + 
+			"	date datetime NOT NULL UNIQUE,\n" + 
+			"	apparentTemperature double,\n" + 
+			"	summary text,\n" + 
+			"	windspeed double,\n" + 
+			"	PRIMARY KEY (date)\n" + 
+			");\n" + 
+			"\n" + 
+			"\n" + 
+			"\n" + 
+			"/* Create Foreign Keys */\n" + 
+			"\n" + 
+			"ALTER TABLE events\n" + 
+			"	ADD FOREIGN KEY (location)\n" + 
+			"	REFERENCES locationdata (locationdataid)\n" + 
+			"	ON UPDATE RESTRICT\n" + 
+			"	ON DELETE RESTRICT\n" + 
+			";\n" + 
+			"\n" + 
+			"\n" + 
+			"ALTER TABLE userevents\n" + 
+			"	ADD FOREIGN KEY (userid)\n" + 
+			"	REFERENCES users (userid)\n" + 
+			"	ON UPDATE RESTRICT\n" + 
+			"	ON DELETE RESTRICT\n" + 
+			";\n" + 
+			"\n" + 
+			"\n" + 
+			"ALTER TABLE notes\n" + 
+			"	ADD FOREIGN KEY (createdby)\n" + 
+			"	REFERENCES users (userid)\n" + 
+			"	ON UPDATE RESTRICT\n" + 
+			"	ON DELETE RESTRICT\n" + 
+			";\n" + 
+			"\n" + 
+			"\n" + 
+			"ALTER TABLE roles\n" + 
+			"	ADD FOREIGN KEY (userid)\n" + 
+			"	REFERENCES users (userid)\n" + 
+			"	ON UPDATE RESTRICT\n" + 
+			"	ON DELETE RESTRICT\n" + 
+			";\n" + 
+			"\n" + 
+			"\n" + 
+			"ALTER TABLE events\n" + 
+			"	ADD FOREIGN KEY (createdby)\n" + 
+			"	REFERENCES users (userid)\n" + 
+			"	ON UPDATE RESTRICT\n" + 
+			"	ON DELETE RESTRICT\n" + 
+			";\n" + 
+			"\n" + 
+			"\n" + 
+			"ALTER TABLE notes\n" + 
+			"	ADD FOREIGN KEY (eventid)\n" + 
+			"	REFERENCES events (eventid)\n" + 
+			"	ON UPDATE RESTRICT\n" + 
+			"	ON DELETE RESTRICT\n" + 
+			";\n" + 
+			"\n" + 
+			"\n" + 
+			"ALTER TABLE userevents\n" + 
+			"	ADD FOREIGN KEY (eventid)\n" + 
+			"	REFERENCES events (eventid)\n" + 
+			"	ON UPDATE RESTRICT\n" + 
+			"	ON DELETE RESTRICT\n" + 
+			";";
 
+	
 	public InitialDatabaseSetup() {
 		getConnection();
 
 		try {
-			createTable = connection.prepareStatement("CREATE TABLE calDatabase.Users(name, password);");
+			createTable = connection.prepareStatement(createTables);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-//	public ResultSet doQuery(String query) throws SQLException
-//    {
-//          
-//    	getConnection();
-//    	
-//        try
-//        {
-//            statement = connection.createStatement();
-//            resultSet = statement.executeQuery(query);
-//        } 
-//        
-//        catch(SQLException ex) 
-//        {
-//            System.out.println(ex);
-//            throw ex;
-//        }
-//      
-//        return resultSet;
-//    }
-
-
-    public int doUpdate(String update) throws SQLException 
-    {
-    	getConnection();
-        int temp = 0;
-        
-        try
-        {
-            statement = connection.createStatement();
-            temp = statement.executeUpdate(update);
-        } 
-        
-        catch(SQLException ex) 
-        {
-        	ex.printStackTrace();
-			if(ex.getErrorCode() == 1062)
-				throw new SQLException ("Duplicate entry");
-			else
-				throw ex;
-        } 
-        
-        //luk forbindelser
-        finally
-        {
-            if(statement!=null) 
-            {
-                try 
-                {
-                    statement.close();
-                } 
-                
-                catch (SQLException sqlEx) 
-                {  //ignore
-                    statement = null;
-                }
-            }
-        }
-        
-        return temp;
-    }
-
-
 	
 	public static void setSelectedDatabase(String db) {
 		URL = "jdbc:mysql://localhost:3306/";
@@ -145,12 +221,6 @@ public class InitialDatabaseSetup {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		// Opret her nogle prepareStatements.
-		// setBTCrate = connection.prepareStatement(
-		// "UPDATE exchangerate SET btcratedkk = ? WHERE ID = 1" );
-
 	}
 }
 // end class DatabaseConnect
-

@@ -1,5 +1,6 @@
 package model;
 
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class CreateEnvironment {
@@ -33,20 +34,21 @@ public class CreateEnvironment {
 			else
 				System.out.println("Environment exists. No changes have been made");
 		}
-		// preparedStatements
+		// v�re preparedStatements
 		private void createDatabase() throws SQLException
 		{
 			String sqlDrop = "DROP DATABASE IF EXISTS "+ dbName + ";";
 			String sqlCreate = "CREATE DATABASE calDatabase";
 			
-			ids.doUpdate(sqlDrop);
-			ids.doUpdate(sqlCreate);
+//			ids.doUpdate(sqlDrop);
+//			ids.doUpdate(sqlCreate);
 
 			
 		}
-//		Skal vaere Prepared
+//		Skal gerne v�re Prepared
 		private void createTables() throws SQLException
 		{
+		
 
 		}
 	}
