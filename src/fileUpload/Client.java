@@ -20,7 +20,7 @@ public static void main(String[] args) throws IOException {
 
     
     //typisk lav et interface med WB hvort du har et input felt af typen file
-    File file = new File("C:\\Users\\Mrbauer\\Desktop\\tester2.txt");
+    File file = new File("");
     
     // Get the size of the file
     long length = file.length();
