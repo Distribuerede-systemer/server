@@ -1,6 +1,3 @@
-/*
- * 
- */
 package model;
 
 
@@ -51,9 +48,9 @@ public class InitialDatabaseSetup
 	private PreparedStatement insertEnTabel = null; 
 
 
-	 * Instantiates a new database connect.
-	 */
-	public DatabaseConnect()
+	 // Instantiates a new database connect.
+	 //
+	public InitialDatabaseSetup()
 	{
 		try 
 		{
@@ -61,8 +58,8 @@ public class InitialDatabaseSetup
 					DriverManager.getConnection( URL, USERNAME, PASSWORD );
 
 // Opret her nogle prepareStatements.
-			setBTCrate = connection.prepareStatement(
-					"UPDATE exchangerate SET btcratedkk = ? WHERE ID = 1" );
+//			setBTCrate = connection.prepareStatement(
+//					"UPDATE exchangerate SET btcratedkk = ? WHERE ID = 1" );
 
 		} 
 		catch ( SQLException sqlException )
@@ -74,6 +71,6 @@ public class InitialDatabaseSetup
 
 
 	
-	}
-} // end class DatabaseConnect
+}
+ // end class DatabaseConnect
 
