@@ -19,7 +19,7 @@ public class InitialDatabaseSetup {
 	/** The Constant USERNAME. */
 	private static String USERNAME = "root";
 	/** The Constant PASSWORD. */
-	private static String PASSWORD = "";
+	private static String PASSWORD = "jajo13";
 
 	/** The connection. */
 	public Connection connection;
@@ -186,7 +186,6 @@ public class InitialDatabaseSetup {
 
 	
 	public InitialDatabaseSetup() {
-		setSelectedDatabase(dbname);
 		
 		if(!testConnection())
 		{
@@ -198,7 +197,7 @@ public class InitialDatabaseSetup {
 				dropDatabase = connection.prepareStatement(dD);
 				createDatabase = connection.prepareStatement(cD);
 				setSelectedDatabase(dbname);
-				createTable = connection.prepareStatement(createTables);
+//				createTable = connection.prepareStatement(createTables);
 			
 				System.out.println("Environment has been created");
 			}
@@ -211,16 +210,11 @@ public class InitialDatabaseSetup {
 			System.out.println("Environment exists. No changes have been made");
 	}
 
-//	public static void setSelectedDatabase(String db) {
-//		URL = "jdbc:mysql://localhost:3306/";
-//
-//		if (db != null && db.length() > 0)
-//			URL += db;
-//	}
+	public static void setSelectedDatabase(String dbname) {
+		URL = "jdbc:mysql://localhost:3306/";
 
-	private void setSelectedDatabase(String dbname2) {
-		// TODO Auto-generated method stub
-		
+		if (dbname != null && dbname.length() > 0)
+			URL += dbname;
 	}
 
 	public boolean testConnection() {
