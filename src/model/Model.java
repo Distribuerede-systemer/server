@@ -1,5 +1,3 @@
-package model;
-
 import com.ibatis.common.jdbc.ScriptRunner;
 
 import java.io.*;
@@ -30,6 +28,27 @@ public abstract class Model {
             sqlUrl += db;
         }
     }
+    
+    
+    public void go() throws IOException, SQLException {
+        getConnection();
+        DatabaseMetaData dbm = getConn().getMetaData();
+        // check if "employee" table is there
+        ResultSet tables = dbm.getTables(null, null, "locationdata", null);
+        if (tables.next()) {
+        // Table exists
+    System.out.println("wuuhuw");
+
+        }
+else {
+  // Table does not exist
+        /**
+         * Read and execute SQL from file
+         */
+        readfromSqlFile("res/createDBscript.sql");
+        }
+    }
+
 
 
     /**

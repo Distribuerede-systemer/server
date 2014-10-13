@@ -1,6 +1,7 @@
 package model;
 
 import java.io.IOException;
+import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
 
 public class DatabaseInit extends Model {
@@ -10,16 +11,12 @@ public class DatabaseInit extends Model {
         new DatabaseInit().go();
     }
 
-    public void go() throws IOException, SQLException {
 
+public void go();{
 
-        /**
-         * Read and execute SQL from file
-         */
-        readfromSqlFile("res/createDBscript.sql");
+    
+}
 
-
-    }
 
 
 }
