@@ -7,19 +7,10 @@ public class DatabaseInit extends Model {
 
     //Test main method
     public static void main(String[] args) throws IOException, SQLException {
-        new DatabaseInit().go();
+        new Model().go();
     }
 
-    public void go() throws IOException, SQLException {
 
-
-        /**
-         * Read and execute SQL from file
-         */
-        readfromSqlFile("res/createDBscript.sql");
-
-
-    }
 
 
 }
