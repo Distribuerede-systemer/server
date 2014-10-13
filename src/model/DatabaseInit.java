@@ -7,9 +7,14 @@ public class DatabaseInit extends Model {
 
     //Test main method
     public static void main(String[] args) throws IOException, SQLException {
-        new Model().go();
+        new DatabaseInit().go();
     }
 
+
+public void go();{
+
+    
+}
 
 
 

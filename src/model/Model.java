@@ -31,15 +31,15 @@ public abstract class Model {
     
     
     public void go() throws IOException, SQLException {
-    getConnection();
-    DatabaseMetaData dbm = getConn().getMetaData();
-// check if "employee" table is there
-ResultSet tables = dbm.getTables(null, null, "locationdata", null);
-if (tables.next()) {
-  // Table exists
-    
+        getConnection();
+        DatabaseMetaData dbm = getConn().getMetaData();
+        // check if "employee" table is there
+        ResultSet tables = dbm.getTables(null, null, "locationdata", null);
+        if (tables.next()) {
+        // Table exists
+    System.out.println("wuuhuw");
 
-}
+        }
 else {
   // Table does not exist
         /**
