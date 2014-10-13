@@ -15,9 +15,13 @@ import java.awt.Dimension;
 
 public class MainMenu extends JPanel {
 	private JLabel label;
-	private JLabel label_1;
 	private JLabel lblMainMenu;
-
+	private JButton btnLogOut;
+	private JButton btnUserlist;
+	private JButton btnEventlist;
+	private JButton btnNotelist;
+	private JButton btnUserAdministration;
+	
 
 	
 	public MainMenu() {
@@ -30,50 +34,50 @@ public class MainMenu extends JPanel {
 		lblMainMenu.setBounds(127, 99, 423, 107);
 		add(lblMainMenu);
 		
-		JButton btnUserlist_1 = new JButton("User-list");
-		btnUserlist_1.setForeground(Color.WHITE);
-		btnUserlist_1.setFont(new Font("Iowan Old Style", Font.PLAIN, 30));
-		btnUserlist_1.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-		btnUserlist_1.setBackground(Color.WHITE);
-		btnUserlist_1.setBounds(268, 274, 145, 50);
-		add(btnUserlist_1);
+		btnUserlist = new JButton("User-list");
+		btnUserlist.setForeground(Color.WHITE);
+		btnUserlist.setFont(new Font("Iowan Old Style", Font.PLAIN, 30));
+		btnUserlist.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+		btnUserlist.setBackground(Color.WHITE);
+		btnUserlist.setBounds(268, 274, 145, 50);
+		add(btnUserlist);
 		
-		JButton btnEventlist_1 = new JButton("Eventlist");
-		btnEventlist_1.setForeground(Color.WHITE);
-		btnEventlist_1.setFont(new Font("Iowan Old Style", Font.PLAIN, 30));
-		btnEventlist_1.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-		btnEventlist_1.setBackground(Color.WHITE);
-		btnEventlist_1.setBounds(536, 398, 145, 50);
-		add(btnEventlist_1);
+		btnEventlist = new JButton("Eventlist");
+		btnEventlist.setForeground(Color.WHITE);
+		btnEventlist.setFont(new Font("Iowan Old Style", Font.PLAIN, 30));
+		btnEventlist.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+		btnEventlist.setBackground(Color.WHITE);
+		btnEventlist.setBounds(536, 398, 145, 50);
+		add(btnEventlist);
 		
-		JButton btnNotelist_1 = new JButton("Note-list");
-		btnNotelist_1.setForeground(Color.WHITE);
-		btnNotelist_1.setFont(new Font("Iowan Old Style", Font.PLAIN, 30));
-		btnNotelist_1.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-		btnNotelist_1.setBackground(Color.WHITE);
-		btnNotelist_1.setBounds(6, 398, 145, 50);
-		add(btnNotelist_1);
+		btnNotelist = new JButton("Note-list");
+		btnNotelist.setForeground(Color.WHITE);
+		btnNotelist.setFont(new Font("Iowan Old Style", Font.PLAIN, 30));
+		btnNotelist.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+		btnNotelist.setBackground(Color.WHITE);
+		btnNotelist.setBounds(6, 398, 145, 50);
+		add(btnNotelist);
 		
-		JButton btnUserAdministration_1 = new JButton("User Administration");
-		btnUserAdministration_1.setForeground(Color.WHITE);
-		btnUserAdministration_1.setFont(new Font("Iowan Old Style", Font.PLAIN, 30));
-		btnUserAdministration_1.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-		btnUserAdministration_1.setBackground(Color.WHITE);
-		btnUserAdministration_1.setBounds(212, 398, 286, 50);
-		add(btnUserAdministration_1);
+		btnUserAdministration = new JButton("User Administration");
+		btnUserAdministration.setForeground(Color.WHITE);
+		btnUserAdministration.setFont(new Font("Iowan Old Style", Font.PLAIN, 30));
+		btnUserAdministration.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+		btnUserAdministration.setBackground(Color.WHITE);
+		btnUserAdministration.setBounds(212, 398, 286, 50);
+		add(btnUserAdministration);
 		
-		JButton btnLogOut_1 = new JButton("Log Out");
-		btnLogOut_1.setForeground(Color.WHITE);
-		btnLogOut_1.setFont(new Font("Iowan Old Style", Font.PLAIN, 30));
-		btnLogOut_1.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-		btnLogOut_1.setBackground(Color.WHITE);
-		btnLogOut_1.setBounds(257, 517, 158, 56);
-		add(btnLogOut_1);
+		btnLogOut = new JButton("Log Out");
+		btnLogOut.setForeground(Color.WHITE);
+		btnLogOut.setFont(new Font("Iowan Old Style", Font.PLAIN, 30));
+		btnLogOut.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+		btnLogOut.setBackground(Color.WHITE);
+		btnLogOut.setBounds(257, 517, 158, 56);
+		add(btnLogOut);
 		
-		label_1 = new JLabel("");
-		label_1.setIcon(new ImageIcon(MainMenu.class.getResource("/Images/Background3.jpg")));
-		label_1.setBounds(-13, -26, 1366, 768);
-		add(label_1);
+		JLabel lblBackground = new JLabel("");
+		lblBackground.setIcon(new ImageIcon(MainMenu.class.getResource("/Images/MetalBackground.jpg")));
+		lblBackground.setBounds(0, 0, 1366, 768);
+		add(lblBackground);
 
 	}
 	public void addActionListener(ActionListener l) {
