@@ -13,12 +13,11 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.mysql.fabric.xmlrpc.base.Array;
-
-public class ACMGetWeatherData {
+public class ForecastModel {
 	// Json parser to retrieve and map data from openweathermap.org
-	
-	public Array requestForecast() {
+    private String[] stringArray;
+
+    public void requestForecast() {
       URL url;
       HttpURLConnection conn;
       BufferedReader rd;
@@ -46,26 +45,26 @@ public class ACMGetWeatherData {
 	
 			// get an array from the JSON object
 			JSONArray list = (JSONArray) jsonObject.get("list");
-						
+
 			Iterator i = list.iterator();
 			
 			String weatherDescription;
 				
 			// take each value from the json array separately
 			while (i.hasNext()) {
-				JSONObject innerObj = (JSONObject) i.next();
+
+                JSONObject innerObj = (JSONObject) i.next();
 				
 				Date date = new Date((Long) innerObj.get("dt") * 1000L);
-				
-				System.out.println(date.toGMTString());
-				
+                String string_date = date.toString();
+                stringArray[0] = string_date;
+
 				JSONObject temp = (JSONObject) innerObj.get("temp");
 				
-				double kelvin = (Double) temp.get("day");
-				
-				double celsius = (kelvin - 273.15);
-				
-				System.out.println(celsius);
+				double kelvin = 300;
+				double celsius_double = (kelvin - 273.15);
+                String celsius = String.valueOf(celsius_double);
+                stringArray[1] = celsius;
 								
 				JSONArray subList = (JSONArray) innerObj.get("weather");
 				
@@ -75,10 +74,12 @@ public class ACMGetWeatherData {
 					JSONObject childObj = (JSONObject) y.next();
 					
 					weatherDescription = (String) childObj.get("description");
-					System.out.println("Vejrbeskrivelse: " + weatherDescription);
+                    stringArray[2] = weatherDescription;
 					
-					
+
 				}
+
+
 				
 			}
 		} catch (ParseException ex) {
@@ -86,6 +87,10 @@ public class ACMGetWeatherData {
 		} catch (NullPointerException ex) {
 			ex.printStackTrace();
 		}
-		return null; // should return an array
+
+        System.out.println(stringArray[0]);
+        System.out.println(stringArray[1]);
+        System.out.println(stringArray[2]);
+
 	}
 }
