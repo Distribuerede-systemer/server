@@ -6,10 +6,17 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.CardLayout;
 
 public class Screen extends JFrame {
 
+	public static final String LOGIN = "name_276091497157488";
+	public static final String MAINMENU = "name_276416022878030";
+
+	
 	private JPanel contentPane;
+	private final Login login = new Login();
+	private final MainMenu mainMenu = new MainMenu();
 
 	/**
 	 * Launch the application.
@@ -37,7 +44,18 @@ public class Screen extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		contentPane.setLayout(new CardLayout(0, 0));
+		
+		contentPane.add(login, "name_276091497157488");
+		
+		contentPane.add(mainMenu, "name_276416022878030");
 	}
-
+	
+	public Login getLogin() {
+		return login;
+	}
+	
+	public MainMenu getMainMenu() {
+		return mainMenu;
+	}
 }
