@@ -33,8 +33,8 @@ public class CreateEnvironment {
 			else
 				System.out.println("Environment exists. No changes have been made");
 		}
-		
-//		private void createDatabase() throws SQLException
+		// være preparedStatements
+		private void createDatabase() throws SQLException
 //		{
 //			String sqlDrop = "DROP DATABASE IF EXISTS "+ dbName + ";";
 //			String sqlCreate = "CREATE DATABASE calDatabase";
@@ -44,8 +44,8 @@ public class CreateEnvironment {
 //
 //			
 //		}
-//		
-//		private void createTables() throws SQLException
+//		Skal gerne være Prepared
+		private void createTables() throws SQLException
 //		{
 //		    String sqlCreateTable = "CREATE TABLE calDatabase.Users(name varchar(255));";
 //		    
