@@ -25,6 +25,7 @@ public class GUILogic {
 		screen.show(Screen.LOGIN);
 		screen.setVisible(true);
 	}
+	
 	private class LoginActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 

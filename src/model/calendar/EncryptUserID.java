@@ -48,6 +48,5 @@ public class EncryptUserID {
         System.out.print("Secret key: " + crypt(userId + HASHKEY));
 
     }
-
 }
 
