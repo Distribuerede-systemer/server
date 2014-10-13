@@ -40,7 +40,7 @@ public class InitialDatabaseSetup {
 	 * The insert new person. Her skal vi have oprettet vores SQL statements
 	 */
 	private PreparedStatement createTable = null;
-	private String createTables = "CREATE SCHEMA IF NOT EXISTS `cbscalendar` ;\n"+
+	private String createTables =
 			"SET SESSION FOREIGN_KEY_CHECKS=0;\n" + 
 			"\n" + 
 			"DROP TABLE Accounts;\n"+ 
