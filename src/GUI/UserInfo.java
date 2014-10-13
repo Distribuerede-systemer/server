@@ -128,6 +128,10 @@ public class UserInfo extends JPanel {
 		JButton btnLogOut = new JButton("Log out");
 		btnLogOut.setBounds(293, 310, 89, 23);
 		add(btnLogOut);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8d7b9dc5bb48b5c39a3d0b6511e6ec6364cf0ba0
 		
 
 	}
