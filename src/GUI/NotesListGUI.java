@@ -42,11 +42,12 @@ public class NotesListGUI extends JFrame {
 	 */
 	public NotesListGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 330, 483);
+		setBounds(100, 100, 450, 300);
+		setSize(new Dimension(1366, 768));
+		
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		setSize(new Dimension(320, 468));
 		getContentPane().setLayout(null);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
