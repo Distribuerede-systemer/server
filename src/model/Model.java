@@ -15,7 +15,7 @@ public abstract class Model {
     private static String sqlPasswd = "ukamm19";
 
     private Statement stmt;
-    private Connection conn = null;
+    protected Connection conn = null;
     protected PreparedStatement sqlStatement;
     protected ResultSet resultSet;
 
@@ -50,6 +50,7 @@ else {
     }
 
 
+   
 
     /**
      * Reads and executes SQL from File.
