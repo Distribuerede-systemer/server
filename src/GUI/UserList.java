@@ -145,8 +145,8 @@ public class Userlist extends JPanel {
         newContentPane.setOpaque(true); //content panes must be opaque
         frame.setContentPane(newContentPane);
  
-        //Display the window.
-        //frame.pack();
+        //Display the window
+        
         frame.setVisible(true);
     }
  
