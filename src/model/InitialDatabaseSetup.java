@@ -15,7 +15,7 @@ import java.sql.Statement;
 public class InitialDatabaseSetup {
 
 	/** The Constant URL. Her skal info fra Henrik ind. */
-	private static String URL = "jdbc:mysql://localhost:3306/cbscalendar";
+	private static String URL = "jdbc:mysql://localhost:3306/";
 	/** The Constant USERNAME. */
 	private static String USERNAME = "root";
 	/** The Constant PASSWORD. */
@@ -40,7 +40,13 @@ public class InitialDatabaseSetup {
 	 * The insert new person. Her skal vi have oprettet vores SQL statements
 	 */
 	private PreparedStatement createTable = null;
+	private String dbname = "BCBSDatabase";
+	private PreparedStatement dropDatabase = null;
+	private PreparedStatement createDatabase = null;
+	private String dD = "Drop Database IF Exists " + dbname + ";";
+	private String cD = "CREATE database" + dbname + "";
 	private String createTables =
+
 			"SET SESSION FOREIGN_KEY_CHECKS=0;\n" + 
 			"\n" + 
 			"DROP TABLE Accounts;\n"+ 
@@ -180,22 +186,38 @@ public class InitialDatabaseSetup {
 
 	
 	public InitialDatabaseSetup() {
+//		setSelectedDatabase(dbname);
 		getConnection();
-
-		try {
-			createTable = connection.prepareStatement(createTables);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		
+		if(!testConnection())
+		{
+			System.err.println("No database detected. Creating environment");
+			
+			try
+			{
+//				setSelectedDatabase(null);
+				dropDatabase = connection.prepareStatement(dD);
+				createDatabase = connection.prepareStatement(cD);
+//				setSelectedDatabase(dbname);
+				createTable = connection.prepareStatement(createTables);
+			
+				System.out.println("Environment has been created");
+			}
+			catch(Exception ex)
+			{
+				ex.printStackTrace();
+			}	
 		}
+		else
+			System.out.println("Environment exists. No changes have been made");
 	}
-	
-	public static void setSelectedDatabase(String db) {
-		URL = "jdbc:mysql://localhost:3306/";
 
-		if (db != null && db.length() > 0)
-			URL += db;
-	}
+//	public static void setSelectedDatabase(String db) {
+//		URL = "jdbc:mysql://localhost:3306/";
+//
+//		if (db != null && db.length() > 0)
+//			URL += db;
+//	}
 
 	public boolean testConnection() {
 
