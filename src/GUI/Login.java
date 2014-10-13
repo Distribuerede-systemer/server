@@ -47,4 +47,22 @@ public class Login extends JPanel {
 		add(btnForgotLogIn);
 
 	}
+
+	public JTextField getTextField() {
+		return textField;
+	}
+
+	public JTextField getTextField_1() {
+		return textField_1;
+	}
+
+	public JButton getBtnLogIn() {
+		return btnLogIn;
+	}
+
+	public JButton getBtnForgotLogIn() {
+		return btnForgotLogIn;
+	}
+	
+	
 }
