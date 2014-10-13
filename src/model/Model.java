@@ -1,15 +1,17 @@
 
+package model;
+
 import java.sql.*;
 
 /**
  * Model superclass, never instansiated. All child model classes inherits its properties, classes and methods
  * Created by jesperbruun on 13/10/14.
  */
-public  class Model {
+public abstract class Model {
 
     private static String sqlUrl = "jdbc:mysql://localhost:3306/";
     private static String sqlUser = "root";
-    private static String sqlPasswd = "looser";
+    private static String sqlPasswd = "";
 
     private Statement stmt;
     private Connection conn = null;
