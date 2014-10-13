@@ -91,16 +91,21 @@ public class UserInfo extends JPanel {
 		add(btnSubmit);
 
 		boolean active = true;
-		lblNewLabel = new JLabel("Online");
-		lblNewLabel.setOpaque(true);
-		lblNewLabel.setBounds(212, 220, 111, 14);
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/Green.png")));
+		if (active) {
+			lblNewLabel.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/Red.png")));
+		} else {
+			lblNewLabel.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/Green.png")));
+		}
+		lblNewLabel.setBounds(212, 214, 20, 20);
 		add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("s");
-		lblNewLabel_1.setSize(new Dimension(1366, 768));
-		lblNewLabel_1.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/background.jpg")));
-		lblNewLabel_1.setBounds(0, 0, 709, 525);
-		add(lblNewLabel_1);
+		JLabel lblBackground = new JLabel("");
+		lblBackground.setSize(new Dimension(1366, 768));
+		lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/background.jpg")));
+		lblBackground.setBounds(0, 0, 709, 525);
+		add(lblBackground);
 		
 		JButton btnMainmenu = new JButton("Mainmenu");
 		btnMainmenu.setBounds(169, 310, 89, 23);
@@ -109,15 +114,6 @@ public class UserInfo extends JPanel {
 		JButton btnLogOut = new JButton("Log out");
 		btnLogOut.setBounds(293, 310, 89, 23);
 		add(btnLogOut);
-		if (active) {
-			lblNewLabel.setBackground(Color.GREEN);
-			lblNewLabel.repaint();
-			lblNewLabel.setText("Online");
-		} else {
-			lblNewLabel.setBackground(Color.RED);
-			lblNewLabel.repaint();
-			lblNewLabel.setText("Offline");
-		}
 		
 
 	}
