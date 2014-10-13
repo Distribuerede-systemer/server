@@ -8,7 +8,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class DatabaseConnect.
  */
@@ -40,7 +40,7 @@ public class InitialDatabaseSetup {
 	 * The insert new person. Her skal vi have oprettet vores SQL statements
 	 */
 	private PreparedStatement createTable = null;
-	private String dbname = "BCBSDatabase";
+	private String dbname = "Caldatabase";
 	private PreparedStatement dropDatabase = null;
 	private PreparedStatement createDatabase = null;
 	private String dD = "Drop Database IF Exists " + dbname + ";";
@@ -186,8 +186,7 @@ public class InitialDatabaseSetup {
 
 	
 	public InitialDatabaseSetup() {
-//		setSelectedDatabase(dbname);
-		getConnection();
+		setSelectedDatabase(dbname);
 		
 		if(!testConnection())
 		{
@@ -195,10 +194,10 @@ public class InitialDatabaseSetup {
 			
 			try
 			{
-//				setSelectedDatabase(null);
+				setSelectedDatabase(null);
 				dropDatabase = connection.prepareStatement(dD);
 				createDatabase = connection.prepareStatement(cD);
-//				setSelectedDatabase(dbname);
+				setSelectedDatabase(dbname);
 				createTable = connection.prepareStatement(createTables);
 			
 				System.out.println("Environment has been created");
@@ -218,6 +217,11 @@ public class InitialDatabaseSetup {
 //		if (db != null && db.length() > 0)
 //			URL += db;
 //	}
+
+	private void setSelectedDatabase(String dbname2) {
+		// TODO Auto-generated method stub
+		
+	}
 
 	public boolean testConnection() {
 
@@ -240,7 +244,7 @@ public class InitialDatabaseSetup {
 		try {
 			connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 	}
