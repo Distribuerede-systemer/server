@@ -34,24 +34,24 @@ public class CreateEnvironment {
 				System.out.println("Environment exists. No changes have been made");
 		}
 		
-		private void createDatabase() throws SQLException
-		{
-			String sqlDrop = "DROP DATABASE IF EXISTS "+ dbName + ";";
-			String sqlCreate = "CREATE DATABASE jdbctest";
-			
-			ids.doUpdate(sqlDrop);
-			ids.doUpdate(sqlCreate);
-
-			
-		}
-		
-		private void createTables() throws SQLException
-		{
-		    String sqlCreateTable = "CREATE TABLE jdbctest.testtable(name varchar(255));";
-		    
-			ids.doUpdate(sqlCreateTable);
-
-		}
+//		private void createDatabase() throws SQLException
+//		{
+//			String sqlDrop = "DROP DATABASE IF EXISTS "+ dbName + ";";
+//			String sqlCreate = "CREATE DATABASE calDatabase";
+//			
+//			ids.doUpdate(sqlDrop);
+//			ids.doUpdate(sqlCreate);
+//
+//			
+//		}
+//		
+//		private void createTables() throws SQLException
+//		{
+//		    String sqlCreateTable = "CREATE TABLE calDatabase.Users(name varchar(255));";
+//		    
+//			ids.doUpdate(sqlCreateTable);
+//
+//		}
 	}
 
-}
+

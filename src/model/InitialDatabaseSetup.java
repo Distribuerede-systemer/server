@@ -19,7 +19,7 @@ public class InitialDatabaseSetup
 {
 
 	/** The Constant URL.  Her skal info fra Henrik ind.*/
-	private static final String URL = "jdbc:mysql://localhost:3306/bcbs_light";
+	private static String URL = "jdbc:mysql://localhost:3306/";
 
 	/** The Constant USERNAME. */
 	private static final String USERNAME = "root";
@@ -48,9 +48,36 @@ public class InitialDatabaseSetup
 	private PreparedStatement insertEnTabel = null; 
 
 
+	public static void setSelectedDatabase(String db)
+    {
+    	URL ="jdbc:mysql://localhost:3306/";
+
+    	if(db != null && db.length() > 0)
+    		URL += db;
+    }
+	
+    public boolean testConnection()
+    {
+    	
+    	try 
+    	{
+        	InitialDatabaseSetup();
+			
+        	if(connection.isValid(5000))
+				return true;
+		} catch (SQLException e) 
+		{
+			System.out.println("unable to connect to database");
+			System.out.println(e.getMessage());
+		}
+		
+		return false;
+    }
+
+
 	 // Instantiates a new database connect.
 	 //
-	public InitialDatabaseSetup()
+	private void InitialDatabaseSetup()
 	{
 		try 
 		{
