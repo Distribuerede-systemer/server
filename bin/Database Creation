@@ -1,0 +1,47 @@
+--create table userevents (
+--	UserID int(10),
+--	EventID int(10)
+--);
+
+--create table users (
+--	UserID int (7) not null unique,
+--	Email varchar(20),
+--	ClassX tinyint (1),
+--	RoleID int(1),
+--	CreatedDate varchar (10),
+--	Active tinyint (1)
+--);
+
+--create table roles (
+--	RoleID int (11),
+--	UserID int (2)
+--);
+
+--create table locationdata (
+--	Location varchar (20),
+--	Longtitude double (100 , 5),
+--	Latitude double (100 , 5)
+--);
+
+--create table events (
+--	EventID varchar (50),
+--	Name varchar (256),
+--	StartDate varchar (20),
+--	EndDate varchar (20),
+--	Location varchar (100),
+--	Active tinyint (1),
+--	Type tinyint (1),
+--	CreatedBy varchar (50),
+--	CreatedDate varchar (50),
+--	ImportID varchar (20)
+--);
+
+create table notes (
+	NoteID int (50),
+	CreatedBy varchar(30),
+	TextNote text,
+	CreatedDate varchar (30),
+	EventID varchar (50),
+	Active tinyint (1),
+	Editable tinyint (1)
+);
