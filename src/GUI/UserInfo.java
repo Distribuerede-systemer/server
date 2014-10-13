@@ -17,6 +17,8 @@ public class UserInfo extends JPanel {
 	private JTextField txtField_Email;
 	private JTextField txtField_Team;
 	private JTextField txtField_CreatedDate;
+	private JButton btnSubmit;
+
 	private JLabel lblNewLabel;
 
 	/**
@@ -77,12 +79,13 @@ public class UserInfo extends JPanel {
 		add(lblOnline);
 
 		JButton btnSubmit = new JButton("Submit changes");
-		btnSubmit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			//Submit changes to databases
-			//hvad sker der når ændringer ved en bruger submittes
-			}
-		});
+//		btnSubmit.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent arg0) {
+//			//Submit changes to databases
+//			//hvad sker der når ændringer ved en bruger submittes
+//			}
+//		}
+//		);
 		btnSubmit.setBounds(169, 266, 129, 23);
 		add(btnSubmit);
 
@@ -110,5 +113,10 @@ public class UserInfo extends JPanel {
 
 	}
 	
+	public void addActionListener(ActionListener l) {
+		btnSubmit.addActionListener(l);
+		
+		
+	}
 	
 }
