@@ -11,6 +11,7 @@ import javax.swing.JTable;
 public class NoteList extends JPanel {
 	private JScrollBar scrollBar;
 	private JTable table;
+	
 
 	/**
 	 * Create the panel.

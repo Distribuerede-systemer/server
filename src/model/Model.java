@@ -1,4 +1,3 @@
-
 package model;
 
 import java.sql.*;
@@ -16,6 +15,7 @@ public abstract class Model {
     private Statement stmt;
     private Connection conn = null;
     protected PreparedStatement sqlStatement;
+    protected ResultSet resultSet;
 
     /**
      * Overwrite default database url
@@ -129,5 +129,7 @@ public abstract class Model {
     private void setConn(Connection conn) {
         this.conn = conn;
     }
+    
+    
 
 }

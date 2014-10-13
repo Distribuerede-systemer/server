@@ -4,13 +4,21 @@ import java.sql.SQLException;
 
 public class DatabaseInit extends Model {
 
-
+    //Test main method
     public static void main(String[] args) {
-        DatabaseInit db = new DatabaseInit();
-        db.go();
+        new DatabaseInit().go();
     }
 
     public void go() {
+
+        //Example get data with preparedStatement
+        try {
+            sqlStatement = doQuery("SELECT * FROM table WHERE email = ?");
+            sqlStatement.setString(1, "lol@adf.dk");
+            resultSet = sqlStatement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         //String checkSQL = "SET SESSION FOREIGN_KEY_CHECKS=0;";
 

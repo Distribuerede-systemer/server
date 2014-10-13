@@ -32,6 +32,10 @@ public class UserList extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private static final ActionListener ActionListener = null;
 	private boolean DEBUG = false;
+	private JButton btnAdd;
+	private JButton btnDelete;
+	private JButton btnMainMenu;
+	private JButton btnLogout;
  
     public UserList() {
     	setSize(new Dimension(1366, 768));
@@ -67,7 +71,7 @@ public class UserList extends JPanel {
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255, 255), new Color(0, 0, 205), new Color(255, 255, 255)), new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255))));
         scrollPane.setViewportBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255, 255), new Color(0, 0, 205), new Color(255, 255, 255)), null));
-        scrollPane.setBounds(385, 197, 590, 360);
+        scrollPane.setBounds(190, 92, 590, 360);
  
         //Add the scroll pane to this panel.
         add(scrollPane);
@@ -104,6 +108,14 @@ public class UserList extends JPanel {
         });
         btnDelete.setBounds(975, 229, 117, 29);
         add(btnDelete);
+        
+        JButton btnMainMenu = new JButton("Main menu");
+        btnMainMenu.setBounds(318, 572, 89, 23);
+        add(btnMainMenu);
+        
+        JButton btnLogOut = new JButton("Log out");
+        btnLogOut.setBounds(465, 572, 89, 23);
+        add(btnLogOut);
     
         JLabel lblNewLabel = new JLabel("Background");
         lblNewLabel.setBackground(new Color(245, 245, 245));
@@ -161,5 +173,34 @@ public class UserList extends JPanel {
         }
         });
     }
+    
+    public void addActionListener(ActionListener l) {
+		btnAdd.addActionListener(l);
+		btnDelete.addActionListener(l);
+		btnLogout.addActionListener(l);
+		btnMainMenu.addActionListener(l);
+		
+	}
+
+	public static ActionListener getActionlistener() {
+		return ActionListener;
+	}
+
+	public JButton getBtnAdd() {
+		return btnAdd;
+	}
+
+	public JButton getBtnDelete() {
+		return btnDelete;
+	}
+
+	public JButton getBtnMainMenu() {
+		return btnMainMenu;
+	}
+
+	public JButton getBtnLogout() {
+		return btnLogout;
+	}
+    
     
 }

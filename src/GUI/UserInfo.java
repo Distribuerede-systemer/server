@@ -18,6 +18,10 @@ public class UserInfo extends JPanel {
 	private JTextField txtField_Team;
 	private JTextField txtField_CreatedDate;
 	private JButton btnSubmit;
+	private JButton btnMainmenu;
+	private JButton btnLogout;
+
+
 
 	private JLabel lblNewLabel;
 
@@ -86,7 +90,7 @@ public class UserInfo extends JPanel {
 //			}
 //		}
 //		);
-		btnSubmit.setBounds(169, 266, 129, 23);
+		btnSubmit.setBounds(173, 266, 129, 23);
 		add(btnSubmit);
 
 		boolean active = true;
@@ -100,6 +104,14 @@ public class UserInfo extends JPanel {
 		lblNewLabel_1.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/background.jpg")));
 		lblNewLabel_1.setBounds(0, 0, 709, 525);
 		add(lblNewLabel_1);
+		
+		JButton btnMainmenu = new JButton("Mainmenu");
+		btnMainmenu.setBounds(169, 310, 89, 23);
+		add(btnMainmenu);
+		
+		JButton btnLogOut = new JButton("Log out");
+		btnLogOut.setBounds(293, 310, 89, 23);
+		add(btnLogOut);
 		if (active) {
 			lblNewLabel.setBackground(Color.GREEN);
 			lblNewLabel.repaint();
@@ -115,8 +127,41 @@ public class UserInfo extends JPanel {
 	
 	public void addActionListener(ActionListener l) {
 		btnSubmit.addActionListener(l);
+		btnMainmenu.addActionListener(l);
+		btnLogout.addActionListener(l);
 		
 		
 	}
+
+	public JTextField getTxtField_UserID() {
+		return txtField_UserID;
+	}
+
+	public JTextField getTxtField_Email() {
+		return txtField_Email;
+	}
+
+	public JTextField getTxtField_Team() {
+		return txtField_Team;
+	}
+
+	public JTextField getTxtField_CreatedDate() {
+		return txtField_CreatedDate;
+	}
+
+	public JButton getBtnSubmit() {
+		return btnSubmit;
+	}
+
+	public JButton getBtnMainmenu() {
+		return btnMainmenu;
+	}
+
+	public JButton getBtnLogout() {
+		return btnLogout;
+	}
+
+	
+	
 	
 }

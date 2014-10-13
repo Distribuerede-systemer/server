@@ -25,6 +25,7 @@ public class Screen extends JFrame {
 	private final NoteList noteList = new NoteList();
 	private final AddUserGUI addUserGUI = new AddUserGUI();
 	private final UserList userlist = new UserList();
+	CardLayout c;
 
 	/**
 	 * Launch the application.
@@ -65,6 +66,7 @@ public class Screen extends JFrame {
 		contentPane.add(noteList, "name_278522430661848");
 		
 		contentPane.add(userlist, "name_280161954000083");
+		c = (CardLayout) getContentPane().getLayout();
 	}
 	
 	public Login getLogin() {
@@ -86,4 +88,8 @@ public class Screen extends JFrame {
 	public UserList getUserList() {
 		return userlist;
 	}
+	public void show(String card) {
+		c.show(getContentPane(),  card);
+	}
+
 }
