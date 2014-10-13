@@ -25,7 +25,7 @@ import javax.swing.border.MatteBorder;
 import javax.swing.JButton;
 import javax.swing.JTextField;
  
-public class Userlist extends JPanel {
+public class UserList extends JPanel {
     /**
 	 * 
 	 */
@@ -33,7 +33,7 @@ public class Userlist extends JPanel {
 	private static final ActionListener ActionListener = null;
 	private boolean DEBUG = false;
  
-    public Userlist() {
+    public UserList() {
     	setSize(new Dimension(1366, 768));
  
         String[] columnNames = {"First Name",
@@ -89,6 +89,7 @@ public class Userlist extends JPanel {
           String firstName = JOptionPane.showInputDialog(null, "First Name", 1);
           String lastName = JOptionPane.showInputDialog(null, "Last Name", 2);
           String eMail = JOptionPane.showInputDialog(null, "Email", 3);
+          
         	}
         });
         
@@ -97,9 +98,13 @@ public class Userlist extends JPanel {
        
         
         JButton btnDelete = new JButton("Delete");
+        btnDelete.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
         btnDelete.setBounds(975, 229, 117, 29);
         add(btnDelete);
-        
+    
         JLabel lblNewLabel = new JLabel("Background");
         lblNewLabel.setBackground(new Color(245, 245, 245));
         lblNewLabel.setForeground(new Color(245, 255, 250));
@@ -136,7 +141,7 @@ public class Userlist extends JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
         //Create and set up the content pane.
-        Userlist newContentPane = new Userlist();
+        UserList newContentPane = new UserList();
         newContentPane.setOpaque(true); //content panes must be opaque
         frame.setContentPane(newContentPane);
  
