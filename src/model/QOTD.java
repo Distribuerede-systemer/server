@@ -18,7 +18,6 @@ public class QOTD {
 
     public QOTD() {
 
-    	
     }
 
     public static void main(String args[]){
