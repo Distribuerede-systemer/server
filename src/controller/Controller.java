@@ -9,7 +9,8 @@ public class Controller extends Model {
 	
 	private PreparedStatement saveNotes = null;
 	
-
+//Jeg har lavet en test 
+	
 	public Controller() {
 		super();
 		
@@ -20,6 +21,16 @@ public class Controller extends Model {
 
 			e.printStackTrace();
 		}
+	}
+	
+	// Metode til at godkende bruger (hardcoded)
+	
+	public boolean authenticate(String username, String password)
+	{
+		if(username.equals("username") && password.equals("password"))
+			return true;
+		else
+			return false;
 	}
 	
 // Metoder for Notes

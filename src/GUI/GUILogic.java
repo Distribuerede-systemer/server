@@ -2,11 +2,17 @@ package GUI;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import GUI.UserInformation;
+import GUI.AuthUser;
 import javax.swing.JOptionPane;
+
 import GUI.Screen;
 
 public class GUILogic {
 	private Screen screen;
+	private UserInformation u;
+	
+	AuthUser a = new AuthUser();
 	
 
 	public GUILogic(){
@@ -28,9 +34,28 @@ public class GUILogic {
 	
 	private class LoginActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
+			try{
+				
+			String userName = screen.getLogin().getTextFieldUsername().getText();
+			String password = screen.getLogin().getTextFieldPassword().getText();
+			u=a.login(userName, password);
 
 			if (e.getSource() == screen.getLogin().getBtnLogIn()){
-				screen.show(Screen.MAINMENU);
+				System.out.println(userName + password);
+				System.out.println("faisujpFOA");
+				if(u == null){
+					JOptionPane.showMessageDialog(null, "\nPlease enter a valid username & password."
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+			}
+
+				if(u != null)
+					{
+						screen.show(Screen.MAINMENU);
+					}
+	
+			}	
+			}	
+			catch(Exception e3){
 			}
 		}	
 	}
@@ -40,11 +65,12 @@ public class GUILogic {
 				screen.show(Screen.LOGIN);
 			}
 			if (e.getSource() == screen.getMainMenu().getBtnUserlist()){
-				screen.show(Screen.LOGIN);
+				screen.show(Screen.USERLIST);
 			}
 			if (e.getSource() == screen.getMainMenu().getBtnNotelist()){
 				screen.show(Screen.NOTELIST);
 			}
+			
 			
 
 		}

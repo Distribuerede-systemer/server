@@ -31,8 +31,9 @@ public class UserInfo extends JPanel {
 		setLayout(null);
 
 		JLabel lblHeader = new JLabel("User Info");
-		lblHeader.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblHeader.setBounds(640, 31, 85, 34);
+		lblHeader.setForeground(Color.WHITE);
+		lblHeader.setFont(new Font("Arial", Font.BOLD, 78));
+		lblHeader.setBounds(514, 11, 338, 90);
 		add(lblHeader);
 
 		txtField_UserID = new JTextField();
@@ -99,7 +100,7 @@ public class UserInfo extends JPanel {
 		} else {
 			lblNewLabel.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/Green.png")));
 		}
-		lblNewLabel.setBounds(673, 214, 20, 20);
+		lblNewLabel.setBounds(627, 211, 20, 20);
 		add(lblNewLabel);
 		
 		JLabel lblBackground = new JLabel("");
