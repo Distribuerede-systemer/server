@@ -10,6 +10,8 @@ public class Server {
 >>>>>>> origin/master
 	*/
 	
+	Kom så
+	
 	
 	//ny comment
 	
