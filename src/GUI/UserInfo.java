@@ -106,7 +106,24 @@ public class UserInfo extends JPanel {
 			lblNewLabel.repaint();
 			lblNewLabel.setText("Offline");
 		}
-		
+	
 
 	}
+
+	public JTextField getTxtField_UserID() {
+		return txtField_UserID;
+	}
+
+	public JTextField getTxtField_Email() {
+		return txtField_Email;
+	}
+
+	public JTextField getTxtField_Team() {
+		return txtField_Team;
+	}
+
+	public JTextField getTxtField_CreatedDate() {
+		return txtField_CreatedDate;
+	}
+	
 }
