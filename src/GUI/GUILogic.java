@@ -7,6 +7,7 @@ import GUI.Screen;
 
 public class GUILogic {
 	private Screen screen;
+	
 
 	public GUILogic(){
 		screen = new Screen();
@@ -21,9 +22,10 @@ public class GUILogic {
 	}
 	public void run() {
 
-		screen.show(screen.LOGIN);
+		screen.show(Screen.LOGIN);
 		screen.setVisible(true);
 	}
+	
 	private class LoginActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 

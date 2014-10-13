@@ -20,9 +20,6 @@ public class UserInfo extends JPanel {
 	private JButton btnSubmit;
 	private JButton btnMainmenu;
 	private JButton btnLogout;
-
-
-
 	private JLabel lblNewLabel;
 
 	/**
@@ -82,36 +79,42 @@ public class UserInfo extends JPanel {
 		lblOnline.setBounds(78, 217, 67, 14);
 		add(lblOnline);
 
-		JButton btnSubmit = new JButton("Submit changes");
-//		btnSubmit.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent arg0) {
-//			//Submit changes to databases
-//			//hvad sker der når ændringer ved en bruger submittes
-//			}
-//		}
-//		);
+		btnSubmit = new JButton("Submit changes");
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			//Submit changes to databases
+			//hvad sker der når ændringer ved en bruger submittes
+			}
+		}
+		);
 		btnSubmit.setBounds(173, 266, 129, 23);
 		add(btnSubmit);
 
 		boolean active = true;
-		lblNewLabel = new JLabel("Online");
-		lblNewLabel.setOpaque(true);
-		lblNewLabel.setBounds(212, 220, 111, 14);
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/Green.png")));
+		if (active) {
+			lblNewLabel.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/Red.png")));
+		} else {
+			lblNewLabel.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/Green.png")));
+		}
+		lblNewLabel.setBounds(212, 214, 20, 20);
 		add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("s");
-		lblNewLabel_1.setSize(new Dimension(1366, 768));
-		lblNewLabel_1.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/background.jpg")));
-		lblNewLabel_1.setBounds(0, 0, 709, 525);
-		add(lblNewLabel_1);
+		JLabel lblBackground = new JLabel("");
+		lblBackground.setSize(new Dimension(1366, 768));
+		lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/Background3.jpg")));
+		lblBackground.setBounds(0, 0, 709, 525);
+		add(lblBackground);
 		
-		JButton btnMainmenu = new JButton("Mainmenu");
+		btnMainmenu = new JButton("Mainmenu");
 		btnMainmenu.setBounds(169, 310, 89, 23);
 		add(btnMainmenu);
 		
-		JButton btnLogOut = new JButton("Log out");
-		btnLogOut.setBounds(293, 310, 89, 23);
-		add(btnLogOut);
+
+		btnLogout = new JButton("Log out");
+		btnLogout.setBounds(293, 310, 89, 23);
+		add(btnLogout);
 		if (active) {
 			lblNewLabel.setBackground(Color.GREEN);
 			lblNewLabel.repaint();
@@ -121,6 +124,10 @@ public class UserInfo extends JPanel {
 			lblNewLabel.repaint();
 			lblNewLabel.setText("Offline");
 		}
+
+		JButton btnLogOut = new JButton("Log out");
+		btnLogOut.setBounds(293, 310, 89, 23);
+		add(btnLogOut);
 		
 
 	}
@@ -129,8 +136,6 @@ public class UserInfo extends JPanel {
 		btnSubmit.addActionListener(l);
 		btnMainmenu.addActionListener(l);
 		btnLogout.addActionListener(l);
-		
-		
 	}
 
 	public JTextField getTxtField_UserID() {
