@@ -38,7 +38,7 @@ public class EventList extends JFrame {
 	public EventList() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		setSize(new Dimension(320, 468));
+		setSize(new Dimension(1366, 768));
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -46,11 +46,11 @@ public class EventList extends JFrame {
 		contentPane.setLayout(null);
 		
 		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setBounds(305, 0, 15, 440);
+		scrollBar.setBounds(1366, 0, 15, 768);
 		contentPane.add(scrollBar);
 		
 		table = new JTable();
-		table.setBounds(0, 0, 305, 446);
+		table.setBounds(0, 0, 1351, 768);
 		contentPane.add(table);
 	}
 }
