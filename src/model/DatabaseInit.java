@@ -94,16 +94,10 @@ public class DatabaseInit extends Model{
                 doUpdate(userevents);
                 doUpdate(notes);
                 doUpdate(events);
-                doUpdate(dailyupdate);
-                
+                doUpdate(dailyupdate);   
             }
-        	
-          
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
-
-
 }
