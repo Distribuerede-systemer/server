@@ -15,6 +15,9 @@ public class DatabaseInit extends Model{
 
     public void go(){
 
+
+
+
         String sql = "CREATE TABLE locationdata" +
                     "(" +
                     "locationdataid int NOT NULL AUTO_INCREMENT," +
@@ -23,11 +26,19 @@ public class DatabaseInit extends Model{
                     "PRIMARY KEY (locationdataid)" +
                     ");";
 
-        try {
-            doUpdate(sql);
+        if(testConnection()){
+            System.out.println("Database env. is ok");
+        }
+        else{
+            System.out.println("Database env. shoudl be set up!");
+        }
+        /*try {
+
+
+            //doUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }*/
 
     }
 

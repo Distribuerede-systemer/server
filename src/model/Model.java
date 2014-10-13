@@ -45,6 +45,22 @@ public  class Model {
         return sqlStatement;
     }
 
+
+    public boolean testConnection(){
+        try {
+
+            getConnection();
+
+            if(getConn().isValid(5)) //5 seconds
+                return true;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return false;
+    }
+
     public int doUpdate(String update) throws SQLException {
         getConnection();
         int temp = 0;
@@ -79,7 +95,7 @@ public  class Model {
      * Getter-method for Connection-class
      * @throws SQLException
      */
-    private static void getConnection() throws SQLException {
+    private void getConnection() throws SQLException {
         setConn(DriverManager.getConnection(sqlUrl, sqlUser, sqlPasswd));
     }
 
