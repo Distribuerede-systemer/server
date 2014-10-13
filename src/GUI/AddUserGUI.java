@@ -1,5 +1,7 @@
 package GUI;
 
+import java.awt.event.ActionListener;
+
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -89,4 +91,35 @@ public class AddUserGUI extends JPanel {
 		add(btnMainMenu);
 
 	}
+	public void addActionListener(ActionListener l) {
+		btnLogOut.addActionListener(l);
+		btnAddUser.addActionListener(l);
+		btnMainMenu.addActionListener(l);
+		
+	}
+	public JTextField getUsernameTextField() {
+		return UsernameTextField;
+	}
+	public JTextField getPasswordTextField() {
+		return PasswordTextField;
+	}
+	public JTextField getEmailTextField() {
+		return EmailTextField;
+	}
+	public JTextField getPhonenumberTextField() {
+		return PhonenumberTextField;
+	}
+	public JTextField getClassTextField() {
+		return ClassTextField;
+	}
+	public JButton getBtnAddUser() {
+		return btnAddUser;
+	}
+	public JButton getBtnLogOut() {
+		return btnLogOut;
+	}
+	public JButton getBtnMainMenu() {
+		return btnMainMenu;
+	}
+	
 }

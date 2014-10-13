@@ -16,7 +16,7 @@ class UDPClient
       
       String sentence = inFromUser.readLine();
       sendData = sentence.getBytes();
-     // System.out.println(sendData[0]);
+      // System.out.println(sendData[0]);
       System.out.println(sendData[0]^key);
       
       for(int i=0; i<sendData.length; i++) sendData[i]=(byte)(sendData[i]^key);

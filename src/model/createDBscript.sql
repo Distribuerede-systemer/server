@@ -1,3 +1,4 @@
+CREATE DATABASE cbscalendar IF EXISTS;
 use cbscalendar;
 
 SET SESSION FOREIGN_KEY_CHECKS=0;

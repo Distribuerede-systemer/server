@@ -33,8 +33,6 @@ public class GetWeatherData {
         for(int i = 0; i<f.length;i++)
             System.out.println(f[i]+": "+currently.get().getByKey(f[i]));
         System.out.println("\n");
-
-
     }
 
 }
