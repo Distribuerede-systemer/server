@@ -18,6 +18,7 @@ hs_err_pid*
 
 ### Project Specific ###
 !libs/
+libs/.DS_Store
 
 #### ECLIPSE ###
 *.pydevproject
