@@ -46,7 +46,7 @@ public static void main(String[] args) throws IOException {
     try {
     	
     	//config fil hvor alt saadan noget staar
-        fos = new FileOutputStream("C:\\Users\\Mrbauer\\Dropbox\\3. Semester\\Eclipse\\Github\\server\\res\\Uploads\\upload1.txt");
+        fos = new FileOutputStream("");
 
         //den gemmer i hukommelsen. Den gemmer loebende biderne i filen i hukommelsen. bum
         bos = new BufferedOutputStream(fos);
