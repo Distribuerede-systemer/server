@@ -101,7 +101,7 @@ public class UserList extends JPanel {
         add(btnAdd);
        
         
-        JButton btnDelete = new JButton("Delete");
+        btnDelete = new JButton("Delete");
         btnDelete.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         	}
@@ -109,13 +109,13 @@ public class UserList extends JPanel {
         btnDelete.setBounds(975, 229, 117, 29);
         add(btnDelete);
         
-        JButton btnMainMenu = new JButton("Main menu");
+        btnMainMenu = new JButton("Main menu");
         btnMainMenu.setBounds(318, 572, 89, 23);
         add(btnMainMenu);
         
-        JButton btnLogOut = new JButton("Log out");
-        btnLogOut.setBounds(465, 572, 89, 23);
-        add(btnLogOut);
+        btnLogout = new JButton("Log out");
+        btnLogout.setBounds(465, 572, 89, 23);
+        add(btnLogout);
     
         JLabel lblNewLabel = new JLabel("Background");
         lblNewLabel.setBackground(new Color(245, 245, 245));

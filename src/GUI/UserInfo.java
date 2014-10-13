@@ -111,7 +111,7 @@ public class UserInfo extends JPanel {
 		btnMainmenu.setBounds(169, 310, 89, 23);
 		add(btnMainmenu);
 		
-<<<<<<< HEAD
+
 		btnLogout = new JButton("Log out");
 		btnLogout.setBounds(293, 310, 89, 23);
 		add(btnLogout);
@@ -124,11 +124,11 @@ public class UserInfo extends JPanel {
 			lblNewLabel.repaint();
 			lblNewLabel.setText("Offline");
 		}
-=======
+
 		JButton btnLogOut = new JButton("Log out");
 		btnLogOut.setBounds(293, 310, 89, 23);
 		add(btnLogOut);
->>>>>>> origin/master
+
 		
 
 	}
