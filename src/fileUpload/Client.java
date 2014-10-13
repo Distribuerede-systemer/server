@@ -1,4 +1,4 @@
-package andreas.og.mathias;
+package fileUpload;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -14,14 +14,20 @@ public class Client {
  */
 public static void main(String[] args) throws IOException {
     Socket socket = null;
-    String host = "127.0.0.1";
+    String localhost = "127.0.0.1";
 
-    socket = new Socket(host, 4444);
+    socket = new Socket(localhost, 4444);
 
-    File file = new File("M:\\test.xml");
+    
+    //typisk lav et interface med WB hvort du har et input felt af typen file
+    File file = new File("C:\\Users\\Mrbauer\\Desktop\\tester.txt");
+    
     // Get the size of the file
     long length = file.length();
-    if (length > Integer.MAX_VALUE) {
+    
+    //1024= 1 kilo byte. vi skal have 20 mb. altsaa --> 1024*1000*20 = 20480000 = 20 mb.  
+    //ligger i hukkomelsen via sockets i et byte array. fortaeller java vi vil have et byte array der er ligesaa stort som det du sender
+    if (length > 20480000) {
         System.out.println("File is too large.");
     }
     byte[] bytes = new byte[(int) length];

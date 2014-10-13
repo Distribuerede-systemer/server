@@ -1,4 +1,4 @@
-package andreas.og.mathias;
+package fileUpload;
 
 import java.io.BufferedOutputStream;
 import java.io.FileNotFoundException;
@@ -44,25 +44,47 @@ public static void main(String[] args) throws IOException {
     }
 
     try {
-        fos = new FileOutputStream("M:\\test2.xml");
+    	
+    	//config fil hvor alt saadan noget staar
+        fos = new FileOutputStream("tester.txt");
+        
+        //den gemmer i hukommelsen. Den gemmer loebende biderne i filen i hukommelsen. bum
         bos = new BufferedOutputStream(fos);
 
     } catch (FileNotFoundException ex) {
+    	
+    	//hvis den ikke kan arbejde med filen
         System.out.println("File not found. ");
     }
 
+    
+    //vi allokerer et bytearray, som har den stoerrelse vi har faaet at vide at filen er.
     byte[] bytes = new byte[bufferSize];
 
+    
     int count;
 
-    while ((count = is.read(bytes)) > 0) {
-        bos.write(bytes, 0, count);
+    //saa laenge input stream modtager data, saa skal vi laese bytes...
+    while ((count = is.read(bytes)) >= 0) {
+    
+    	//...og gemme dem i vores buffered output stream! 
+    	bos.write(bytes, 0, count);
+    	//start ved sted 0 og skriv i det naeste sted der er plads i output streamen
     }
 
+    //vi lukker // skylder ud igen og goer rent. garbage collection. saa vi frigiver hukommelse
     bos.flush();
+    
+    //lukker forbindelsen
     bos.close();
+    
+    //input stream lukker. den som skriver filen
     is.close();
+    
+    //luk socket
     socket.close();
+    
+    //luk serversocket
     serverSocket.close();
 }
 }
