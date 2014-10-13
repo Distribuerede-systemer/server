@@ -11,7 +11,7 @@ public class GetWeatherData {
     // Provide API key from forecast.io - for now this is mine, we have 1000 calls pr. day
     private static final String apiKey = "26202624efd23bdaf480223ac3b97615";
 
-    public void showData(){
+    public void showData() {
 
         //Get UNIX timestamp for time now.
         long timeNow = System.currentTimeMillis() / 1000L;
