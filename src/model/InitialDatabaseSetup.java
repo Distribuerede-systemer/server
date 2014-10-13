@@ -1,257 +1,324 @@
+/*
+ * 
+ */
 package model;
 
+
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
+// TODO: Auto-generated Javadoc
 /**
- * The Class InitialDatabaseSetup.
+ * The Class DatabaseConnect.
  */
-public class InitialDatabaseSetup {
+public class InitialDatabaseSetup
+{
 
-    /** The connection. */
-    private Connection connection;
+	/** The Constant URL.  Her skal info fra Henrik ind.*/
+	private static final String URL = "jdbc:mysql://localhost:3306/bcbs_light";
 
-    /** The statement. */
-    private Statement statement;
+	/** The Constant USERNAME. */
+	private static final String USERNAME = "root";
 
-    /** The prepared statement. */
-    private PreparedStatement preparedStatement = null;
+	/** The Constant PASSWORD. */
+	private static final String PASSWORD = "";
 
-    /** The result set. */
-    private ResultSet resultSet = null;
+	/** The connection. */
+	public Connection connection;
 
-    /**  Set CONSTANTS. */
-    private int STUDENT = 1;
+	/** The statement. */
+	public Statement statement;
 
-    /** The admin. */
-    private int ADMIN = 2;
+	/** The result set. */
+	public ResultSet resultSet;
 
-    /** The merchant. */
-    private int MERCHANT = 3;
+	/** The meta data. */
+	public ResultSetMetaData metaData;
 
-    /** The standard amount. */
-    private double STANDARD_AMOUNT = 1;
+	/** The number of rows. */
+	public int numberOfRows;
 
-    /** The standard btc rate. */
-    private double STANDARD_BTC_RATE = 3339;
 
-    /**
-     * Instantiates a new initial database setup.
-     *
-     * @param connection the connection
-     */
-    public InitialDatabaseSetup(Connection connection) {
-        this.connection = connection;
-    }
+	/** The insert new person. 
+	Her skal vi have oprettet vores SQL statements*/
+	private PreparedStatement insertEnTabel = null; 
 
-    //Reset ALL tables to initial setup
-    /**
-     * Reset all tables.
-     */
-    public void resetAllTables() {
-        this.resetUserTypes();
-        this.resetAccountTypes();
-        this.resetAccount();
-        this.resetUser();
-        this.addAdminUser();
-        this.setBtcRate();
-    }
 
-    /**
-     *  Truncs the UserType table, and adds the initial rows.
-     */
-    private void resetUserTypes() {
-        try {
-            this.debugTruncateTable("UserType");
+	 * Instantiates a new database connect.
+	 */
+	public DatabaseConnect()
+	{
+		try 
+		{
+			connection = 
+					DriverManager.getConnection( URL, USERNAME, PASSWORD );
 
-            /** And now we insert the user types */
-            preparedStatement = connection
-                    .prepareStatement("INSERT INTO UserType (userTypeName) VALUES (?), (?), (?)");
-            preparedStatement.setString(1, "Student");
-            preparedStatement.setString(2, "Admin");
-            preparedStatement.setString(3, "Merchant");
-            preparedStatement.executeUpdate();
-            System.out.println("UserTypes reset");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+			setBTCrate = connection.prepareStatement(
+					"UPDATE exchangerate SET btcratedkk = ? WHERE ID = 1" );
 
-    /** Truncs the AccountType table, and adds the initial rows. */
-    private void resetAccountTypes() {
-        try {
-            this.debugTruncateTable("AccountType");
+			getBTCRate = connection.prepareStatement(
+					"SELECT btcratedkk FROM exchangerate");
 
-            /** And now we insert the account types */
-            preparedStatement = connection
-                    .prepareStatement("INSERT INTO AccountType (accountName) VALUES (?), (?)");
-            preparedStatement.setString(1, "Student");
-            preparedStatement.setString(2, "Merchant");
-            preparedStatement.executeUpdate();
-            System.out.println("AccountTypes reset");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+			getUserById = 
+					connection.prepareStatement( "SELECT * FROM user WHERE IDMail = ?" );
 
-    /**
-     *  Truncs the User table, and adds the initial rows.
-     */
-    private void resetUser() {
-        /** Truncate user table */
-        this.debugTruncateTable("User");
+			// create insert that adds a new user into the database
+			insertNewPerson = connection.prepareStatement( 
+					"INSERT INTO user " + 
+							"( IDMail, firstName, lastName, userAdress, zipCode,"
+							+ "userAge, userPhone, userBTCBalance, Password, isAdmin  ) " + 
+					"VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )" );
 
-        /** Add users and linked accounts */
-        int userId = this.addUser(STUDENT, "dafr13ab@student.cbs.dk", "Daniel",
-                "123456");
-        System.out.println("Added user with ID: " + userId);
-        this.addAccount(userId, STUDENT, STANDARD_AMOUNT);
-        System.out.println("Added account to user with ID: " + userId);
-        userId = this.addUser(STUDENT, "mape13an@student.cbs.dk", "Marie",
-                "123456");
-        System.out.println("Added user with ID: " + userId);
-        this.addAccount(userId, STUDENT, STANDARD_AMOUNT);
-        System.out.println("Added account to user with ID: " + userId);
-        userId = this.addUser(STUDENT, "mani13an@student.cbs.dk", "Mads",
-                "123456");
-        System.out.println("Added user with ID: " + userId);
-        this.addAccount(userId, STUDENT, STANDARD_AMOUNT);
-        System.out.println("Added account to user with ID: " + userId);
-    }
+			// create an edit that edits a user in the database
+			editPerson = connection.prepareStatement( "UPDATE user SET firstName = ?, lastName = ?, userAdress = ?, zipCode = ?,"
+					+ " userAge = ?, userPhone = ?, userBTCBalance = ?, Password = ?, isAdmin = ? WHERE IDMail = ?");
 
-    /**
-     *  Simple method to trunc a table. Only for debugging purpose.
-     *
-     * @param tableName the table name
-     */
-    private void debugTruncateTable(String tableName) {
-        try {
-            /**
-             * Truncate table. We reset the FOREIGN_KEY_CHECKS to zero before query,
-             * which is bad practice for production, but is good for debugging
-             * purpose.
-             */
-            String truncateQuery = "TRUNCATE " + tableName;
 
-            preparedStatement = connection
-                    .prepareStatement("SET FOREIGN_KEY_CHECKS=0;");
-            preparedStatement.executeUpdate();
-            preparedStatement = connection.prepareStatement(truncateQuery);
-            preparedStatement.executeUpdate();
-            preparedStatement = connection
-                    .prepareStatement("SET FOREIGN_KEY_CHECKS=1;");
-            preparedStatement.executeUpdate();
-            System.out.println("Truncated " + tableName);
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
-    /**
-     *  Adds a user to the user table. Returns the inserted users ID.
-     *
-     * @param userType the user type
-     * @param email the email
-     * @param name the name
-     * @param password the password
-     * @return the int
-     */
-    public int addUser(int userType, String email, String name, String password) {
-        try {
-            /** Insert user */
-            preparedStatement = connection
-                    .prepareStatement(
-                            "INSERT INTO User (userType, email, name, password) VALUES (?, ?, ?, ?)",
-                            Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setInt(1, userType);
-            preparedStatement.setString(2, email);
-            preparedStatement.setString(3, name);
-            preparedStatement.setString(4, password);
-            preparedStatement.executeUpdate();
+		} 
+		catch ( SQLException sqlException )
+		{
+			sqlException.printStackTrace();
+			System.exit( 1 );
+		} 
+	} 
 
-            ResultSet keys = preparedStatement.getGeneratedKeys();
-            keys.next();
-            int userId = keys.getInt(1);
+	// Add a new person
+	/**
+	 * Adds the person.
+	 *
+	 * @param mail the mail
+	 * @param fname the fname
+	 * @param lname the lname
+	 * @param uadress the uadress
+	 * @param uzip the uzip
+	 * @param uage the uage
+	 * @param uphone the uphone
+	 * @param uBTCBalance the u btc balance
+	 * @param upass the upass
+	 * @param admin the admin
+	 * @return the int
+	 */
+	public int addPerson( 
+			String mail, String fname, String lname, String uadress, int uzip, 
+			int uage, String uphone, double uBTCBalance, String upass, boolean admin)
+	{
+		int result = 0;
+		// set parameters, then execute insertNewPerson
+		try 
+		{
+			insertNewPerson.setString(1, mail );
+			insertNewPerson.setString( 2, fname );
+			insertNewPerson.setString( 3, lname );
+			insertNewPerson.setString( 4, uadress );
+			insertNewPerson.setInt( 5, uzip );
+			insertNewPerson.setInt( 6, uage );
+			insertNewPerson.setString( 7, uphone );
+			insertNewPerson.setDouble( 8, uBTCBalance );
+			insertNewPerson.setString( 9, upass );
+			insertNewPerson.setBoolean( 10, admin);
 
-            return userId;
+			// insert the new entry; returns # of rows updated
+			result = insertNewPerson.executeUpdate(); 
+		} // end try
+		catch ( SQLException sqlException )
+		{
+			sqlException.printStackTrace();
+			close();
+		} // end catch
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return 0;
-        }
-    }
+		return result;
+	} // end method addPerson
 
-    /**
-     *  Add an account to the Account table.
-     *
-     * @param userId the user id
-     * @param accountType the account type
-     * @param amount the amount
-     */
-    public void addAccount(int userId, int accountType, double amount) {
-        try {
-            /** Insert account */
-            preparedStatement = connection
-                    .prepareStatement(
-                            "INSERT INTO Account (user_id, accountType, amount) VALUES (?, ?, ?)",
-                            Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setInt(1, userId);
-            preparedStatement.setInt(2, accountType);
-            preparedStatement.setDouble(3, amount);
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+	/**
+	 * Edits the person.
+	 *
+	 * @param mail the mail
+	 * @param fname the fname
+	 * @param lname the lname
+	 * @param uadress the uadress
+	 * @param uzip the uzip
+	 * @param uage the uage
+	 * @param uphone the uphone
+	 * @param uBTCBalance the u btc balance
+	 * @param upass the upass
+	 * @param admin the admin
+	 * @return the int
+	 */
+	public int editPerson( 
+			String mail, String fname, String lname, String uadress, int uzip, 
+			int uage, String uphone, double uBTCBalance, String upass, boolean admin)
+	{
+		int result = 0;
 
-    /**
-     * Reset account.
-     */
-    public void resetAccount() {
-        this.debugTruncateTable("Account");
-    }
+		try 
+		{
+			editPerson.setString( 1, fname );
+			editPerson.setString( 2, lname );
+			editPerson.setString( 3, uadress );
+			editPerson.setInt( 4, uzip );
+			editPerson.setInt( 5, uage );
+			editPerson.setString( 6, uphone );
+			editPerson.setDouble( 7, uBTCBalance );
+			editPerson.setString( 8, upass );
+			editPerson.setBoolean( 9, admin);
+			editPerson.setString(10, mail );
+			// insert the new entry; returns # of rows updated
+			result = editPerson.executeUpdate(); 
+		} // end try
+		catch ( SQLException sqlException )
+		{
+			sqlException.printStackTrace();
+			close();
+		} // end catch
 
-    /**
-     * Adds the admin user.
-     */
-    public void addAdminUser() {
-        try {
-            /** Insert admin */
-            preparedStatement = connection
-                    .prepareStatement(
-                            "INSERT INTO User (userType, email, name, password) VALUES (?, ?, ?, ?)",
-                            Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setInt(1, ADMIN);
-            preparedStatement.setString(2, "88888888");
-            preparedStatement.setString(3, "Administrator");
-            preparedStatement.setString(4, "1234abcd");
-            preparedStatement.executeUpdate();
-            System.out.println("Added administrator");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+		return result;
+	} // end method editPerson
 
-    /**
-     * Sets the btc rate.
-     */
-    public void setBtcRate() {
-        try {
-            /** Insert account */
-            preparedStatement = connection
-                    .prepareStatement(
-                            "INSERT INTO Exchange (btc_rate) VALUES (?)",
-                            Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setDouble(1, STANDARD_BTC_RATE);
-            preparedStatement.executeUpdate();
-            System.out.println("Reset the BTC rate");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
-}
+	/**
+	 * Adds the btc rate.
+	 *
+	 * @param btcrate the btcrate
+	 * @return the int
+	 */
+	public int addBTCRate( 
+			double btcrate)
+	{
+		int result = 0;
+
+		// set parameters, then execute insertNewPerson
+		try 
+		{
+			setBTCrate.setDouble ( 1, btcrate);
+
+			// insert the new entry; returns # of rows updated
+			result = setBTCrate.executeUpdate(); 
+		} // end try
+		catch ( SQLException sqlException )
+		{
+			sqlException.printStackTrace();
+			close();
+		} // end catch
+
+		return result;
+	} // end method addBTCRate
+
+	/**
+	 * Gets the BTC rate.
+	 *
+	 * @return the BTC rate
+	 */
+	public double getBTCRate() {
+
+		ResultSet result;
+		double currentBTCRate = 0.0;
+		// set parameters, then execute getBTCRate
+		try 
+		{
+			result = getBTCRate.executeQuery();
+			while (result.next()) {
+				currentBTCRate = result.getDouble(1);	
+			}
+		}
+		catch ( SQLException sqlException )
+		{
+			sqlException.printStackTrace();
+			close();
+		}
+
+		return currentBTCRate;
+	}
+
+
+	// close the database connection
+	/**
+	 * Close.
+	 */
+	public void close()
+	{
+		try 
+		{
+			connection.close();
+		} // end try
+		catch ( SQLException sqlException )
+		{
+			sqlException.printStackTrace();
+		} // end catch
+	} // end method close
+
+	/**
+	 * Does user by id exist.
+	 *
+	 * @param id the id
+	 * @return true, if successful
+	 */
+	public boolean doesUserByIDExist(String id) {
+		ResultSet result;
+		boolean hasRows = false;
+		try
+		{
+			getUserById.setString(1, id);
+			result = getUserById.executeQuery();
+			while(result.next()) {
+				hasRows = true;
+			}
+
+			if(!hasRows)
+				return false;
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+			close();
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Gets the user by id.
+	 *
+	 * @param id the id
+	 * @return the user by id
+	 */
+	public User getUserByID(String id) {
+
+		ResultSet result;
+		User u = null;
+		// set parameters, then execute getUserByID
+		try 
+		{
+			getUserById.setString ( 1, id);
+
+			// insert the new entry; returns # of rows updated
+			result = getUserById.executeQuery(); 
+
+			while (result.next()) {
+				u = new User(result.getString("IDMail"), result.getString("firstName"), result.getString("lastName"), result.getString("userAdress"),
+						result.getInt("zipCode"), result.getString("userPhone"), result.getInt("userAge")
+						, result.getDouble("userBTCBalance"), result.getString("Password"), result.getBoolean("isAdmin") );
+
+			}
+		} // end try
+		catch ( SQLException sqlException )
+		{
+			sqlException.printStackTrace();
+			close();
+		} // end catch
+
+		return u;
+
+		// TODO Auto-generated method stub
+
+	}
+} // end class DatabaseConnect
+
