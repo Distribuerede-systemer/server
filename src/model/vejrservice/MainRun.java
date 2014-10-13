@@ -1,4 +1,4 @@
-
+package model.vejrservice;
 public class MainRun {
 	
 	//Her kan man lege lidt med at hente data fra GetWeatherData - via Jespers API nøgle
