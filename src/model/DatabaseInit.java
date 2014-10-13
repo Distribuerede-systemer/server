@@ -1,6 +1,7 @@
 package model;
 
 import java.io.IOException;
+import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
 
 public class DatabaseInit extends Model {
