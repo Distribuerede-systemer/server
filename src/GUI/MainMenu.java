@@ -27,19 +27,19 @@ public class MainMenu extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnNewButton.setBounds(176, 83, 89, 23);
+		btnNewButton.setBounds(158, 83, 125, 23);
 		add(btnNewButton);
 		
 		btnNewButton_1 = new JButton("Eventlist");
-		btnNewButton_1.setBounds(176, 117, 89, 23);
+		btnNewButton_1.setBounds(158, 117, 125, 23);
 		add(btnNewButton_1);
 		
 		btnNewButton_2 = new JButton("Notelist");
-		btnNewButton_2.setBounds(176, 151, 89, 23);
+		btnNewButton_2.setBounds(158, 151, 125, 23);
 		add(btnNewButton_2);
 		
 		btnLogOut = new JButton("Log out");
-		btnLogOut.setBounds(176, 235, 89, 23);
+		btnLogOut.setBounds(158, 235, 125, 23);
 		add(btnLogOut);
 		
 		lblMainMenu = new JLabel("Main Menu");
