@@ -12,7 +12,7 @@ public class DatabaseInit extends Model {
     }
 
 
-public void go();{
+public void go(){
 
     
 }

@@ -17,7 +17,7 @@ public class Controller extends Model {
 		try {
 			saveNotes = conn.prepareStatement("INSERT INTO notes VALUES(?,?);");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}
