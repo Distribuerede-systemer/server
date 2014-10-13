@@ -103,7 +103,7 @@ public class UserInfo extends JPanel {
 		
 		JLabel lblBackground = new JLabel("");
 		lblBackground.setSize(new Dimension(1366, 768));
-		lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/background.jpg")));
+		lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/Background3.jpg")));
 		lblBackground.setBounds(0, 0, 709, 525);
 		add(lblBackground);
 		
@@ -111,7 +111,7 @@ public class UserInfo extends JPanel {
 		btnMainmenu.setBounds(169, 310, 89, 23);
 		add(btnMainmenu);
 		
-<<<<<<< HEAD
+
 		btnLogout = new JButton("Log out");
 		btnLogout.setBounds(293, 310, 89, 23);
 		add(btnLogout);
@@ -124,11 +124,10 @@ public class UserInfo extends JPanel {
 			lblNewLabel.repaint();
 			lblNewLabel.setText("Offline");
 		}
-=======
+
 		JButton btnLogOut = new JButton("Log out");
 		btnLogOut.setBounds(293, 310, 89, 23);
 		add(btnLogOut);
->>>>>>> origin/master
 		
 
 	}
