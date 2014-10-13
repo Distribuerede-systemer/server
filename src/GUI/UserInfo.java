@@ -83,7 +83,7 @@ public class UserInfo extends JPanel {
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			//Submit changes to databases
-			//hvad sker der når ændringer ved en bruger submittes
+			//hvad sker der nï¿½r ï¿½ndringer ved en bruger submittes
 			}
 		}
 		);
@@ -128,10 +128,6 @@ public class UserInfo extends JPanel {
 		JButton btnLogOut = new JButton("Log out");
 		btnLogOut.setBounds(293, 310, 89, 23);
 		add(btnLogOut);
-<<<<<<< HEAD
-=======
-
->>>>>>> 8d7b9dc5bb48b5c39a3d0b6511e6ec6364cf0ba0
 		
 
 	}

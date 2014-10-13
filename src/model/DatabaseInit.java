@@ -12,10 +12,17 @@ public class DatabaseInit extends Model {
     }
 
 
-public void go();{
+    public void go() throws SQLException, IOException {
 
-    
-}
+        if(doesDatabaseExist()){
+            System.out.print("Database environment does exist");
+        }
+        else{
+            System.out.print("Database environment does NOT exist");
+            readfromSqlFile("res/createDBscript.sql");
+        }
+
+    }
 
 
 

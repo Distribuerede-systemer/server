@@ -1,3 +1,6 @@
+
+package model;
+
 import com.ibatis.common.jdbc.ScriptRunner;
 
 import java.io.*;
@@ -10,9 +13,10 @@ import java.sql.*;
  */
 public abstract class Model {
 
-    private static String sqlUrl = "jdbc:mysql://localhost:3306/";
+    private static String sqlUrl = "jdbc:mysql://localhost:3306/cbscalendar";
     private static String sqlUser = "root";
     private static String sqlPasswd = "ukamm19";
+    private static String databaseName = "cbscalendar";
 
     private Statement stmt;
     private Connection conn = null;
@@ -21,38 +25,36 @@ public abstract class Model {
 
     /**
      * Overwrite default database url
+     *
      * @param
      */
-    public static void setSelectedDatabase(String db){
-        if(db != null && db.length() > 0){ //Overwrite default
+    public static void setSelectedDatabase(String db) {
+        if (db != null && db.length() > 0) { //Overwrite default
             sqlUrl += db;
         }
     }
-    
-    
-    public void go() throws IOException, SQLException {
+
+
+    public boolean doesDatabaseExist() throws SQLException {
         getConnection();
-        DatabaseMetaData dbm = getConn().getMetaData();
-        // check if "employee" table is there
-        ResultSet tables = dbm.getTables(null, null, "locationdata", null);
-        if (tables.next()) {
-        // Table exists
-    System.out.println("wuuhuw");
+        ResultSet resultSet = getConn().getMetaData().getCatalogs();
+        while (resultSet.next()) {
 
+            String databaseName = resultSet.getString(1);
+            if(databaseName.equals(databaseName)){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
-else {
-  // Table does not exist
-        /**
-         * Read and execute SQL from file
-         */
-        readfromSqlFile("res/createDBscript.sql");
-        }
+        resultSet.close();
+        return true;
     }
-
-
 
     /**
      * Reads and executes SQL from File.
+     *
      * @param filepath
      * @throws IOException
      * @throws SQLException
@@ -65,12 +67,14 @@ else {
         reader.close();
         conn.close();
     }
+
     /**
      * Use a preparedstatment to run SQL on the database
+     *
      * @param sql
      * @return PreparedStatement
      */
-    public PreparedStatement doQuery(String sql){
+    public PreparedStatement doQuery(String sql) {
         try {
             getConnection();
             getConn();
@@ -83,12 +87,13 @@ else {
 
         return sqlStatement;
     }
-    public boolean testConnection(){
+
+    public boolean testConnection() {
         try {
 
             getConnection();
 
-            if(getConn().isValid(5)) //5 seconds
+            if (getConn().isValid(5)) //5 seconds
                 return true;
 
         } catch (SQLException e) {
@@ -97,28 +102,24 @@ else {
 
         return false;
     }
-    
+
     public int doUpdate(String update) throws SQLException {
         getConnection();
         int temp = 0;
 
-        try{
+        try {
             setStmt(getConn().createStatement());
             temp = getStmt().executeUpdate(update);
-        }
-
-        catch(SQLException ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
         //luk forbindelser
-        finally{
-            if(getStmt()!=null) {
+        finally {
+            if (getStmt() != null) {
                 try {
                     getStmt().close();
-                }
-
-                catch (SQLException sqlEx) {  //ignore
+                } catch (SQLException sqlEx) {  //ignore
                     setStmt(null);
                 }
             }
@@ -150,6 +151,7 @@ else {
 
     /**
      * Getter-method for Connection-class
+     *
      * @throws SQLException
      */
     private void getConnection() throws SQLException {
@@ -158,6 +160,7 @@ else {
 
     /**
      * Getter-method for Statement class
+     *
      * @return statement class
      */
     public Statement getStmt() {
@@ -166,6 +169,7 @@ else {
 
     /**
      * Setter-method for Statement class
+     *
      * @param stmt object
      */
     private void setStmt(Statement stmt) {
@@ -174,6 +178,7 @@ else {
 
     /**
      * Getter-method for Connection class
+     *
      * @return Connection class
      */
     public Connection getConn() {
@@ -182,12 +187,12 @@ else {
 
     /**
      * Setter-method for Connection class
+     *
      * @param conn
      */
     private void setConn(Connection conn) {
         this.conn = conn;
     }
-    
-    
+
 
 }
