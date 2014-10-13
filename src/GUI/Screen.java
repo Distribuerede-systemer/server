@@ -15,7 +15,7 @@ public class Screen extends JFrame {
 	public static final String USERINFO = "name_277892826656058";
 	public static final String ADDUSERGUI = "name_278604525733268";
 	public static final String NOTELIST = "name_278522430661848";
-	public static final String USERLIST = "name_279726941239982";
+	public static final String USERLIST = "name_280161954000083";
 
 	
 	private JPanel contentPane;
@@ -24,7 +24,7 @@ public class Screen extends JFrame {
 	private final UserInfo userInfo = new UserInfo();
 	private final NoteList noteList = new NoteList();
 	private final AddUserGUI addUserGUI = new AddUserGUI();
-	private final UserList userList = new UserList();
+	private final Userlist userlist = new Userlist();
 
 	/**
 	 * Launch the application.
@@ -61,10 +61,10 @@ public class Screen extends JFrame {
 		contentPane.add(userInfo, "name_277892826656058");
 		
 		contentPane.add(addUserGUI, "name_278604525733268");
-		
-		contentPane.add(userList, "name_279726941239982");
-		
+				
 		contentPane.add(noteList, "name_278522430661848");
+		
+		contentPane.add(userlist, "name_280161954000083");
 	}
 	
 	public Login getLogin() {
@@ -83,7 +83,7 @@ public class Screen extends JFrame {
 	public NoteList getNoteList() {
 		return noteList;
 	}
-	public UserList getUserList() {
-		return userList;
+	public Userlist getUserList() {
+		return userlist;
 	}
 }
