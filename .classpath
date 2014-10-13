@@ -5,6 +5,7 @@
 	<classpathentry kind="lib" path="libs/forecastio-lib-java.jar"/>
 	<classpathentry kind="lib" path="libs/gson-2.3.jar"/>
 	<classpathentry kind="lib" path="libs/opensaml-2.6.3.jar"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="libs/jcl-over-slf4j-1.7.5.jar"/>
 	<classpathentry kind="lib" path="libs/joda-time-2.2.jar"/>
 	<classpathentry kind="lib" path="libs/bcprov-jdk15on-1.51.jar"/>
@@ -26,5 +27,8 @@
 	<classpathentry kind="lib" path="libs/endorsed/xercesImpl-2.10.0.jar"/>
 	<classpathentry kind="lib" path="libs/endorsed/xml-apis-2.10.0.jar"/>
 	<classpathentry kind="lib" path="libs/endorsed/xml-resolver-1.2.jar"/>
+=======
+	<classpathentry kind="lib" path="libs/mysql-connector-java-5.1.33-bin.jar"/>
+>>>>>>> da2d83e3b9f2497bd9e8be585e972374d04466a9
 	<classpathentry kind="output" path="bin"/>
 </classpath>
