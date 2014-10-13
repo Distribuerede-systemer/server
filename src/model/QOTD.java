@@ -13,7 +13,7 @@ public class QOTD {
 
     }
 
-    public static void main(String args[]){
+    public static void main(String args[]) {
     // args give message contents and server hostname
         DatagramSocket aSocket = null;
         try {
