@@ -1,9 +1,11 @@
 package GUI;
 import java.awt.Dimension;
+
 import javax.swing.JScrollPane;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -58,4 +60,7 @@ public class EventList extends JFrame {
 		table.setBounds(0, 0, 305, 446);
 		contentPane.add(table);
 	}
+	public void addActionListener(ActionListener l) {
+		
+}
 }
