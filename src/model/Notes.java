@@ -49,10 +49,10 @@ public class Notes extends Model {
 	
 		doUpdate("select * from notes;");
 		
+		
+		
 		sqlStatement = doQuery("SELECT * FROM table");
-		sqlStatement.setInt(), x);
-		
-		
+			
 	}
 
 }
