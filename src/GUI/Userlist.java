@@ -89,6 +89,7 @@ public class Userlist extends JPanel {
           String firstName = JOptionPane.showInputDialog(null, "First Name", 1);
           String lastName = JOptionPane.showInputDialog(null, "Last Name", 2);
           String eMail = JOptionPane.showInputDialog(null, "Email", 3);
+          
         	}
         });
         
@@ -97,9 +98,13 @@ public class Userlist extends JPanel {
        
         
         JButton btnDelete = new JButton("Delete");
+        btnDelete.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
         btnDelete.setBounds(975, 229, 117, 29);
         add(btnDelete);
-        
+    
         JLabel lblNewLabel = new JLabel("Background");
         lblNewLabel.setBackground(new Color(245, 245, 245));
         lblNewLabel.setForeground(new Color(245, 255, 250));
