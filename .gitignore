@@ -22,7 +22,7 @@ libs/.DS_Store
 
 #### ECLIPSE ###
 *.pydevproject
-.metadata
+.metadata/
 .gradle
 bin/
 tmp/
