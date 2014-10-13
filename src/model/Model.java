@@ -1,4 +1,3 @@
-package model;
 
 import java.sql.*;
 
@@ -10,7 +9,7 @@ public  class Model {
 
     private static String sqlUrl = "jdbc:mysql://localhost:3306/";
     private static String sqlUser = "root";
-    private static String sqlPasswd = "";
+    private static String sqlPasswd = "looser";
 
     private Statement stmt;
     private Connection conn = null;
@@ -22,7 +21,7 @@ public  class Model {
      */
     public static void setSelectedDatabase(String db){
         if(db != null && db.length() > 0){ //Overwrite default
-            sqlUrl = db;
+            sqlUrl += db;
         }
     }
 
@@ -44,7 +43,21 @@ public  class Model {
 
         return sqlStatement;
     }
+    public boolean testConnection(){
+        try {
 
+            getConnection();
+
+            if(getConn().isValid(5)) //5 seconds
+                return true;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return false;
+    }
+    
     public int doUpdate(String update) throws SQLException {
         getConnection();
         int temp = 0;
@@ -79,7 +92,7 @@ public  class Model {
      * Getter-method for Connection-class
      * @throws SQLException
      */
-    private static void getConnection() throws SQLException {
+    private void getConnection() throws SQLException {
         setConn(DriverManager.getConnection(sqlUrl, sqlUser, sqlPasswd));
     }
 

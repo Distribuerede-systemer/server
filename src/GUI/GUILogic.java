@@ -18,9 +18,14 @@ public class GUILogic {
 		screen.getLogin().addActionListener(new LoginActionListener());
 		screen.getMainMenu().addActionListener(new MainMenuActionListener());
 		screen.getUserInfo().addActionListener(new UserInfoActionListener());
-		screen.getNoteList().addActionListener(new NoteListActionListener());
+//		screen.getNoteList().addActionListener(new NoteListActionListener());
 		screen.getUserList().addActionListener(new UserListActionListener());
 		
+	}
+	public void run() {
+
+		screen.show(screen.LOGIN);
+		screen.setVisible(true);
 	}
 	private class LoginActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
@@ -37,16 +42,22 @@ public class GUILogic {
 	}
 	private class UserInfoActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-
+			if (e.getSource() == screen.getUserInfo().getBtnMainmenu()){
+				screen.show(Screen.MAINMENU);
+			}
 		}
 	}
-	private class NoteListActionListener implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-
-		}
-	}
+//	private class NoteListActionListener implements ActionListener {
+//		public void actionPerformed(ActionEvent e) {
+//
+//		}
+//	}
 	private class UserListActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
+			
+			if (e.getSource() == screen.getUserList().getBtnMainMenu()){
+				screen.show(Screen.MAINMENU);
+			}
 
 		}
 	}
