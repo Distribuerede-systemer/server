@@ -1,7 +1,8 @@
-import com.ibatis.common.jdbc.ScriptRunner;
-
+package model;
 import java.io.*;
 import java.sql.*;
+
+import com.ibatis.common.jdbc.ScriptRunner;
 
 
 /**
@@ -12,7 +13,7 @@ public abstract class Model {
 
     private static String sqlUrl = "jdbc:mysql://localhost:3306/";
     private static String sqlUser = "root";
-    private static String sqlPasswd = "ukamm19";
+    private static String sqlPasswd = "";
 
     private Statement stmt;
     protected Connection conn = null;
