@@ -240,7 +240,7 @@ public class InitialDatabaseSetup {
 		try {
 			connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 	}
