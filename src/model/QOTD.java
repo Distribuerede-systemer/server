@@ -38,7 +38,6 @@ public class QOTD {
             //modtager informationer
             byte[] buffer = new byte[1024];
             
-
             DatagramPacket reply = new DatagramPacket(buffer, buffer.length);
             aSocket.receive(reply);
             System.out.println("Testing 2.5");
@@ -47,10 +46,7 @@ public class QOTD {
             System.out.println(reply);
             System.out.println("Reply: " + new String(reply.getData()));
             System.out.println(res);
-         
-            
-            
-            //løsning søges på aSocet.receive
+          
             aSocket.receive(reply);
             System.out.println("Testing 3");
             System.out.println("Reply: " + new String(reply.getData()));
