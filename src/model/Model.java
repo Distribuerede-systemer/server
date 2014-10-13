@@ -1,4 +1,3 @@
-package model;
 
 import java.sql.*;
 
@@ -10,7 +9,7 @@ public  class Model {
 
     private static String sqlUrl = "jdbc:mysql://localhost:3306/";
     private static String sqlUser = "root";
-    private static String sqlPasswd = "";
+    private static String sqlPasswd = "looser";
 
     private Statement stmt;
     private Connection conn = null;
@@ -22,7 +21,7 @@ public  class Model {
      */
     public static void setSelectedDatabase(String db){
         if(db != null && db.length() > 0){ //Overwrite default
-            sqlUrl = db;
+            sqlUrl += db;
         }
     }
 
@@ -44,8 +43,6 @@ public  class Model {
 
         return sqlStatement;
     }
-
-
     public boolean testConnection(){
         try {
 
@@ -60,7 +57,7 @@ public  class Model {
 
         return false;
     }
-
+    
     public int doUpdate(String update) throws SQLException {
         getConnection();
         int temp = 0;

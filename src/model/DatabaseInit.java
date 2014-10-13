@@ -1,10 +1,6 @@
-package model;
 
 import java.sql.SQLException;
 
-/**
- * Created by jesperbruun on 13/10/14.
- */
 public class DatabaseInit extends Model{
 
 
@@ -15,30 +11,97 @@ public class DatabaseInit extends Model{
 
     public void go(){
 
-
-
-
-        String sql = "CREATE TABLE locationdata" +
+    	
+    	String checkSQL = "SET SESSION FOREIGN_KEY_CHECKS=0;"; 
+    	
+        String locationdata = "CREATE TABLE locationdata" +
                     "(" +
                     "locationdataid int NOT NULL AUTO_INCREMENT," +
                     "longitude int NOT NULL," +
                     "latitude int UNIQUE," +
                     "PRIMARY KEY (locationdataid)" +
                     ");";
-
-        if(testConnection()){
-            System.out.println("Database env. is ok");
-        }
-        else{
-            System.out.println("Database env. shoudl be set up!");
-        }
-        /*try {
-
-
-            //doUpdate(sql);
+        
+        String roles = "CREATE TABLE roles ("
+        		+ "roleid int NOT NULL AUTO_INCREMENT,"
+        		+ "userid int NOT NULL,"
+        		+ "type varchar(200) NOT NULL,"
+        		+ "PRIMARY KEY (roleid)"
+        		+ ");";
+        
+        String users = "CREATE TABLE users("
+        		+ "userid int NOT NULL AUTO_INCREMENT,"
+        		+ "email varchar(40) NOT NULL,"
+        		+ "active boolean,"
+        		+ "created datetime,"
+        		+ "PRIMARY KEY (userid)"
+        		+ ");";
+        
+        String userevents = "CREATE TABLE userevents("
+        		+ "userid int NOT NULL,"
+        		+ "eventid int NOT NULL"
+        		+ ");";
+        
+        
+        String notes = "CREATE TABLE notes"
+        		+ "("
+        		+ "noteid int NOT NULL AUTO_INCREMENT,"
+        		+ "eventid int NOT NULL,"
+        		+ "createdby int NOT NULL,"
+        		+ "text text,"
+        		+ "created datetime NOT NULL,"
+        		+ "PRIMARY KEY (noteid)"
+        		+ ");";
+        
+        String events = "CREATE TABLE events ("
+        		+ "eventid int NOT NULL AUTO_INCREMENT,"
+        		+ "type int NOT NULL,"
+        		+ "location int,"
+        		+ "createdby int NOT NULL,"
+        		+ "start datetime NOT NULL,"
+        		+ "end datetime NOT NULL,"
+        		+ "name varchar(0) NOT NULL,"
+        		+ "text text NOT NULL,"
+        		+ "PRIMARY KEY (eventid)"
+        		+ ");";
+        
+        String dailyupdate = "CREATE TABLE dailyupdate("
+        		+ "date datetime NOT NULL UNIQUE,"
+        		+ "apparentTemperature double,"
+        		+ "summary text,"
+        		+ "windspeed double,"
+        		+ "qotd varchar(512),"
+        		+ "PRIMARY KEY (date)"
+        		+ ");";
+        String setupDB = "CREATE DATABASE testserver";
+        
+        try {
+        	
+        	setSelectedDatabase("testserver");
+        	
+        	if(testConnection()){
+                System.out.println("Database env. is ok");
+            }
+            else{
+                System.out.println("Database env. shoudl be set up!");
+                System.out.println("setting DB up. Try again");
+                
+                doUpdate(setupDB);
+                doUpdate(checkSQL);
+                doUpdate(locationdata);
+                doUpdate(roles);
+                doUpdate(users);  
+                doUpdate(userevents);
+                doUpdate(notes);
+                doUpdate(events);
+                doUpdate(dailyupdate);
+                
+            }
+        	
+          
         } catch (SQLException e) {
             e.printStackTrace();
-        }*/
+        }
 
     }
 
