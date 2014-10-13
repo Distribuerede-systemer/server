@@ -10,9 +10,9 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 
 public class MainMenu extends JPanel {
-	private JButton btnNewButton;
-	private JButton btnNewButton_1;
-	private JButton btnNewButton_2;
+	private JButton btnUserlist;
+	private JButton btnEventlist;
+	private JButton btnNotelist;
 	private JButton btnLogOut;
 	private JLabel lblMainMenu;
 	private JButton btnUserAdministration;
@@ -24,21 +24,21 @@ public class MainMenu extends JPanel {
 	public MainMenu() {
 		setLayout(null);
 		
-		btnNewButton = new JButton("Userlist");
-		btnNewButton.addActionListener(new ActionListener() {
+		btnUserlist = new JButton("Userlist");
+		btnUserlist.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnNewButton.setBounds(158, 83, 125, 23);
-		add(btnNewButton);
+		btnUserlist.setBounds(158, 83, 125, 23);
+		add(btnUserlist);
 		
-		btnNewButton_1 = new JButton("Eventlist");
-		btnNewButton_1.setBounds(158, 117, 125, 23);
-		add(btnNewButton_1);
+		btnEventlist = new JButton("Eventlist");
+		btnEventlist.setBounds(158, 117, 125, 23);
+		add(btnEventlist);
 		
-		btnNewButton_2 = new JButton("Notelist");
-		btnNewButton_2.setBounds(158, 151, 125, 23);
-		add(btnNewButton_2);
+		btnNotelist = new JButton("Notelist");
+		btnNotelist.setBounds(158, 151, 125, 23);
+		add(btnNotelist);
 		
 		btnLogOut = new JButton("Log out");
 		btnLogOut.setBounds(158, 235, 125, 23);
@@ -50,6 +50,7 @@ public class MainMenu extends JPanel {
 		add(lblMainMenu);
 		
 		btnUserAdministration = new JButton("User administration");
+		btnUserAdministration.addActionListener(new BtnUserAdministrationActionListener());
 		btnUserAdministration.setBounds(158, 185, 125, 23);
 		add(btnUserAdministration);
 		
@@ -58,4 +59,33 @@ public class MainMenu extends JPanel {
 		add(label);
 
 	}
+	public void addActionListener(ActionListener l) {
+		btnLogOut.addActionListener(l);
+		btnEventlist.addActionListener(l);
+		btnNotelist.addActionListener(l);
+		btnUserAdministration.addActionListener(l);
+		btnUserlist.addActionListener(l);
+		
+		
+	}
+	private class BtnUserAdministrationActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent arg0) {
+		}
+	}
+	public JButton getBtnUserlist() {
+		return btnUserlist;
+	}
+	public JButton getBtnEventlist() {
+		return btnEventlist;
+	}
+	public JButton getBtnNotelist() {
+		return btnNotelist;
+	}
+	public JButton getBtnLogOut() {
+		return btnLogOut;
+	}
+	public JButton getBtnUserAdministration() {
+		return btnUserAdministration;
+	}
+	
 }
