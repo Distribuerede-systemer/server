@@ -46,7 +46,7 @@ public class MainMenu extends JPanel {
 		
 		lblMainMenu = new JLabel("Main Menu");
 		lblMainMenu.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblMainMenu.setBounds(165, 37, 111, 25);
+		lblMainMenu.setBounds(165, 37, 141, 25);
 		add(lblMainMenu);
 		
 		btnUserAdministration = new JButton("User administration");
