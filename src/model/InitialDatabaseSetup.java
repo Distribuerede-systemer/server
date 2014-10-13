@@ -1,6 +1,5 @@
 package model;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,10 +12,9 @@ import java.sql.Statement;
 /**
  * The Class DatabaseConnect.
  */
-public class InitialDatabaseSetup
-{
+public class InitialDatabaseSetup {
 
-	/** The Constant URL.  Her skal info fra Henrik ind.*/
+	/** The Constant URL. Her skal info fra Henrik ind. */
 	private static String URL = "jdbc:mysql://localhost:3306/";
 	/** The Constant USERNAME. */
 	private static String USERNAME = "root";
@@ -38,66 +36,121 @@ public class InitialDatabaseSetup
 	/** The number of rows. */
 	public int numberOfRows;
 
-
-	/** The insert new person. 
-	Her skal vi have oprettet vores SQL statements*/
-	private PreparedStatement createTable = null; 
-	private PreparedStatement createDatabase = null;
-	private PreparedStatement dropDatabase = null;
+	/**
+	 * The insert new person. Her skal vi have oprettet vores SQL statements
+	 */
+	private PreparedStatement createTable = null;
 
 	public InitialDatabaseSetup() {
 		getConnection();
-		
+
 		try {
-			dropDatabase = connection.prepareStatement("DROP DATABASE IF EXISTS where DATABASE = ?;");
-		createDatabase = connection.prepareStatement("CREATE DATABASE calDatabase where ;");
-		createTable = connection.prepareStatement("CREATE TABLE calDatabase.Users(name varchar(255));");
-		
-		catch (SQLException e) {
+			createTable = connection.prepareStatement("CREATE TABLE calDatabase.Users(name, password);");
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+//	public ResultSet doQuery(String query) throws SQLException
+//    {
+//          
+//    	getConnection();
+//    	
+//        try
+//        {
+//            statement = connection.createStatement();
+//            resultSet = statement.executeQuery(query);
+//        } 
+//        
+//        catch(SQLException ex) 
+//        {
+//            System.out.println(ex);
+//            throw ex;
+//        }
+//      
+//        return resultSet;
+//    }
 
-	public static void setSelectedDatabase(String db)
+
+    public int doUpdate(String update) throws SQLException 
     {
-    	URL ="jdbc:mysql://localhost:3306/";
-
-    	if(db != null && db.length() > 0)
-    		URL += db;
+    	getConnection();
+        int temp = 0;
+        
+        try
+        {
+            statement = connection.createStatement();
+            temp = statement.executeUpdate(update);
+        } 
+        
+        catch(SQLException ex) 
+        {
+        	ex.printStackTrace();
+			if(ex.getErrorCode() == 1062)
+				throw new SQLException ("Duplicate entry");
+			else
+				throw ex;
+        } 
+        
+        //luk forbindelser
+        finally
+        {
+            if(statement!=null) 
+            {
+                try 
+                {
+                    statement.close();
+                } 
+                
+                catch (SQLException sqlEx) 
+                {  //ignore
+                    statement = null;
+                }
+            }
+        }
+        
+        return temp;
     }
+
+
 	
-    public boolean testConnection()
-    {
-    	
-    	try 
-    	{
-        	getConnection();
-			
-        	if(connection.isValid(5000))
+	public static void setSelectedDatabase(String db) {
+		URL = "jdbc:mysql://localhost:3306/";
+
+		if (db != null && db.length() > 0)
+			URL += db;
+	}
+
+	public boolean testConnection() {
+
+		try {
+			getConnection();
+
+			if (connection.isValid(5000))
 				return true;
-		} catch (SQLException e) 
-		{
+		} catch (SQLException e) {
 			System.out.println("unable to connect to database");
 			System.out.println(e.getMessage());
 		}
-		
+
 		return false;
-    }
+	}
 
+	// Instantiates a new database connect.
+	//
+	private void getConnection() {
+		try {
+			connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-	 // Instantiates a new database connect.
-	 //
-	private void getConnection() throws SQLException
-	{
-			connection = 
-					DriverManager.getConnection( URL, USERNAME, PASSWORD );
+		// Opret her nogle prepareStatements.
+		// setBTCrate = connection.prepareStatement(
+		// "UPDATE exchangerate SET btcratedkk = ? WHERE ID = 1" );
 
-// Opret her nogle prepareStatements.
-//			setBTCrate = connection.prepareStatement(
-//					"UPDATE exchangerate SET btcratedkk = ? WHERE ID = 1" );
-
-		} 
-	} 
- // end class DatabaseConnect
+	}
+}
+// end class DatabaseConnect
 

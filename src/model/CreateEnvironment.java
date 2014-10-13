@@ -35,23 +35,21 @@ public class CreateEnvironment {
 		}
 		// være preparedStatements
 		private void createDatabase() throws SQLException
-//		{
-//			String sqlDrop = "DROP DATABASE IF EXISTS "+ dbName + ";";
-//			String sqlCreate = "CREATE DATABASE calDatabase";
-//			
-//			ids.doUpdate(sqlDrop);
-//			ids.doUpdate(sqlCreate);
-//
-//			
-//		}
+		{
+			String sqlDrop = "DROP DATABASE IF EXISTS "+ dbName + ";";
+			String sqlCreate = "CREATE DATABASE calDatabase";
+			
+			ids.doUpdate(sqlDrop);
+			ids.doUpdate(sqlCreate);
+
+			
+		}
 //		Skal gerne være Prepared
 		private void createTables() throws SQLException
-//		{
-//		    String sqlCreateTable = "CREATE TABLE calDatabase.Users(name varchar(255));";
-//		    
-//			ids.doUpdate(sqlCreateTable);
-//
-//		}
+		{
+			ids.;
+
+		}
 	}
 
 
