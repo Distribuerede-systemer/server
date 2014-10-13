@@ -1,11 +1,9 @@
 import java.io.*;
 import java.net.*;
-import java.util.Scanner;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class TcpClient {
+public class TCPClienten {
 	public static void main(String[] args) throws Exception {
 		
 		String modifiedSentence;
@@ -23,7 +21,7 @@ public class TcpClient {
 		System.out.println(gsonString);
 
 		
-		Socket clientSocket = new Socket("172.17.185.66", 8888);
+		Socket clientSocket = new Socket("localhost", 8888);
 
 		DataOutputStream outToServer = new DataOutputStream(
 				clientSocket.getOutputStream());
