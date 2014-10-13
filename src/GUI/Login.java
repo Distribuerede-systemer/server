@@ -24,6 +24,7 @@ public class Login extends JPanel {
 	private final JButton btnForgotLogIn = new JButton("Forgot username or password?");
 	private final JLabel lblBackground = new JLabel("Background");
 	private final JTextField textFieldUsername = new JTextField();
+	private final JLabel lblNewLabel = new JLabel("");
 	
 
 
@@ -43,7 +44,7 @@ public class Login extends JPanel {
 		lblWelcome.setCursor(Cursor.getPredefinedCursor(Cursor.N_RESIZE_CURSOR));
 		lblWelcome.setForeground(new Color(255, 255, 255));
 		lblWelcome.setFont(new Font("Iowan Old Style", Font.BOLD, 78));
-		lblWelcome.setBounds(215, 39, 346, 107);
+		lblWelcome.setBounds(225, 73, 346, 107);
 		
 		add(lblWelcome);
 		lblUsername.setForeground(new Color(255, 255, 255));
@@ -82,6 +83,10 @@ public class Login extends JPanel {
 		btnForgotLogIn.setBounds(270, 434, 236, 29);
 		
 		add(btnForgotLogIn);
+		lblNewLabel.setIcon(new ImageIcon(Login.class.getResource("/Images/CBSLOGO.png")));
+		lblNewLabel.setBounds(158, 547, 500, 119);
+		
+		add(lblNewLabel);
 		lblBackground.setIcon(new ImageIcon(Login.class.getResource("/Images/Background3.jpg")));
 		lblBackground.setBounds(6, -21, 1366, 768);
 		
