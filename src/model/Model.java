@@ -12,10 +12,10 @@ import com.ibatis.common.jdbc.ScriptRunner;
  */
 public abstract class Model {
 
-    private static String sqlUrl = "jdbc:mysql://localhost:3306/cbscalendar";
+    private static String sqlUrl = "jdbc:mysql://localhost:3306/";
     private static String sqlUser = "root";
     private static String sqlPasswd = "ukamm19";
-    private static String databaseName = "cbscalendar";
+    private static final String dbName = "cbscalendar";
 
     private Statement stmt;
     protected Connection conn = null;
@@ -42,9 +42,6 @@ public abstract class Model {
             String databaseName = resultSet.getString(1);
             if(databaseName.equals(databaseName)){
                 return true;
-            }
-            else{
-                return false;
             }
         }
         resultSet.close();
@@ -74,6 +71,7 @@ public abstract class Model {
      * @return PreparedStatement
      */
     public PreparedStatement doQuery(String sql) {
+        setSelectedDatabase(dbName);
         try {
             getConnection();
             getConn();
@@ -103,6 +101,7 @@ public abstract class Model {
     }
 
     public int doUpdate(String update) throws SQLException {
+        setSelectedDatabase(dbName);
         getConnection();
         int temp = 0;
 
