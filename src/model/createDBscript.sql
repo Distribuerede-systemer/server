@@ -64,12 +64,13 @@ CREATE TABLE events
 );
 
 
-CREATE TABLE weather
+CREATE TABLE dailyupdate
 (
 	date datetime NOT NULL UNIQUE,
 	apparentTemperature double,
 	summary text,
 	windspeed double,
+	qotd varchar(512),
 	PRIMARY KEY (date)
 );
 
