@@ -26,57 +26,58 @@ public class UserInfo extends JPanel {
 	 * Create the panel.
 	 */
 	public UserInfo() {
+		setPreferredSize(new Dimension(1366, 768));
 		setSize(new Dimension(1366, 768));
 		setLayout(null);
 
 		JLabel lblHeader = new JLabel("User Info");
 		lblHeader.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblHeader.setBounds(173, 27, 85, 34);
+		lblHeader.setBounds(640, 31, 85, 34);
 		add(lblHeader);
 
 		txtField_UserID = new JTextField();
 		txtField_UserID.setText("GetUserID");
 		txtField_UserID.setName("");
-		txtField_UserID.setBounds(212, 96, 111, 20);
+		txtField_UserID.setBounds(627, 96, 111, 20);
 		add(txtField_UserID);
 		txtField_UserID.setColumns(10);
 
 		JLabel lblUserID = new JLabel("UserID");
-		lblUserID.setBounds(78, 99, 46, 14);
+		lblUserID.setBounds(504, 99, 46, 14);
 		add(lblUserID);
 
 		txtField_Email = new JTextField();
 		txtField_Email.setText("getEmail");
 		txtField_Email.setColumns(10);
-		txtField_Email.setBounds(212, 127, 111, 20);
+		txtField_Email.setBounds(627, 127, 111, 20);
 		add(txtField_Email);
 
 		JLabel lblEmail = new JLabel("Email");
-		lblEmail.setBounds(78, 130, 46, 14);
+		lblEmail.setBounds(504, 130, 46, 14);
 		add(lblEmail);
 
 		txtField_Team = new JTextField();
 		txtField_Team.setText("getTeam/Class");
 		txtField_Team.setColumns(10);
-		txtField_Team.setBounds(212, 158, 111, 20);
+		txtField_Team.setBounds(627, 158, 111, 20);
 		add(txtField_Team);
 
 		JLabel lblTeam = new JLabel("Team");
-		lblTeam.setBounds(78, 161, 46, 14);
+		lblTeam.setBounds(504, 161, 46, 14);
 		add(lblTeam);
 
 		txtField_CreatedDate = new JTextField();
 		txtField_CreatedDate.setText("getCreatedDate");
 		txtField_CreatedDate.setColumns(10);
-		txtField_CreatedDate.setBounds(212, 189, 111, 20);
+		txtField_CreatedDate.setBounds(627, 189, 111, 20);
 		add(txtField_CreatedDate);
 
 		JLabel lblCreateddate = new JLabel("Created Date");
-		lblCreateddate.setBounds(78, 192, 67, 14);
+		lblCreateddate.setBounds(504, 192, 67, 14);
 		add(lblCreateddate);
 
 		JLabel lblOnline = new JLabel("Online");
-		lblOnline.setBounds(78, 217, 67, 14);
+		lblOnline.setBounds(504, 217, 67, 14);
 		add(lblOnline);
 
 		btnSubmit = new JButton("Submit changes");
@@ -87,7 +88,7 @@ public class UserInfo extends JPanel {
 			}
 		}
 		);
-		btnSubmit.setBounds(173, 266, 129, 23);
+		btnSubmit.setBounds(618, 266, 129, 23);
 		add(btnSubmit);
 
 		boolean active = true;
@@ -98,13 +99,13 @@ public class UserInfo extends JPanel {
 		} else {
 			lblNewLabel.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/Green.png")));
 		}
-		lblNewLabel.setBounds(212, 214, 20, 20);
+		lblNewLabel.setBounds(673, 214, 20, 20);
 		add(lblNewLabel);
 		
 		JLabel lblBackground = new JLabel("");
 		lblBackground.setSize(new Dimension(1366, 768));
-		lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/Background3.jpg")));
-		lblBackground.setBounds(0, 0, 709, 525);
+		lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/MetalBackground.jpg")));
+		lblBackground.setBounds(0, 0, 1366, 768);
 		add(lblBackground);
 		
 		btnMainmenu = new JButton("Mainmenu");
