@@ -11,16 +11,17 @@ import javax.swing.ImageIcon;
 import java.awt.Color;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.BevelBorder;
+import java.awt.Dimension;
 
 public class MainMenu extends JPanel {
 	private JLabel label;
 	private JLabel label_1;
 	private JLabel lblMainMenu;
 
-	/**
-	 * Create the panel.
-	 */
+
+	
 	public MainMenu() {
+		setSize(new Dimension(1366, 768));
 		setLayout(null);
 		
 		lblMainMenu = new JLabel("Main Menu");
@@ -69,7 +70,7 @@ public class MainMenu extends JPanel {
 		btnLogOut_1.setBounds(257, 517, 158, 56);
 		add(btnLogOut_1);
 		
-		label_1 = new JLabel("Background");
+		label_1 = new JLabel("");
 		label_1.setIcon(new ImageIcon(MainMenu.class.getResource("/Images/Background3.jpg")));
 		label_1.setBounds(-13, -26, 1366, 768);
 		add(label_1);
