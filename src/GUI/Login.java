@@ -46,7 +46,7 @@ public class Login extends JPanel {
 		btnForgotLogIn.setBounds(173, 240, 97, 23);
 		
 		add(btnForgotLogIn);
-		label.setIcon(new ImageIcon(Login.class.getResource("/GUI/background.jpg")));
+		label.setIcon(new ImageIcon(Login.class.getResource("/Images/background.jpg")));
 		label.setBounds(0, 0, 453, 312);
 		
 		add(label);
