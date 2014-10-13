@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="libs/struts.jar"/>
 	<classpathentry kind="lib" path="libs/fileupload.jar"/>
 	<classpathentry kind="lib" path="libs/uploadbean.jar"/>
+	<classpathentry kind="lib" path="libs/ibatis-2.3.0.677.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

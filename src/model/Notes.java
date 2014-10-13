@@ -48,7 +48,7 @@ public class Notes extends Model {
 	public void getNote () throws SQLException {
 			
 		sqlStatement = doQuery("SELECT * FROM notes");
-			
 	}
+	
 
 }
