@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.ImageIcon;
 
 public class MainMenu extends JPanel {
 	private JButton btnNewButton;
@@ -15,6 +16,7 @@ public class MainMenu extends JPanel {
 	private JButton btnLogOut;
 	private JLabel lblMainMenu;
 	private JButton btnUserAdministration;
+	private JLabel label;
 
 	/**
 	 * Create the panel.
@@ -50,6 +52,10 @@ public class MainMenu extends JPanel {
 		btnUserAdministration = new JButton("User administration");
 		btnUserAdministration.setBounds(158, 185, 125, 23);
 		add(btnUserAdministration);
+		
+		JLabel label = new JLabel(new ImageIcon(getClass().getResource("/Images/background.jpg")));
+		label.setBounds(0, 0, 450, 300);
+		add(label);
 
 	}
 }
