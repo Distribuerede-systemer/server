@@ -1,6 +1,10 @@
 package model;
 
+import com.ibatis.common.jdbc.ScriptRunner;
+
+import java.io.*;
 import java.sql.*;
+
 
 /**
  * Model superclass, never instansiated. All child model classes inherits its properties, classes and methods
@@ -10,7 +14,7 @@ public abstract class Model {
 
     private static String sqlUrl = "jdbc:mysql://localhost:3306/";
     private static String sqlUser = "root";
-    private static String sqlPasswd = "";
+    private static String sqlPasswd = "ukamm19";
 
     private Statement stmt;
     private Connection conn = null;
@@ -27,6 +31,21 @@ public abstract class Model {
         }
     }
 
+
+    /**
+     * Reads and executes SQL from File.
+     * @param filepath
+     * @throws IOException
+     * @throws SQLException
+     */
+    public void readfromSqlFile(String filepath) throws IOException, SQLException {
+        getConnection();
+        ScriptRunner runner = new ScriptRunner(getConn(), false, false);
+        InputStreamReader reader = new InputStreamReader(new FileInputStream(filepath));
+        runner.runScript(reader);
+        reader.close();
+        conn.close();
+    }
     /**
      * Use a preparedstatment to run SQL on the database
      * @param sql
@@ -89,6 +108,26 @@ public abstract class Model {
         return temp;
     }
 
+
+    public String readFromFile(String path) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(path));
+        try {
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
+
+            while (line != null) {
+                sb.append(line);
+                sb.append(System.lineSeparator());
+                line = br.readLine();
+            }
+            return sb.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            br.close();
+        }
+        return "";
+    }
 
     /**
      * Getter-method for Connection-class
