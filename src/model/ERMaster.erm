@@ -121,7 +121,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2014-10-13 10:22:50</creation_date>
-			<updated_date>2014-10-13 11:15:18</updated_date>
+			<updated_date>2014-10-13 11:21:11</updated_date>
 			<model_property>
 				<name>Project Name</name>
 				<value></value>
@@ -379,9 +379,9 @@
 			<binary>false</binary>
 			<args></args>
 			<description></description>
-			<logical_name>text</logical_name>
-			<physical_name>text</physical_name>
-			<type>text</type>
+			<logical_name>temperature</logical_name>
+			<physical_name>temperature</physical_name>
+			<type>double precision</type>
 		</word>
 		<word>
 			<id>15</id>
@@ -409,12 +409,27 @@
 			<binary>false</binary>
 			<args></args>
 			<description></description>
+			<logical_name>text</logical_name>
+			<physical_name>text</physical_name>
+			<type>text</type>
+		</word>
+		<word>
+			<id>17</id>
+			<length>null</length>
+			<decimal>null</decimal>
+			<array>false</array>
+			<array_dimension>null</array_dimension>
+			<unsigned>false</unsigned>
+			<zerofill>false</zerofill>
+			<binary>false</binary>
+			<args></args>
+			<description></description>
 			<logical_name>type</logical_name>
 			<physical_name>type</physical_name>
 			<type>integer</type>
 		</word>
 		<word>
-			<id>17</id>
+			<id>18</id>
 			<length>200</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -429,7 +444,7 @@
 			<type>varchar(n)</type>
 		</word>
 		<word>
-			<id>18</id>
+			<id>19</id>
 			<length>null</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -693,7 +708,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>17</word_id>
+					<word_id>18</word_id>
 					<id>5</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -761,7 +776,7 @@
 			<option></option>
 			<columns>
 				<normal_column>
-					<word_id>18</word_id>
+					<word_id>19</word_id>
 					<id>6</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1220,7 +1235,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>14</word_id>
+					<word_id>15</word_id>
 					<id>15</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1304,8 +1319,8 @@
 			<width>149</width>
 				<font_name>Lucida Grande</font_name>
 				<font_size>9</font_size>
-			<x>218</x>
-			<y>336</y>
+			<x>180</x>
+			<y>348</y>
 			<color>
 				<r>128</r>
 				<g>128</g>
@@ -1320,6 +1335,11 @@
 						<source_yp>-1</source_yp>
 						<target_xp>-1</target_xp>
 						<target_yp>-1</target_yp>
+						<bendpoint>
+							<relative>false</relative>
+							<x>420</x>
+							<y>418</y>
+						</bendpoint>
 						<color>
 							<r>0</r>
 							<g>0</g>
@@ -1398,7 +1418,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>16</word_id>
+					<word_id>17</word_id>
 					<id>18</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1598,7 +1618,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>15</word_id>
+					<word_id>16</word_id>
 					<id>24</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1680,6 +1700,39 @@
 					<not_null>true</not_null>
 					<primary_key>true</primary_key>
 					<unique_key>true</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<word_id>14</word_id>
+					<id>26</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>double precision</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>false</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
 					<character_set></character_set>
 					<collation></collation>
 					<sequence>
