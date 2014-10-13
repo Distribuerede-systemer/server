@@ -9,7 +9,8 @@ public class Controller extends Model {
 	
 	private PreparedStatement saveNotes = null;
 	
-
+//Jeg har lavet en test 
+	
 	public Controller() {
 		super();
 		
