@@ -79,14 +79,14 @@ public class UserInfo extends JPanel {
 		lblOnline.setBounds(78, 217, 67, 14);
 		add(lblOnline);
 
-		JButton btnSubmit = new JButton("Submit changes");
-//		btnSubmit.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent arg0) {
-//			//Submit changes to databases
-//			//hvad sker der når ændringer ved en bruger submittes
-//			}
-//		}
-//		);
+		btnSubmit = new JButton("Submit changes");
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			//Submit changes to databases
+			//hvad sker der når ændringer ved en bruger submittes
+			}
+		}
+		);
 		btnSubmit.setBounds(173, 266, 129, 23);
 		add(btnSubmit);
 
@@ -102,13 +102,13 @@ public class UserInfo extends JPanel {
 		lblNewLabel_1.setBounds(0, 0, 709, 525);
 		add(lblNewLabel_1);
 		
-		JButton btnMainmenu = new JButton("Mainmenu");
+		btnMainmenu = new JButton("Mainmenu");
 		btnMainmenu.setBounds(169, 310, 89, 23);
 		add(btnMainmenu);
 		
-		JButton btnLogOut = new JButton("Log out");
-		btnLogOut.setBounds(293, 310, 89, 23);
-		add(btnLogOut);
+		btnLogout = new JButton("Log out");
+		btnLogout.setBounds(293, 310, 89, 23);
+		add(btnLogout);
 		if (active) {
 			lblNewLabel.setBackground(Color.GREEN);
 			lblNewLabel.repaint();
