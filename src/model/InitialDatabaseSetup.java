@@ -8,8 +8,6 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -20,12 +18,10 @@ public class InitialDatabaseSetup
 
 	/** The Constant URL.  Her skal info fra Henrik ind.*/
 	private static String URL = "jdbc:mysql://localhost:3306/";
-
 	/** The Constant USERNAME. */
-	private static final String USERNAME = "root";
-
+	private static String USERNAME = "root";
 	/** The Constant PASSWORD. */
-	private static final String PASSWORD = "";
+	private static String PASSWORD = "";
 
 	/** The connection. */
 	public Connection connection;
@@ -45,8 +41,23 @@ public class InitialDatabaseSetup
 
 	/** The insert new person. 
 	Her skal vi have oprettet vores SQL statements*/
-	private PreparedStatement insertEnTabel = null; 
+	private PreparedStatement createTable = null; 
+	private PreparedStatement createDatabase = null;
+	private PreparedStatement dropDatabase = null;
 
+	public InitialDatabaseSetup() {
+		getConnection();
+		
+		try {
+			dropDatabase = connection.prepareStatement("DROP DATABASE IF EXISTS where DATABASE = ?;");
+		createDatabase = connection.prepareStatement("CREATE DATABASE calDatabase where ;");
+		createTable = connection.prepareStatement("CREATE TABLE calDatabase.Users(name varchar(255));");
+		
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	public static void setSelectedDatabase(String db)
     {
@@ -61,7 +72,7 @@ public class InitialDatabaseSetup
     	
     	try 
     	{
-        	InitialDatabaseSetup();
+        	getConnection();
 			
         	if(connection.isValid(5000))
 				return true;
@@ -77,10 +88,8 @@ public class InitialDatabaseSetup
 
 	 // Instantiates a new database connect.
 	 //
-	private void InitialDatabaseSetup()
+	private void getConnection() throws SQLException
 	{
-		try 
-		{
 			connection = 
 					DriverManager.getConnection( URL, USERNAME, PASSWORD );
 
@@ -89,15 +98,6 @@ public class InitialDatabaseSetup
 //					"UPDATE exchangerate SET btcratedkk = ? WHERE ID = 1" );
 
 		} 
-		catch ( SQLException sqlException )
-		{
-			sqlException.printStackTrace();
-			System.exit( 1 );
-		} 
 	} 
-
-
-	
-}
  // end class DatabaseConnect
 
