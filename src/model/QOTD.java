@@ -26,18 +26,25 @@ public class QOTD {
         try {
             aSocket = new DatagramSocket();
             byte [] m = new byte[1024];
-            InetAddress aHost = InetAddress.getByName("djxmmx.net");
+            InetAddress aHost = InetAddress.getByName("cygnus-x.net");
             int serverPort = 17;
             System.out.println("Testing 1");
 
+            //send anmodelse
             DatagramPacket request = new DatagramPacket(m, m.length, aHost, serverPort);
             aSocket.send(request);
             System.out.println("Testing 2");
 
+            //modtager informationer
             byte[] buffer = new byte[1024];
             DatagramPacket reply = new DatagramPacket(buffer, buffer.length);
             System.out.println("Testing 2.5");
 
+          
+            System.out.println(reply);
+            System.out.println("Reply: " + new String(reply.getData()));
+            
+            //løsning søges på aSocet.receive
             aSocket.receive(reply);
             System.out.println("Testing 3");
             System.out.println("Reply: " + new String(reply.getData()));
