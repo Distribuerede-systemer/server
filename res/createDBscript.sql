@@ -28,7 +28,7 @@ CREATE TABLE users
 	userid int NOT NULL AUTO_INCREMENT,
 	email varchar(40) NOT NULL,
 	active boolean,
-	created datetime,
+	created datetime NOT NULL DEFAULT NOW(),
 	PRIMARY KEY (userid)
 );
 
@@ -46,7 +46,7 @@ CREATE TABLE notes
 	eventid int NOT NULL,
 	createdby int NOT NULL,
 	text text,
-	created datetime NOT NULL,
+	created datetime NOT NULL DEFAULT NOW(),
 	PRIMARY KEY (noteid)
 );
 
