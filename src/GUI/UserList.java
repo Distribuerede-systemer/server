@@ -25,7 +25,7 @@ import javax.swing.border.MatteBorder;
 import javax.swing.JButton;
 import javax.swing.JTextField;
  
-public class Userlist extends JPanel {
+public class UserList extends JPanel {
     /**
 	 * 
 	 */
@@ -33,7 +33,7 @@ public class Userlist extends JPanel {
 	private static final ActionListener ActionListener = null;
 	private boolean DEBUG = false;
  
-    public Userlist() {
+    public UserList() {
     	setSize(new Dimension(1366, 768));
  
         String[] columnNames = {"First Name",
@@ -141,7 +141,7 @@ public class Userlist extends JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
         //Create and set up the content pane.
-        Userlist newContentPane = new Userlist();
+        UserList newContentPane = new UserList();
         newContentPane.setOpaque(true); //content panes must be opaque
         frame.setContentPane(newContentPane);
  

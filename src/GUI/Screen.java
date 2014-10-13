@@ -24,7 +24,7 @@ public class Screen extends JFrame {
 	private final UserInfo userInfo = new UserInfo();
 	private final NoteList noteList = new NoteList();
 	private final AddUserGUI addUserGUI = new AddUserGUI();
-	private final Userlist userlist = new Userlist();
+	private final UserList userlist = new UserList();
 
 	/**
 	 * Launch the application.
@@ -83,7 +83,7 @@ public class Screen extends JFrame {
 	public NoteList getNoteList() {
 		return noteList;
 	}
-	public Userlist getUserList() {
+	public UserList getUserList() {
 		return userlist;
 	}
 }
