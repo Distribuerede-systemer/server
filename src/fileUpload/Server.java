@@ -45,9 +45,9 @@ public static void main(String[] args) throws IOException {
 
     try {
     	
-    
+    String navn = "hello";
     	//config fil hvor alt saadan noget staar
-        fos = new FileOutputStream("res\\Uploads\\file");
+        fos = new FileOutputStream("res\\Uploads\\"+navn);
        
         
        // ..\\..\\..\\..\\..\\..\\..\\..\\Uploads\\hmmmm 
