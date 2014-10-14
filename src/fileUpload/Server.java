@@ -45,9 +45,12 @@ public static void main(String[] args) throws IOException {
 
     try {
     	
+    
     	//config fil hvor alt saadan noget staar
-        fos = new FileOutputStream("");
-
+        fos = new FileOutputStream("res\\Uploads\\file");
+       
+        
+       // ..\\..\\..\\..\\..\\..\\..\\..\\Uploads\\hmmmm 
         //den gemmer i hukommelsen. Den gemmer loebende biderne i filen i hukommelsen. bum
         bos = new BufferedOutputStream(fos);
 

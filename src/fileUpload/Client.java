@@ -19,8 +19,12 @@ public static void main(String[] args) throws IOException {
     socket = new Socket(localhost, 4444);
 
     
+
+    
     //typisk lav et interface med WB hvort du har et input felt af typen file
-    File file = new File("");
+    // vi skal bruge jfilechoose
+    File file = new File("C:\\Users\\Mrbauer\\Desktop\\tester2.txt");
+    
     
     // Get the size of the file
     long length = file.length();
