@@ -19,7 +19,7 @@ public class encryption {
 		return encrypted;
 	}
 
-//	Decryption path (test)
+//	Decryption path
 	public String decrypt(byte[] b)
 	{
 //		Defines the decryption value of the byte
