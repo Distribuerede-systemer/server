@@ -5,7 +5,8 @@ public class ForecastTest {
     public static void main(String[] args) {
 
         ForecastModel fm = new ForecastModel();
-        fm.requestForecast();
+
+        fm.saveForecast();
 
     }
 

@@ -10,7 +10,7 @@ import GUI.Screen;
 
 public class GUILogic {
 	private Screen screen;
-	private UserInformation u;
+	private boolean u;
 	
 	AuthUser a = new AuthUser();
 	
@@ -42,12 +42,12 @@ public class GUILogic {
 			
 			if (e.getSource() == screen.getLogin().getBtnLogIn()){
 				
-				if(u == null){
+				if(u == false){
 					JOptionPane.showMessageDialog(null, "\nPlease enter a valid username & password."
 							, "Error message",JOptionPane.PLAIN_MESSAGE);
 			}
 
-			if	(u != null)
+			if	(u != true)
 					{
 						screen.show(Screen.MAINMENU);
 					}

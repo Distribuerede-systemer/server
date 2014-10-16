@@ -85,9 +85,14 @@ public class EventList extends JPanel {
 		add(scrollPane);
 
 		JLabel label = new JLabel("");
+<<<<<<< HEAD
 		label.setIcon(new ImageIcon(EventList.class
 				.getResource("/Images/MetalBackground.jpg")));
 		label.setBounds(26, 0, 1366, 768);
+=======
+		label.setIcon(new ImageIcon(EventList.class.getResource("/Images/MetalBackground.jpg")));
+		label.setBounds(38, 11, 1366, 768);
+>>>>>>> origin/master
 		add(label);
 
 	};

@@ -1,4 +1,5 @@
 package model.vejrservice;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -9,24 +10,26 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 
 public class ForecastModel {
 
     // Json parser to retrieve and map data from openweathermap.org
-    public String[] stringArray = new String[3];
+    private ArrayList<Forecast> forecastList = new ArrayList();
+    private String weatherDescription = "";
 
-    public String[] requestForecast(int num_of_days_from_yesterday) {
+    public ArrayList<Forecast> requestForecast() {
         URL url;
         HttpURLConnection conn;
         BufferedReader rd;
         String line;
-        String weatherDescription;
+
         String result = "";
 
         try {
-            url = new URL("http://api.openweathermap.org/data/2.5/forecast/daily?lat=55.681589&lon=12.529092&cnt=" + num_of_days_from_yesterday + "&mode=json&units=metric");
+            url = new URL("http://api.openweathermap.org/data/2.5/forecast/daily?lat=55.681589&lon=12.529092&cnt=14&mode=json&units=metric");
             conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -57,16 +60,18 @@ public class ForecastModel {
                 Date date = new Date((Long) innerObj.get("dt") * 1000L);
                 String string_date = date.toString();
 
-                stringArray[0] = string_date;
+
 
                 JSONObject temp = (JSONObject) innerObj.get("temp");
                 double celsius = (Double) temp.get("day");
 
                 String temperatur = String.valueOf(celsius);
 
-                stringArray[1] = temperatur;
+
 
                 JSONArray subList = (JSONArray) innerObj.get("weather");
+
+
 
                 Iterator y = subList.iterator();
 
@@ -75,9 +80,9 @@ public class ForecastModel {
 
                     weatherDescription = (String) childObj.get("description");
 
-                    stringArray[2] = weatherDescription;
-
                 }
+
+                forecastList.add(new Forecast(string_date, temperatur, weatherDescription));
 
             }
         } catch (ParseException ex) {
@@ -85,6 +90,16 @@ public class ForecastModel {
         } catch (NullPointerException ex) {
             ex.printStackTrace();
         }
-        return stringArray;
+        return forecastList;
+    }
+
+    public void saveForecast() {
+        this.requestForecast();
+
+        for (int i = 1; i < forecastList.size(); i++) {
+            System.out.println(forecastList.get(i).toString());
+        }
+
+
     }
 }

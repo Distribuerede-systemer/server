@@ -1,5 +1,10 @@
 package model;
 
+
+/**
+ * Ved ikke om den skal bruges. fordi 
+ */
+
 public class Events extends Model {
 	
 	private int eventID;
