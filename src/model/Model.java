@@ -12,11 +12,11 @@ import java.sql.*;
  */
 public abstract class Model {
 
-    private static String sqlUrl = "jdbc:mysql://54.172.101.85:3306/cbscalendar";
+    private static String sqlUrl = "jdbc:mysql://54.172.101.85:3306";
     private static String sqlUser = "root";
     private static String sqlPasswd = "doekdoek";
-    //private static String dbName = "cbscalendar";
-
+    private static String dbName = "cbscalendar";
+    
     private Statement stmt;
     protected Connection conn = null;
     protected PreparedStatement sqlStatement;
@@ -38,14 +38,14 @@ public abstract class Model {
         getConnection();
         ResultSet resultSet = getConn().getMetaData().getCatalogs();
         while (resultSet.next()) {
-
             String databaseName = resultSet.getString(1);
-            if(databaseName.equals(databaseName)){
+            System.out.println(databaseName);
+            if(databaseName.equals(dbName)){
                 return true;
             }
         }
         resultSet.close();
-        return true;
+        return false;
     }
 
     /**
@@ -151,7 +151,7 @@ public abstract class Model {
      * @throws java.sql.SQLException
      */
     public void getConnection() throws SQLException {
-        setConn(DriverManager.getConnection(sqlUrl, sqlUser, sqlPasswd));
+        setConn(DriverManager.getConnection(sqlUrl+"/"+dbName, sqlUser, sqlPasswd));
     }
 
     /**
