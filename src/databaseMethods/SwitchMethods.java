@@ -42,7 +42,7 @@ public class SwitchMethods extends Model
 		getConn();
 		boolean authenticate = false;
 		
-		resultSet= qb.selectFrom("calendar").where("name", "=", "newCalendarName").ExecuteQuery();
+		resultSet= qb.selectFrom("calendar").where("name", "=", newCalenderName).ExecuteQuery();
 				
 				//("select * from test.calender where Name = '"+newCalenderName+"';");
 		while(resultSet.next())
@@ -80,7 +80,7 @@ public class SwitchMethods extends Model
 		String stringToBeReturend = "";
 		String usernameOfCreator ="";
 		String calenderExists = "";
-		resultSet = qb.selectFrom("calendar").where("Name", "=", "calendarName").ExecuteQuery();
+		resultSet = qb.selectFrom("Calender").where("Name", "=", calenderName).ExecuteQuery();
 				
 //				("select * from calender where Name = '"+calenderName+"';");
 		while(resultSet.next())
@@ -90,7 +90,7 @@ public class SwitchMethods extends Model
 		if(!calenderExists.equals(""))
 		{
 			String [] value = {"CreatedBy"};
-			resultSet = qb.selectFrom(value, "Calendar").where("Name", "=", "calendarName").ExecuteQuery();
+			resultSet = qb.selectFrom(value, "Calender").where("Name", "=", calenderName).ExecuteQuery();
 			while(resultSet.next())
 			{
 				usernameOfCreator = resultSet.toString();
@@ -104,7 +104,7 @@ public class SwitchMethods extends Model
 			{
 				String [] keys = {"Active"};
 				String [] values = {"2"};
-				qb.update("Calendar", keys, values).where("Name", "=", "calendarName").Execute();
+				qb.update("Calendar", keys, values).where("Name", "=", calenderName).Execute();
 				stringToBeReturend = "Calender has been set inactive";
 			}
 			stringToBeReturend = resultSet.toString();
