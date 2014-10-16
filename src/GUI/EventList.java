@@ -41,11 +41,11 @@
 			add(lblEvents);
 
 			JButton btnDeleteEvent = new JButton("Delete Course");
-			btnDeleteEvent.setBounds(1138, 672, 213, 41);
+			btnDeleteEvent.setBounds(1100, 672, 202, 41);
 			add(btnDeleteEvent);
 
 			JButton btnCreateEvent = new JButton("Create Course");
-			btnCreateEvent.setBounds(1138, 615, 213, 41);
+			btnCreateEvent.setBounds(1100, 615, 202, 41);
 			add(btnCreateEvent);
 
 			JLabel lblUpcomingEvent = new JLabel("Upcomming Events:");
@@ -80,7 +80,7 @@
 					BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255,
 							255), new Color(0, 0, 205), new Color(255, 255, 255)),
 					null));
-			scrollPane.setBounds(290, 177, 841, 536);
+			scrollPane.setBounds(257, 177, 841, 536);
 
 			// Add the scroll pane to this panel.
 			add(scrollPane);
