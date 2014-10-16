@@ -1,11 +1,11 @@
-CREATE DATABASE cbscalendar;
+CREATE DATABASE IF NOT EXISTS cbscalendar;
 use cbscalendar;
 
 SET SESSION FOREIGN_KEY_CHECKS=0;
 
 /* Create Tables */
 
-CREATE TABLE locationdata
+CREATE TABLE IF NOT EXISTS locationdata
 (
 	locationdataid int NOT NULL AUTO_INCREMENT,
 	longitude int NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE locationdata
 );
 
 
-CREATE TABLE roles
+CREATE TABLE IF NOT EXISTS roles
 (
 	roleid int NOT NULL AUTO_INCREMENT,
 	userid int NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE roles
 );
 
 
-CREATE TABLE users
+CREATE TABLE IF NOT EXISTS users
 (
 	userid int NOT NULL AUTO_INCREMENT,
 	email varchar(40) NOT NULL,
@@ -34,14 +34,14 @@ CREATE TABLE users
 );
 
 
-CREATE TABLE userevents
+CREATE TABLE IF NOT EXISTS userevents
 (
 	userid int NOT NULL,
 	eventid int NOT NULL
 );
 
 
-CREATE TABLE notes
+CREATE TABLE IF NOT EXISTS notes
 (
 	noteid int NOT NULL AUTO_INCREMENT,
 	eventid int NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE notes
 );
 
 
-CREATE TABLE events
+CREATE TABLE IF NOT EXISTS events
 (
 	eventid int NOT NULL AUTO_INCREMENT,
 	type int NOT NULL,
@@ -66,7 +66,7 @@ CREATE TABLE events
 );
 
 
-CREATE TABLE dailyupdate
+CREATE TABLE IF NOT EXISTS dailyupdate
 (
 	date datetime NOT NULL UNIQUE,
 	apparentTemperature double,
