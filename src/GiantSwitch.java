@@ -13,8 +13,7 @@ import databaseMethods.SwitchMethods;
 
 public class GiantSwitch {
 	public String GiantSwitchMethod(String jsonString) throws SQLException {
-		//klasser der kaldes
-		Event eventKlasse = new Event();
+
 		//Events eventsKlasse = new Events(0, 0, 0, jsonString, jsonString, jsonString, jsonString, jsonString);
 		Note noteKlasse = new Note();
 		//ForecastModel forecastKlasse = new ForecastModel();

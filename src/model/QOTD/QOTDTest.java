@@ -7,11 +7,6 @@ public class QOTDTest {
 		QOTDModel qm = new QOTDModel();
 		
 		qm.getQuote();
-		System.out.println("hej");
-		
-		qm.fetchQuote();
-		
-		System.out.println("hej2");
 	}
 
 }
