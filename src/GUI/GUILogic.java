@@ -95,6 +95,12 @@ public class GUILogic {
 	private class NoteListActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
+			if (e.getSource() == screen.getNoteList().getBtnMainMenu()){
+				screen.show(Screen.MAINMENU);
+			}
+			if (e.getSource() == screen.getNoteList().getBtnLogout()){
+				screen.show(Screen.LOGIN);
+			}
 		}
 	}
 	
