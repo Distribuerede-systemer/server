@@ -54,6 +54,11 @@ public class Execute extends Model {
         this.values = values;
     }
 
+    /**
+     * Execute SQL and returns ResultSet.
+     * @return
+     * @throws SQLException
+     */
     public ResultSet ExecuteQuery() throws SQLException {
         String sql = "";
         if (isGetAll()) {
@@ -84,6 +89,11 @@ public class Execute extends Model {
     }
 
 
+    /**
+     * Execute SQL Query. <strong>OBS nothing returns.</strong>
+     * @return
+     * @throws SQLException
+     */
     public boolean Execute() throws SQLException {
         String sql = "";
 
@@ -138,16 +148,5 @@ public class Execute extends Model {
         return sqlStatement.execute();
     }
 
-    public String test() {
-        String sql = INSERTINTO + getQueryBuilder().getTableName() + " (" + getQueryBuilder().getFields() + ")" + VALUES + "(";
-        StringBuilder sb = new StringBuilder();
-        for (String n : getValues().getValues()) {
-            if (sb.length() > 0) sb.append(',');
-            sb.append(" ?");
-        }
-        sql += sb.toString();
-        sql += " );";
-        return sql;
-    }
 
 }

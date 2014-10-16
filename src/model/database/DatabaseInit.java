@@ -17,8 +17,6 @@ public class DatabaseInit extends Model {
 
     public void go() throws SQLException, IOException {
 
-        QueryBuilder queryBuilder = new QueryBuilder();
-
 
         String[] keys = {"firstKey", "secondKey"};
         String[] wheremparamters = {"alder", "hat"};
