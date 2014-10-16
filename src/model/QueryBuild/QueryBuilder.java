@@ -1,7 +1,5 @@
 package model.QueryBuild;
 
-import java.util.Arrays;
-
 /**
  * Created by jesperbruun on 15/10/14.
  */

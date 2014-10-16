@@ -67,7 +67,8 @@ public class Execute extends Model {
             try {
                 getConnection();
                 getConn();
-                sqlStatement = getConn().prepareStatement(sql);
+                String cleanSql = StringEscapeUtils.escapeSql(sql);
+                sqlStatement = getConn().prepareStatement(cleanSql);
 
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -79,7 +80,8 @@ public class Execute extends Model {
             try {
                 getConnection();
                 getConn();
-                sqlStatement = getConn().prepareStatement(sql);
+                String cleanSql = StringEscapeUtils.escapeSql(sql);
+                sqlStatement = getConn().prepareStatement(cleanSql);
                 sqlStatement.setString(1, getWhere().getWhereValue());
 
             } catch (SQLException e) {
@@ -104,7 +106,8 @@ public class Execute extends Model {
             try {
                 getConnection();
                 getConn();
-                sqlStatement = getConn().prepareStatement(sql);
+                String cleanSql = StringEscapeUtils.escapeSql(sql);
+                sqlStatement = getConn().prepareStatement(cleanSql);
 
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -115,7 +118,8 @@ public class Execute extends Model {
             try {
                 getConnection();
                 getConn();
-                sqlStatement = getConn().prepareStatement(sql);
+                String cleanSql = StringEscapeUtils.escapeSql(sql);
+                sqlStatement = getConn().prepareStatement(cleanSql);
                 sqlStatement.setString(1, getWhere().getWhereValue());
 
             } catch (SQLException e) {
@@ -135,7 +139,8 @@ public class Execute extends Model {
             try {
                 getConnection();
                 getConn();
-                sqlStatement = getConn().prepareStatement(sql);
+                String cleanSql = StringEscapeUtils.escapeSql(sql);
+                sqlStatement = getConn().prepareStatement(cleanSql);
                 int x = 0;
                 for (int i = 0; i < getValues().getValues().length; i++) {
                     x = i;
