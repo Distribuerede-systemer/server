@@ -1,6 +1,7 @@
 package model.QueryBuild;
 
 import model.Model;
+import org.apache.commons.lang.StringEscapeUtils;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -122,6 +123,7 @@ public class Execute extends Model {
             }
         } else {
             System.out.println(sql);
+            
             sql = INSERTINTO + getQueryBuilder().getTableName() + " (" + getQueryBuilder().getFields() + ")" + VALUES + "(";
             StringBuilder sb = new StringBuilder();
             for (String n : getValues().getValues()) {
