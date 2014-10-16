@@ -75,10 +75,14 @@ public class Login extends JPanel {
 		btnLogIn.setBounds(572, 449, 222, 51);
 		
 		add(btnLogIn);
+		btnForgotLogIn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnForgotLogIn.setContentAreaFilled(false);
 		btnForgotLogIn.setForeground(new Color(255, 255, 255));
 		btnForgotLogIn.setBorderPainted(false);
-		btnForgotLogIn.setBounds(565, 500, 236, 29);
+		btnForgotLogIn.setBounds(485, 502, 403, 41);
 		
 		add(btnForgotLogIn);
 		lblCBSlogo.setIcon(new ImageIcon(Login.class.getResource("/Images/CBSLogo3.png")));

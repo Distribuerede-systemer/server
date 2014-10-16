@@ -6,6 +6,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -37,9 +38,37 @@ public class NoteList extends JPanel {
 		setSize(new Dimension(1366, 768));
 		setLayout(null);
 		
-		table = new JTable();
-		table.setBounds(285, 190, 796, 320);
-		add(table);
+		//Laver tabellen inde i Eventlisten.
+		String[] columnNames = { "Note", "Event", "Date", "Numbers of Notes" };
+
+		Object[][] data = {
+
+				{ "DØK Julefrokost", "11.11.2022", "Game on!","", new Boolean(false) },
+				{ "DØK Julefrokost", "11.11.2022", "Game on!","", new Boolean(true) },
+				{ "DØK Julefrokost", "11.11.2022", "Game on!","", new Boolean(false) },
+				{ "DØK Julefrokost", "11.11.2022", "Game on!","", new Boolean(true) },
+				{ "DØK Julefrokost", "11.11.2022", "Game on!","", new Boolean(false) } };
+
+		final JTable table = new JTable(data, columnNames);
+		table.setSurrendersFocusOnKeystroke(true);
+		table.setPreferredScrollableViewportSize(new Dimension(500, 100));
+		table.setFillsViewportHeight(true);
+		table.setRowSelectionAllowed(true);
+
+		// Create the scroll pane and add the table to it.
+		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setBorder(new CompoundBorder(new BevelBorder(
+				BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255,
+						255), new Color(0, 0, 205), new Color(255, 255, 255)),
+				new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255))));
+		scrollPane.setViewportBorder(new CompoundBorder(new BevelBorder(
+				BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255,
+						255), new Color(0, 0, 205), new Color(255, 255, 255)),
+				null));
+		scrollPane.setBounds(149, 171, 1062, 376);
+
+		// Add the scroll pane to this panel.
+		add(scrollPane);
 		
 		lblHeader = new JLabel("NoteList");
 		lblHeader.setForeground(Color.WHITE);
@@ -51,14 +80,14 @@ public class NoteList extends JPanel {
 		btnDelete.setOpaque(true);
 		btnDelete.setForeground(new Color(0, 0, 205));
 		btnDelete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
-		btnDelete.setBounds(1092, 230, 118, 29);
+		btnDelete.setBounds(1222, 227, 118, 29);
 		add(btnDelete);
 		
 		btnAdd = new JButton("Add");
 		btnAdd.setOpaque(true);
 		btnAdd.setForeground(new Color(0, 0, 205));
 		btnAdd.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
-		btnAdd.setBounds(1092, 190, 118, 29);
+		btnAdd.setBounds(1222, 193, 118, 29);
 		add(btnAdd);
 		
 		btnMainMenu = new JButton("Main Menu");
