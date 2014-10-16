@@ -1,9 +1,13 @@
 import java.sql.SQLException;
+
 import model.QOTD.QOTDModel;
 import model.calendar.Event;
 import model.note.Note;
 import JsonClasses.CalendarInfo;
+import JsonClasses.CreateCalender;
+
 import com.google.gson.*;
+
 import databaseMethods.SwitchMethods;
 
 public class GiantSwitch {
@@ -30,7 +34,6 @@ public class GiantSwitch {
 			System.out.println("Recieved importCourse");
 			break;
 
-
 		/**********
 		 ** LOGIN **
 		 **********/
@@ -46,21 +49,20 @@ public class GiantSwitch {
 		 ** CALENDAR **
 		 *************/
 		case "createCalender":
-			System.out.println("Recieved createCalender");
-			CalendarInfo CI1 = (CalendarInfo)gson.fromJson(jsonString, CalendarInfo.class);
-			System.out.println(CI1.getCalenderName()+ "Den har lagt det nye ind i klassen");
-			answer = SW.createNewCalender(CI1.getUserName(), CI1.getCalenderName(), CI1.getPublicOrPrivate());
+			CreateCalender CC = (CreateCalender)gson.fromJson(jsonString, CreateCalender.class);
+			System.out.println(CC.getCalenderName()+ "Den har lagt det nye ind i klassen");
+			answer = SW.createNewCalender(CC.getUserName(), CC.getCalenderName(), CC.getPublicOrPrivate());
 			break;
 		
 		case "deleteCalender":
-			System.out.println("Recieved deleteCalender");
-			CalendarInfo CI2 = (CalendarInfo)gson.fromJson(jsonString, CalendarInfo.class);
-			System.out.println(CI2.getCalenderName()+ "Den har lagt det nye ind i klassen");
-			answer = SW.deleteCalender(CI2.getUserName(), CI2.getCalenderName());
+			CalendarInfo DC = (CalendarInfo)gson.fromJson(jsonString, CalendarInfo.class);
+			System.out.println(DC.getCalenderName()+ "Den har lagt det nye ind i klassen");
+			answer = SW.deleteCalender(DC.getUserName(), DC.getCalenderName());
 			break;
 		
 		case "saveImportedCalender":
-			System.out.println("Recieved saveImportedCalender");
+			
+			
 			break;
 			
 		case "getCalender":
