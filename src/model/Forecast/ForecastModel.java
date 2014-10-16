@@ -1,4 +1,5 @@
 package model.Forecast;
+
 import model.QueryBuild.QueryBuilder;
 
 import org.json.simple.JSONArray;
@@ -16,8 +17,6 @@ import java.util.Date;
 import java.util.Iterator;
 
 public class ForecastModel {
-
-
 
 	     // Json parser to retrieve and map data from openweathermap.org
 	     private ArrayList<Forecast> forecastList = new ArrayList();
@@ -109,9 +108,7 @@ public class ForecastModel {
 	     		return this.requestForecast();
 	     	} else {
 	     		// Query database and fetch existing weather data from db
-	     		Resultset abc;
-	     		abc = qb.selectFrom("users").where("", "","").executeQuery();
-	     		return abc; //return data from database
+	     		return null; //return data from database
 	     	}
 	     }
 	 

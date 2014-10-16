@@ -43,7 +43,6 @@ public class Forecast {
     }
     
     // Returnere vejrudsigten som en json tekststreng
-    @Override
     public String getForecast() {
         return "Forecast{" +
                 "date='" + date + '\'' +
