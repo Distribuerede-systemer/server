@@ -96,7 +96,7 @@ public class Login extends JPanel {
 		lblBackground.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBackground.setIcon(new ImageIcon(Login.class.getResource("/Images/MetalBackground.jpg")));
 		lblBackground.setSize(new Dimension(1366, 768));
-		lblBackground.setBounds(0, 0, 1356, 768);
+		lblBackground.setBounds(0, 0, 1366, 768);
 		
 		add(lblBackground);
 
