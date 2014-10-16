@@ -60,18 +60,11 @@ public class ForecastModel {
                 Date date = new Date((Long) innerObj.get("dt") * 1000L);
                 String string_date = date.toString();
 
-
-
                 JSONObject temp = (JSONObject) innerObj.get("temp");
                 double celsius = (Double) temp.get("day");
 
                 String temperatur = String.valueOf(celsius);
-
-
-
                 JSONArray subList = (JSONArray) innerObj.get("weather");
-
-
 
                 Iterator y = subList.iterator();
 
