@@ -25,6 +25,7 @@ public class EncryptUserID {
         }
     }
 
+    // Enkryptere en tekst streng som bliver parset til funktionen
     public static String crypt(String str) {
         if (str == null || str.length() == 0) {
             throw new IllegalArgumentException("Error");

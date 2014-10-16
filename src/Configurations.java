@@ -54,11 +54,11 @@ public class Configurations {
 	      String username = (String) jsonObject.get("username");
 	      String password = (String) jsonObject.get("password");
 	      
-	      jsonObject.get("host");
-	      jsonObject.get("port");
-	      jsonObject.get("username");
-	      jsonObject.get("password");
-	      
+			//		jsonObject.get("host");
+			//		jsonObject.get("port");
+			//		jsonObject.get("username");
+			//		jsonObject.get("password");
+
 	  } catch (ParseException ex) {
 	      ex.printStackTrace();
 	  } catch (NullPointerException ex) {

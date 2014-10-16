@@ -3,7 +3,7 @@ public class encryption {
 //	Encryption pass
 	public String StringEncryption(String stringToEncryption)
 	{
-//		Defines what value the byte has
+//		Defines what value the byte is generated with
 		byte ff = (byte) 3.1470;
 //		Creates an Array containing encryptedBytes
 		byte[] encryptedBytes = stringToEncryption.getBytes();
@@ -22,7 +22,7 @@ public class encryption {
 //	Decryption path
 	public String decrypt(byte[] b)
 	{
-//		Defines what value the byte has
+//		Defines the decryption value of the byte
 		byte ff = (byte) 3.1470;
 //		Generates for loop containing decryption value
 		for(int i = 0 ; i<b.length ; i++)

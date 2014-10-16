@@ -1,4 +1,4 @@
-package model.vejrservice;
+package model.Forecast;
 
 /**
  * Created by danielfranch on 16/10/14.
@@ -10,12 +10,14 @@ public class Forecast {
     private String celsius;
     private String desc;
 
+    // Funktion som setter dato, grader og beskrivelse til Forecast objektet
     public Forecast(String date, String celsius, String desc) {
         this.date = date;
         this.celsius = celsius;
         this.desc = desc;
     }
-
+    
+    // Settere og gettere for Forecast klassen
     public String getDate() {
         return date;
     }
@@ -39,13 +41,9 @@ public class Forecast {
     public void setDesc(String desc) {
         this.desc = desc;
     }
-
-    @Override
-    /**
-     *  In general, the toString method returns a string
-   	 *	that "textually represents" this object
-     */
-    public String toString() {
+    
+    // Returnere vejrudsigten som en json tekststreng
+    public String getForecast() {
         return "Forecast{" +
                 "date='" + date + '\'' +
                 ", celsius='" + celsius + '\'' +

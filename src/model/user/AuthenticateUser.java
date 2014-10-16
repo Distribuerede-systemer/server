@@ -9,24 +9,48 @@ import javax.crypto.spec.SecretKeySpec;
 import model.QueryBuild.QueryBuilder;
 
 public class AuthenticateUser {
+
+	private String encryptionKey = "cdc63491uAf24938"; // Krypteringsnoegle
+
+	private ResultSet resultSet;
 	
-	private String encryptionKey = "cdc63491uAf24938";
+	private QueryBuilder qb;
 
-    private ResultSet resultSet;
-	public boolean authenticate(String email, String password) throws Exception {
+	// Metoden faar email og password fra switchen (udtrukket fra en json) samt en boolean der skal saettes til true hvis det er serveren der logger på, og false hvis det er en klient
+	public boolean authenticate(String email, String password, boolean isAdmin) throws Exception {
 
-		String[] keys = {"email", "password"};
+		String[] keys = {"userid", "email", "active", "password"};
 
-		QueryBuilder qb = new QueryBuilder();
+		qb = new QueryBuilder();
+
+		// Henter info om bruger fra database via querybuilder
 		resultSet = qb.selectFrom(keys, "users").where("email", "=", email).ExecuteQuery();
 
+		// Hvis en bruger med forespurgt email findes
 		if (resultSet.next()){
-			String passFromData = resultSet.getString("password");
-			resultSet.close();
 
-			if(passFromData.equals(decrypt(password)))
-			{
-				return true;
+			// Hvis brugeren er aktiv
+			if(resultSet.getInt("active")==1)
+			{					
+				// Hvis passwords matcher
+				if(resultSet.getString("password").equals(decrypt(password)))
+				{
+					int userID = resultSet.getInt("userid");
+					
+					String[] key = {"type"};
+					
+					resultSet = qb.selectFrom(key, "roles").where("userid", "=", new Integer(userID).toString()).ExecuteQuery();
+
+					// Hvis brugeren baade logger ind og er registreret som admin, eller hvis brugeren baade logger ind og er registreret som bruger
+					if((resultSet.getString("type").equals("admin") && isAdmin) || (resultSet.getString("type").equals("user") && !isAdmin))
+					{
+						return true;
+					} else {
+						return false;
+					}
+				} else {
+					return false;
+				}
 			} else {
 				return false;
 			}
@@ -48,19 +72,19 @@ public class AuthenticateUser {
 
 		return decrypted;
 	}
-	
+
 	/*
-	 * Nedenstï¿½ende metode skal implementeres i klienterne. Metoden kan kryptere strings med AES 128 bit encryption. (encryptionKey = "cdc63491uAf24938")
+	 * Nedenstaaende metode skal implementeres i klienterne. Metoden kan kryptere strings med AES 128 bit encryption. (encryptionKey = "cdc63491uAf24938")
 	 */
-//	private String encrypt(String toEncrypt) throws Exception {
-//		
-//		Key aesKey = new SecretKeySpec(encryptionKey.getBytes(), "AES");
-//		Cipher cipher = Cipher.getInstance("AES");
-//
-//		cipher.init(Cipher.ENCRYPT_MODE, aesKey);
-//		byte[] encrypted = cipher.doFinal(toEncrypt.getBytes());
-//
-//		return new String(encrypted);
-//	}
-	
+	//	private String encrypt(String toEncrypt) throws Exception {
+	//		
+	//		Key aesKey = new SecretKeySpec(encryptionKey.getBytes(), "AES");
+	//		Cipher cipher = Cipher.getInstance("AES");
+	//
+	//		cipher.init(Cipher.ENCRYPT_MODE, aesKey);
+	//		byte[] encrypted = cipher.doFinal(toEncrypt.getBytes());
+	//
+	//		return new String(encrypted);
+	//	}
+
 }

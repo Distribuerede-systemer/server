@@ -5,6 +5,8 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 
+
+
 import model.QueryBuild.QueryBuilder;
 
 import org.json.simple.JSONObject;
@@ -13,7 +15,7 @@ import org.json.simple.parser.JSONParser;
 public class QOTDModel {
 
 	private ArrayList<QOTD> qotdlist = new ArrayList<>();
-	QueryBuilder qb = new QueryBuilder();
+    QueryBuilder qb = new QueryBuilder();
     
     /**
      *
@@ -29,7 +31,6 @@ public class QOTDModel {
             char[] chars = new char[1024];
             while ((read = reader.read(chars)) != -1)
                 buffer.append(chars, 0, read);
-
             return buffer.toString();
         } finally {
             if (reader != null)
@@ -55,7 +56,7 @@ public class QOTDModel {
     			String quote = (String) jsonObject.get("quote");
     			String author = (String) jsonObject.get("author");
     			String topic = (String) jsonObject.get("topic");
-    	qotdlist.add(new QOTD(quote, author, topic));
+    			qotdlist.add(new QOTD(quote, author, topic));
     	
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -66,5 +67,7 @@ public class QOTDModel {
     //Gemme i database
      	public void saveQuote() {
 			getQuote();
+			
+			qb.insertInto("dailyupdate", null);
      	}
 }

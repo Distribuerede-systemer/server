@@ -1,3 +1,5 @@
+
+
 package GUI;
 
 import java.awt.Dimension;
@@ -17,13 +19,10 @@ import javax.swing.border.BevelBorder;
 import java.awt.Color;
 
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-
 import java.awt.Font;
 
 import javax.swing.border.MatteBorder;
 import javax.swing.JButton;
-import javax.swing.JTextField;
 import javax.swing.ImageIcon;
  
 public class UserList extends JPanel {
@@ -54,11 +53,25 @@ public class UserList extends JPanel {
 //        {"Joe", "Brown", new Integer(10), new Boolean(false)}
 //        };
         
-        Object[][] data = {
+//        Object[][] data = {
+//        		
+//<<<<<<< HEAD
+//=======
+//        {"Kathy", "Smith", new Integer(10), new Boolean(false)},
+//        {"John", "Doe", new Integer(7), new Boolean(true)},
+//        {"Sue", "Black", new Integer(2), new Boolean(false)},
+//        {"Jane", "White", new Integer(20), new Boolean(true)},
+//        {"Joe", "Brown", new Integer(10), new Boolean(false)}
+//>>>>>>> origin/master
+//        };
+        
+
+      
+Object[][] data = {
         		
         };
         
-
+	
         ga
         try {
 			rs = db.doQuery("SELECT * FROM users'");
@@ -70,17 +83,19 @@ public class UserList extends JPanel {
 	        	data[count][2] = rs.getString("active");
 	        	data[count][3] = rs.getString("created");
 	        	data[count][4] = rs.getString("password");
-	        	
+
 	        	count++;
 	        }
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
+
  
         final JTable table = new JTable(data, columnNames);
         table.setPreferredScrollableViewportSize(new Dimension(500, 70));
         table.setFillsViewportHeight(true);
         table.setRowSelectionAllowed(true);
+        
  
         if (DEBUG) {
             table.addMouseListener(new MouseAdapter() {
@@ -95,12 +110,16 @@ public class UserList extends JPanel {
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255, 255), new Color(0, 0, 205), new Color(255, 255, 255)), new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255))));
         scrollPane.setViewportBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255, 255), new Color(0, 0, 205), new Color(255, 255, 255)), null));
+
+        scrollPane.setBounds(417, 225, 590, 360);
+
         scrollPane.setBounds(388, 225, 591, 361);
+
  
         //Add the scroll pane to this panel.
         add(scrollPane);
         
-        btnAdd = new JButton("Add");
+        JButton btnAdd = new JButton("Add");
         btnAdd.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
         btnAdd.setForeground(new Color(0, 0, 205));
         btnAdd.setOpaque(true);
@@ -110,21 +129,22 @@ public class UserList extends JPanel {
           String firstName = JOptionPane.showInputDialog(null, "First Name", null);
           String lastName = JOptionPane.showInputDialog(null, "Last Name", null);
           String eMail = JOptionPane.showInputDialog(null, "Email", null);
+          
         	}
         });
         
-        btnAdd.setBounds(988, 263, 118, 29);
+        btnAdd.setBounds(1019, 556, 118, 29);
         add(btnAdd);
         
-        btnLogout = new JButton("Log out");
+        JButton btnLogout = new JButton("Log out");
         btnLogout.setForeground(Color.WHITE);
         btnLogout.setFont(new Font("Arial", Font.BOLD, 30));
         btnLogout.setContentAreaFilled(false);
         btnLogout.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-        btnLogout.setBounds(624, 667, 117, 43);
+        btnLogout.setBounds(642, 688, 152, 44);
         add(btnLogout);
         
-        btnMainMenu = new JButton("Main Menu");
+        JButton btnMainMenu = new JButton("Main Menu");
         btnMainMenu.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
         	}
@@ -133,25 +153,29 @@ public class UserList extends JPanel {
         btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
         btnMainMenu.setContentAreaFilled(false);
         btnMainMenu.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-        btnMainMenu.setBounds(601, 612, 163, 43);
+        btnMainMenu.setBounds(622, 646, 194, 44);
         add(btnMainMenu);
         
         JLabel lblUserlist = new JLabel("Userlist");
         lblUserlist.setForeground(Color.WHITE);
         lblUserlist.setFont(new Font("Arial", Font.BOLD, 78));
+
+        lblUserlist.setBounds(549, 118, 298, 90);
+
         lblUserlist.setBounds(534, 90, 298, 90);
+
         add(lblUserlist);
         
-        btnDelete = new JButton("Delete");
+        JButton btnDelete = new JButton("Delete");
         btnDelete.setOpaque(true);
         btnDelete.setForeground(new Color(0, 0, 205));
         btnDelete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
-        btnDelete.setBounds(988, 223, 118, 29);
+        btnDelete.setBounds(1019, 515, 118, 29);
         add(btnDelete);
         
         JLabel lblNewLabel = new JLabel("");
         lblNewLabel.setIcon(new ImageIcon(UserList.class.getResource("/Images/CBSLogo3.png")));
-        lblNewLabel.setBounds(10, 698, 250, 59);
+        lblNewLabel.setBounds(36, 695, 223, 67);
         add(lblNewLabel);
     
         JLabel lblBackground = new JLabel("Background");
@@ -195,7 +219,7 @@ public class UserList extends JPanel {
         newContentPane.setOpaque(true); //content panes must be opaque
         frame.setContentPane(newContentPane);
  
-        //Display the window
+
         
         frame.setVisible(true);
     }
@@ -213,7 +237,7 @@ public class UserList extends JPanel {
     }
     
     public void addActionListener(ActionListener l) {
-		btnAdd.addActionListener(l);
+//		btnAdd.addActionListener(l);
 		btnDelete.addActionListener(l);
 		btnLogout.addActionListener(l);
 		btnMainMenu.addActionListener(l);
