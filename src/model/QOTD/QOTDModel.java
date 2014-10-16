@@ -56,7 +56,7 @@ public class QOTDModel {
     			String quote = (String) jsonObject.get("quote");
     			String author = (String) jsonObject.get("author");
     			String topic = (String) jsonObject.get("topic");
-    	qotdlist.add(new QOTD(quote, author, topic));
+    			qotdlist.add(new QOTD(quote, author, topic));
     	
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -67,5 +67,7 @@ public class QOTDModel {
     //Gemme i database
      	public void saveQuote() {
 			getQuote();
+			
+			qb.insertInto("dailyupdate", null);
      	}
 }

@@ -1,4 +1,4 @@
-package model.vejrservice;
+package model.Forecast;
 
 import model.QueryBuild.QueryBuilder;
 
