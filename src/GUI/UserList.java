@@ -37,7 +37,7 @@ public class UserList extends JPanel {
 	private JButton btnDelete;
 	private JButton btnLogout;
 	private JButton btnMainMenu;
- 
+	
     public UserList() {
     	setSize(new Dimension(1366, 768));
  
@@ -45,14 +45,37 @@ public class UserList extends JPanel {
                                 "Last Name",
                                 "Email"};
  
+//        Object[][] data = {
+//        		
+//        {"Kathy", "Smith", new Integer(5), new Boolean(false)},
+//        {"John", "Doe", new Integer(3), new Boolean(true)},
+//        {"Sue", "Black", new Integer(2), new Boolean(false)},
+//        {"Jane", "White", new Integer(20), new Boolean(true)},
+//        {"Joe", "Brown", new Integer(10), new Boolean(false)}
+//        };
+        
         Object[][] data = {
         		
-        {"Kathy", "Smith", new Integer(5), new Boolean(false)},
-        {"John", "Doe", new Integer(3), new Boolean(true)},
-        {"Sue", "Black", new Integer(2), new Boolean(false)},
-        {"Jane", "White", new Integer(20), new Boolean(true)},
-        {"Joe", "Brown", new Integer(10), new Boolean(false)}
         };
+        
+
+        ga
+        try {
+			rs = db.doQuery("SELECT * FROM users'");
+			
+	        int count = 0;
+	        while (rs.next()) {
+	        	data[count][0] = rs.getString("userid");
+	        	data[count][1] = rs.getString("email");
+	        	data[count][2] = rs.getString("active");
+	        	data[count][3] = rs.getString("created");
+	        	data[count][4] = rs.getString("password");
+	        	
+	        	count++;
+	        }
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
  
         final JTable table = new JTable(data, columnNames);
         table.setPreferredScrollableViewportSize(new Dimension(500, 70));
