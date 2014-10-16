@@ -10,6 +10,8 @@ import java.net.URL;
  * Created by jesperbruun on 13/10/14.
  */
 public class GetCalendarData {
+	
+	EncryptUserID e = new EncryptUserID();
 
 
     //Read URL
@@ -39,16 +41,17 @@ public class GetCalendarData {
          * Get URL From calendar.cbs.dk -> Subscribe -> change URL to end with .json
          * Encrypt hash from
          */
-    	
-        String json = readUrl("http://calendar.cbs.dk/events.php/jeha13ad/02a24d4e002e6e3571227c39e2f63784.json");
+    	String userID = "1234";
+        String json = readUrl("http://calendar.cbs.dk/events.php/"+userID+" /"+e.getKey()+".json");
+//        String json = readUrl("http://calendar.cbs.dk/events.php/"+userID+" /02a24d4e002e6e3571227c39e2f63784.json");
+        System.out.println(json);
 
         Gson gson = new Gson();
-        Events events = gson.fromJson(json, Events.class);
+        Events events = gson.fromJson(json, Events.class); 
 
         for (int i = 0; i < events.getEvents().size(); i++){
             System.out.println(events.getEvents().get(i).getActivityid());
         }
-
 
     }
 

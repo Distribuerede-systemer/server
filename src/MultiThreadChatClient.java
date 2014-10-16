@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> FETCH_HEAD
 
 import java.io.DataInputStream;
 import java.io.PrintStream;
