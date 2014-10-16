@@ -49,10 +49,16 @@ public class UserInfo extends JPanel {
 		add(btnLogout);
 
 		JLabel lblHeader = new JLabel("User Info");
+//<<<<<<< HEAD
 		lblHeader.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		lblHeader.setForeground(new Color(255, 255, 255));
 		lblHeader.setFont(new Font("Arial", Font.BOLD, 78));
 		lblHeader.setBounds(483, 86, 338, 91);
+//=======
+		lblHeader.setForeground(Color.WHITE);
+		lblHeader.setFont(new Font("Arial", Font.BOLD, 78));
+		lblHeader.setBounds(514, 11, 338, 90);
+//>>>>>>> FETCH_HEAD
 		add(lblHeader);
 
 		txtField_UserID = new JTextField();
@@ -138,8 +144,12 @@ public class UserInfo extends JPanel {
 		} else {
 			lblOnlineDot.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/Green.png")));
 		}
+//<<<<<<< HEAD
 		lblOnlineDot.setBounds(736, 434, 20, 20);
 		add(lblOnlineDot);
+//=======
+
+//>>>>>>> FETCH_HEAD
 		
 		JLabel lblBackground = new JLabel("");
 		lblBackground.setSize(new Dimension(1366, 768));

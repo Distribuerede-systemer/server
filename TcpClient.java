@@ -13,7 +13,7 @@ public class TcpClient {
 		Gson gson = new GsonBuilder().create();
 		CalendarInfo CI = new CalendarInfo();
 		
-		
+		//hej
 		CI.setDescription("Programmering");
 		CI.setEventID("12hej");
 		CI.setLocation("SP");
