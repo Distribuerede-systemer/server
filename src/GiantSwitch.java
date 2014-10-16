@@ -32,10 +32,6 @@ public class GiantSwitch {
 		/************
 		 ** COURSES **
 		 ************/
-		
-		
-		case "createCourse":
-			break;
 
 		case "importCalendar":
 			System.out.println("Recieved importCourse");
@@ -68,7 +64,6 @@ public class GiantSwitch {
 			break;
 
 		case "getEvents":
-			
 			System.out.println("Recieved getEvents");
 			break;
 
@@ -140,8 +135,6 @@ public class GiantSwitch {
 			return "editNote";
 		} else if (ID.contains("getClientForecast")) {
 			return "getClientForecast";
-		} else if (ID.contains("createCourse")) {
-			return "createCourse";
 		} else if (ID.contains("importCourse")) {
 			return "importCourse";
 		} else if (ID.contains("exportCourse")) {
