@@ -11,7 +11,7 @@ public class CalendarInfo implements java.io.Serializable {
 		private  String location;
 		
 		
-		//Getters and setters for everything, bitch
+		//Getters and setters
 		public String getActivityID() {
 			return activityID;
 		}

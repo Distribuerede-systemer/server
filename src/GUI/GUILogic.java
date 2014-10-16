@@ -39,7 +39,7 @@ public class GUILogic {
 			String userName = screen.getLogin().getTextFieldUsername().getText();
 			String password = screen.getLogin().getTextFieldPassword().getText();
 			u=a.login(userName, password);
-
+			
 			if (e.getSource() == screen.getLogin().getBtnLogIn()){
 				
 				if(u == null){
@@ -70,14 +70,16 @@ public class GUILogic {
 			if (e.getSource() == screen.getMainMenu().getBtnNotelist()){
 				screen.show(Screen.NOTELIST);
 			}
-			
+//			if (e.getSource() == screen.getMainMenu().getBtnEventlist()){
+//				screen.show(Screen.EVENTLIST);
+//			}
 			
 
 		}
 	}
 	private class UserInfoActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			if (e.getSource() == screen.getUserInfo().getBtnMainmenu()){
+			if (e.getSource() == screen.getUserInfo().getBtnMainMenu()){
 				screen.show(Screen.MAINMENU);
 			}
 			if (e.getSource() == screen.getUserInfo().getBtnLogout()){
