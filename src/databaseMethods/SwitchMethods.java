@@ -3,7 +3,6 @@ import java.sql.SQLException;
 
 import model.Model;
 import model.QueryBuild.QueryBuilder;
-import DatabaseLogic.*;
 
 public class SwitchMethods extends Model
 {
