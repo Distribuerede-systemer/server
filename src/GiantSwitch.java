@@ -1,8 +1,10 @@
+import java.sql.SQLException;
+
 import model.QOTD.QOTDModel;
 import model.calendar.Event;
-import model.event.Events;
+//import model.event.Events;
 import model.note.Note;
-import model.vejrservice.ForecastModel;
+//import model.vejrservice.ForecastModel;
 import JsonClasses.CalendarInfo;
 
 import com.google.gson.*;
@@ -10,12 +12,12 @@ import com.google.gson.*;
 import databaseMethods.SwitchMethods;
 
 public class GiantSwitch {
-	public String GiantSwitchMethod(String jsonString) {
+	public String GiantSwitchMethod(String jsonString) throws SQLException {
 		//klasser der kaldes
 		Event eventKlasse = new Event();
-		Events eventsKlasse = new Events(0, 0, 0, jsonString, jsonString, jsonString, jsonString, jsonString);
+		//Events eventsKlasse = new Events(0, 0, 0, jsonString, jsonString, jsonString, jsonString, jsonString);
 		Note noteKlasse = new Note();
-		ForecastModel forecastKlasse = new ForecastModel();
+		//ForecastModel forecastKlasse = new ForecastModel();
 		QOTDModel QOTDKlasse = new QOTDModel();
 		SwitchMethods SW = new SwitchMethods();
 		
