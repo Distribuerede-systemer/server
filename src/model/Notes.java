@@ -2,11 +2,23 @@ package model;
 
 import java.sql.SQLException;
 
+/*
+ * 		Mangler:
+ * 			- Identifikation på brugeren der har lavet noten
+ * 			- Hvem der skal kunne redigere noten
+ * 			- Mulighed for at slette / redigere noter
+ * 			- Active Status
+ * 
+ * 			ETA: 2 timer
+ */
+
 public class Notes extends Model {
 	
 	private int noteID;
 	private String text;
 	private String dateTime;
+	private String createdBy;
+	private String[] editors;
 	
 	public Notes(int noteID, String text, String dateTime) {
 		super();
