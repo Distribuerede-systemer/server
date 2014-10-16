@@ -125,6 +125,11 @@ public class UserList extends JPanel {
         btnDelete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
         btnDelete.setBounds(1019, 336, 118, 29);
         add(btnDelete);
+        
+        JLabel lblNewLabel = new JLabel("");
+        lblNewLabel.setIcon(new ImageIcon(UserList.class.getResource("/Images/CBSLogo3.png")));
+        lblNewLabel.setBounds(36, 695, 223, 67);
+        add(lblNewLabel);
     
         JLabel lblBackground = new JLabel("Background");
         lblBackground.setIcon(new ImageIcon(UserList.class.getResource("/Images/MetalBackground.jpg")));
