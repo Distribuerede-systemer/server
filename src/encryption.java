@@ -2,26 +2,6 @@ import javax.xml.bind.ParseConversionEvent;
 
 
 public class encryption {
-//	Encryption pass
-	public String StringEncryption(String stringToEncryption)
-	{
-		Configurations CF = new Configurations();
-//		Defines what value the byte is generated with
-		byte ff = (byte) 3.1470;
-//		Creates an Array containing encryptedBytes
-		byte[] encryptedBytes = stringToEncryption.getBytes();
-		
-//		For loop which defines rules for Array
-				for(int i = 0 ; i<encryptedBytes.length ; i++)
-		{
-			encryptedBytes[i] = (byte)(encryptedBytes[i]^ff);
-		}
-//		Generates new String containing "encrypted bytes"		
-		String encrypted = new String(encryptedBytes);
-//		Returns the encrypted values
-		return encrypted;
-	}
-
 //	Decryption path
 	public String decrypt(byte[] b)
 	{
