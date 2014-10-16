@@ -12,10 +12,10 @@ import java.sql.*;
  */
 public abstract class Model {
 
-    private static String sqlUrl = "jdbc:mysql://54.172.101.85:3306/cbscalendar";
+    private static String sqlUrl = "jdbc:mysql://localhost:3306/cbscalendar";
     private static String sqlUser = "root";
-    private static String sqlPasswd = "doekdoek";
-    //private static String dbName = "cbscalendar";
+    private static String sqlPasswd = "";
+    private static String dbName = "cbscalendar";
 
     private Statement stmt;
     protected Connection conn = null;

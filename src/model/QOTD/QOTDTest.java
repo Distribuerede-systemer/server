@@ -7,11 +7,9 @@ public class QOTDTest {
 	public static void main(String[] args) {
 
 		QOTDModel qm = new QOTDModel();
-		Model m = new Model();
 		
-		m.doQuery("");
-		
-		qm.saveQuote();
+		qm.getQuote();
+		System.out.println("hej");
 	}
 
 }

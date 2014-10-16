@@ -59,21 +59,19 @@ public class QOTDModel {
     			String quote = (String) jsonObject.get("quote");
     			String author = (String) jsonObject.get("author");
     			String topic = (String) jsonObject.get("topic");
-    			qotdlist2 = new QOTD(quote, author, topic);
+    			
+    			String[] keys = {"qotd"};
+    			String[] keys2 = {quote};
+    			
+    			qb.update("dailyupdate", keys, keys2).where("ID", "=", "1").Execute();
+    			
     	
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			public String 
     			
     }
-    //Gemme i database
-     	public void saveQuote() {
-			getQuote();
-			
-			String[] keys = {"date","apparentTemperature","summary","windspeed","qotd"};
-			String[] keys2 = {"'2014-01-01 23:22:01'", "21", "'hej'", "12", "'hej'"};
-
-			qb.insertInto("dailyupdates",keys).values(keys2);
-     	}
 }
