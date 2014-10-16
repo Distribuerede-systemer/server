@@ -39,7 +39,7 @@ public class GUILogic {
 			String userName = screen.getLogin().getTextFieldUsername().getText();
 			String password = screen.getLogin().getTextFieldPassword().getText();
 			u=a.login(userName, password);
-
+			
 			if (e.getSource() == screen.getLogin().getBtnLogIn()){
 				
 				if(u == null){
