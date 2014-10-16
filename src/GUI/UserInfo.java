@@ -37,7 +37,7 @@ public class UserInfo extends JPanel {
 		
 		lblCBSlogo = new JLabel("");
 		lblCBSlogo.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/CBSLogo3.png")));
-		lblCBSlogo.setBounds(34, 695, 263, 73);
+		lblCBSlogo.setBounds(10, 698, 250, 59);
 		add(lblCBSlogo);
 		
 
@@ -46,7 +46,7 @@ public class UserInfo extends JPanel {
 		btnLogout.setForeground(new Color(255, 255, 255));
 		btnLogout.setFont(new Font("Arial", Font.BOLD, 30));
 		btnLogout.setContentAreaFilled(false);
-		btnLogout.setBounds(589, 592, 152, 44);
+		btnLogout.setBounds(624, 655, 117, 43);
 		add(btnLogout);
 
 		JLabel lblHeader = new JLabel("User Info");
@@ -54,7 +54,7 @@ public class UserInfo extends JPanel {
 		lblHeader.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		lblHeader.setForeground(new Color(255, 255, 255));
 		lblHeader.setFont(new Font("Arial", Font.BOLD, 78));
-		lblHeader.setBounds(483, 86, 338, 91);
+		lblHeader.setBounds(514, 11, 338, 91);
 //=======
 		lblHeader.setForeground(Color.WHITE);
 		lblHeader.setFont(new Font("Arial", Font.BOLD, 78));
@@ -66,59 +66,59 @@ public class UserInfo extends JPanel {
 		txtField_UserID.setForeground(new Color(105, 105, 105));
 		txtField_UserID.setText("GetUserID");
 		txtField_UserID.setName("");
-		txtField_UserID.setBounds(736, 208, 120, 34);
+		txtField_UserID.setBounds(755, 207, 120, 34);
 		add(txtField_UserID);
 		txtField_UserID.setColumns(10);
 
 		JLabel lblUserID = new JLabel("UserID");
 		lblUserID.setForeground(new Color(255, 255, 255));
 		lblUserID.setFont(new Font("Arial", Font.BOLD, 26));
-		lblUserID.setBounds(464, 211, 83, 31);
+		lblUserID.setBounds(483, 210, 84, 30);
 		add(lblUserID);
 
 		txtField_Email = new JTextField();
 		txtField_Email.setForeground(new Color(105, 105, 105));
 		txtField_Email.setText("getEmail");
 		txtField_Email.setColumns(10);
-		txtField_Email.setBounds(736, 256, 120, 34);
+		txtField_Email.setBounds(755, 255, 120, 34);
 		add(txtField_Email);
 
 		JLabel lblEmail = new JLabel("Email");
 		lblEmail.setForeground(new Color(255, 255, 255));
 		lblEmail.setFont(new Font("Arial", Font.BOLD, 26));
-		lblEmail.setBounds(464, 254, 68, 31);
+		lblEmail.setBounds(483, 253, 71, 30);
 		add(lblEmail);
 
 		txtField_Team = new JTextField();
 		txtField_Team.setForeground(new Color(105, 105, 105));
 		txtField_Team.setText("getTeam/Class");
 		txtField_Team.setColumns(10);
-		txtField_Team.setBounds(736, 302, 120, 34);
+		txtField_Team.setBounds(755, 301, 120, 34);
 		add(txtField_Team);
 
 		JLabel lblTeam = new JLabel("Team");
 		lblTeam.setFont(new Font("Arial", Font.BOLD, 26));
 		lblTeam.setForeground(new Color(255, 255, 255));
-		lblTeam.setBounds(464, 297, 67, 31);
+		lblTeam.setBounds(483, 296, 68, 30);
 		add(lblTeam);
 
 		txtField_CreatedDate = new JTextField();
 		txtField_CreatedDate.setForeground(new Color(105, 105, 105));
 		txtField_CreatedDate.setText("getCreatedDate");
 		txtField_CreatedDate.setColumns(10);
-		txtField_CreatedDate.setBounds(736, 348, 120, 34);
+		txtField_CreatedDate.setBounds(755, 347, 120, 34);
 		add(txtField_CreatedDate);
 
 		JLabel lblCreateddate = new JLabel("Created Date");
 		lblCreateddate.setForeground(new Color(255, 255, 255));
 		lblCreateddate.setFont(new Font("Arial", Font.BOLD, 26));
-		lblCreateddate.setBounds(464, 340, 159, 31);
+		lblCreateddate.setBounds(483, 339, 159, 31);
 		add(lblCreateddate);
 
 		JLabel lblOnline = new JLabel("Online");
 		lblOnline.setForeground(new Color(255, 255, 255));
 		lblOnline.setFont(new Font("Arial", Font.BOLD, 26));
-		lblOnline.setBounds(464, 421, 80, 31);
+		lblOnline.setBounds(483, 420, 82, 30);
 		add(lblOnline);
 
 		btnSubmit = new JButton("Submit changes");
@@ -134,7 +134,7 @@ public class UserInfo extends JPanel {
 			}
 		}
 		);
-		btnSubmit.setBounds(543, 500, 239, 44);
+		btnSubmit.setBounds(563, 500, 239, 43);
 		add(btnSubmit);
 
 		boolean active = true;
@@ -146,7 +146,7 @@ public class UserInfo extends JPanel {
 			lblOnlineDot.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/Green.png")));
 		}
 //<<<<<<< HEAD
-		lblOnlineDot.setBounds(736, 434, 20, 20);
+		lblOnlineDot.setBounds(755, 433, 20, 20);
 		add(lblOnlineDot);
 				
 				btnMainMenu = new JButton("Main menu");
@@ -154,7 +154,7 @@ public class UserInfo extends JPanel {
 				btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
 				btnMainMenu.setContentAreaFilled(false);
 				btnMainMenu.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-				btnMainMenu.setBounds(543, 542, 239, 44);
+				btnMainMenu.setBounds(601, 557, 163, 43);
 				add(btnMainMenu);
 		//=======
 		

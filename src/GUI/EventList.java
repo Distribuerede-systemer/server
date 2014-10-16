@@ -37,7 +37,7 @@ public class EventList extends JPanel {
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(EventList.class.getResource("/Images/MetalBackground.jpg")));
-		label.setBounds(26, 0, 1366, 768);
+		label.setBounds(38, 11, 1366, 768);
 		add(label);
 
 	}

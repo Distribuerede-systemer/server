@@ -12,9 +12,9 @@ import com.ibatis.common.jdbc.ScriptRunner;
  */
 public abstract class Model {
 
-    private static String sqlUrl = "jdbc:mysql://localhost:3306/";
+    private static String sqlUrl = "jdbc:mysql://54.172.101.85:3306/";
     private static String sqlUser = "root";
-    private static String sqlPasswd = "ukamm19";
+    private static String sqlPasswd = "doekdoek";
     private static final String dbName = "cbscalendar";
 
     private Statement stmt;
