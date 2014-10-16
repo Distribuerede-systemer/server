@@ -1,8 +1,8 @@
-import model.Events;
 import model.Note;
 import model.Notes;
 import model.QOTD.QOTDModel;
 import model.calendar.Event;
+import model.event.Events;
 import model.vejrservice.ForecastModel;
 
 import com.google.gson.*;
