@@ -23,7 +23,6 @@ public class Screen extends JFrame {
 	private final MainMenu mainMenu = new MainMenu();
 	private final UserInfo userInfo = new UserInfo();
 	private final NoteList noteList = new NoteList();
-	private final AddUserGUI addUserGUI = new AddUserGUI();
 	private final UserList userlist = new UserList();
 	CardLayout c;
 
@@ -63,7 +62,6 @@ public class Screen extends JFrame {
 		
 		contentPane.add(userInfo, "name_277892826656058");
 		
-		contentPane.add(addUserGUI, "name_278604525733268");
 				
 		contentPane.add(noteList, "name_278522430661848");
 		
@@ -81,9 +79,7 @@ public class Screen extends JFrame {
 	public UserInfo getUserInfo() {
 		return userInfo;
 	}
-	public AddUserGUI getAddUserGUI() {
-		return addUserGUI;
-	}
+	
 	public NoteList getNoteList() {
 		return noteList;
 	}

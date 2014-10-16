@@ -72,7 +72,7 @@ public class UserList extends JPanel {
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255, 255), new Color(0, 0, 205), new Color(255, 255, 255)), new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255))));
         scrollPane.setViewportBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255, 255), new Color(0, 0, 205), new Color(255, 255, 255)), null));
-        scrollPane.setBounds(417, 225, 590, 360);
+        scrollPane.setBounds(388, 225, 590, 360);
  
         //Add the scroll pane to this panel.
         add(scrollPane);
@@ -90,7 +90,7 @@ public class UserList extends JPanel {
         	}
         });
         
-        btnAdd.setBounds(1019, 556, 118, 29);
+        btnAdd.setBounds(988, 263, 118, 29);
         add(btnAdd);
         
         btnLogout = new JButton("Log out");
@@ -98,7 +98,7 @@ public class UserList extends JPanel {
         btnLogout.setFont(new Font("Arial", Font.BOLD, 30));
         btnLogout.setContentAreaFilled(false);
         btnLogout.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-        btnLogout.setBounds(642, 688, 152, 44);
+        btnLogout.setBounds(624, 667, 117, 43);
         add(btnLogout);
         
         btnMainMenu = new JButton("Main Menu");
@@ -110,25 +110,25 @@ public class UserList extends JPanel {
         btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
         btnMainMenu.setContentAreaFilled(false);
         btnMainMenu.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-        btnMainMenu.setBounds(622, 646, 194, 44);
+        btnMainMenu.setBounds(601, 612, 163, 43);
         add(btnMainMenu);
         
         JLabel lblUserlist = new JLabel("Userlist");
         lblUserlist.setForeground(Color.WHITE);
         lblUserlist.setFont(new Font("Arial", Font.BOLD, 78));
-        lblUserlist.setBounds(549, 118, 298, 90);
+        lblUserlist.setBounds(534, 118, 298, 90);
         add(lblUserlist);
         
         btnDelete = new JButton("Delete");
         btnDelete.setOpaque(true);
         btnDelete.setForeground(new Color(0, 0, 205));
         btnDelete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
-        btnDelete.setBounds(1019, 336, 118, 29);
+        btnDelete.setBounds(988, 223, 118, 29);
         add(btnDelete);
         
         JLabel lblNewLabel = new JLabel("");
         lblNewLabel.setIcon(new ImageIcon(UserList.class.getResource("/Images/CBSLogo3.png")));
-        lblNewLabel.setBounds(36, 695, 223, 67);
+        lblNewLabel.setBounds(10, 698, 250, 59);
         add(lblNewLabel);
     
         JLabel lblBackground = new JLabel("Background");
@@ -190,7 +190,7 @@ public class UserList extends JPanel {
     }
     
     public void addActionListener(ActionListener l) {
-//		btnAdd.addActionListener(l);
+		btnAdd.addActionListener(l);
 		btnDelete.addActionListener(l);
 		btnLogout.addActionListener(l);
 		btnMainMenu.addActionListener(l);

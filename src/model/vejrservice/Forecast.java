@@ -2,6 +2,7 @@ package model.vejrservice;
 
 /**
  * Created by danielfranch on 16/10/14.
+ * Constructor til ForecastModel Arraylist
  */
 public class Forecast {
 
@@ -40,6 +41,10 @@ public class Forecast {
     }
 
     @Override
+    /**
+     *  In general, the toString method returns a string
+   	 *	that "textually represents" this object
+     */
     public String toString() {
         return "Forecast{" +
                 "date='" + date + '\'' +
