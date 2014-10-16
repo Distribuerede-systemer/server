@@ -1,3 +1,4 @@
+/*
 package model.vejrservice;
 
 import java.io.BufferedReader;
@@ -93,4 +94,4 @@ public class ForecastModel {
         System.out.println(stringArray[2]);
 
 	}
-}
+}*/
