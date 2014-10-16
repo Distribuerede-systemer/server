@@ -11,6 +11,7 @@ public class Configurations {
 	private String host;
 	private String port;
 	private String username;
+	private Strng dbname;
 	private String password;
 
 	// FFkey is used in Encryption.java 
@@ -21,6 +22,9 @@ public class Configurations {
 	private String weather_lat;
 	private String weather_lon;
 	private String weather_future_in_days;
+
+	// Opret DB name
+	// Opret update time på QOTD
 
 
 	public String getHost() {
@@ -53,6 +57,14 @@ public class Configurations {
 	
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+		public String getDbname() {
+		return dbname;
+	}
+	
+	public void setDbname(String dbname) {
+		this.dbname = dbname;
 	}
 
 		public String getFfcryptkey() {
@@ -117,19 +129,18 @@ this.weather_future_in_days = weather_future_in_days;
 			JSONObject jsonObject = (JSONObject) obj;
 
 
-			// Getting json values for SQL variables
+			// Getting json values for SQL variables and DB
 			setHost((String) jsonObject.get("host"));
 			setPort((String) jsonObject.get("port"));
 			setUsername((String) jsonObject.get("username"));
+			setDbname((String) jsonObject.get("dbname"));
 			setPassword((String) jsonObject.get("password"));
 
 			// Getting json values for KEY variables
 			setFfcryptkey((String) jsonObject.get("ffcryptkey"));
 
 			// Getting json values for weather variables
-			
 			setWeather_expiration_time((String) jsonObject.get("weather_expiration_date"));
-			
 			setWeather_lat((String) jsonObject.get("weather_lat"));
 			setWeather_lon((String) jsonObject.get("weather_lon"));
 			setWeather_future_in_days((String) jsonObject.get("weather_future_in_days"));
