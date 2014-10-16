@@ -47,16 +47,15 @@ public class Screen extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public Screen() {
 		setTitle("Doek4life");
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1366, 768);
-		contentPane = new JPanel();
+		
+		JPanel contentPane = (JPanel) this.getContentPane();
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
-		setContentPane(contentPane);
+		this.setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0, 0));
 		
 		contentPane.add(addUser, "name_10334207821613");
