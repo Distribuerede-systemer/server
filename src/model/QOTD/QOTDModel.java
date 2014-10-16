@@ -5,13 +5,15 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 
+import model.QueryBuild.QueryBuilder;
+
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class QOTDModel {
 
 	private ArrayList<QOTD> qotdlist = new ArrayList<>();
-	
+	QueryBuilder qb = new QueryBuilder();
     
     /**
      *
