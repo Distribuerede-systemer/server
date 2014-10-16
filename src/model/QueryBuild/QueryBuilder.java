@@ -1,7 +1,5 @@
 package model.QueryBuild;
 
-import org.apache.commons.lang.StringEscapeUtils;
-
 /**
  * Created by jesperbruun on 15/10/14.
  */
