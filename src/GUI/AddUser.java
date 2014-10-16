@@ -19,7 +19,7 @@ import java.awt.SystemColor;
 
 public class AddUser extends JPanel {
 	private JTextField textField_Email;
-	private JTextField textField_;
+	private JTextField textField_Type;
 	private JTextField textField_Password;
 	private JButton btnSubmit;
 	private JButton btnLogout;
@@ -62,11 +62,11 @@ public class AddUser extends JPanel {
 		lblUserID.setBounds(483, 179, 104, 30);
 		add(lblUserID);
 
-		textField_ = new JTextField();
-		textField_.setForeground(new Color(105, 105, 105));
-		textField_.setColumns(10);
-		textField_.setBounds(755, 222, 120, 34);
-		add(textField_);
+		textField_Type = new JTextField();
+		textField_Type.setForeground(new Color(105, 105, 105));
+		textField_Type.setColumns(10);
+		textField_Type.setBounds(755, 222, 120, 34);
+		add(textField_Type);
 
 		JLabel lblEmail = new JLabel("Type");
 		lblEmail.setForeground(new Color(255, 255, 255));
@@ -139,39 +139,19 @@ public class AddUser extends JPanel {
 
 	
 
-	public JTextField getTextField_Eventtid() {
+	public JTextField getTextField_Email() {
 		return textField_Email;
 	}
-
-	public JTextField getTextField_Location() {
-		return textField_;
-	}
-
-	public JTextField getTextField_Createdby() {
-		return textField_Password;
-	}
-
-	public JTextField getTextField_Start() {
-		return textField_Start;
-	}
-
-	public JTextField getTextField_End() {
-		return textField_End;
-	}
-
-	public JTextField getTextField_Name() {
-		return textField_Name;
-	}
-
-	public JTextField getTextField_Text() {
-		return textField_Text;
-	}
-	
 
 	public JTextField getTextField_Type() {
 		return textField_Type;
 	}
 
+	public JTextField getTextField_Password() {
+		return textField_Password;
+	}
+
+	
 	public JButton getBtnSubmit() {
 		return btnSubmit;
 	}
