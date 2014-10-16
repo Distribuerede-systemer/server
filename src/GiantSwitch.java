@@ -3,8 +3,11 @@ import model.calendar.Event;
 import model.event.Events;
 import model.note.Note;
 import model.vejrservice.ForecastModel;
+import JsonClasses.CalendarInfo;
 
 import com.google.gson.*;
+
+import databaseMethods.SwitchMethods;
 
 public class GiantSwitch {
 	public String GiantSwitchMethod(String jsonString) {
@@ -14,10 +17,10 @@ public class GiantSwitch {
 		Note noteKlasse = new Note();
 		ForecastModel forecastKlasse = new ForecastModel();
 		QOTDModel QOTDKlasse = new QOTDModel();
-		CalendarInfo CI1 = new CalendarInfo();
+		SwitchMethods SW = new SwitchMethods();
 		
 		Gson gson = new GsonBuilder().create();
-		String Svar = "";			
+		String answer = "";			
 		//Creates a switch which determines which method should be used. Methods will be applied later on
 		switch (Determine(jsonString)) {
 		//If the Json String contains one of the keywords below, run the relevant method.
@@ -31,16 +34,6 @@ public class GiantSwitch {
 		
 		
 		case "createCourse":
-			CI1 = (CalendarInfo)gson.fromJson(jsonString, CalendarInfo.class);
-			System.out.println(CI1.getDescription());
-			System.out.println(CI1.getEnd());
-			System.out.println(CI1.getEventID());
-			System.out.println(CI1.getLocation());
-			System.out.println(CI1.getStart());
-			System.out.println(CI1.getTitle());
-			System.out.println(CI1.getType());
-			Svar = "Switchen virkede med calendar";
-			
 			break;
 
 		case "importCalendar":
@@ -64,6 +57,9 @@ public class GiantSwitch {
 		 *************/
 		case "createCalender":
 			System.out.println("Recieved createCalender");
+			CalendarInfo CI1 = (CalendarInfo)gson.fromJson(jsonString, CalendarInfo.class);
+			System.out.println(CI1.getCalenderName()+ "Den har lagt det nye ind i klassen");
+			answer = SW.createNewCalender(CI1.getUserName(), CI1.getCalenderName(), CI1.getPublicOrPrivate());
 			break;
 			
 		case "getCalender":
@@ -115,7 +111,7 @@ public class GiantSwitch {
 			System.out.println("Error");
 			break;
 		}
-		return Svar;
+		return answer;
 	}
 
 	//Creates a loooon else if statement, which checks the JSon string which keyword it contains, and returns the following 
