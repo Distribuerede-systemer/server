@@ -45,7 +45,7 @@ public class Configurations {
 	  try {
 		  
 		  // Indsæt stien til config filen her.
-		  Object obj = jsonParser.parse(new FileReader("/path/FindStienHer"));
+		  Object obj = jsonParser.parse(new FileReader("config.json"));
 	      JSONObject jsonObject = (JSONObject) obj;
 	      
 	      
