@@ -10,13 +10,13 @@ import model.QueryBuild.QueryBuilder;
 
 public class AuthenticateUser {
 
-	private String encryptionKey = "cdc63491uAf24938"; // Krypteringsnøgle
+	private String encryptionKey = "cdc63491uAf24938"; // Krypteringsnoegle
 
 	private ResultSet resultSet;
 	
 	private QueryBuilder qb;
 
-	// Metoden får email og password fra switchen (udtrukket fra en json) samt en boolean der skal sættes til true hvis det er serveren der logger på, og false hvis det er en klient
+	// Metoden faar email og password fra switchen (udtrukket fra en json) samt en boolean der skal saettes til true hvis det er serveren der logger på, og false hvis det er en klient
 	public boolean authenticate(String email, String password, boolean isAdmin) throws Exception {
 
 		String[] keys = {"userid", "email", "active", "password"};
@@ -41,7 +41,7 @@ public class AuthenticateUser {
 					
 					resultSet = qb.selectFrom(key, "roles").where("userid", "=", new Integer(userID).toString()).ExecuteQuery();
 
-					// Hvis brugeren både logger ind og er registreret som admin, eller hvis brugeren både logger ind og er registreret som bruger
+					// Hvis brugeren baade logger ind og er registreret som admin, eller hvis brugeren baade logger ind og er registreret som bruger
 					if((resultSet.getString("type").equals("admin") && isAdmin) || (resultSet.getString("type").equals("user") && !isAdmin))
 					{
 						return true;
