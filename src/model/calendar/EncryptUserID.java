@@ -13,7 +13,7 @@ public class EncryptUserID {
      */
     private static final String HASHKEY = "v.eRyzeKretW0r_t";
     private static String userId = "caha13ag";
-
+    private String key;
     private static MessageDigest digester;
 
     static {
@@ -46,7 +46,13 @@ public class EncryptUserID {
     public static void main(String[] args) {
 
         System.out.print("Secret key: " + crypt(userId + HASHKEY));
+        String key = crypt(userId+ HASHKEY);
 
     }
+
+	public String getKey() {
+		return key;
+	}
+    
 }
 
