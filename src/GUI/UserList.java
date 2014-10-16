@@ -47,8 +47,8 @@ public class UserList extends JPanel {
  
         Object[][] data = {
         		
-        {"Kathy", "Smith", new Integer(5), new Boolean(false)},
-        {"John", "Doe", new Integer(3), new Boolean(true)},
+        {"Kathy", "Smith", new Integer(10), new Boolean(false)},
+        {"John", "Doe", new Integer(7), new Boolean(true)},
         {"Sue", "Black", new Integer(2), new Boolean(false)},
         {"Jane", "White", new Integer(20), new Boolean(true)},
         {"Joe", "Brown", new Integer(10), new Boolean(false)}
@@ -58,6 +58,7 @@ public class UserList extends JPanel {
         table.setPreferredScrollableViewportSize(new Dimension(500, 70));
         table.setFillsViewportHeight(true);
         table.setRowSelectionAllowed(true);
+        
  
         if (DEBUG) {
             table.addMouseListener(new MouseAdapter() {
@@ -87,6 +88,7 @@ public class UserList extends JPanel {
           String firstName = JOptionPane.showInputDialog(null, "First Name", null);
           String lastName = JOptionPane.showInputDialog(null, "Last Name", null);
           String eMail = JOptionPane.showInputDialog(null, "Email", null);
+          
         	}
         });
         
@@ -123,7 +125,7 @@ public class UserList extends JPanel {
         btnDelete.setOpaque(true);
         btnDelete.setForeground(new Color(0, 0, 205));
         btnDelete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
-        btnDelete.setBounds(1019, 336, 118, 29);
+        btnDelete.setBounds(1019, 515, 118, 29);
         add(btnDelete);
         
         JLabel lblNewLabel = new JLabel("");
