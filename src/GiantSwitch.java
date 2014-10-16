@@ -43,13 +43,10 @@ public class GiantSwitch {
 			
 			break;
 
-		case "importCourse":
+		case "importCalendar":
 			System.out.println("Recieved importCourse");
 			break;
 
-		case "exportCourse":
-			System.out.println("Recieved exportCourse");
-			break;
 
 		/**********
 		 ** LOGIN **
