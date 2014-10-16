@@ -22,16 +22,7 @@ public class Controller extends Model {
 			e.printStackTrace();
 		}
 	}
-	
-	// Metode til at godkende bruger (hardcoded)
-	
-	public boolean authenticate(String username, String password)
-	{
-		if(username.equals("username") && password.equals("password"))
-			return true;
-		else
-			return false;
-	}
+
 	
 // Metoder for Notes
 	
