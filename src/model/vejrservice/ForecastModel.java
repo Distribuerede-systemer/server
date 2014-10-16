@@ -32,16 +32,18 @@ public class ForecastModel {
             url = new URL("http://api.openweathermap.org/data/2.5/forecast/daily?lat=55.681589&lon=12.529092&cnt=14&mode=json&units=metric");
             conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
+            
+            //henter indholder fra hjemmesiden efter vi har aabnet en forbindelse
             rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             while ((line = rd.readLine()) != null) {
+            	
+            	//vi skal ligge alle linjerne oven i hinanden
                 result += line;
             }
             rd.close();
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        } 
 
         try {
             JSONParser jsonParser = new JSONParser();
@@ -89,7 +91,7 @@ public class ForecastModel {
     public void saveForecast() {
         this.requestForecast();
 
-        for (int i = 1; i < forecastList.size(); i++) {
+        for (int i = 0; i < forecastList.size(); i++) {
             System.out.println(forecastList.get(i).toString());
         }
 
