@@ -114,18 +114,6 @@ public class GiantSwitch {
 		 ** WEATHER **
 		 ************/
 
-		case "requestForecast":
-			System.out.println("Recieved requestForecast");
-			break;
-
-		case "getForecast":
-			System.out.println("Recieved getForecast");
-			break;
-
-		case "saveForecast":
-			System.out.println("Recieved saveForecast");
-			break;
-
 		case "getClientForecast":
 			System.out.println("Recieved getClientForecast");
 			break;
@@ -153,12 +141,6 @@ public class GiantSwitch {
 			return "deleteNote";
 		} else if (ID.contains("editNote")){
 			return "editNote";
-		} else if (ID.contains("requestForecast")) {
-			return "requestForecast";
-		} else if (ID.contains("getForecast")) {
-			return "getForecast";
-		} else if (ID.contains("saveForecast")) {
-			return "saveForecast";
 		} else if (ID.contains("getClientForecast")) {
 			return "getClientForecast";
 		} else if (ID.contains("createCourse")) {
