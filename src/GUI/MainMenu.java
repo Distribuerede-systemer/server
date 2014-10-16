@@ -85,7 +85,6 @@ public class MainMenu extends JPanel {
 		btnLogOut.addActionListener(l);
 		btnEventlist.addActionListener(l);
 		btnNotelist.addActionListener(l);
-		btnUserAdministration.addActionListener(l);
 		btnUserlist.addActionListener(l);
 		
 		
@@ -102,7 +101,5 @@ public class MainMenu extends JPanel {
 	public JButton getBtnLogOut() {
 		return btnLogOut;
 	}
-	public JButton getBtnUserAdministration() {
-		return btnUserAdministration;
-	}
+	
 }
