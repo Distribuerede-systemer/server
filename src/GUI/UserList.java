@@ -116,7 +116,7 @@ public class UserList extends JPanel {
         JLabel lblUserlist = new JLabel("Userlist");
         lblUserlist.setForeground(Color.WHITE);
         lblUserlist.setFont(new Font("Arial", Font.BOLD, 78));
-        lblUserlist.setBounds(534, 118, 298, 90);
+        lblUserlist.setBounds(534, 90, 298, 90);
         add(lblUserlist);
         
         btnDelete = new JButton("Delete");

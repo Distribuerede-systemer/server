@@ -26,6 +26,7 @@ public class UserInfo extends JPanel {
 	private JLabel lblOnlineDot;
 	private JLabel lblCBSlogo;
 	private JButton btnMainMenu;
+	private JLabel lblUserInfo;
 
 	/**
 	 * Create the panel.
@@ -48,19 +49,6 @@ public class UserInfo extends JPanel {
 		btnLogout.setContentAreaFilled(false);
 		btnLogout.setBounds(624, 655, 117, 43);
 		add(btnLogout);
-
-		JLabel lblHeader = new JLabel("User Info");
-//<<<<<<< HEAD
-		lblHeader.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		lblHeader.setForeground(new Color(255, 255, 255));
-		lblHeader.setFont(new Font("Arial", Font.BOLD, 78));
-		lblHeader.setBounds(514, 11, 338, 91);
-//=======
-		lblHeader.setForeground(Color.WHITE);
-		lblHeader.setFont(new Font("Arial", Font.BOLD, 78));
-		lblHeader.setBounds(514, 11, 338, 90);
-//>>>>>>> FETCH_HEAD
-		add(lblHeader);
 
 		txtField_UserID = new JTextField();
 		txtField_UserID.setForeground(new Color(105, 105, 105));
@@ -156,15 +144,21 @@ public class UserInfo extends JPanel {
 				btnMainMenu.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
 				btnMainMenu.setBounds(601, 557, 163, 43);
 				add(btnMainMenu);
-		//=======
-		
-		//>>>>>>> FETCH_HEAD
 				
-				JLabel lblBackground = new JLabel("");
-				lblBackground.setSize(new Dimension(1366, 768));
-				lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/MetalBackground.jpg")));
-				lblBackground.setBounds(-10, 11, 1366, 768);
-				add(lblBackground);
+				lblUserInfo = new JLabel("User Info");
+				lblUserInfo.setForeground(Color.WHITE);
+				lblUserInfo.setFont(new Font("Arial", Font.BOLD, 78));
+				lblUserInfo.setBounds(514, 90, 338, 90);
+				add(lblUserInfo);
+				//=======
+				
+				//>>>>>>> FETCH_HEAD
+						
+						JLabel lblBackground = new JLabel("");
+						lblBackground.setSize(new Dimension(1366, 768));
+						lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/MetalBackground.jpg")));
+						lblBackground.setBounds(0, 0, 1366, 768);
+						add(lblBackground);
 		if (active) {
 			lblOnlineDot.setBackground(Color.GREEN);
 			lblOnlineDot.repaint();

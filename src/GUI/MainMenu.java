@@ -31,7 +31,7 @@ public class MainMenu extends JPanel {
 		lblMainMenu = new JLabel("Main Menu");
 		lblMainMenu.setForeground(Color.WHITE);
 		lblMainMenu.setFont(new Font("Arial", Font.BOLD, 78));
-		lblMainMenu.setBounds(481, 85, 404, 90);
+		lblMainMenu.setBounds(481, 90, 404, 90);
 		add(lblMainMenu);
 		
 		btnUserlist = new JButton("Userlist");
