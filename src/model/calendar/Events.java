@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 /**
  * Created by jesperbruun on 10/10/14.
+ * Den laver selve arrayet af event klassen
  */
 public class Events {
     ArrayList<Event> events = new ArrayList<Event>();

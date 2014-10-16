@@ -15,6 +15,7 @@ public class GetCalendarData {
 
 
     //Read URL
+	//henter data fra URL og læser ind til en string
     private static String readUrl(String urlString) throws Exception {
         BufferedReader reader = null;
         try {
@@ -35,6 +36,9 @@ public class GetCalendarData {
     }
 
 
+    //Nu har vi alle data liggende i en string (JSON). 
+    //Så bruger vi Google's udviklede library Json string. den kan lave det om til java objekter
+    //Events laver en arraylist af Event
     public void getDataFromCalendar() throws Exception {
 
         /**
@@ -49,6 +53,7 @@ public class GetCalendarData {
         Gson gson = new Gson();
         Events events = gson.fromJson(json, Events.class); 
 
+        //tester events activityID's
         for (int i = 0; i < events.getEvents().size(); i++){
             System.out.println(events.getEvents().get(i).getActivityid());
         }
