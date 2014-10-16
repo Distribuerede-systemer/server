@@ -34,9 +34,9 @@ public class EventList extends JPanel {
 		setSize(new Dimension(1366, 768));
 		setLayout(null);
 
-		JLabel lblEvents = new JLabel("Events");
+		JLabel lblEvents = new JLabel("Events List");
 		lblEvents.setFont(new Font("Tahoma", Font.BOLD, 30));
-		lblEvents.setBounds(658, 90, 128, 52);
+		lblEvents.setBounds(608, 91, 195, 52);
 		add(lblEvents);
 
 		JButton btnDeleteEvent = new JButton("Delete Event");
