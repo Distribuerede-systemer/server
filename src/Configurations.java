@@ -120,7 +120,7 @@ this.weather_future_in_days = weather_future_in_days;
 		JSONParser jsonParser = new JSONParser();
 
 		try {
-			FileReader json = new FileReader("config.json");
+			FileReader json = new FileReader("src/config.json");
 
 			Object obj = jsonParser.parse(json);
 			JSONObject jsonObject = (JSONObject) obj;
@@ -151,10 +151,5 @@ this.weather_future_in_days = weather_future_in_days;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-
-
-  
- 
-  
+	} 
 }

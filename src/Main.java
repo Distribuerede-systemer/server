@@ -7,6 +7,7 @@ public class Main {
 		Configurations cf = new Configurations();
 		
 		cf.ReadFile();
+		
 		System.out.println(cf.getPassword());
 		
 		//new GUILogic().run();
