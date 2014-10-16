@@ -70,14 +70,16 @@ public class GUILogic {
 			if (e.getSource() == screen.getMainMenu().getBtnNotelist()){
 				screen.show(Screen.NOTELIST);
 			}
-			
+//			if (e.getSource() == screen.getMainMenu().getBtnEventlist()){
+//				screen.show(Screen.EVENTLIST);
+//			}
 			
 
 		}
 	}
 	private class UserInfoActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			if (e.getSource() == screen.getUserInfo().getBtnMainmenu()){
+			if (e.getSource() == screen.getUserInfo().getBtnMainMenu()){
 				screen.show(Screen.MAINMENU);
 			}
 			if (e.getSource() == screen.getUserInfo().getBtnLogout()){

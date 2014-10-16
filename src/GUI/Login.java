@@ -26,7 +26,7 @@ public class Login extends JPanel {
 	private final JTextField textFieldUsername = new JTextField();
 	private final JLabel lblCBSlogo = new JLabel("");
 	private final JLabel lblBackground = new JLabel("");
-	private final JPasswordField passwordField = new JPasswordField();
+	private final JPasswordField textFieldPassword = new JPasswordField();
 	
 
 
@@ -85,12 +85,12 @@ public class Login extends JPanel {
 		
 		add(lblCBSlogo);
 		setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		passwordField.setHorizontalAlignment(SwingConstants.CENTER);
-		passwordField.setColumns(10);
-		passwordField.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255)));
-		passwordField.setBounds(697, 371, 164, 37);
+		textFieldPassword.setHorizontalAlignment(SwingConstants.CENTER);
+		textFieldPassword.setColumns(10);
+		textFieldPassword.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255)));
+		textFieldPassword.setBounds(697, 371, 164, 37);
 		
-		add(passwordField);
+		add(textFieldPassword);
 		lblBackground.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBackground.setIcon(new ImageIcon(Login.class.getResource("/Images/MetalBackground.jpg")));
 		lblBackground.setSize(new Dimension(1366, 768));
@@ -119,6 +119,10 @@ public class Login extends JPanel {
 
 	public JTextField getTextFieldUsername() {
 		return textFieldUsername;
+	}
+
+	public JPasswordField getTextFieldPassword() {
+		return textFieldPassword;
 	}
 
 
