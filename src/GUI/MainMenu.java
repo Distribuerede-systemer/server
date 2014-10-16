@@ -21,6 +21,7 @@ public class MainMenu extends JPanel {
 	private JButton btnEventlist;
 	private JButton btnNotelist;
 	private JButton btnUserAdministration;
+	private JLabel lblCBSlogo;
 	
 
 	
@@ -30,49 +31,54 @@ public class MainMenu extends JPanel {
 		
 		lblMainMenu = new JLabel("Main Menu");
 		lblMainMenu.setForeground(Color.WHITE);
-		lblMainMenu.setFont(new Font("Iowan Old Style", Font.BOLD, 78));
-		lblMainMenu.setBounds(127, 99, 423, 107);
+		lblMainMenu.setFont(new Font("Arial", Font.BOLD, 78));
+		lblMainMenu.setBounds(433, 85, 423, 107);
 		add(lblMainMenu);
 		
 		btnUserlist = new JButton("User-list");
 		btnUserlist.setForeground(Color.WHITE);
-		btnUserlist.setFont(new Font("Iowan Old Style", Font.PLAIN, 30));
+		btnUserlist.setFont(new Font("Arial", Font.BOLD, 30));
 		btnUserlist.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
 		btnUserlist.setBackground(Color.WHITE);
-		btnUserlist.setBounds(268, 274, 145, 50);
+		btnUserlist.setBounds(529, 380, 145, 50);
 		add(btnUserlist);
 		
-		btnEventlist = new JButton("Eventlist");
+		btnEventlist = new JButton("Event-list");
 		btnEventlist.setForeground(Color.WHITE);
-		btnEventlist.setFont(new Font("Iowan Old Style", Font.PLAIN, 30));
+		btnEventlist.setFont(new Font("Arial", Font.BOLD, 30));
 		btnEventlist.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
 		btnEventlist.setBackground(Color.WHITE);
-		btnEventlist.setBounds(536, 398, 145, 50);
+		btnEventlist.setBounds(529, 425, 145, 50);
 		add(btnEventlist);
 		
 		btnNotelist = new JButton("Note-list");
 		btnNotelist.setForeground(Color.WHITE);
-		btnNotelist.setFont(new Font("Iowan Old Style", Font.PLAIN, 30));
+		btnNotelist.setFont(new Font("Arial", Font.BOLD, 30));
 		btnNotelist.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
 		btnNotelist.setBackground(Color.WHITE);
-		btnNotelist.setBounds(6, 398, 145, 50);
+		btnNotelist.setBounds(529, 331, 145, 50);
 		add(btnNotelist);
 		
 		btnUserAdministration = new JButton("User Administration");
 		btnUserAdministration.setForeground(Color.WHITE);
-		btnUserAdministration.setFont(new Font("Iowan Old Style", Font.PLAIN, 30));
+		btnUserAdministration.setFont(new Font("Arial", Font.BOLD, 30));
 		btnUserAdministration.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
 		btnUserAdministration.setBackground(Color.WHITE);
-		btnUserAdministration.setBounds(212, 398, 286, 50);
+		btnUserAdministration.setBounds(463, 245, 295, 44);
 		add(btnUserAdministration);
 		
 		btnLogOut = new JButton("Log Out");
 		btnLogOut.setForeground(Color.WHITE);
-		btnLogOut.setFont(new Font("Iowan Old Style", Font.PLAIN, 30));
+		btnLogOut.setFont(new Font("Arial", Font.BOLD, 30));
 		btnLogOut.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
 		btnLogOut.setBackground(Color.WHITE);
-		btnLogOut.setBounds(257, 517, 158, 56);
+		btnLogOut.setBounds(463, 534, 295, 44);
 		add(btnLogOut);
+		
+		lblCBSlogo = new JLabel("");
+		lblCBSlogo.setIcon(new ImageIcon(MainMenu.class.getResource("/Images/CBSLogo3.png")));
+		lblCBSlogo.setBounds(476, 677, 282, 91);
+		add(lblCBSlogo);
 		
 		JLabel lblBackground = new JLabel("");
 		lblBackground.setIcon(new ImageIcon(MainMenu.class.getResource("/Images/MetalBackground.jpg")));

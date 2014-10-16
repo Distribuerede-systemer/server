@@ -93,7 +93,6 @@ public class UserList extends JPanel {
           String firstName = JOptionPane.showInputDialog(null, "First Name", null);
           String lastName = JOptionPane.showInputDialog(null, "Last Name", null);
           String eMail = JOptionPane.showInputDialog(null, "Email", null);
-          
         	}
         });
         
