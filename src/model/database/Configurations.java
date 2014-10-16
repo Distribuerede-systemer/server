@@ -16,6 +16,11 @@ public class Configurations {
 	// FFkey is used in Encryption.java 
 	private String ffcryptkey;
 	
+
+	// Weather variables
+
+
+
 	public String getHost() {
 		return host;
 	}
@@ -56,6 +61,14 @@ public class Configurations {
 		this.ffcryptkey = ffcryptkey;
 	}
 
+		public String getWeather_expiration_date() {
+		return weather_expiration_date;
+	}
+	
+	public void setWeather_expiratoin_date(String weather_expiration_date) {
+		this.weather_expiration_date = weather_expiration_date;
+	}
+
 	// Method to read files from jSON file
     
 	public void ReadFile() {
@@ -76,6 +89,10 @@ public class Configurations {
 
 			// Getting json values for KEY variables
 			setFfcryptkey((String) jsonObject.get("ffcryptkey"));
+
+			// Getting json values for weather variables
+			setWeather_expiratoin_date((String) jsonObject.get("weather_expiration_date"));
+
 
 
 		} catch (ParseException ex) {

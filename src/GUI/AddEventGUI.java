@@ -55,56 +55,56 @@ public class AddEventGUI extends JPanel {
 		btnLogout.setForeground(new Color(255, 255, 255));
 		btnLogout.setFont(new Font("Arial", Font.BOLD, 30));
 		btnLogout.setContentAreaFilled(false);
-		btnLogout.setBounds(624, 655, 117, 43);
+		btnLogout.setBounds(622, 668, 117, 43);
 		add(btnLogout);
 
 		textField_Eventtid = new JTextField();
 		textField_Eventtid.setForeground(new Color(105, 105, 105));
 		textField_Eventtid.setName("");
-		textField_Eventtid.setBounds(755, 176, 120, 34);
+		textField_Eventtid.setBounds(755, 175, 120, 34);
 		add(textField_Eventtid);
 		textField_Eventtid.setColumns(10);
 
 		JLabel lblUserID = new JLabel("Eventtid");
 		lblUserID.setForeground(new Color(255, 255, 255));
 		lblUserID.setFont(new Font("Arial", Font.BOLD, 26));
-		lblUserID.setBounds(483, 180, 104, 30);
+		lblUserID.setBounds(483, 179, 104, 30);
 		add(lblUserID);
 
 		textField_Location = new JTextField();
 		textField_Location.setForeground(new Color(105, 105, 105));
 		textField_Location.setColumns(10);
-		textField_Location.setBounds(755, 230, 120, 34);
+		textField_Location.setBounds(755, 222, 120, 34);
 		add(textField_Location);
 
 		JLabel lblEmail = new JLabel("Location");
 		lblEmail.setForeground(new Color(255, 255, 255));
 		lblEmail.setFont(new Font("Arial", Font.BOLD, 26));
-		lblEmail.setBounds(483, 227, 109, 30);
+		lblEmail.setBounds(483, 226, 109, 30);
 		add(lblEmail);
 
 		textField_Createdby = new JTextField();
 		textField_Createdby.setForeground(new Color(105, 105, 105));
 		textField_Createdby.setColumns(10);
-		textField_Createdby.setBounds(755, 275, 120, 34);
+		textField_Createdby.setBounds(755, 269, 120, 34);
 		add(textField_Createdby);
 
 		JLabel lblTeam = new JLabel("Createdby");
 		lblTeam.setFont(new Font("Arial", Font.BOLD, 26));
 		lblTeam.setForeground(new Color(255, 255, 255));
-		lblTeam.setBounds(483, 268, 127, 30);
+		lblTeam.setBounds(483, 273, 127, 30);
 		add(lblTeam);
 
 		textField_Start = new JTextField();
 		textField_Start.setForeground(new Color(105, 105, 105));
 		textField_Start.setColumns(10);
-		textField_Start.setBounds(755, 320, 120, 34);
+		textField_Start.setBounds(755, 316, 120, 34);
 		add(textField_Start);
 
 		JLabel lblCreateddate = new JLabel("Start");
 		lblCreateddate.setForeground(new Color(255, 255, 255));
 		lblCreateddate.setFont(new Font("Arial", Font.BOLD, 26));
-		lblCreateddate.setBounds(483, 320, 159, 31);
+		lblCreateddate.setBounds(483, 319, 159, 31);
 		add(lblCreateddate);
 
 		btnSubmit = new JButton("Create event");
@@ -120,7 +120,7 @@ public class AddEventGUI extends JPanel {
 			}
 		}
 		);
-		btnSubmit.setBounds(571, 547, 239, 43);
+		btnSubmit.setBounds(561, 560, 239, 43);
 		add(btnSubmit);
 
 		
@@ -130,7 +130,7 @@ public class AddEventGUI extends JPanel {
 				btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
 				btnMainMenu.setContentAreaFilled(false);
 				btnMainMenu.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-				btnMainMenu.setBounds(598, 601, 163, 43);
+				btnMainMenu.setBounds(599, 614, 163, 43);
 				add(btnMainMenu);
 				
 				lblUserInfo = new JLabel("Create event");
@@ -142,49 +142,49 @@ public class AddEventGUI extends JPanel {
 						lblEnd = new JLabel("End");
 						lblEnd.setForeground(Color.WHITE);
 						lblEnd.setFont(new Font("Arial", Font.BOLD, 26));
-						lblEnd.setBounds(483, 362, 159, 31);
+						lblEnd.setBounds(483, 368, 159, 31);
 						add(lblEnd);
 						
 						lblName = new JLabel("Name");
 						lblName.setForeground(Color.WHITE);
 						lblName.setFont(new Font("Arial", Font.BOLD, 26));
-						lblName.setBounds(483, 404, 159, 31);
+						lblName.setBounds(483, 410, 159, 31);
 						add(lblName);
 								
 								lblText = new JLabel("Text");
 								lblText.setForeground(Color.WHITE);
 								lblText.setFont(new Font("Arial", Font.BOLD, 26));
-								lblText.setBounds(483, 446, 159, 31);
+								lblText.setBounds(483, 460, 159, 31);
 								add(lblText);
 								
 								textField_End = new JTextField();
 								textField_End.setForeground(SystemColor.controlDkShadow);
 								textField_End.setColumns(10);
-								textField_End.setBounds(755, 365, 120, 34);
+								textField_End.setBounds(755, 363, 120, 34);
 								add(textField_End);
 								
 								textField_Name = new JTextField();
 								textField_Name.setForeground(SystemColor.controlDkShadow);
 								textField_Name.setColumns(10);
-								textField_Name.setBounds(755, 407, 120, 34);
+								textField_Name.setBounds(755, 410, 120, 34);
 								add(textField_Name);
 								
 								textField_Text = new JTextField();
 								textField_Text.setForeground(SystemColor.controlDkShadow);
 								textField_Text.setColumns(10);
-								textField_Text.setBounds(755, 456, 120, 34);
+								textField_Text.setBounds(755, 457, 120, 34);
 								add(textField_Text);
 								
 								textField_Type = new JTextField();
 								textField_Type.setForeground(SystemColor.controlDkShadow);
 								textField_Type.setColumns(10);
-								textField_Type.setBounds(755, 501, 120, 34);
+								textField_Type.setBounds(755, 504, 120, 34);
 								add(textField_Type);
 								
 								lblType = new JLabel("Type");
 								lblType.setForeground(Color.WHITE);
 								lblType.setFont(new Font("Arial", Font.BOLD, 26));
-								lblType.setBounds(483, 488, 159, 31);
+								lblType.setBounds(483, 502, 159, 31);
 								add(lblType);
 						//=======
 						
@@ -193,7 +193,7 @@ public class AddEventGUI extends JPanel {
 								JLabel lblBackground = new JLabel("");
 								lblBackground.setSize(new Dimension(1366, 768));
 								lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/MetalBackground.jpg")));
-								lblBackground.setBounds(10, -30, 1366, 768);
+								lblBackground.setBounds(0, 0, 1366, 768);
 								add(lblBackground);
 		
 		
