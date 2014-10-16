@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -21,6 +23,7 @@ public class ForecastModel {
 	     // Json parser to retrieve and map data from openweathermap.org
 	     private ArrayList<Forecast> forecastList = new ArrayList();
 	     private String weatherDescription = "";
+	     QueryBuilder qb = new QueryBuilder();
 	     
 	     // 
 	     public ArrayList<Forecast> requestForecast() {
@@ -81,7 +84,8 @@ public class ForecastModel {
 	                 }
 
 	                 forecastList.add(new Forecast(string_date, temperatur, weatherDescription));
-
+	                 // Method to write these values to database needs to be created
+	                 
 	             }
 	         } catch (ParseException ex) {
 	             ex.printStackTrace();
@@ -96,6 +100,7 @@ public class ForecastModel {
 	     	QueryBuilder qb = new QueryBuilder();
 	     	Date date = new Date(); // Current date & time
 	     	long maxTimeNoUpdate = 3600; // Maximum one hour with no update
+	     	ArrayList<Forecast> forecastFromDB = new ArrayList();
 	     	
 	     	long date1 = date.getTime();
 	     	long date2 = date.getTime() - maxTimeNoUpdate; // minus 1 hour -- should be fetched from database
@@ -108,7 +113,27 @@ public class ForecastModel {
 	     		return this.requestForecast();
 	     	} else {
 	     		// Query database and fetch existing weather data from db
-	     		return null; //return data from database
+	     		ResultSet forecast = null;
+	     		try {
+					forecast = qb.selectFrom("dailyupdate").where("msg_type", "=", "forecast").ExecuteQuery();
+					// Method to add these ResultSet values to ArrayList needs to be created
+					return (ArrayList<Forecast>) forecastFromDB;
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	     		
+	     		//Do something nice with ResultSet in order to make it into an ArrayList
+	     		try {
+					while(forecast.next()){
+						//forecastFromDB.add("xx");
+						return forecastFromDB;
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	     		return null;
 	     	}
 	     }
 	 
