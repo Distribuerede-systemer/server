@@ -23,7 +23,6 @@ CREATE TABLE IF NOT EXISTS dailyupdate
 	date datetime NOT NULL UNIQUE,
 	apparentTemperature double,
 	summary text,
-	windspeed double,
 	qotd varchar(300) NOT NULL,
 	msg_type varchar (100) NOT NULL,
 	update_timestamp TIMESTAMP DEFAULT NOW() ON UPDATE NOW(),

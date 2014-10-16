@@ -82,8 +82,11 @@ public class ForecastModel {
 	                     weatherDescription = (String) childObj.get("description");
 
 	                 }
-
+	                 
 	                 forecastList.add(new Forecast(string_date, temperatur, weatherDescription));
+	                 String [] fields = {"date", "apparentTemperature", "summary"};
+	                 String [] values = {string_date, temperatur, weatherDescription};
+	                 qb.update("dailyupdate", fields, values).where(string_date, =, value);
 	                 // Method to write these values to database needs to be created
 	                 
 	             }
@@ -105,7 +108,7 @@ public class ForecastModel {
 	     	long date1 = date.getTime();
 	     	long date2 = date.getTime() - maxTimeNoUpdate; // minus 1 hour -- should be fetched from database
 	     	
-	     	long timeSinceUpdate = date1 - date2; 
+	     	long timeSinceUpdate = 3601; 
 	     	
 	     	// if more than 1 hour ago, do update
 	     	if(timeSinceUpdate > 3600){
@@ -115,7 +118,7 @@ public class ForecastModel {
 	     		// Query database and fetch existing weather data from db
 	     		ResultSet forecast = null;
 	     		try {
-					forecast = qb.selectFrom("dailyupdate").where("msg_type", "=", "forecast").ExecuteQuery();
+	     			forecast = qb.selectFrom("dailyupdate").where("msg_type", "=", "forecast").ExecuteQuery();
 					// Method to add these ResultSet values to ArrayList needs to be created
 					return (ArrayList<Forecast>) forecastFromDB;
 				} catch (SQLException e) {
