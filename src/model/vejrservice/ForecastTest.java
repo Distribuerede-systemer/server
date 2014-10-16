@@ -6,7 +6,7 @@ public class ForecastTest {
 
         ForecastModel fm = new ForecastModel();
 
-        fm.saveForecast();
+        fm.getForecast();
 
     }
 
