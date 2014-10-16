@@ -1,21 +1,21 @@
-
 package model;
-import java.io.*;
-import java.sql.*;
 
 import com.ibatis.common.jdbc.ScriptRunner;
 
+import java.io.*;
+import java.sql.*;
+
 
 /**
- * Model superclass, never instansiated. All child model classes inherits its properties, classes and methods
+ * model.Model superclass, never instansiated. All child model classes inherits its properties, classes and methods
  * Created by jesperbruun on 13/10/14.
  */
 public abstract class Model {
 
-    private static String sqlUrl = "jdbc:mysql://54.172.101.85:3306/";
+    private static String sqlUrl = "jdbc:mysql://54.172.101.85:3306/cbscalendar";
     private static String sqlUser = "root";
     private static String sqlPasswd = "doekdoek";
-    private static final String dbName = "cbscalendar";
+    //private static String dbName = "cbscalendar";
 
     private Statement stmt;
     protected Connection conn = null;
@@ -52,8 +52,8 @@ public abstract class Model {
      * Reads and executes SQL from File.
      *
      * @param filepath
-     * @throws IOException
-     * @throws SQLException
+     * @throws java.io.IOException
+     * @throws java.sql.SQLException
      */
     public void readfromSqlFile(String filepath) throws IOException, SQLException {
         getConnection();
@@ -71,7 +71,6 @@ public abstract class Model {
      * @return PreparedStatement
      */
     public PreparedStatement doQuery(String sql) {
-        setSelectedDatabase(dbName);
         try {
             getConnection();
             getConn();
@@ -101,7 +100,6 @@ public abstract class Model {
     }
 
     public int doUpdate(String update) throws SQLException {
-        setSelectedDatabase(dbName);
         getConnection();
         int temp = 0;
 
@@ -150,7 +148,7 @@ public abstract class Model {
     /**
      * Getter-method for Connection-class
      *
-     * @throws SQLException
+     * @throws java.sql.SQLException
      */
     public void getConnection() throws SQLException {
         setConn(DriverManager.getConnection(sqlUrl, sqlUser, sqlPasswd));

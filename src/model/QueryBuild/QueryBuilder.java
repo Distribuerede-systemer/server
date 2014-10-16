@@ -1,5 +1,7 @@
 package model.QueryBuild;
 
+import java.util.Arrays;
+
 /**
  * Created by jesperbruun on 15/10/14.
  */
@@ -8,9 +10,22 @@ public class QueryBuilder {
     private String selectValue;
     private String tableName;
     private String fields;
-    private boolean softDelete = false;
+    private boolean softDelete;
+    private boolean isUpdate;
 
+    protected void setSoftDelete(boolean b){
+        this.softDelete = b;
+    }
+    protected boolean isSoftDelete(){
+        return softDelete;
+    }
 
+    protected boolean isUpdate() {
+        return isUpdate;
+    }
+    protected void setUpdate(boolean isUpdate) {
+        this.isUpdate = isUpdate;
+    }
 
     protected void setSelectValue(String selectValue) {
         this.selectValue = selectValue;
@@ -33,12 +48,7 @@ public class QueryBuilder {
         this.fields = fields;
     }
 
-    /**
-     * SELECT values FROM tablename
-     * @param values
-     * @param tableName
-     * @return
-     */
+
     public Where selectFrom(String[] values, String tableName) {
 
         QueryBuilder queryBuilder = new QueryBuilder();
@@ -54,11 +64,6 @@ public class QueryBuilder {
         return new Where(queryBuilder);
     }
 
-    /**
-     * SELECT * FROM tablename
-     * @param tableName
-     * @return
-     */
     public Where selectFrom(String tableName) {
 
         QueryBuilder queryBuilder = new QueryBuilder();
@@ -68,12 +73,7 @@ public class QueryBuilder {
         return new Where(queryBuilder);
     }
 
-    /**
-     * INSERT INTO tablename (Fields)
-     * @param tableName
-     * @param fields
-     * @return
-     */
+    //Not ready yet
     public Values insertInto(String tableName, String[] fields){
 
         QueryBuilder queryBuilder = new QueryBuilder();
@@ -81,7 +81,9 @@ public class QueryBuilder {
 
         StringBuilder sb = new StringBuilder();
         for (String n : fields) {
-            if (sb.length() > 0) sb.append(',');
+            if (sb.length() > 0) {
+                sb.append(',');
+            }
             sb.append(n);
         }
         queryBuilder.setFields(sb.toString());
@@ -89,11 +91,33 @@ public class QueryBuilder {
 
     }
 
-    public Where deleteFrom(String tablename){
+    public Where update(String tableName, String[] fields, String[] values) {
         QueryBuilder queryBuilder = new QueryBuilder();
         queryBuilder.setTableName(tableName);
+
+        String setQuery = "";
+        for (int i = 0; i < fields.length; i++) {
+            if(i != (fields.length-1)) {
+                setQuery += fields[i] + "='" + values[i] + "',";
+            } else {
+                setQuery += fields[i] + "='" + values[i] + "'";
+            }
+        }
+        queryBuilder.setFields(setQuery);
+        queryBuilder.setUpdate(true);
+
         return new Where(queryBuilder);
     }
+
+    public Where deleteFrom(String tableName){
+        QueryBuilder queryBuilder = new QueryBuilder();
+        queryBuilder.setTableName(tableName);
+        queryBuilder.setSoftDelete(true);
+        return new Where(queryBuilder);
+    }
+
+
+
 
 }
 
