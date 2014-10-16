@@ -27,6 +27,8 @@ public class Events {
 				int type = rs.getInt("type");
 				int location = rs.getInt("location");
 				int createdby = rs.getInt("createdby");
+				
+				
 				Date startDate = rs.getDate("start");
 				Time startTime = rs.getTime("start");
 				
@@ -45,21 +47,16 @@ public class Events {
 				String stringEndDate = String.valueOf(endDate);
 				String stringEndTime = String.valueOf(endTime);
 				
+				ArrayList<String> alStart = new ArrayList<String>();
+				alStart.add(stringStartDate + "" + stringStartTime);
+				
+				ArrayList<String> alEnd = new ArrayList<String>();
+				alEnd.add(stringEndDate + "" + stringEndTime);
+				
 				
 				System.out.println(String.valueOf(startDate.getTime()));
 				
-				events.add(new Event(stringEventID, stringType, stringLocation, stringCreatedby, stringStartDate, stringStartTime, stringEndDate, stringEndTime));
-				
-				String.valueOf(eventID),String.valueOf(type),String.valueOf(location),String.valueOf(createdby),
-				String.valueOf(startDate),String.valueOf(startTime),String.valueOf(endDate),String.valueOf(endTime)
-				
-				
-				(String activityid, String eventid, String type, String title,
-						String description, String location, ArrayList<String> start,
-						ArrayList<String> end)
-				
-				
-				
+				events.add(new Event(stringEventID, stringEventID, stringType, stringType, stringLocation, stringLocation,stringCreatedby, alStart, alEnd));				
 			}
 			
 		} catch (SQLException e) {
