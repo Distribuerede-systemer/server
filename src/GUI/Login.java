@@ -41,7 +41,7 @@ public class Login extends JPanel {
 		lblWelcome.setCursor(Cursor.getPredefinedCursor(Cursor.N_RESIZE_CURSOR));
 		lblWelcome.setForeground(new Color(255, 255, 255));
 		lblWelcome.setFont(new Font("Arial", Font.BOLD, 78));
-		lblWelcome.setBounds(510, 182, 346, 107);
+		lblWelcome.setBounds(510, 90, 346, 107);
 		
 		add(lblWelcome);
 		lblUsername.setForeground(new Color(255, 255, 255));

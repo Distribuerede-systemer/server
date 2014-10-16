@@ -9,8 +9,11 @@ import javax.swing.JScrollBar;
 import javax.swing.JTable;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.CompoundBorder;
@@ -35,27 +38,27 @@ public class NoteList extends JPanel {
 		setLayout(null);
 		
 		table = new JTable();
-		table.setBounds(285, 173, 796, 320);
+		table.setBounds(285, 190, 796, 320);
 		add(table);
 		
 		lblHeader = new JLabel("NoteList");
 		lblHeader.setForeground(Color.WHITE);
 		lblHeader.setFont(new Font("Arial", Font.BOLD, 78));
-		lblHeader.setBounds(527, 31, 312, 90);
+		lblHeader.setBounds(527, 90, 312, 90);
 		add(lblHeader);
 		
 		btnDelete = new JButton("Delete");
 		btnDelete.setOpaque(true);
 		btnDelete.setForeground(new Color(0, 0, 205));
 		btnDelete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
-		btnDelete.setBounds(1091, 213, 118, 29);
+		btnDelete.setBounds(1092, 230, 118, 29);
 		add(btnDelete);
 		
 		btnAdd = new JButton("Add");
 		btnAdd.setOpaque(true);
 		btnAdd.setForeground(new Color(0, 0, 205));
 		btnAdd.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
-		btnAdd.setBounds(1091, 173, 118, 29);
+		btnAdd.setBounds(1092, 190, 118, 29);
 		add(btnAdd);
 		
 		btnMainMenu = new JButton("Main Menu");
@@ -83,4 +86,28 @@ public class NoteList extends JPanel {
 		
 		add(lblBackground);
 	}
+	
+	public void addActionListener(ActionListener l) {
+		btnAdd.addActionListener(l);
+		btnDelete.addActionListener(l);
+		btnLogout.addActionListener(l);
+		btnMainMenu.addActionListener(l);
+	}
+
+	public JButton getBtnDelete() {
+		return btnDelete;
+	}
+
+	public JButton getBtnAdd() {
+		return btnAdd;
+	}
+
+	public JButton getBtnMainMenu() {
+		return btnMainMenu;
+	}
+
+	public JButton getBtnLogout() {
+		return btnLogout;
+	}
+	
 }

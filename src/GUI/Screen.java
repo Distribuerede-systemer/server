@@ -16,7 +16,7 @@ public class Screen extends JFrame {
 	public static final String ADDUSERGUI = "name_278604525733268";
 	public static final String NOTELIST = "name_278522430661848";
 	public static final String USERLIST = "name_280161954000083";
-
+	public static final String EVENTLIST = "name_534038022095149";
 	
 	private JPanel contentPane;
 	private final Login login = new Login();
@@ -25,6 +25,7 @@ public class Screen extends JFrame {
 	private final NoteList noteList = new NoteList();
 	private final UserList userlist = new UserList();
 	CardLayout c;
+	private final EventList eventList = new EventList();
 
 	/**
 	 * Launch the application.
@@ -62,8 +63,9 @@ public class Screen extends JFrame {
 		
 		contentPane.add(userInfo, "name_277892826656058");
 		
-				
 		contentPane.add(noteList, "name_278522430661848");
+		
+		contentPane.add(eventList, "name_534038022095149");
 		
 		contentPane.add(userlist, "name_280161954000083");
 		c = (CardLayout) getContentPane().getLayout();
@@ -89,5 +91,8 @@ public class Screen extends JFrame {
 	public void show(String card) {
 		c.show(getContentPane(),  card);
 	}
-
+	public EventList getEventlist() {
+		return eventList;
+	}
+	
 }

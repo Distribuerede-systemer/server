@@ -16,6 +16,7 @@ public class Event {
     private ArrayList<String> start;
     private ArrayList<String> end;
 
+    // Settere og gettere for Event objektet 
     public void setActivityid(String activityid){
         this.activityid = activityid;
     }

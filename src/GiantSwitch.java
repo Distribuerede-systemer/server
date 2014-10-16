@@ -1,8 +1,8 @@
-import model.Note;
-import model.Notes;
+
 import model.QOTD.QOTDModel;
 import model.calendar.Event;
 import model.event.Events;
+import model.note.Note;
 import model.vejrservice.ForecastModel;
 
 import com.google.gson.*;
@@ -15,6 +15,7 @@ public class GiantSwitch {
 		Note noteKlasse = new Note();
 		ForecastModel forecastKlasse = new ForecastModel();
 		QOTDModel QOTDKlasse = new QOTDModel();
+		CalendarInfo CI1 = new CalendarInfo();
 		
 		Gson gson = new GsonBuilder().create();
 		String Svar = "";			
@@ -31,7 +32,7 @@ public class GiantSwitch {
 		
 		
 		case "createCourse":
-			CalendarInfo CI1 = (CalendarInfo)gson.fromJson(jsonString, CalendarInfo.class);
+			CI1 = (CalendarInfo)gson.fromJson(jsonString, CalendarInfo.class);
 			System.out.println(CI1.getDescription());
 			System.out.println(CI1.getEnd());
 			System.out.println(CI1.getEventID());
@@ -101,13 +102,16 @@ public class GiantSwitch {
 			System.out.println("Recieved getQuote");
 			break;
 
-		case "requestQuote":
+			/**
+			 * 	
+			case "requestQuote":
 			System.out.println("Recieved requestQuote");
 			break;
 
-		case "saveQuote":
+			case "saveQuote":
 			System.out.println("Recieved saveQuote");
 			break;
+			 */
 
 		/************
 		 ** WEATHER **
