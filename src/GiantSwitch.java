@@ -91,6 +91,11 @@ public class GiantSwitch {
 		case "deleteNote":
 			System.out.println("Recieved deleteNote");
 			break;
+			
+		case "editNote":
+			System.out.println("Recieved editNote");
+			break;
+
 
 		/**********
 		 ** QUOTE **
@@ -128,12 +133,6 @@ public class GiantSwitch {
 			return "getNote";
 		} else if (ID.contains("deleteNote")){
 			return "deleteNote";
-		} else if (ID.contains("requestForecast")) {
-			return "requestForecast";
-		} else if (ID.contains("getForecast")) {
-			return "getForecast";
-		} else if (ID.contains("saveForecast")) {
-			return "saveForecast";
 		} else if (ID.contains("editNote")){
 			return "editNote";
 		} else if (ID.contains("getClientForecast")) {
@@ -146,10 +145,6 @@ public class GiantSwitch {
 			return "exportCourse";
 		} else if (ID.contains("getQuote")) {
 			return "getQuote";
-		} else if (ID.contains("requestQuote")) {
-			return "requestQuote";
-		} else if (ID.contains("saveQuote")) {
-			return "saveQuote";
 		} else if (ID.contains("logIn")) {
 			return "logIn";
 		} else if (ID.contains("logOut")) {
