@@ -46,12 +46,12 @@ public class Login extends JPanel {
 		add(lblWelcome);
 		lblUsername.setForeground(new Color(255, 255, 255));
 		lblUsername.setFont(new Font("Arial", Font.BOLD, 26));
-		lblUsername.setBounds(491, 334, 124, 31);
+		lblUsername.setBounds(491, 334, 164, 31);
 		
 		add(lblUsername);
 		lblPassword.setForeground(new Color(255, 255, 255));
 		lblPassword.setFont(new Font("Arial", Font.BOLD, 26));
-		lblPassword.setBounds(491, 377, 121, 31);
+		lblPassword.setBounds(491, 377, 164, 31);
 		
 		add(lblPassword);
 		btnLogIn.setContentAreaFilled(false);
@@ -63,6 +63,7 @@ public class Login extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
+		textFieldUsername.setOpaque(false);
 		textFieldUsername.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldUsername.setForeground(Color.BLACK);
 		textFieldUsername.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
@@ -85,6 +86,7 @@ public class Login extends JPanel {
 		
 		add(lblCBSlogo);
 		setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		passwordField.setOpaque(false);
 		passwordField.setHorizontalAlignment(SwingConstants.CENTER);
 		passwordField.setColumns(10);
 		passwordField.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255)));
