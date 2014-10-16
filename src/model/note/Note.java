@@ -1,11 +1,15 @@
 package model.note;
 
+import java.sql.SQLException;
+
 import model.Model;
+import model.QueryBuild.*;
 
 public class Note extends Model{
 	
 	NoteModel notes;
-			
+	QueryBuilder qb;
+	
 		public void CreateNote(
 			int noteID, 
 			String text, 
@@ -14,34 +18,50 @@ public class Note extends Model{
 			boolean isActive, 
 			int eventID)	{
 			
-			notes = new NoteModel(noteID, text, text, text, isActive, noteID);
+			String activeStatus = "0";
+			if (isActive)
+				activeStatus = "1";
 			
-			//Insert SQL function
-			//Must create note based on note Object
+			String[] fields = {"eventID", "createdBy", "text", "dateTime", "isActive"};
+			String[] values = {String.valueOf(noteID), text, dateTime, createdBy, activeStatus};
+			try {
+				qb.insertInto("notes", fields).values(values).Execute();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-		public void EditNote(int noteID, 
-			String text, 
-			String dateTime, 
-			String createdBy, 
-			boolean isActive, 
-			int eventID){
+
+		public void DeleteNote (int noteID) throws SQLException {
 			
-			notes = new NoteModel(noteID, text, text, text, isActive, noteID);
-			//Insert Update SQL function
-			//SQL statement must replace the note with equal NoteID with this Note
-			//Potentially add edit stamp ?
-		}
-		public void DeleteNote (int noteID) {
+					notes = GetNote(noteID);
+					notes.setActive(false);
+					SaveNote(notes);
+					
+				}
+
 			
-			//SQL deletes note at noteID
+		public NoteModel GetNote (int noteID) throws SQLException{
 			
-		}
-		public NoteModel GetNote (int noteID){
+			try {
+				resultSet = qb.selectFrom("notes").where("noteID", "= ", String.valueOf(noteID)).ExecuteQuery();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+				while(resultSet.next()){
+					notes = new NoteModel(
+							resultSet.getInt("noteID"), 
+							resultSet.getString("text"), 
+							resultSet.getString("dateTime"), 
+							resultSet.getString("createdBy"), 
+							resultSet.getBoolean("isActive"), 
+							noteID);
+				}
+					return notes;
+				
 			
-//			notes = new NoteModel(noteID, text, text, text, isActive, noteID);
-			//Dette notes object skal dannes af information hentet fra databasen
-			return notes;
-			
+		
 		}
 		public void SaveNote (NoteModel note){
 			
@@ -55,16 +75,9 @@ public class Note extends Model{
 			int eventID = note.getEventID();
 			int noteID = note.getNoteID();
 			
-			String SqlSave = String.format( ""
-					+ "UPDATE notes"
-					+ "SET 	eventID = %.0f,"
-					+ "		createdBy = %s"
-					+ "		text = %s"
-					+ "		dateTime = %s"
-					+ "		isActive = %s,"
-					+ "WHERE noteID = %s", 
-					eventID, createdBy, text, dateTime, activeStatus, noteID);
-			
-		}
+			String[] fields = {"eventID", "createdBy", "text", "dateTime", "isActive"};
+			String[] values = {String.valueOf(noteID), text, dateTime, createdBy, activeStatus};
+			qb.update("notes", fields, values).all();
 				
+		}
 }
