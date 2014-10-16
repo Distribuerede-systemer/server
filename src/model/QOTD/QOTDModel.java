@@ -74,7 +74,7 @@ public class QOTDModel {
     			String[] keys2 = {quote};
     			
     			
-    			qb.update("dailyupdate", keys, keys2).where("ID", "=", "1").Execute();
+    			qb.update("dailyupdate", keys, keys2).where("msg_type", "=", "1").Execute();
     			
     	
 			} catch (Exception e) {
@@ -84,7 +84,11 @@ public class QOTDModel {
 			
     			
     }
-     	
+     
+    /**
+     * Retrieve Quote from a website and put it into a String, 
+     * Afterwards we will make it into a json object so it can be printed out to the client.
+     */
   	public void getQuote(){
   		String q = "";
   		String[] key = {"qotd"};
