@@ -13,6 +13,7 @@ public class Event {
     private String title;
     private String description;
     private String location;
+    private String createdby;
     private ArrayList<String> start;
     private ArrayList<String> end;
 
@@ -59,6 +60,13 @@ public class Event {
         return location;
     }
 
+    public void setCreatedby(String createdby){
+        this.createdby = createdby;
+    }
+    public String getCreatedby(){
+        return createdby;
+    }
+    
     public void setStart(ArrayList<String> start){
         this.start = start;
     }
@@ -73,7 +81,7 @@ public class Event {
         return end;
     }
 	public Event(String activityid, String eventid, String type, String title,
-			String description, String location, ArrayList<String> start,
+			String description, String location, String createdby, ArrayList<String> start,
 			ArrayList<String> end) {
 		super();
 		this.activityid = activityid;
@@ -82,6 +90,7 @@ public class Event {
 		this.title = title;
 		this.description = description;
 		this.location = location;
+		this.createdby = createdby;
 		this.start = start;
 		this.end = end;
 	}
