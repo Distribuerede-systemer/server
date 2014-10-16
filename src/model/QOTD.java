@@ -1,10 +1,13 @@
 package model;
 
-import java.io.IOException;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
-import java.net.SocketException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import com.google.gson.Gson;
 
 
 public class QOTD {
@@ -12,31 +15,45 @@ public class QOTD {
     public QOTD() {
 
     }
-
-    public static void main(String args[]) {
-    // args give message contents and server hostname
-        DatagramSocket aSocket = null;
+    
+    /**
+     *
+     */ 
+    
+    private static String readUrl(String urlString) throws Exception {
+        BufferedReader reader = null;
         try {
-        	
-            aSocket = new DatagramSocket();
-            byte [] m = new byte[1024];
-            InetAddress aHost = InetAddress.getByName("qotd.nngn.net");
-            int serverPort = 17;
+            URL url = new URL(urlString);
+            reader = new BufferedReader(new InputStreamReader(url.openStream()));
+            StringBuffer buffer = new StringBuffer();
+            int read;
+            char[] chars = new char[1024];
+            while ((read = reader.read(chars)) != -1)
+                buffer.append(chars, 0, read);
+
+            return buffer.toString();
+        } finally {
+            if (reader != null)
+                reader.close();
+        }
+ 
+    }
+    
+     	public static void main(String args[]) throws Exception {
+
+            /**
+             * getting text from website and putiing into string
+             * Making a new object of JSON, and prints out quote
+             */
+            String json = readUrl("http://dist-sso.it-kartellet.dk/quote/");
             
-            //send anmodelse
-            DatagramPacket request = new DatagramPacket(m, m.length, aHost, serverPort);
-            aSocket.send(request);
-            
-            //modtager informationer
-            byte[] buffer = new byte[1024];
-            DatagramPacket reply = new DatagramPacket(buffer, buffer.length);
-            aSocket.receive(reply);
-            
-            //udskriv quote. Opdatere hver 24/h
-            System.out.println(new String(reply.getData()));
-          
-        } catch (SocketException e){System.out.println("Socket: " + e.getMessage()); } catch (IOException e){System.out.println("IO: " + e.getMessage());
-        } finally { if(aSocket != null) aSocket.close();}
+    			JSONParser jsonParser = new JSONParser();
+    			JSONObject jsonObject = (JSONObject) jsonParser.parse(json);
+    			
+    			System.out.println(jsonObject.get("quote"));
+    			System.out.println(jsonObject.get("author"));
+    			System.out.println(jsonObject.get("topic"));
+    	
     }
     //Gemme i database
 }
