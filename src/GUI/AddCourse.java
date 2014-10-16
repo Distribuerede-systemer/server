@@ -81,7 +81,7 @@
 					BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255,
 							255), new Color(0, 0, 205), new Color(255, 255, 255)),
 					null));
-			scrollPane.setBounds(417, 225, 590, 360);
+			scrollPane.setBounds(290, 177, 841, 536);
 
 			// Add the scroll pane to this panel.
 			add(scrollPane);
@@ -89,7 +89,7 @@
 			JLabel label = new JLabel("");
 			label.setIcon(new ImageIcon(EventList.class
 					.getResource("/Images/MetalBackground.jpg")));
-			label.setBounds(26, 0, 1366, 768);
+			label.setBounds(-26, -28, 1366, 768);
 			add(label);
 
 		};

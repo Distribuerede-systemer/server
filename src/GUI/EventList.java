@@ -1,100 +1,99 @@
-package GUI;
 
-import javax.swing.JPanel;
+	package GUI;
 
-import java.awt.Dimension;
+	import javax.swing.JPanel;
 
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import javax.swing.JTable;
-import javax.swing.JTextField;
+	import java.awt.Dimension;
 
-import java.awt.Font;
+	import javax.swing.JLabel;
+	import javax.swing.ImageIcon;
+	import javax.swing.JTable;
+	import javax.swing.JTextField;
 
-import javax.swing.SwingConstants;
-import javax.swing.JButton;
+	import java.awt.Font;
 
-import java.awt.Color;
+	import javax.swing.SwingConstants;
+	import javax.swing.JButton;
 
-import javax.swing.JScrollPane;
+	import java.awt.Color;
 
-import java.awt.Component;
+	import javax.swing.JScrollPane;
 
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.MatteBorder;
-import javax.swing.JTextPane;
+	import java.awt.Component;
 
-public class EventList extends JPanel {
+	import javax.swing.border.CompoundBorder;
+	import javax.swing.border.BevelBorder;
+	import javax.swing.border.MatteBorder;
+	import javax.swing.JTextPane;
 
-	/**
-	 * Create the panel.
-	 */
-	public EventList() {
-		setSize(new Dimension(1366, 768));
-		setLayout(null);
 
-		JLabel lblEvents = new JLabel("Events List");
-		lblEvents.setFont(new Font("Tahoma", Font.BOLD, 30));
-		lblEvents.setBounds(608, 91, 195, 52);
-		add(lblEvents);
+	public class EventList extends JPanel {
 
-		JButton btnDeleteEvent = new JButton("Delete Event");
-		btnDeleteEvent.setBounds(1138, 672, 213, 41);
-		add(btnDeleteEvent);
+		/**
+		 * Create the panel.
+		 */
+		public EventList() {
+			setSize(new Dimension(1366, 768));
+			setLayout(null);
 
-		JButton btnCreateEvent = new JButton("Create Event");
-		btnCreateEvent.setBounds(1138, 615, 213, 41);
-		add(btnCreateEvent);
+			JLabel lblEvents = new JLabel("Eventlist");
+			lblEvents.setFont(new Font("Tahoma", Font.BOLD, 30));
+			lblEvents.setBounds(658, 90, 184, 52);
+			add(lblEvents);
 
-		JLabel lblUpcomingEvent = new JLabel("Upcoming Event:");
-		lblUpcomingEvent.setBounds(164, 177, 309, 33);
-		add(lblUpcomingEvent);
+			JButton btnDeleteEvent = new JButton("Delete Course");
+			btnDeleteEvent.setBounds(1138, 672, 213, 41);
+			add(btnDeleteEvent);
 
-		
-		//Laver tabellen inde i Eventlisten.
-		String[] columnNames = { "Event", "Date", "Note" };
+			JButton btnCreateEvent = new JButton("Create Course");
+			btnCreateEvent.setBounds(1138, 615, 213, 41);
+			add(btnCreateEvent);
 
-		Object[][] data = {
+			JLabel lblUpcomingEvent = new JLabel("Upcomming Events:");
+			lblUpcomingEvent.setBounds(51, 140, 309, 33);
+			add(lblUpcomingEvent);
 
-		{ "Kathy", "Smith", "HEJ", new Boolean(false) },
-				{ "John", "Doe", new Integer(3), new Boolean(true) },
-				{ "Sue", "Black", new Integer(2), new Boolean(false) },
-				{ "Jane", "White", new Integer(20), new Boolean(true) },
-				{ "Joe", "Brown", new Integer(10), new Boolean(false) } };
+			
+			//Laver tabellen inde i Eventlisten.
+			String[] columnNames = { "Event", "Date", "Note", "" };
 
-		final JTable table = new JTable(data, columnNames);
-		table.setSurrendersFocusOnKeystroke(true);
-		table.setPreferredScrollableViewportSize(new Dimension(500, 100));
-		table.setFillsViewportHeight(true);
-		table.setRowSelectionAllowed(true);
+			Object[][] data = {
 
-		// Create the scroll pane and add the table to it.
-		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setBorder(new CompoundBorder(new BevelBorder(
-				BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255,
-						255), new Color(0, 0, 205), new Color(255, 255, 255)),
-				new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255))));
-		scrollPane.setViewportBorder(new CompoundBorder(new BevelBorder(
-				BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255,
-						255), new Color(0, 0, 205), new Color(255, 255, 255)),
-				null));
-		scrollPane.setBounds(417, 225, 590, 360);
+					{ "DØK Julefrokost", "11.11.2022", "Game on!", new Boolean(false) },
+					{ "DØK Julefrokost", "11.11.2022", "Game on!", new Boolean(true) },
+					{ "DØK Julefrokost", "11.11.2022", "Game on!", new Boolean(false) },
+					{ "DØK Julefrokost", "11.11.2022", "Game on!", new Boolean(true) },
+					{ "DØK Julefrokost", "11.11.2022", "Game on!", new Boolean(false) } };
 
-		// Add the scroll pane to this panel.
-		add(scrollPane);
+			final JTable table = new JTable(data, columnNames);
+			table.setSurrendersFocusOnKeystroke(true);
+			table.setPreferredScrollableViewportSize(new Dimension(500, 100));
+			table.setFillsViewportHeight(true);
+			table.setRowSelectionAllowed(true);
 
-		JLabel label = new JLabel("");
-<<<<<<< HEAD
-		label.setIcon(new ImageIcon(EventList.class
-				.getResource("/Images/MetalBackground.jpg")));
-		label.setBounds(26, 0, 1366, 768);
-=======
-		label.setIcon(new ImageIcon(EventList.class.getResource("/Images/MetalBackground.jpg")));
-		label.setBounds(38, 11, 1366, 768);
->>>>>>> origin/master
-		add(label);
+			// Create the scroll pane and add the table to it.
+			JScrollPane scrollPane = new JScrollPane(table);
+			scrollPane.setBorder(new CompoundBorder(new BevelBorder(
+					BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255,
+							255), new Color(0, 0, 205), new Color(255, 255, 255)),
+					new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255))));
+			scrollPane.setViewportBorder(new CompoundBorder(new BevelBorder(
+					BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255,
+							255), new Color(0, 0, 205), new Color(255, 255, 255)),
+					null));
+			scrollPane.setBounds(290, 177, 841, 536);
 
-	};
+			// Add the scroll pane to this panel.
+			add(scrollPane);
 
-}
+			JLabel label = new JLabel("");
+			label.setIcon(new ImageIcon(EventList.class
+					.getResource("/Images/MetalBackground.jpg")));
+			label.setBounds(-26, -28, 1366, 768);
+			add(label);
+
+		};
+
+	}
+
+
