@@ -17,6 +17,7 @@ public class Screen extends JFrame {
 	public static final String NOTELIST = "name_278522430661848";
 	public static final String USERLIST = "name_280161954000083";
 	public static final String EVENTLIST = "name_534038022095149";
+	public static final String ADDEVENTGUI = "name_6308445225625";
 	
 	private JPanel contentPane;
 	private final Login login = new Login();
@@ -26,6 +27,7 @@ public class Screen extends JFrame {
 	private final UserList userlist = new UserList();
 	CardLayout c;
 	private final EventList eventList = new EventList();
+	private AddEventGUI addEventGUI;
 
 	/**
 	 * Launch the application.
@@ -54,6 +56,9 @@ public class Screen extends JFrame {
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0, 0));
+		
+		addEventGUI = new AddEventGUI();
+		contentPane.add(addEventGUI, "name_6308445225625");
 		login.getBtnLogIn().setContentAreaFilled(false);
 		login.getBtnForgotLogIn().setContentAreaFilled(false);
 		
@@ -93,6 +98,9 @@ public class Screen extends JFrame {
 	}
 	public EventList getEventlist() {
 		return eventList;
+	}
+	public AddEventGUI getAddEventGUI() {
+		return addEventGUI;
 	}
 	
 }

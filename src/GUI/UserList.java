@@ -1,5 +1,4 @@
 
-
 package GUI;
 
 import java.awt.Dimension;
@@ -19,7 +18,9 @@ import javax.swing.border.BevelBorder;
 import java.awt.Color;
 
 import javax.swing.JLabel;
+
 import java.awt.Font;
+import java.sql.SQLException;
 
 import javax.swing.border.MatteBorder;
 import javax.swing.JButton;
@@ -72,7 +73,7 @@ Object[][] data = {
         };
         
 	
-        ga
+   
         try {
 			rs = db.doQuery("SELECT * FROM users'");
 			
