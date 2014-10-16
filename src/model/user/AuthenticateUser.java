@@ -1,19 +1,13 @@
 package model.user;
 
-import java.security.Key;
 import java.sql.ResultSet;
-
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
 
 import model.QueryBuild.QueryBuilder;
 
 public class AuthenticateUser {
 
-	private String encryptionKey = "cdc63491uAf24938"; // Krypteringsnoegle
-
 	private ResultSet resultSet;
-	
+
 	private QueryBuilder qb;
 
 	// Metoden faar email og password fra switchen (udtrukket fra en json) samt en boolean der skal saettes til true hvis det er serveren der logger paa, og false hvis det er en klient
@@ -33,12 +27,12 @@ public class AuthenticateUser {
 			if(resultSet.getInt("active")==1)
 			{					
 				// Hvis passwords matcher
-				if(resultSet.getString("password").equals(decrypt(password)))
+				if(resultSet.getString("password").equals(password))
 				{
 					int userID = resultSet.getInt("userid");
-					
+
 					String[] key = {"type"};
-					
+
 					resultSet = qb.selectFrom(key, "roles").where("userid", "=", new Integer(userID).toString()).ExecuteQuery();
 
 					// Hvis brugeren baade logger ind og er registreret som admin, eller hvis brugeren baade logger ind og er registreret som bruger
@@ -58,33 +52,4 @@ public class AuthenticateUser {
 			return 1; // returnerer fejlkoden "1" hvis email ikke findes
 		}
 	}
-
-	// Metode til at dekryptere en string med AES 128 encryption
-	private String decrypt(String toDecrypt) throws Exception{
-
-		// Lav key og cipher
-		Key aesKey = new SecretKeySpec(encryptionKey.getBytes(), "AES");
-		Cipher cipher = Cipher.getInstance("AES");
-
-		// Dekrypterer String
-		cipher.init(Cipher.DECRYPT_MODE, aesKey);
-		String decrypted = new String(cipher.doFinal(toDecrypt.getBytes()));
-
-		return decrypted;
-	}
-
-	/*
-	 * Nedenstaaende metode skal implementeres i klienterne. Metoden kan kryptere strings med AES 128 bit encryption. (encryptionKey = "cdc63491uAf24938")
-	 */
-	//	private String encrypt(String toEncrypt) throws Exception {
-	//		
-	//		Key aesKey = new SecretKeySpec(encryptionKey.getBytes(), "AES");
-	//		Cipher cipher = Cipher.getInstance("AES");
-	//
-	//		cipher.init(Cipher.ENCRYPT_MODE, aesKey);
-	//		byte[] encrypted = cipher.doFinal(toEncrypt.getBytes());
-	//
-	//		return new String(encrypted);
-	//	}
-
 }

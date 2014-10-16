@@ -23,19 +23,19 @@ public class Execute extends Model {
     private Values values;
     private boolean getAll = false;
 
-    public QueryBuilder getQueryBuilder() {
+    protected QueryBuilder getQueryBuilder() {
         return queryBuilder;
     }
 
-    public Where getWhere() {
+    protected Where getWhere() {
         return where;
     }
 
-    public Values getValues() {
+    protected Values getValues() {
         return values;
     }
 
-    public boolean isGetAll() {
+    protected boolean isGetAll() {
         return getAll;
     }
 
