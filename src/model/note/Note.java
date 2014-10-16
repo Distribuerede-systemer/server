@@ -11,7 +11,7 @@ public class Note extends Model{
 	QueryBuilder qb;
 	
 		public void CreateNote(
-			int noteID, 
+			int noteID,
 			String text, 
 			String dateTime, 
 			String createdBy, 
@@ -22,10 +22,11 @@ public class Note extends Model{
 			if (isActive)
 				activeStatus = "1";
 			
-			String[] fields = {"eventID", "createdBy", "text", "dateTime", "isActive"};
+			String[] fields = {"noteID", "eventID", "createdBy", "text", "dateTime", "Active"};
 			String[] values = {String.valueOf(noteID), text, dateTime, createdBy, activeStatus};
 			try {
 				qb.insertInto("notes", fields).values(values).Execute();
+				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
