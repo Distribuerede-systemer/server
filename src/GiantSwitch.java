@@ -1,15 +1,29 @@
+import model.Notes;
+import model.calendar.Event;
+
 import com.google.gson.*;
 
 public class GiantSwitch {
 	public String GiantSwitchMethod(String jsonString) {
+		//klasser der kaldes
+		Event eventKlasse = new Event();
+		Notes noteKlasse = new Notes(0, jsonString, jsonString, jsonString, false, 0);
+		
+		
 		Gson gson = new GsonBuilder().create();
 		String Svar = "";			
 		//Creates a switch which determines which method should be used. Methods will be applied later on
 		switch (Determine(jsonString)) {
 		//If the Json String contains one of the keywords below, run the relevant method.
+		
+		
+		
 		/************
 		 ** COURSES **
 		 ************/
+		
+		
+		
 		case "createCourse":
 			CalendarInfo CI1 = (CalendarInfo)gson.fromJson(jsonString, CalendarInfo.class);
 			System.out.println(CI1.getDescription());
@@ -54,6 +68,7 @@ public class GiantSwitch {
 			break;
 
 		case "getEvents":
+			
 			System.out.println("Recieved getEvents");
 			break;
 
