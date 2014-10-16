@@ -1,8 +1,11 @@
+import javax.xml.bind.ParseConversionEvent;
+
 
 public class encryption {
 //	Encryption pass
 	public String StringEncryption(String stringToEncryption)
 	{
+		Configurations CF = new Configurations();
 //		Defines what value the byte is generated with
 		byte ff = (byte) 3.1470;
 //		Creates an Array containing encryptedBytes
@@ -22,8 +25,11 @@ public class encryption {
 //	Decryption path
 	public String decrypt(byte[] b)
 	{
+		Configurations CF = new Configurations();
 //		Defines the decryption value of the byte
-		byte ff = (byte) 3.1470;
+		String crypKey = CF.getFfcryptkey();
+		double gladKo = Double.parseDouble(crypKey);
+		byte ff = (byte) gladKo;
 //		Generates for loop containing decryption value
 		for(int i = 0 ; i<b.length ; i++)
 		{
