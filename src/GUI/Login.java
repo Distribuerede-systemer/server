@@ -82,7 +82,7 @@ public class Login extends JPanel {
 		
 		add(btnForgotLogIn);
 		lblCBSlogo.setIcon(new ImageIcon(Login.class.getResource("/Images/CBSLogo3.png")));
-		lblCBSlogo.setBounds(10, 709, 250, 59);
+		lblCBSlogo.setBounds(10, 698, 250, 59);
 		
 		add(lblCBSlogo);
 		setFont(new Font("Lucida Grande", Font.PLAIN, 17));
@@ -96,7 +96,7 @@ public class Login extends JPanel {
 		lblBackground.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBackground.setIcon(new ImageIcon(Login.class.getResource("/Images/MetalBackground.jpg")));
 		lblBackground.setSize(new Dimension(1366, 768));
-		lblBackground.setBounds(0, 0, 1356, 768);
+		lblBackground.setBounds(0, 0, 1366, 768);
 		
 		add(lblBackground);
 
