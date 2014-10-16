@@ -8,6 +8,9 @@ public class QueryBuilder {
     private String selectValue;
     private String tableName;
     private String fields;
+    private boolean softDelete = false;
+
+
 
     protected void setSelectValue(String selectValue) {
         this.selectValue = selectValue;
@@ -30,7 +33,12 @@ public class QueryBuilder {
         this.fields = fields;
     }
 
-
+    /**
+     * SELECT values FROM tablename
+     * @param values
+     * @param tableName
+     * @return
+     */
     public Where selectFrom(String[] values, String tableName) {
 
         QueryBuilder queryBuilder = new QueryBuilder();
@@ -46,6 +54,11 @@ public class QueryBuilder {
         return new Where(queryBuilder);
     }
 
+    /**
+     * SELECT * FROM tablename
+     * @param tableName
+     * @return
+     */
     public Where selectFrom(String tableName) {
 
         QueryBuilder queryBuilder = new QueryBuilder();
@@ -55,7 +68,12 @@ public class QueryBuilder {
         return new Where(queryBuilder);
     }
 
-    //Not ready yet
+    /**
+     * INSERT INTO tablename (Fields)
+     * @param tableName
+     * @param fields
+     * @return
+     */
     public Values insertInto(String tableName, String[] fields){
 
         QueryBuilder queryBuilder = new QueryBuilder();
@@ -71,10 +89,11 @@ public class QueryBuilder {
 
     }
 
-
-
-
-
+    public Where deleteFrom(String tablename){
+        QueryBuilder queryBuilder = new QueryBuilder();
+        queryBuilder.setTableName(tableName);
+        return new Where(queryBuilder);
+    }
 
 }
 

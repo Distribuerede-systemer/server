@@ -1,10 +1,12 @@
-package model;
+package ubrugte;
 
 import java.sql.SQLException;
 
+import model.Model;
+
 /*
  * 		Mangler:
- * 			- Identifikation på brugeren der har lavet noten
+ * 			- Identifikation pï¿½ brugeren der har lavet noten
  * 			- Hvem der skal kunne redigere noten
  * 			- Mulighed for at slette / redigere noter
  * 			- Active Status
@@ -12,7 +14,7 @@ import java.sql.SQLException;
  * 			ETA: 2 timer
  */
 
-public class NoteModel {
+public class Notes extends Model {
 	
 	private int noteID;
 	private String text;
@@ -22,7 +24,7 @@ public class NoteModel {
 	private boolean isActive;
 	private int eventID;
 	
-	public NoteModel(int noteID, String text, String dateTime, String createdBy, boolean isActive, int eventID) {
+	public Notes(int noteID, String text, String dateTime, String createdBy, boolean isActive, int eventID) {
 		super();
 		this.noteID = noteID;
 		this.text = text;
@@ -33,6 +35,7 @@ public class NoteModel {
 		
 		
 	}
+
 	
 	public int getEventID() {
 		return eventID;
@@ -95,7 +98,7 @@ public class NoteModel {
 	
 	public void getNote () throws SQLException {
 			
-//		sqlStatement = doQuery("SELECT * FROM notes");
+		sqlStatement = doQuery("SELECT * FROM notes");
 	}
 	
 

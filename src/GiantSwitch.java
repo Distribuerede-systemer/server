@@ -1,7 +1,8 @@
-import model.Events;
-import model.Notes;
+import ubrugte.Notes;
+import model.Note;
 import model.QOTD.QOTDModel;
 import model.calendar.Event;
+import model.event.Events;
 import model.vejrservice.ForecastModel;
 
 import com.google.gson.*;
@@ -10,8 +11,8 @@ public class GiantSwitch {
 	public String GiantSwitchMethod(String jsonString) {
 		//klasser der kaldes
 		Event eventKlasse = new Event();
-		Events eventsKlasse = new Events();
-		Notes noteKlasse = new Notes(0, jsonString, jsonString, jsonString, false, 0);
+		Events eventsKlasse = new Events(0, 0, 0, jsonString, jsonString, jsonString, jsonString, jsonString);
+		Note noteKlasse = new Note();
 		ForecastModel forecastKlasse = new ForecastModel();
 		QOTDModel QOTDKlasse = new QOTDModel();
 		

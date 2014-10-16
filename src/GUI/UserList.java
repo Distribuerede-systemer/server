@@ -72,7 +72,7 @@ public class UserList extends JPanel {
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255, 255), new Color(0, 0, 205), new Color(255, 255, 255)), new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255))));
         scrollPane.setViewportBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255, 255), new Color(0, 0, 205), new Color(255, 255, 255)), null));
-        scrollPane.setBounds(388, 225, 590, 360);
+        scrollPane.setBounds(388, 225, 591, 361);
  
         //Add the scroll pane to this panel.
         add(scrollPane);
@@ -116,7 +116,7 @@ public class UserList extends JPanel {
         JLabel lblUserlist = new JLabel("Userlist");
         lblUserlist.setForeground(Color.WHITE);
         lblUserlist.setFont(new Font("Arial", Font.BOLD, 78));
-        lblUserlist.setBounds(534, 118, 298, 90);
+        lblUserlist.setBounds(534, 90, 298, 90);
         add(lblUserlist);
         
         btnDelete = new JButton("Delete");

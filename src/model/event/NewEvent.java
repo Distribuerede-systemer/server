@@ -1,4 +1,4 @@
-package model;
+package model.event;
 import java.util.Scanner;
 
 import model.QueryBuild.QueryBuilder;
