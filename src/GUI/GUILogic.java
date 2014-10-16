@@ -41,17 +41,17 @@ public class GUILogic {
 			u=a.login(userName, password);
 
 			if (e.getSource() == screen.getLogin().getBtnLogIn()){
-				System.out.println(userName + password);
-				System.out.println("faisujpFOA");
+				
 				if(u == null){
 					JOptionPane.showMessageDialog(null, "\nPlease enter a valid username & password."
 							, "Error message",JOptionPane.PLAIN_MESSAGE);
 			}
 
-				if(u != null)
+			if	(u != null)
 					{
 						screen.show(Screen.MAINMENU);
 					}
+				
 	
 			}	
 			}	

@@ -24,7 +24,7 @@ public class UserInformation
       setPassword ( pass );
       
 
-   } // end five-argument Person constructor 
+   } 
 
 
 

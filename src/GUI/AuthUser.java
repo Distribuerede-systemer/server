@@ -7,17 +7,17 @@ import GUI.UserInformation;
 public class AuthUser {
 	public UserInformation login(String userName, String password)
 	{
-		ResultSet rs;
-		UserInformation u = null;
+
+		boolean u = false;
 
 		try
 		{	
-				if(password == "nej" && userName == "hej"){
-					u = new UserInformation("nej", "hej");
+				if( userName == "1" && password == "2" ){
+					u = true;
 				}				
 
 				else
-					u = null;
+					u = false;
 
 			
 		}
