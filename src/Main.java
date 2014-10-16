@@ -1,7 +1,7 @@
 import GUI.GUILogic;
 
 public class Main {
-	//Starts public main method
+	//Starts public main method.
 	
 	public static void main(String[] args) {
 
