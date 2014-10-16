@@ -54,6 +54,8 @@ public class Screen extends JFrame {
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0, 0));
+		login.getBtnLogIn().setContentAreaFilled(false);
+		login.getBtnForgotLogIn().setContentAreaFilled(false);
 		
 		contentPane.add(login, "name_276091497157488");
 		
