@@ -1,4 +1,4 @@
-package model;
+package model.user;
 
 import java.security.Key;
 import java.sql.ResultSet;
