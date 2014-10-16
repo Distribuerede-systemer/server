@@ -31,12 +31,16 @@ public class Events {
 				int createdby = rs.getInt("createdby");
 				Date startDate = rs.getDate("start");
 				Time startTime = rs.getTime("start");
+				
 				Date endDate = rs.getDate("end");
 				Time endTime = rs.getTime("end");
+				
 				String nameEvent = rs.getString("name");
 				String text = rs.getString("text");
-//				int primaryKey = rs.getInt("eventid");	Skal denne med?!
-				events.add(new Event());
+				
+				System.out.println(String.valueOf(startDate.getTime()));
+				
+				//events.add(new Event(eventID));
 				
 			}
 			

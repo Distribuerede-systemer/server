@@ -72,5 +72,20 @@ public class Event {
     public ArrayList<String> getEnd(){
         return end;
     }
+	public Event(String activityid, String eventid, String type, String title,
+			String description, String location, ArrayList<String> start,
+			ArrayList<String> end) {
+		super();
+		this.activityid = activityid;
+		this.eventid = eventid;
+		this.type = type;
+		this.title = title;
+		this.description = description;
+		this.location = location;
+		this.start = start;
+		this.end = end;
+	}
+    
+    
 
 }
