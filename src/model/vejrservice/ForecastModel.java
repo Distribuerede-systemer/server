@@ -21,7 +21,8 @@ public class ForecastModel {
     // Json parser to retrieve and map data from openweathermap.org
     private ArrayList<Forecast> forecastList = new ArrayList();
     private String weatherDescription = "";
-
+    
+    // 
     public ArrayList<Forecast> requestForecast() {
         URL url;
         HttpURLConnection conn;
@@ -90,6 +91,7 @@ public class ForecastModel {
         return forecastList;
     }
     
+    // Henter vejrudsigten og gemmer de hentede data i en ArrayList
     public ArrayList<Forecast> getForecast(){
     	QueryBuilder qb = new QueryBuilder();
     	Date date = new Date(); // Current date & time
