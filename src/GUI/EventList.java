@@ -8,6 +8,13 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import java.awt.Color;
+import javax.swing.JScrollPane;
+import java.awt.Component;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.MatteBorder;
+import javax.swing.JTextPane;
 
 public class EventList extends JPanel {
 
@@ -34,6 +41,16 @@ public class EventList extends JPanel {
 		JLabel lblUpcomingEvent = new JLabel("Upcoming Event");
 		lblUpcomingEvent.setBounds(164, 177, 309, 33);
 		add(lblUpcomingEvent);
+		
+		JScrollPane scrollPane = new JScrollPane((Component) null);
+		scrollPane.setViewportBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255, 255), new Color(0, 0, 205), new Color(255, 255, 255)), null));
+		scrollPane.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255, 255), new Color(0, 0, 205), new Color(255, 255, 255)), new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255))));
+		scrollPane.setBounds(381, 212, 751, 501);
+		add(scrollPane);
+		
+		JTextPane txtpnDate = new JTextPane();
+		txtpnDate.setText("Date");
+		scrollPane.setViewportView(txtpnDate);
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(EventList.class.getResource("/Images/MetalBackground.jpg")));
