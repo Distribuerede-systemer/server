@@ -29,6 +29,7 @@ CREATE TABLE users
 	email varchar(40) NOT NULL,
 	active boolean,
 	created datetime NOT NULL DEFAULT NOW(),
+	password varchar(200) NOT NULL,
 	PRIMARY KEY (userid)
 );
 
