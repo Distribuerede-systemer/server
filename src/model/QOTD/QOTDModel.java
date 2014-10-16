@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 
 
+
 import model.QueryBuild.QueryBuilder;
 
 import org.json.simple.JSONObject;
@@ -15,6 +16,8 @@ import org.json.simple.parser.JSONParser;
 public class QOTDModel {
 
 	private ArrayList<QOTD> qotdlist = new ArrayList<>();
+	
+	QOTD qotdlist2 = new QOTD(null, null, null);
     QueryBuilder qb = new QueryBuilder();
     
     /**
@@ -56,7 +59,7 @@ public class QOTDModel {
     			String quote = (String) jsonObject.get("quote");
     			String author = (String) jsonObject.get("author");
     			String topic = (String) jsonObject.get("topic");
-    			qotdlist.add(new QOTD(quote, author, topic));
+    			qotdlist2 = new QOTD(quote, author, topic);
     	
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -68,6 +71,9 @@ public class QOTDModel {
      	public void saveQuote() {
 			getQuote();
 			
-			qb.insertInto("dailyupdate", null);
+			String[] keys = {"date","apparentTemperature","summary","windspeed","qotd"};
+			String[] keys2 = {"'2014-01-01 23:22:01'", "21", "'hej'", "12", "'hej'"};
+
+			qb.insertInto("dailyupdates",keys).values(keys2);
      	}
 }

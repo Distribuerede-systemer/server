@@ -16,8 +16,8 @@ public class AuthenticateUser {
 	
 	private QueryBuilder qb;
 
-	// Metoden faar email og password fra switchen (udtrukket fra en json) samt en boolean der skal saettes til true hvis det er serveren der logger på, og false hvis det er en klient
-	public boolean authenticate(String email, String password, boolean isAdmin) throws Exception {
+	// Metoden faar email og password fra switchen (udtrukket fra en json) samt en boolean der skal saettes til true hvis det er serveren der logger paa, og false hvis det er en klient
+	public int authenticate(String email, String password, boolean isAdmin) throws Exception {
 
 		String[] keys = {"userid", "email", "active", "password"};
 
@@ -44,18 +44,18 @@ public class AuthenticateUser {
 					// Hvis brugeren baade logger ind og er registreret som admin, eller hvis brugeren baade logger ind og er registreret som bruger
 					if((resultSet.getString("type").equals("admin") && isAdmin) || (resultSet.getString("type").equals("user") && !isAdmin))
 					{
-						return true;
+						return 0; // returnerer "0" hvis bruger/admin er godkendt
 					} else {
-						return false;
+						return 4; // returnerer fejlkoden "4" hvis brugertype ikke stemmer overens med loginplatform
 					}
 				} else {
-					return false;
+					return 3; // returnerer fejlkoden "3" hvis password ikke matcher
 				}
 			} else {
-				return false;
+				return 2; // returnerer fejlkoden "2" hvis bruger er sat som inaktiv
 			}
 		} else {
-			return false;
+			return 1; // returnerer fejlkoden "1" hvis email ikke findes
 		}
 	}
 
