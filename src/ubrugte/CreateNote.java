@@ -1,4 +1,7 @@
-package model;
+package ubrugte;
+
+import model.Model;
+import model.Notes;
 
 public class CreateNote{
 	
@@ -22,4 +25,4 @@ public class CreateNote{
 		return notes;
 		
 	}
-}+
+}

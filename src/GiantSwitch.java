@@ -1,15 +1,35 @@
+import model.Note;
+import model.Notes;
+import model.QOTD.QOTDModel;
+import model.calendar.Event;
+import model.event.Events;
+import model.vejrservice.ForecastModel;
+
 import com.google.gson.*;
 
 public class GiantSwitch {
 	public String GiantSwitchMethod(String jsonString) {
+		//klasser der kaldes
+		Event eventKlasse = new Event();
+		Events eventsKlasse = new Events(0, 0, 0, jsonString, jsonString, jsonString, jsonString, jsonString);
+		Note noteKlasse = new Note();
+		ForecastModel forecastKlasse = new ForecastModel();
+		QOTDModel QOTDKlasse = new QOTDModel();
+		
 		Gson gson = new GsonBuilder().create();
 		String Svar = "";			
 		//Creates a switch which determines which method should be used. Methods will be applied later on
 		switch (Determine(jsonString)) {
 		//If the Json String contains one of the keywords below, run the relevant method.
+		
+		
+		
 		/************
 		 ** COURSES **
 		 ************/
+		
+		
+		
 		case "createCourse":
 			CalendarInfo CI1 = (CalendarInfo)gson.fromJson(jsonString, CalendarInfo.class);
 			System.out.println(CI1.getDescription());
@@ -54,6 +74,7 @@ public class GiantSwitch {
 			break;
 
 		case "getEvents":
+			
 			System.out.println("Recieved getEvents");
 			break;
 

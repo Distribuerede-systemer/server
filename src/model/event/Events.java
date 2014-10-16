@@ -1,4 +1,11 @@
-package model;
+package model.event;
+
+import model.Model;
+
+
+/**
+ * Ved ikke om den skal bruges. fordi 
+ */
 
 public class Events extends Model {
 	
