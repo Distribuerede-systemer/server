@@ -1,4 +1,4 @@
-package model.vejrservice;
+package model.Forecast;
 
 /**
  * Created by danielfranch on 16/10/14.

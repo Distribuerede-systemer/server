@@ -1,4 +1,13 @@
 
+<<<<<<< HEAD
+import java.awt.Dimension;
+
+public class AddCourse {
+
+	
+	
+}
+=======
 	package GUI;
 
 	import javax.swing.JPanel;
@@ -99,3 +108,4 @@
 	}
 
 
+>>>>>>> FETCH_HEAD
