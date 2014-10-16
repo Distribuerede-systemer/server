@@ -42,8 +42,7 @@ public class Forecast {
         this.desc = desc;
     }
     
-    // Returnere vejrudsigten som et en json tekststreng
-    @Override
+    // Returnere vejrudsigten som en json tekststreng
     public String getForecast() {
         return "Forecast{" +
                 "date='" + date + '\'' +

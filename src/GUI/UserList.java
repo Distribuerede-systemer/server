@@ -1,3 +1,5 @@
+
+
 package GUI;
 
 import java.awt.Dimension;
@@ -17,13 +19,10 @@ import javax.swing.border.BevelBorder;
 import java.awt.Color;
 
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-
 import java.awt.Font;
 
 import javax.swing.border.MatteBorder;
 import javax.swing.JButton;
-import javax.swing.JTextField;
 import javax.swing.ImageIcon;
  
 public class UserList extends JPanel {
@@ -37,7 +36,7 @@ public class UserList extends JPanel {
 	private JButton btnDelete;
 	private JButton btnLogout;
 	private JButton btnMainMenu;
- 
+	
     public UserList() {
     	setSize(new Dimension(1366, 768));
  
@@ -45,14 +44,52 @@ public class UserList extends JPanel {
                                 "Last Name",
                                 "Email"};
  
-        Object[][] data = {
+//        Object[][] data = {
+//        		
+//        {"Kathy", "Smith", new Integer(5), new Boolean(false)},
+//        {"John", "Doe", new Integer(3), new Boolean(true)},
+//        {"Sue", "Black", new Integer(2), new Boolean(false)},
+//        {"Jane", "White", new Integer(20), new Boolean(true)},
+//        {"Joe", "Brown", new Integer(10), new Boolean(false)}
+//        };
+        
+//        Object[][] data = {
+//        		
+//<<<<<<< HEAD
+//=======
+//        {"Kathy", "Smith", new Integer(10), new Boolean(false)},
+//        {"John", "Doe", new Integer(7), new Boolean(true)},
+//        {"Sue", "Black", new Integer(2), new Boolean(false)},
+//        {"Jane", "White", new Integer(20), new Boolean(true)},
+//        {"Joe", "Brown", new Integer(10), new Boolean(false)}
+//>>>>>>> origin/master
+//        };
+        
+
+      
+Object[][] data = {
         		
-        {"Kathy", "Smith", new Integer(10), new Boolean(false)},
-        {"John", "Doe", new Integer(7), new Boolean(true)},
-        {"Sue", "Black", new Integer(2), new Boolean(false)},
-        {"Jane", "White", new Integer(20), new Boolean(true)},
-        {"Joe", "Brown", new Integer(10), new Boolean(false)}
         };
+        
+	
+        ga
+        try {
+			rs = db.doQuery("SELECT * FROM users'");
+			
+	        int count = 0;
+	        while (rs.next()) {
+	        	data[count][0] = rs.getString("userid");
+	        	data[count][1] = rs.getString("email");
+	        	data[count][2] = rs.getString("active");
+	        	data[count][3] = rs.getString("created");
+	        	data[count][4] = rs.getString("password");
+
+	        	count++;
+	        }
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+
  
         final JTable table = new JTable(data, columnNames);
         table.setPreferredScrollableViewportSize(new Dimension(500, 70));
@@ -73,11 +110,11 @@ public class UserList extends JPanel {
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255, 255), new Color(0, 0, 205), new Color(255, 255, 255)), new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255))));
         scrollPane.setViewportBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255, 255), new Color(0, 0, 205), new Color(255, 255, 255)), null));
-<<<<<<< HEAD
+
         scrollPane.setBounds(417, 225, 590, 360);
-=======
+
         scrollPane.setBounds(388, 225, 591, 361);
->>>>>>> FETCH_HEAD
+
  
         //Add the scroll pane to this panel.
         add(scrollPane);
@@ -122,11 +159,11 @@ public class UserList extends JPanel {
         JLabel lblUserlist = new JLabel("Userlist");
         lblUserlist.setForeground(Color.WHITE);
         lblUserlist.setFont(new Font("Arial", Font.BOLD, 78));
-<<<<<<< HEAD
+
         lblUserlist.setBounds(549, 118, 298, 90);
-=======
+
         lblUserlist.setBounds(534, 90, 298, 90);
->>>>>>> FETCH_HEAD
+
         add(lblUserlist);
         
         JButton btnDelete = new JButton("Delete");
@@ -182,7 +219,7 @@ public class UserList extends JPanel {
         newContentPane.setOpaque(true); //content panes must be opaque
         frame.setContentPane(newContentPane);
  
-        //Display the window
+
         
         frame.setVisible(true);
     }
@@ -226,6 +263,6 @@ public class UserList extends JPanel {
 	public JButton getBtnLogout() {
 		return btnLogout;
 	}
-    
+    //777
     
 }

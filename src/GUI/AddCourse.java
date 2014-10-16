@@ -1,18 +1,10 @@
+package GUI;
 
-<<<<<<< HEAD
 import java.awt.Dimension;
 
-public class AddCourse {
-
-	
-	
-}
-=======
-	package GUI;
+//public class AddCourse {
 
 	import javax.swing.JPanel;
-
-	import java.awt.Dimension;
 
 	import javax.swing.JLabel;
 	import javax.swing.ImageIcon;
@@ -37,11 +29,14 @@ public class AddCourse {
 
 
 	public class AddCourse extends JPanel {
+		private JTable table;
 
 		/**
 		 * Create the panel.
 		 */
+		
 		public AddCourse() {
+			setAlignmentY(Component.BOTTOM_ALIGNMENT);
 			setSize(new Dimension(1366, 768));
 			setLayout(null);
 
@@ -74,7 +69,7 @@ public class AddCourse {
 					{ "Distribuerede Systemer", "SP213", "8:40-22:40", new Boolean(true) },
 					{ "Distribuerede Systemer", "SPS13", "8:40-12:35", new Boolean(false) } };
 
-			final JTable table = new JTable(data, columnNames);
+			table = new JTable(data, columnNames);
 			table.setSurrendersFocusOnKeystroke(true);
 			table.setPreferredScrollableViewportSize(new Dimension(500, 100));
 			table.setFillsViewportHeight(true);
@@ -98,12 +93,14 @@ public class AddCourse {
 			JLabel label = new JLabel("");
 			label.setIcon(new ImageIcon(EventList.class
 					.getResource("/Images/MetalBackground.jpg")));
-			label.setBounds(-26, -28, 1366, 768);
+			label.setBounds(-26, -28, 0, 0);
 			add(label);
+			
+			JLabel label_1 = new JLabel("");
+			label_1.setIcon(new ImageIcon(AddCourse.class.getResource("/Images/MetalBackground.jpg")));
+			label_1.setBounds(0, 0, 1366, 768);
+			add(label_1);
+			
 
-		};
-
+		}
 	}
-
-
->>>>>>> FETCH_HEAD
