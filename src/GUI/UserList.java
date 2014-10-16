@@ -21,13 +21,14 @@ import java.awt.Color;
 import javax.swing.JLabel;
 
 import java.awt.Font;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.border.MatteBorder;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 
-import model.QueryBuild.Execute;
+import model.QueryBuild.QueryBuilder;
 
 import com.mysql.jdbc.ResultSetImpl;
  
@@ -42,7 +43,7 @@ public class UserList extends JPanel {
 	private JButton btnDelete;
 	private JButton btnLogout;
 	private JButton btnMainMenu;
-	private ResultSetImpl rs;
+	private ResultSet rs;
 	
     public UserList() {
     	setSize(new Dimension(1366, 768));
@@ -81,7 +82,8 @@ Object[][] data = {
 	
     
         try {
-			rs = model.QueryBuild.Execute("SELECT * FROM users");
+			QueryBuilder qb = new QueryBuilder();
+			rs = qb.selectFrom("users").all().ExecuteQuery();
 			
 	        int count = 0;
 	        while (rs.next()) {
