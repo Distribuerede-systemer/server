@@ -21,6 +21,7 @@ public class Events {
 			ResultSet resultSet = qb.selectFrom("events").all().ExecuteQuery();
 			while (resultSet.next())
 			{
+				//String values from SQL database (must be created)
 				events.add(new Event());
 			}
 		} catch (SQLException e) {
