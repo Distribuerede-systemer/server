@@ -249,3 +249,4 @@ Object[][] data = {
 	public JButton getBtnMainMenu() {
 		return btnMainMenu;
 	}
+}
