@@ -17,7 +17,8 @@ public class Events {
     public void setEvents(ArrayList<Event> event) {
         this.events = event;
     }
-
+    
+    // Konverterer array events til en tekst streng
     @Override
     public String toString() {
         return Arrays.toString(events.toArray());

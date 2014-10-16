@@ -1,5 +1,6 @@
-package model;
+package model.database;
 
+import model.Model;
 import model.QueryBuild.QueryBuilder;
 
 import java.io.IOException;
@@ -22,7 +23,8 @@ public class DatabaseInit extends Model {
         String[] keys = {"firstKey", "secondKey"};
         String[] wheremparamters = {"alder", "hat"};
         QueryBuilder qb = new QueryBuilder();
-
+        resultSet = qb.selectFrom("users").all().ExecuteQuery();
+        resultSet = qb.selectFrom("events").where("id", "=", "123").ExecuteQuery();
 
         while (resultSet.next()){
             System.out.println(resultSet.getString("email"));
@@ -33,7 +35,7 @@ public class DatabaseInit extends Model {
             System.out.print("Database environment does exist");
         } else {
             System.out.print("Database environment does NOT exist");
-            readfromSqlFile("res/createDBscript.sql");
+            readfromSqlFile("src/SQLFiles/createDBscript.sql");
         }
 
     }

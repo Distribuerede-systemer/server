@@ -1,9 +1,9 @@
-import model.Note;
-import model.Notes;
+
+import model.Forecast.ForecastModel;
 import model.QOTD.QOTDModel;
 import model.calendar.Event;
-import model.event.Events;
-import model.vejrservice.ForecastModel;
+import model.calendar.Events;
+import model.note.Note;
 
 import com.google.gson.*;
 
@@ -11,10 +11,11 @@ public class GiantSwitch {
 	public String GiantSwitchMethod(String jsonString) {
 		//klasser der kaldes
 		Event eventKlasse = new Event();
-		Events eventsKlasse = new Events(0, 0, 0, jsonString, jsonString, jsonString, jsonString, jsonString);
+		Events eventsKlasse = new Events();
 		Note noteKlasse = new Note();
 		ForecastModel forecastKlasse = new ForecastModel();
 		QOTDModel QOTDKlasse = new QOTDModel();
+		CalendarInfo CI1 = new CalendarInfo();
 		
 		Gson gson = new GsonBuilder().create();
 		String Svar = "";			
@@ -31,7 +32,7 @@ public class GiantSwitch {
 		
 		
 		case "createCourse":
-			CalendarInfo CI1 = (CalendarInfo)gson.fromJson(jsonString, CalendarInfo.class);
+			CI1 = (CalendarInfo)gson.fromJson(jsonString, CalendarInfo.class);
 			System.out.println(CI1.getDescription());
 			System.out.println(CI1.getEnd());
 			System.out.println(CI1.getEventID());
@@ -93,6 +94,14 @@ public class GiantSwitch {
 		case "getNote":
 			System.out.println("Recieved getNote");
 			break;
+			
+		case "deleteNote":
+			System.out.println("Recieved deleteNote");
+			break;
+			
+		case "editNote":
+			System.out.println("Recieved editNote");
+			break;
 
 		/**********
 		 ** QUOTE **
@@ -101,13 +110,16 @@ public class GiantSwitch {
 			System.out.println("Recieved getQuote");
 			break;
 
-		case "requestQuote":
+			/**
+			 * 	
+			case "requestQuote":
 			System.out.println("Recieved requestQuote");
 			break;
 
-		case "saveQuote":
+			case "saveQuote":
 			System.out.println("Recieved saveQuote");
 			break;
+			 */
 
 		/************
 		 ** WEATHER **
@@ -148,6 +160,10 @@ public class GiantSwitch {
 			return "saveNote";
 		} else if (ID.contains("getNote")) {
 			return "getNote";
+		} else if (ID.contains("deleteNote")){
+			return "deleteNote";
+		} else if (ID.contains("editNote")){
+			return "editNote";
 		} else if (ID.contains("requestForecast")) {
 			return "requestForecast";
 		} else if (ID.contains("getForecast")) {
