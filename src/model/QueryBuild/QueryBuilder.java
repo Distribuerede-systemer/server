@@ -7,6 +7,7 @@ public class QueryBuilder {
 
     private String selectValue;
     private String tableName;
+    private String fields;
 
     protected void setSelectValue(String selectValue) {
         this.selectValue = selectValue;
@@ -18,9 +19,15 @@ public class QueryBuilder {
     protected String getTableName() {
         return tableName;
     }
-
     protected void setTableName(String tableName) {
         this.tableName = tableName;
+    }
+
+    protected String getFields(){
+        return fields;
+    }
+    protected void setFields(String fields){
+        this.fields = fields;
     }
 
 
@@ -48,16 +55,22 @@ public class QueryBuilder {
         return new Where(queryBuilder);
     }
 
-//Not ready yet
-
-
-    public Values insertInto(String tableName){
+    //Not ready yet
+    public Values insertInto(String tableName, String[] fields){
 
         QueryBuilder queryBuilder = new QueryBuilder();
         queryBuilder.setTableName(tableName);
+
+        StringBuilder sb = new StringBuilder();
+        for (String n : fields) {
+            if (sb.length() > 0) sb.append(',');
+            sb.append(n);
+        }
+        queryBuilder.setFields(sb.toString());
         return new Values(queryBuilder);
 
     }
+
 
 
 

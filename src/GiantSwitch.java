@@ -10,10 +10,10 @@ public class GiantSwitch {
 	public String GiantSwitchMethod(String jsonString) {
 		//klasser der kaldes
 		Event eventKlasse = new Event();
-		Events eventsKlasse = new Events();
+		Events eventsKlasse = new Events(0, 0, 0, jsonString, jsonString, jsonString, jsonString, jsonString);
 		Notes noteKlasse = new Notes(0, jsonString, jsonString, jsonString, false, 0);
 		ForecastModel forecastKlasse = new ForecastModel();
-		QOTD QOTDKlasse = new QOTD();
+		QOTD qotdKlasse = new QOTD();
 		
 		Gson gson = new GsonBuilder().create();
 		String Svar = "";			
