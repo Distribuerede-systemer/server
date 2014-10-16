@@ -84,7 +84,11 @@ public class QOTDModel {
 			
     			
     }
-     	
+     
+    /**
+     * Retrieve Quote from a website and put it into a String, 
+     * Afterwards we will make it into a json object so it can be printed out to the client.
+     */
   	public void getQuote(){
   		String q = "";
   		String[] key = {"qotd"};
