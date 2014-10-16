@@ -35,7 +35,7 @@ public class DatabaseInit extends Model {
             System.out.print("Database environment does exist");
         } else {
             System.out.print("Database environment does NOT exist");
-            readfromSqlFile("res/createDBscript.sql");
+            readfromSqlFile("src/SQLFiles/createDBscript.sql");
         }
 
     }
