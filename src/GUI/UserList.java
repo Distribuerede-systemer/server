@@ -128,7 +128,7 @@ public class UserList extends JPanel {
         
         JLabel lblNewLabel = new JLabel("");
         lblNewLabel.setIcon(new ImageIcon(UserList.class.getResource("/Images/CBSLogo3.png")));
-        lblNewLabel.setBounds(36, 695, 223, 67);
+        lblNewLabel.setBounds(10, 698, 250, 59);
         add(lblNewLabel);
     
         JLabel lblBackground = new JLabel("Background");
@@ -136,7 +136,7 @@ public class UserList extends JPanel {
         lblBackground.setBackground(new Color(245, 245, 245));
         lblBackground.setForeground(new Color(245, 255, 250));
         lblBackground.setOpaque(true);
-        lblBackground.setBounds(104, 83, 1376, 768);
+        lblBackground.setBounds(0, 0, 1376, 768);
         add(lblBackground);
     }
  

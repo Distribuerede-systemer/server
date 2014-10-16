@@ -11,11 +11,20 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.border.MatteBorder;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.BevelBorder;
 
 public class NoteList extends JPanel {
 	private JTable table;
 	private final JLabel lblBackground = new JLabel("");
 	private JLabel lblHeader;
+	private JButton btnDelete;
+	private JButton btnAdd;
+	private JButton btnMainMenu;
+	private JButton btnLogout;
+	private JLabel label;
 	
 
 	/**
@@ -34,6 +43,41 @@ public class NoteList extends JPanel {
 		lblHeader.setFont(new Font("Arial", Font.BOLD, 78));
 		lblHeader.setBounds(527, 31, 312, 90);
 		add(lblHeader);
+		
+		btnDelete = new JButton("Delete");
+		btnDelete.setOpaque(true);
+		btnDelete.setForeground(new Color(0, 0, 205));
+		btnDelete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
+		btnDelete.setBounds(1091, 213, 118, 29);
+		add(btnDelete);
+		
+		btnAdd = new JButton("Add");
+		btnAdd.setOpaque(true);
+		btnAdd.setForeground(new Color(0, 0, 205));
+		btnAdd.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
+		btnAdd.setBounds(1091, 173, 118, 29);
+		add(btnAdd);
+		
+		btnMainMenu = new JButton("Main Menu");
+		btnMainMenu.setForeground(Color.WHITE);
+		btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
+		btnMainMenu.setContentAreaFilled(false);
+		btnMainMenu.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+		btnMainMenu.setBounds(601, 553, 163, 43);
+		add(btnMainMenu);
+		
+		btnLogout = new JButton("Log out");
+		btnLogout.setForeground(Color.WHITE);
+		btnLogout.setFont(new Font("Arial", Font.BOLD, 30));
+		btnLogout.setContentAreaFilled(false);
+		btnLogout.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+		btnLogout.setBounds(624, 627, 117, 43);
+		add(btnLogout);
+		
+		label = new JLabel("");
+		label.setIcon(new ImageIcon(NoteList.class.getResource("/Images/CBSLogo3.png")));
+		label.setBounds(10, 698, 250, 59);
+		add(label);
 		lblBackground.setIcon(new ImageIcon(NoteList.class.getResource("/Images/MetalBackground.jpg")));
 		lblBackground.setBounds(0, 0, 1366, 768);
 		

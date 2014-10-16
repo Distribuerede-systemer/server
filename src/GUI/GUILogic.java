@@ -22,7 +22,7 @@ public class GUILogic {
 		screen.getLogin().addActionListener(new LoginActionListener());
 		screen.getMainMenu().addActionListener(new MainMenuActionListener());
 		screen.getUserInfo().addActionListener(new UserInfoActionListener());
-//		screen.getNoteList().addActionListener(new NoteListActionListener());
+		screen.getNoteList().addActionListener(new NoteListActionListener());
 		screen.getUserList().addActionListener(new UserListActionListener());
 		
 	}
@@ -90,11 +90,13 @@ public class GUILogic {
 			}
 		}
 	}
-//	private class NoteListActionListener implements ActionListener {
-//		public void actionPerformed(ActionEvent e) {
-//
-//		}
-//	}
+	
+	private class NoteListActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+
+		}
+	}
+	
 	private class UserListActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			
