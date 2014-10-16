@@ -1,75 +1,75 @@
+import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.prefs.Preferences;
+import java.io.IOException;
 
 // Importing json packaes
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class Configurations {
-  Preferences preferences = 
-      Preferences.userNodeForPackage(Configurations.class);
+	private String host;
+	private String port;
+	private String username;
+	private String password;
+	
+	public String getHost() {
+		return host;
+	}
+	
+	public void setHost(String host) {
+		this.host = host;
+	}
+	
+	public String getPort() {
+		return port;
+	}
 
-  public void setCredentials(String host, String port, String username, String password) {
-	  
-	//Host can contain ip and port: e.g : 192.168.1.1:3306
-	preferences.put("host", host); //.parseJson();
-    preferences.put("port", port);
-	preferences.put("username", username);
-    preferences.put("password", password);
-  }
-  
-  public String getUusername() {
-    return preferences.get("username", null);
-  }
+	public void setPort(String port) {
+		this.port = port;
+	}
+	
+	public String getUsername() {
+		return username;
+	}
 
-  public String getPassword() {
-    return preferences.get("password", null);
-  }
-  
-  public String getHost() {
-	  return preferences.get("host", null);
-  }
-  
-  public String getPortt() {
-	  return preferences.get("port", null);
-  }
-  
-  
-  public void ReadFile() {
-	  
-      JSONParser jsonParser = new JSONParser();
-  
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-	  try {
-		  
-		  // Indsæt stien til config filen her.
-		  Object obj = jsonParser.parse(new FileReader("config.json"));
-	      JSONObject jsonObject = (JSONObject) obj;
-	      
-	      
-	      String host = (String) jsonObject.get("host");
-	      String port = (String) jsonObject.get("port");
-	      String username = (String) jsonObject.get("username");
-	      String password = (String) jsonObject.get("password");
-	      
-			//		jsonObject.get("host");
-			//		jsonObject.get("port");
-			//		jsonObject.get("username");
-			//		jsonObject.get("password");
+	public String getPassword() {
+		return password;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+    
+	public void ReadFile() {
+		JSONParser jsonParser = new JSONParser();
 
-	  } catch (ParseException ex) {
-	      ex.printStackTrace();
-	  } catch (NullPointerException ex) {
-	      ex.printStackTrace();
-	  }
-	  
+		try {
+			FileReader json = new FileReader("config.json");
 
-	  
-  }
+			Object obj = jsonParser.parse(json);
+			JSONObject jsonObject = (JSONObject) obj;
+
+			setHost((String) jsonObject.get("host"));
+			setPort((String) jsonObject.get("port"));
+			setUsername((String) jsonObject.get("username"));
+			setPassword((String) jsonObject.get("password"));
+
+		} catch (ParseException ex) {
+			ex.printStackTrace();
+		} catch (NullPointerException ex) {
+			ex.printStackTrace();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+  
+ 
   
 }
-  
-
-

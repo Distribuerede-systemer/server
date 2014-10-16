@@ -1,5 +1,8 @@
 package model.database;
 
+import Configurations.java;
+
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -14,12 +17,14 @@ import java.sql.Statement;
  */
 public class InitialDatabaseSetup {
 
+		  Configurations cf = new Configurations();
+
 	/** The Constant URL. Her skal info fra Henrik ind. */
-	private static String URL = "jdbc:mysql://localhost:3306/";
+	private static String URL = "jdbc:mysql://" + cf.getHost() + ":" + cf.getPort() + "/";
 	/** The Constant USERNAME. */
-	private static String USERNAME = "root";
+	private static String USERNAME = cf.getUsername();
 	/** The Constant PASSWORD. */
-	private static String PASSWORD = "jajo13";
+	private static String PASSWORD = cf.getPassword();
 
 	/** The connection. */
 	public Connection connection;
