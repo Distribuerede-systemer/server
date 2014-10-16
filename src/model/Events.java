@@ -5,13 +5,13 @@ public class Events extends Model {
 	private int eventID;
 	private int type;
 	private int createdBy;
-	private int location;
+	private String location;
 	private String start;
 	private String end;
 	private String name;
 	private String text;
 	
-	public Events(int eventID, int type, int createdBy, int location, String start,
+	public Events(int eventID, int type, int createdBy, String location, String start,
 			String end, String name, String text) {
 		super();
 		this.eventID = eventID;
@@ -48,11 +48,11 @@ public class Events extends Model {
 		this.createdBy = createdBy;
 	}
 
-	public int getLocation() {
+	public String getLocation() {
 		return location;
 	}
 
-	public void setLocation(int location) {
+	public void setLocation(String location) {
 		this.location = location;
 	}
 

@@ -25,6 +25,7 @@ public class UserInfo extends JPanel {
 	private JButton btnLogout;
 	private JLabel lblOnlineDot;
 	private JLabel lblCBSlogo;
+	private JButton btnMainMenu;
 
 	/**
 	 * Create the panel.
@@ -45,7 +46,7 @@ public class UserInfo extends JPanel {
 		btnLogout.setForeground(new Color(255, 255, 255));
 		btnLogout.setFont(new Font("Arial", Font.BOLD, 30));
 		btnLogout.setContentAreaFilled(false);
-		btnLogout.setBounds(588, 543, 152, 44);
+		btnLogout.setBounds(589, 592, 152, 44);
 		add(btnLogout);
 
 		JLabel lblHeader = new JLabel("User Info");
@@ -147,15 +148,23 @@ public class UserInfo extends JPanel {
 //<<<<<<< HEAD
 		lblOnlineDot.setBounds(736, 434, 20, 20);
 		add(lblOnlineDot);
-//=======
-
-//>>>>>>> FETCH_HEAD
+				
+				btnMainMenu = new JButton("Main menu");
+				btnMainMenu.setForeground(Color.WHITE);
+				btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
+				btnMainMenu.setContentAreaFilled(false);
+				btnMainMenu.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+				btnMainMenu.setBounds(543, 542, 239, 44);
+				add(btnMainMenu);
+		//=======
 		
-		JLabel lblBackground = new JLabel("");
-		lblBackground.setSize(new Dimension(1366, 768));
-		lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/MetalBackground.jpg")));
-		lblBackground.setBounds(0, 0, 1366, 768);
-		add(lblBackground);
+		//>>>>>>> FETCH_HEAD
+				
+				JLabel lblBackground = new JLabel("");
+				lblBackground.setSize(new Dimension(1366, 768));
+				lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/MetalBackground.jpg")));
+				lblBackground.setBounds(-10, 11, 1366, 768);
+				add(lblBackground);
 		if (active) {
 			lblOnlineDot.setBackground(Color.GREEN);
 			lblOnlineDot.repaint();
@@ -172,6 +181,7 @@ public class UserInfo extends JPanel {
 	public void addActionListener(ActionListener l) {
 		btnSubmit.addActionListener(l);
 		btnLogout.addActionListener(l);
+		btnMainMenu.addActionListener(l);
 	}
 
 	public JTextField getTxtField_UserID() {
@@ -193,15 +203,11 @@ public class UserInfo extends JPanel {
 	public JButton getBtnSubmit() {
 		return btnSubmit;
 	}
-
-
+	public JButton getBtnMainMenu() {
+		return btnMainMenu;
+	}
 	
-
 	public JButton getBtnLogout() {
 		return btnLogout;
 	}
-
-	
-	
-	
 }
