@@ -74,7 +74,7 @@ public class QOTDModel {
     			String[] keys2 = {quote};
     			
     			
-    			qb.update("dailyupdate", keys, keys2).where("ID", "=", "1").Execute();
+    			qb.update("dailyupdate", keys, keys2).where("msg_type", "=", "1").Execute();
     			
     	
 			} catch (Exception e) {
