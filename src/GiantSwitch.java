@@ -1,46 +1,23 @@
+import java.sql.SQLException;
 
-import model.QOTD.QOTDModel;
-import model.calendar.Event;
-import model.event.Events;
-import model.note.Note;
-import model.vejrservice.ForecastModel;
+import JsonClasses.CalendarInfo;
 
 import com.google.gson.*;
 
+import databaseMethods.SwitchMethods;
 public class GiantSwitch {
-	public String GiantSwitchMethod(String jsonString) {
-		//klasser der kaldes
-		Event eventKlasse = new Event();
-		Events eventsKlasse = new Events(0, 0, 0, jsonString, jsonString, jsonString, jsonString, jsonString);
-		Note noteKlasse = new Note();
-		ForecastModel forecastKlasse = new ForecastModel();
-		QOTDModel QOTDKlasse = new QOTDModel();
-		CalendarInfo CI1 = new CalendarInfo();
-		
+	public String GiantSwitchMethod(String jsonString) throws SQLException {
 		Gson gson = new GsonBuilder().create();
-		String Svar = "";			
+		SwitchMethods SW = new SwitchMethods();
+		String answer = "";			
 		//Creates a switch which determines which method should be used. Methods will be applied later on
 		switch (Determine(jsonString)) {
 		//If the Json String contains one of the keywords below, run the relevant method.
-		
-		
-		
 		/************
 		 ** COURSES **
 		 ************/
-		
-		
-		
 		case "createCourse":
-			CI1 = (CalendarInfo)gson.fromJson(jsonString, CalendarInfo.class);
-			System.out.println(CI1.getDescription());
-			System.out.println(CI1.getEnd());
-			System.out.println(CI1.getEventID());
-			System.out.println(CI1.getLocation());
-			System.out.println(CI1.getStart());
-			System.out.println(CI1.getTitle());
-			System.out.println(CI1.getType());
-			Svar = "Switchen virkede med calendar";
+			answer = "Switchen virkede med calendar";
 			
 			break;
 
@@ -57,6 +34,7 @@ public class GiantSwitch {
 		 **********/
 		case "logIn":
 			System.out.println("Recieved logIn");
+			//Creates an login information, and run mehtod here
 			break;
 
 		case "logOut":
@@ -68,6 +46,9 @@ public class GiantSwitch {
 		 *************/
 		case "createCalender":
 			System.out.println("Recieved createCalender");
+			CalendarInfo CI1 = (CalendarInfo)gson.fromJson(jsonString, CalendarInfo.class);
+			System.out.println(CI1.getCalenderName()+ "Den har lagt det nye ind i klassen");
+			answer = SW.createNewCalender(CI1.getUserName(), CI1.getCalenderName(), CI1.getPublicOrPrivate());
 			break;
 			
 		case "getCalender":
@@ -75,7 +56,6 @@ public class GiantSwitch {
 			break;
 
 		case "getEvents":
-			
 			System.out.println("Recieved getEvents");
 			break;
 
@@ -88,16 +68,11 @@ public class GiantSwitch {
 			break;
 
 		case "saveNote":
-			
 			System.out.println("Recieved saveNote");
 			break;
 
 		case "getNote":
 			System.out.println("Recieved getNote");
-			break;
-			
-		case "deleteNote":
-			System.out.println("Recieved deleteNote");
 			break;
 
 		/**********
@@ -107,16 +82,13 @@ public class GiantSwitch {
 			System.out.println("Recieved getQuote");
 			break;
 
-			/**
-			 * 	
-			case "requestQuote":
+		case "requestQuote":
 			System.out.println("Recieved requestQuote");
 			break;
 
-			case "saveQuote":
+		case "saveQuote":
 			System.out.println("Recieved saveQuote");
 			break;
-			 */
 
 		/************
 		 ** WEATHER **
@@ -142,7 +114,7 @@ public class GiantSwitch {
 			System.out.println("Error");
 			break;
 		}
-		return Svar;
+		return answer;
 	}
 
 	//Creates a loooon else if statement, which checks the JSon string which keyword it contains, and returns the following 
@@ -157,8 +129,6 @@ public class GiantSwitch {
 			return "saveNote";
 		} else if (ID.contains("getNote")) {
 			return "getNote";
-		} else if (ID.contains("deleteNote")){
-			return "deleteNote";
 		} else if (ID.contains("requestForecast")) {
 			return "requestForecast";
 		} else if (ID.contains("getForecast")) {
