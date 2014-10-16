@@ -41,7 +41,6 @@ public class Note extends Model{
 					
 				}
 
-			
 		public NoteModel GetNote (int noteID) throws SQLException{
 			
 			try {
@@ -64,6 +63,7 @@ public class Note extends Model{
 			
 		
 		}
+		
 		public void SaveNote (NoteModel note){
 			
 			String text = note.getText();

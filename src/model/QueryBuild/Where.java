@@ -49,7 +49,7 @@ public class Where {
      * @return
      */
     public Execute all(){
-        return new Execute(getQueryBuilder(), false);
+        return new Execute(getQueryBuilder(), true);
     }
 
 

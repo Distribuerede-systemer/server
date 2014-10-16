@@ -1,6 +1,7 @@
 package model.QueryBuild;
 
 import model.Model;
+import org.apache.commons.lang.StringEscapeUtils;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -41,7 +42,6 @@ public class Execute extends Model {
     public Execute(QueryBuilder queryBuilder, boolean getAll) {
         this.queryBuilder = queryBuilder;
         this.getAll = getAll;
-
     }
 
     public Execute(QueryBuilder queryBuilder, Where where) {
@@ -56,7 +56,7 @@ public class Execute extends Model {
 
     /**
      * Execute SQL and returns ResultSet.
-     * @return
+     * @return ResultSet
      * @throws SQLException
      */
     public ResultSet ExecuteQuery() throws SQLException {
@@ -64,9 +64,10 @@ public class Execute extends Model {
         if (isGetAll()) {
             sql = SELECT + getQueryBuilder().getSelectValue() + FROM + getQueryBuilder().getTableName() + ";";
             try {
-                getConnection();
+                getConnection(false);
                 getConn();
-                sqlStatement = getConn().prepareStatement(sql);
+                String cleanSql = StringEscapeUtils.escapeSql(sql);
+                sqlStatement = getConn().prepareStatement(cleanSql);
 
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -76,9 +77,10 @@ public class Execute extends Model {
                     FROM + getQueryBuilder().getTableName() +
                     WHERE + getWhere().getWhereKey() + " " + getWhere().getWhereOperator() + " ?;";
             try {
-                getConnection();
+                getConnection(false);
                 getConn();
-                sqlStatement = getConn().prepareStatement(sql);
+                String cleanSql = StringEscapeUtils.escapeSql(sql);
+                sqlStatement = getConn().prepareStatement(cleanSql);
                 sqlStatement.setString(1, getWhere().getWhereValue());
 
             } catch (SQLException e) {
@@ -103,7 +105,8 @@ public class Execute extends Model {
             try {
                 getConnection();
                 getConn();
-                sqlStatement = getConn().prepareStatement(sql);
+                String cleanSql = StringEscapeUtils.escapeSql(sql);
+                sqlStatement = getConn().prepareStatement(cleanSql);
 
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -114,7 +117,8 @@ public class Execute extends Model {
             try {
                 getConnection();
                 getConn();
-                sqlStatement = getConn().prepareStatement(sql);
+                String cleanSql = StringEscapeUtils.escapeSql(sql);
+                sqlStatement = getConn().prepareStatement(cleanSql);
                 sqlStatement.setString(1, getWhere().getWhereValue());
 
             } catch (SQLException e) {
@@ -122,6 +126,7 @@ public class Execute extends Model {
             }
         } else {
             System.out.println(sql);
+            
             sql = INSERTINTO + getQueryBuilder().getTableName() + " (" + getQueryBuilder().getFields() + ")" + VALUES + "(";
             StringBuilder sb = new StringBuilder();
             for (String n : getValues().getValues()) {
@@ -133,7 +138,8 @@ public class Execute extends Model {
             try {
                 getConnection();
                 getConn();
-                sqlStatement = getConn().prepareStatement(sql);
+                String cleanSql = StringEscapeUtils.escapeSql(sql);
+                sqlStatement = getConn().prepareStatement(cleanSql);
                 int x = 0;
                 for (int i = 0; i < getValues().getValues().length; i++) {
                     x = i;
