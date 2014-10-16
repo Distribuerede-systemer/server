@@ -1,3 +1,5 @@
+
+
 package GUI;
 
 import java.awt.Dimension;
@@ -179,7 +181,7 @@ public class UserList extends JPanel {
         newContentPane.setOpaque(true); //content panes must be opaque
         frame.setContentPane(newContentPane);
  
-        //Display the window
+
         
         frame.setVisible(true);
     }
