@@ -1,4 +1,4 @@
-package model;
+package model.QOTD;
 
 public class QOTD {
 

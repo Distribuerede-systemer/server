@@ -1,4 +1,4 @@
-package model;
+package model.QOTD;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
