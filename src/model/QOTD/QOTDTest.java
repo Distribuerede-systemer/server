@@ -1,7 +1,5 @@
 package model.QOTD;
 
-import model.Model;
-
 public class QOTDTest {
 
 	public static void main(String[] args) {
@@ -10,6 +8,10 @@ public class QOTDTest {
 		
 		qm.getQuote();
 		System.out.println("hej");
+		
+		qm.fetchQuote();
+		
+		System.out.println("hej2");
 	}
 
 }

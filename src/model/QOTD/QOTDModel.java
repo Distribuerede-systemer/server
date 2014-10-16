@@ -3,7 +3,11 @@ package model.QOTD;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+
+
 
 
 
@@ -19,6 +23,8 @@ public class QOTDModel {
 	
 	QOTD qotdlist2 = new QOTD(null, null, null);
     QueryBuilder qb = new QueryBuilder();
+    
+    private ResultSet resultSet;
     
     /**
      *
@@ -59,6 +65,7 @@ public class QOTDModel {
     			String quote = (String) jsonObject.get("quote");
     			String author = (String) jsonObject.get("author");
     			String topic = (String) jsonObject.get("topic");
+
     			
     			String[] keys = {"qotd"};
     			String[] keys2 = {quote};
@@ -71,7 +78,21 @@ public class QOTDModel {
 				e.printStackTrace();
 			}
 			
-			public String 
     			
     }
+     	
+  	public void fetchQuote(){
+  		String q = "";
+  		String[] key = {"qotd"};
+  		try {
+  			resultSet = qb.selectFrom("dailyupdate").all().ExecuteQuery();
+			while(resultSet.next()) {
+				q = resultSet.getString("qotd");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(q);
+  	}
 }
