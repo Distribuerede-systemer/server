@@ -48,6 +48,7 @@ CREATE TABLE IF NOT EXISTS notes
 	createdby int NOT NULL,
 	text text,
 	created datetime NOT NULL DEFAULT NOW(),
+	isActive bit;
 	PRIMARY KEY (noteid)
 );
 
