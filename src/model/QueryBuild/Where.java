@@ -45,7 +45,7 @@ public class Where {
     }
 
     public Execute all(){
-        return new Execute(getQueryBuilder(), null);
+        return new Execute(getQueryBuilder(), false);
     }
 
     public Execute where(String key, String operator, String value){
@@ -59,5 +59,6 @@ public class Where {
         //System.out.print("SELECT " + getSelectParameters() + " FROM " + getTableName() + " WHERE " + getWherekey() + " = " + getWherePlaceholders());
 
     }
+
 
 }
