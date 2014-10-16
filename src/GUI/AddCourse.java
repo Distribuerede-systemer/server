@@ -91,6 +91,8 @@
 					.getResource("/Images/MetalBackground.jpg")));
 			label.setBounds(-26, -28, 1366, 768);
 			add(label);
+			
+			//545
 
 		};
 
