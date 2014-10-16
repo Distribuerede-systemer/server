@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import GUI.UserInformation;
 
 public class AuthUser {
-	public UserInformation login(String userName, String password)
+	public boolean login(String userName, String password)
 	{
 
 		boolean u = false;
