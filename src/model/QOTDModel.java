@@ -8,12 +8,10 @@ import java.util.ArrayList;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import com.google.gson.Gson;
-
-
 public class QOTDModel {
 
-	private ArrayList<QOTD> QOTDlist = new ArrayList<>();
+	private ArrayList<QOTD> qotdlist = new ArrayList<>();
+	
     
     /**
      *
@@ -38,26 +36,33 @@ public class QOTDModel {
  
     }
     
-     	public static void main(String args[]) throws Exception {
+     	public void getQuote() {
 
             /**
              * getting text from website and putiing into string
              * Making a new object of JSON, and prints out quote
              */
-            String json = readUrl("http://dist-sso.it-kartellet.dk/quote/");
+            String json;
+			try {
+				json = readUrl("http://dist-sso.it-kartellet.dk/quote/");
+			
             
     			JSONParser jsonParser = new JSONParser();
     			JSONObject jsonObject = (JSONObject) jsonParser.parse(json);
     			
-    			System.out.println(jsonObject.get("quote"));
     			String quote = (String) jsonObject.get("quote");
-    			System.out.println(jsonObject.get("author"));
-    			System.out.println(jsonObject.get("topic"));
+    			String author = (String) jsonObject.get("author");
+    			String topic = (String) jsonObject.get("topic");
+    	qotdlist.add(new QOTD(quote, author, topic));
     	
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
     			
     }
     //Gemme i database
      	public void saveQuote() {
-     		
+			getQuote();
      	}
 }
