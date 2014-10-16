@@ -55,7 +55,7 @@ public abstract class Model {
      * @throws java.io.IOException
      * @throws java.sql.SQLException
      */
-    public void readfromSqlFile(String filepath) throws IOException, SQLException {
+    protected void readfromSqlFile(String filepath) throws IOException, SQLException {
         getConnection();
         ScriptRunner runner = new ScriptRunner(getConn(), false, false);
         InputStreamReader reader = new InputStreamReader(new FileInputStream(filepath));
