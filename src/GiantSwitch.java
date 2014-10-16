@@ -1,20 +1,16 @@
 import java.sql.SQLException;
-
 import model.QOTD.QOTDModel;
 import model.calendar.Event;
-//import model.event.Events;
 import model.note.Note;
-//import model.vejrservice.ForecastModel;
 import JsonClasses.CalendarInfo;
-
 import com.google.gson.*;
-
 import databaseMethods.SwitchMethods;
 
 public class GiantSwitch {
 	public String GiantSwitchMethod(String jsonString) throws SQLException {
 
 		//Events eventsKlasse = new Events(0, 0, 0, jsonString, jsonString, jsonString, jsonString, jsonString);
+
 		Note noteKlasse = new Note();
 		//ForecastModel forecastKlasse = new ForecastModel();
 		QOTDModel QOTDKlasse = new QOTDModel();
@@ -25,9 +21,7 @@ public class GiantSwitch {
 		//Creates a switch which determines which method should be used. Methods will be applied later on
 		switch (Determine(jsonString)) {
 		//If the Json String contains one of the keywords below, run the relevant method.
-		
-		
-		
+
 		/************
 		 ** COURSES **
 		 ************/
@@ -65,6 +59,10 @@ public class GiantSwitch {
 			answer = SW.deleteCalender(CI2.getUserName(), CI2.getCalenderName());
 			break;
 		
+		case "saveImportedCalender":
+			System.out.println("Recieved saveImportedCalender");
+			break;
+			
 		case "getCalender":
 			System.out.println("Recieved getCalender");
 			break;
@@ -96,7 +94,6 @@ public class GiantSwitch {
 			System.out.println("Recieved deleteNote");
 			break;
 
-
 		/**********
 		 ** QUOTE **
 		 **********/
@@ -119,7 +116,7 @@ public class GiantSwitch {
 		return answer;
 	}
 
-	//Creates a loooon else if statement, which checks the JSon string which keyword it contains, and returns the following 
+	//Creates a loooong else if statement, which checks the JSon string which keyword it contains, and returns the following 
 	//keyword if
 	public String Determine(String ID) {
 
@@ -137,7 +134,9 @@ public class GiantSwitch {
 			return "deleteCalender";
 		} else if (ID.contains("getClientForecast")) {
 			return "getClientForecast";
-		} else if (ID.contains("importCourse")) {
+		} else if (ID.contains("saveImportedCalender")) {
+			return "saveImportedCalender";
+		}else if (ID.contains("importCourse")) {
 			return "importCourse";
 		} else if (ID.contains("exportCourse")) {
 			return "exportCourse";

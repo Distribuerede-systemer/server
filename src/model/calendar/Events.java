@@ -17,14 +17,12 @@ public class Events {
     ArrayList<Event> events = new ArrayList<Event>();
 
     public ArrayList<Event> getEvents() {
-        
     	QueryBuilder qb = new QueryBuilder();
     	try {
 			ResultSet rs = qb.selectFrom("events").all().ExecuteQuery();
 			while (rs.next())
 			{
 				//String values from SQL database (must be created)
-				
 				int eventID = rs.getInt("eventid");
 				int type = rs.getInt("type");
 				int location = rs.getInt("location");
@@ -38,9 +36,29 @@ public class Events {
 				String nameEvent = rs.getString("name");
 				String text = rs.getString("text");
 				
+				String stringEventID = String.valueOf(eventID);
+				String stringType = String.valueOf(type);
+				String stringLocation = String.valueOf(location);
+				String stringCreatedby = String.valueOf(createdby);
+				String stringStartDate = String.valueOf(startDate);
+				String stringStartTime = String.valueOf(startTime);				
+				String stringEndDate = String.valueOf(endDate);
+				String stringEndTime = String.valueOf(endTime);
+				
+				
 				System.out.println(String.valueOf(startDate.getTime()));
 				
-				//events.add(new Event(eventID));
+				events.add(new Event(stringEventID, stringType, stringLocation, stringCreatedby, stringStartDate, stringStartTime, stringEndDate, stringEndTime));
+				
+				String.valueOf(eventID),String.valueOf(type),String.valueOf(location),String.valueOf(createdby),
+				String.valueOf(startDate),String.valueOf(startTime),String.valueOf(endDate),String.valueOf(endTime)
+				
+				
+				(String activityid, String eventid, String type, String title,
+						String description, String location, ArrayList<String> start,
+						ArrayList<String> end)
+				
+				
 				
 			}
 			

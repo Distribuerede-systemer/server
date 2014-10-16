@@ -2,19 +2,30 @@ package GUI;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.BevelBorder;
+
 import java.awt.Color;
+
 import javax.swing.border.MatteBorder;
+
 import java.awt.Cursor;
+
 import javax.swing.SwingConstants;
+
 import java.awt.Dimension;
+
 import javax.swing.JPasswordField;
 
 public class Login extends JPanel {
@@ -77,6 +88,7 @@ public class Login extends JPanel {
 		add(btnLogIn);
 		btnForgotLogIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+			JOptionPane.showInputDialog("Bad Luck!");
 			}
 		});
 		btnForgotLogIn.setContentAreaFilled(false);
