@@ -1,6 +1,6 @@
 import model.Events;
 import model.Notes;
-import model.QOTDModel;
+import model.QOTD.QOTDModel;
 import model.calendar.Event;
 import model.vejrservice.ForecastModel;
 
