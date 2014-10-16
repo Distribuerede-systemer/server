@@ -1,22 +1,24 @@
 package model;
 
 import java.security.Key;
+import java.sql.ResultSet;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
 import model.QueryBuild.QueryBuilder;
 
-public class AuthenticateUser extends Model {
+public class AuthenticateUser {
 	
 	private String encryptionKey = "cdc63491uAf24938";
 
+    private ResultSet resultSet;
 	public boolean authenticate(String email, String password) throws Exception {
 
 		String[] keys = {"email", "password"};
 
 		QueryBuilder qb = new QueryBuilder();
-		resultSet = qb.selectFrom(keys, "users").where("email", "=", email).getResultSet();
+		resultSet = qb.selectFrom(keys, "users").where("email", "=", email).ExecuteQuery();
 
 		if (resultSet.next()){
 			String passFromData = resultSet.getString("password");
@@ -48,7 +50,7 @@ public class AuthenticateUser extends Model {
 	}
 	
 	/*
-	 * Nedenstående metode skal implementeres i klienterne. Metoden kan kryptere strings med AES 128 bit encryption. (encryptionKey = "cdc63491uAf24938")
+	 * Nedenstï¿½ende metode skal implementeres i klienterne. Metoden kan kryptere strings med AES 128 bit encryption. (encryptionKey = "cdc63491uAf24938")
 	 */
 //	private String encrypt(String toEncrypt) throws Exception {
 //		

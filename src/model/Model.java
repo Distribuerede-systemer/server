@@ -152,7 +152,7 @@ public abstract class Model {
      *
      * @throws SQLException
      */
-    private void getConnection() throws SQLException {
+    public void getConnection() throws SQLException {
         setConn(DriverManager.getConnection(sqlUrl, sqlUser, sqlPasswd));
     }
 
