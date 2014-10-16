@@ -11,6 +11,14 @@ public class AuthenticateUser {
 	private QueryBuilder qb;
 
 	// Metoden faar email og password fra switchen (udtrukket fra en json) samt en boolean der skal saettes til true hvis det er serveren der logger paa, og false hvis det er en klient
+	/**
+	 * Allows the client to log in
+	 * @param email
+	 * @param password
+	 * @param isAdmin
+	 * @return
+	 * @throws Exception
+	 */
 	public int authenticate(String email, String password, boolean isAdmin) throws Exception {
 
 		String[] keys = {"userid", "email", "active", "password"};
