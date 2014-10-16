@@ -32,6 +32,4 @@ public class Values {
         return new Execute(getQueryBuilder(), v);
     }
 
-
-
 }

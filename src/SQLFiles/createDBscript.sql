@@ -102,7 +102,6 @@ ALTER TABLE events
 	ADD FOREIGN KEY (CalenderID)
 	REFERENCES Calender (CalenderID)
 	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
 ;
 
 
@@ -110,7 +109,6 @@ ALTER TABLE userevents
 	ADD FOREIGN KEY (CalenderID)
 	REFERENCES Calender (CalenderID)
 	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
 ;
 
 
@@ -118,7 +116,6 @@ ALTER TABLE notes
 	ADD FOREIGN KEY (eventid)
 	REFERENCES events (eventid)
 	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
 ;
 
 
@@ -126,7 +123,6 @@ ALTER TABLE events
 	ADD FOREIGN KEY (location)
 	REFERENCES locationdata (locationdataid)
 	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
 ;
 
 
@@ -134,7 +130,6 @@ ALTER TABLE events
 	ADD FOREIGN KEY (createdby)
 	REFERENCES users (userid)
 	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
 ;
 
 
@@ -142,7 +137,6 @@ ALTER TABLE roles
 	ADD FOREIGN KEY (userid)
 	REFERENCES users (userid)
 	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
 ;
 
 
@@ -150,7 +144,6 @@ ALTER TABLE userevents
 	ADD FOREIGN KEY (userid)
 	REFERENCES users (userid)
 	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
 ;
 
 
@@ -158,7 +151,6 @@ ALTER TABLE notes
 	ADD FOREIGN KEY (createdby)
 	REFERENCES users (userid)
 	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
 ;
 
 

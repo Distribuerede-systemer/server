@@ -1,24 +1,28 @@
+import java.sql.SQLException;
 
 import model.QOTD.QOTDModel;
 import model.calendar.Event;
-import model.event.Events;
+//import model.event.Events;
 import model.note.Note;
-import model.vejrservice.ForecastModel;
+//import model.vejrservice.ForecastModel;
+import JsonClasses.CalendarInfo;
 
 import com.google.gson.*;
 
+import databaseMethods.SwitchMethods;
+
 public class GiantSwitch {
-	public String GiantSwitchMethod(String jsonString) {
+	public String GiantSwitchMethod(String jsonString) throws SQLException {
 		//klasser der kaldes
 		Event eventKlasse = new Event();
-		Events eventsKlasse = new Events(0, 0, 0, jsonString, jsonString, jsonString, jsonString, jsonString);
+		//Events eventsKlasse = new Events(0, 0, 0, jsonString, jsonString, jsonString, jsonString, jsonString);
 		Note noteKlasse = new Note();
-		ForecastModel forecastKlasse = new ForecastModel();
+		//ForecastModel forecastKlasse = new ForecastModel();
 		QOTDModel QOTDKlasse = new QOTDModel();
-		CalendarInfo CI1 = new CalendarInfo();
+		SwitchMethods SW = new SwitchMethods();
 		
 		Gson gson = new GsonBuilder().create();
-		String Svar = "";			
+		String answer = "";			
 		//Creates a switch which determines which method should be used. Methods will be applied later on
 		switch (Determine(jsonString)) {
 		//If the Json String contains one of the keywords below, run the relevant method.
@@ -32,25 +36,12 @@ public class GiantSwitch {
 		
 		
 		case "createCourse":
-			CI1 = (CalendarInfo)gson.fromJson(jsonString, CalendarInfo.class);
-			System.out.println(CI1.getDescription());
-			System.out.println(CI1.getEnd());
-			System.out.println(CI1.getEventID());
-			System.out.println(CI1.getLocation());
-			System.out.println(CI1.getStart());
-			System.out.println(CI1.getTitle());
-			System.out.println(CI1.getType());
-			Svar = "Switchen virkede med calendar";
-			
 			break;
 
-		case "importCourse":
+		case "importCalendar":
 			System.out.println("Recieved importCourse");
 			break;
 
-		case "exportCourse":
-			System.out.println("Recieved exportCourse");
-			break;
 
 		/**********
 		 ** LOGIN **
@@ -68,6 +59,9 @@ public class GiantSwitch {
 		 *************/
 		case "createCalender":
 			System.out.println("Recieved createCalender");
+			CalendarInfo CI1 = (CalendarInfo)gson.fromJson(jsonString, CalendarInfo.class);
+			System.out.println(CI1.getCalenderName()+ "Den har lagt det nye ind i klassen");
+			answer = SW.createNewCalender(CI1.getUserName(), CI1.getCalenderName(), CI1.getPublicOrPrivate());
 			break;
 			
 		case "getCalender":
@@ -99,6 +93,11 @@ public class GiantSwitch {
 		case "deleteNote":
 			System.out.println("Recieved deleteNote");
 			break;
+			
+		case "editNote":
+			System.out.println("Recieved editNote");
+			break;
+
 
 		/**********
 		 ** QUOTE **
@@ -107,32 +106,9 @@ public class GiantSwitch {
 			System.out.println("Recieved getQuote");
 			break;
 
-			/**
-			 * 	
-			case "requestQuote":
-			System.out.println("Recieved requestQuote");
-			break;
-
-			case "saveQuote":
-			System.out.println("Recieved saveQuote");
-			break;
-			 */
-
 		/************
 		 ** WEATHER **
 		 ************/
-
-		case "requestForecast":
-			System.out.println("Recieved requestForecast");
-			break;
-
-		case "getForecast":
-			System.out.println("Recieved getForecast");
-			break;
-
-		case "saveForecast":
-			System.out.println("Recieved saveForecast");
-			break;
 
 		case "getClientForecast":
 			System.out.println("Recieved getClientForecast");
@@ -142,7 +118,7 @@ public class GiantSwitch {
 			System.out.println("Error");
 			break;
 		}
-		return Svar;
+		return answer;
 	}
 
 	//Creates a loooon else if statement, which checks the JSon string which keyword it contains, and returns the following 
@@ -159,12 +135,8 @@ public class GiantSwitch {
 			return "getNote";
 		} else if (ID.contains("deleteNote")){
 			return "deleteNote";
-		} else if (ID.contains("requestForecast")) {
-			return "requestForecast";
-		} else if (ID.contains("getForecast")) {
-			return "getForecast";
-		} else if (ID.contains("saveForecast")) {
-			return "saveForecast";
+		} else if (ID.contains("editNote")){
+			return "editNote";
 		} else if (ID.contains("getClientForecast")) {
 			return "getClientForecast";
 		} else if (ID.contains("createCourse")) {
@@ -175,10 +147,6 @@ public class GiantSwitch {
 			return "exportCourse";
 		} else if (ID.contains("getQuote")) {
 			return "getQuote";
-		} else if (ID.contains("requestQuote")) {
-			return "requestQuote";
-		} else if (ID.contains("saveQuote")) {
-			return "saveQuote";
 		} else if (ID.contains("logIn")) {
 			return "logIn";
 		} else if (ID.contains("logOut")) {
