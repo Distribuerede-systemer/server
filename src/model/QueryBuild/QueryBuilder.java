@@ -1,6 +1,5 @@
 package model.QueryBuild;
 
-
 import org.apache.commons.lang.StringEscapeUtils;
 
 /**

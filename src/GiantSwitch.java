@@ -32,11 +32,6 @@ public class GiantSwitch {
 		/************
 		 ** COURSES **
 		 ************/
-		
-		
-		
-		case "createCourse":
-			break;
 
 		case "importCalendar":
 			System.out.println("Recieved importCourse");
@@ -69,18 +64,19 @@ public class GiantSwitch {
 			break;
 
 		case "getEvents":
-			
 			System.out.println("Recieved getEvents");
 			break;
 
-		case "saveEvent":
+		case "createEvent":
 			System.out.println("Recieved saveEvent");
 			break;
 
 		case "getEventInfo":
 			System.out.println("Recieved getEventInfo");
 			break;
-
+			
+		case "deleteEvent":
+			System.out.println("Recieved deleteEvent");
 		case "saveNote":
 			
 			System.out.println("Recieved saveNote");
@@ -139,8 +135,6 @@ public class GiantSwitch {
 			return "editNote";
 		} else if (ID.contains("getClientForecast")) {
 			return "getClientForecast";
-		} else if (ID.contains("createCourse")) {
-			return "createCourse";
 		} else if (ID.contains("importCourse")) {
 			return "importCourse";
 		} else if (ID.contains("exportCourse")) {
@@ -153,8 +147,10 @@ public class GiantSwitch {
 			return "logOut";
 		} else if (ID.contains("getCalender")) {
 			return "getCalender";
-		} else if (ID.contains("saveEvent")) {
-			return "saveEvent";
+		} else if (ID.contains("createEvent")) {
+			return "createEvent";
+		} else if (ID.contains("deleteEvent")) {
+			return "deleteEvent"; 
 		} else if (ID.contains("createCalender")) {
 			return "createCalender";
 		}
