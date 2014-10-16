@@ -9,8 +9,11 @@ import javax.swing.JScrollBar;
 import javax.swing.JTable;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.CompoundBorder;
@@ -83,4 +86,28 @@ public class NoteList extends JPanel {
 		
 		add(lblBackground);
 	}
+	
+	public void addActionListener(ActionListener l) {
+		btnAdd.addActionListener(l);
+		btnDelete.addActionListener(l);
+		btnLogout.addActionListener(l);
+		btnMainMenu.addActionListener(l);
+	}
+
+	public JButton getBtnDelete() {
+		return btnDelete;
+	}
+
+	public JButton getBtnAdd() {
+		return btnAdd;
+	}
+
+	public JButton getBtnMainMenu() {
+		return btnMainMenu;
+	}
+
+	public JButton getBtnLogout() {
+		return btnLogout;
+	}
+	
 }

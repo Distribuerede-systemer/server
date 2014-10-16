@@ -33,6 +33,13 @@ import java.awt.event.ActionEvent;
 		/**
 		 * Create the panel.
 		 */
+		
+		private JButton btnAdd;
+		private JButton btnDelete;
+		private JButton btnLogout;
+		private JButton btnMainMenu;
+		
+		
 		public EventList() {
 			setSize(new Dimension(1366, 768));
 			setLayout(null);
@@ -82,35 +89,35 @@ import java.awt.event.ActionEvent;
 			// Add the scroll pane to this panel.
 			add(scrollPane);
 			
-			JButton button = new JButton("Main Menu");
-			button.setForeground(Color.WHITE);
-			button.setFont(new Font("Arial", Font.BOLD, 30));
-			button.setContentAreaFilled(false);
-			button.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-			button.setBounds(601, 612, 163, 43);
-			add(button);
+			JButton btnMainMenu = new JButton("Main Menu");
+			btnMainMenu.setForeground(Color.WHITE);
+			btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
+			btnMainMenu.setContentAreaFilled(false);
+			btnMainMenu.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+			btnMainMenu.setBounds(601, 612, 163, 43);
+			add(btnMainMenu);
 			
-			JButton button_1 = new JButton("Log out");
-			button_1.setForeground(Color.WHITE);
-			button_1.setFont(new Font("Arial", Font.BOLD, 30));
-			button_1.setContentAreaFilled(false);
-			button_1.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-			button_1.setBounds(624, 667, 117, 43);
-			add(button_1);
+			JButton btnLogout = new JButton("Log out");
+			btnLogout.setForeground(Color.WHITE);
+			btnLogout.setFont(new Font("Arial", Font.BOLD, 30));
+			btnLogout.setContentAreaFilled(false);
+			btnLogout.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+			btnLogout.setBounds(624, 667, 117, 43);
+			add(btnLogout);
 						
-						JButton button_2 = new JButton("Delete");
-						button_2.setOpaque(true);
-						button_2.setForeground(new Color(0, 0, 205));
-						button_2.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
-						button_2.setBounds(988, 194, 118, 29);
-						add(button_2);
+						JButton btnDelete = new JButton("Delete");
+						btnDelete.setOpaque(true);
+						btnDelete.setForeground(new Color(0, 0, 205));
+						btnDelete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
+						btnDelete.setBounds(988, 194, 118, 29);
+						add(btnDelete);
 						
-						JButton button_3 = new JButton("Add");
-						button_3.setOpaque(true);
-						button_3.setForeground(new Color(0, 0, 205));
-						button_3.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
-						button_3.setBounds(988, 234, 118, 29);
-						add(button_3);
+						JButton btnAdd = new JButton("Add");
+						btnAdd.setOpaque(true);
+						btnAdd.setForeground(new Color(0, 0, 205));
+						btnAdd.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
+						btnAdd.setBounds(988, 234, 118, 29);
+						add(btnAdd);
 			
 						JLabel label = new JLabel("");
 						label.setIcon(new ImageIcon(EventList.class
@@ -119,5 +126,30 @@ import java.awt.event.ActionEvent;
 						add(label);
 
 		}
+		
+		public void addActionListener(ActionListener l) {
+			btnAdd.addActionListener(l);
+			btnDelete.addActionListener(l);
+			btnLogout.addActionListener(l);
+			btnMainMenu.addActionListener(l);
+		}
+
+		public JButton getBtnAdd() {
+			return btnAdd;
+		}
+
+		public JButton getBtnDelete() {
+			return btnDelete;
+		}
+
+		public JButton getBtnLogout() {
+			return btnLogout;
+		}
+
+		public JButton getBtnMainMenu() {
+			return btnMainMenu;
+		}
+		
+		
 	}
 

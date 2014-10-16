@@ -24,6 +24,7 @@ public class GUILogic {
 		screen.getUserInfo().addActionListener(new UserInfoActionListener());
 		screen.getNoteList().addActionListener(new NoteListActionListener());
 		screen.getUserList().addActionListener(new UserListActionListener());
+		screen.getEventlist().addActionListener(new EventListActionListener());
 		
 	}
 	public void run() {
@@ -70,9 +71,9 @@ public class GUILogic {
 			if (e.getSource() == screen.getMainMenu().getBtnNotelist()){
 				screen.show(Screen.NOTELIST);
 			}
-//			if (e.getSource() == screen.getMainMenu().getBtnEventlist()){
-//				screen.show(Screen.EVENTLIST);
-//			}
+			if (e.getSource() == screen.getMainMenu().getBtnEventlist()){
+				screen.show(Screen.EVENTLIST);
+			}
 			
 
 		}
@@ -113,6 +114,18 @@ public class GUILogic {
 				
 			}
 
+		}
+	}
+	
+	private class EventListActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+
+			if (e.getSource() == screen.getEventlist().getBtnMainMenu()){
+				screen.show(Screen.MAINMENU);
+			}
+			if (e.getSource() == screen.getEventlist().getBtnLogout()){
+				screen.show(Screen.LOGIN);
+			}
 		}
 	}
 	
