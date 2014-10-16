@@ -34,7 +34,6 @@ public class GiantSwitch {
 		 ************/
 		
 		
-		
 		case "createCourse":
 			break;
 
@@ -73,14 +72,16 @@ public class GiantSwitch {
 			System.out.println("Recieved getEvents");
 			break;
 
-		case "saveEvent":
+		case "createEvent":
 			System.out.println("Recieved saveEvent");
 			break;
 
 		case "getEventInfo":
 			System.out.println("Recieved getEventInfo");
 			break;
-
+			
+		case "deleteEvent":
+			System.out.println("Recieved deleteEvent");
 		case "saveNote":
 			
 			System.out.println("Recieved saveNote");
@@ -153,8 +154,10 @@ public class GiantSwitch {
 			return "logOut";
 		} else if (ID.contains("getCalender")) {
 			return "getCalender";
-		} else if (ID.contains("saveEvent")) {
-			return "saveEvent";
+		} else if (ID.contains("createEvent")) {
+			return "createEvent";
+		} else if (ID.contains("deleteEvent")) {
+			return "deleteEvent"; 
 		} else if (ID.contains("createCalender")) {
 			return "createCalender";
 		}
