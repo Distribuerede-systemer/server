@@ -23,9 +23,11 @@ public class SwitchMethods
 		
 		return stringToBeReturned;
 	}
-	public String deleteCalender (String userName, String calenderName)
+	public String deleteCalender (String userName, String calenderName) throws SQLException
 	{
 		String stringToBeReturned ="";
+		DC.TestConnection();
+		stringToBeReturned = DC.deleteCalender(userName, calenderName);
 
 		return stringToBeReturned;
 	}

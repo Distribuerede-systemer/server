@@ -54,6 +54,46 @@ public class DatabaseConnection
 	{
 		doUpdate("insert into test.calender (Name, Active, CreatedBy, PrivatePublic) VALUES ('"+newCalenderName+"', '1', '"+userName+"', '"+publicOrPrivate+"');");
 	}
+	
+	public String deleteCalender (String userName, String calenderName) throws SQLException
+	{
+		String stringToBeReturend = "";
+		String usernameOfCreator ="";
+		String calenderExists = "";
+		rs = doQuery("select * from calender where Name = '"+calenderName+"';");
+		while(rs.next())
+		{
+			calenderExists = rs.toString();
+		}
+		if(!calenderExists.equals(""))
+		{
+			rs = doQuery("select CreatedBy from calender where Name = '"+calenderName+"';");
+			while(rs.next())
+			{
+				usernameOfCreator = rs.toString();
+				System.out.println(usernameOfCreator);
+			}
+			if(!usernameOfCreator.equals(userName))
+			{
+				stringToBeReturend = "Only the creator of the calender is able to delete it.";
+			}
+			else
+			{
+				doUpdate("UPDATE Calender SET Active='2' WHERE Name='"+calenderName+"';");
+				stringToBeReturend = "Calender has been set inactive";
+			}
+			stringToBeReturend = rs.toString();
+		}
+		else
+		{
+			stringToBeReturend = "The calender you are trying to delete, does not exists.";
+		}
+		
+		
+		
+		return stringToBeReturend;
+	}
+	
 	public ResultSet doQuery(String query) throws SQLException
     {
     	getConnection();

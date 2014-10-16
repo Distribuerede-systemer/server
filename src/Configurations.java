@@ -11,7 +11,7 @@ public class Configurations {
 	private String host;
 	private String port;
 	private String username;
-	private Strng dbname;
+	private String dbname;
 	private String password;
 
 	// FFkey is used in Encryption.java 
