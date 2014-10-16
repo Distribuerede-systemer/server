@@ -43,11 +43,12 @@ public class NoteList extends JPanel {
 
 		Object[][] data = {
 
-				{ "DØK Julefrokost", "11.11.2022", "Game on!","", new Boolean(false) },
-				{ "DØK Julefrokost", "11.11.2022", "Game on!","", new Boolean(true) },
-				{ "DØK Julefrokost", "11.11.2022", "Game on!","", new Boolean(false) },
-				{ "DØK Julefrokost", "11.11.2022", "Game on!","", new Boolean(true) },
-				{ "DØK Julefrokost", "11.11.2022", "Game on!","", new Boolean(false) } };
+				{ "DØK Julefrokost", "11.11.2022", "Game on!","3"},
+				{ "DØK Julefrokost", "11.11.2022", "Game on!","3"},
+				{ "DØK Julefrokost", "11.11.2022", "Game on!","3"},
+				{ "DØK Julefrokost", "11.11.2022", "Game on!","3" },
+				{ "DØK Julefrokost", "11.11.2022", "Game on!","3" } 
+				};
 
 		final JTable table = new JTable(data, columnNames);
 		table.setSurrendersFocusOnKeystroke(true);
