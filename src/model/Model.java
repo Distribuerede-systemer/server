@@ -35,7 +35,7 @@ public abstract class Model {
 
 
     public boolean doesDatabaseExist() throws SQLException {
-        getConnection();
+        getConnection(true);
         ResultSet resultSet = getConn().getMetaData().getCatalogs();
         while (resultSet.next()) {
             String databaseName = resultSet.getString(1);
@@ -56,7 +56,7 @@ public abstract class Model {
      * @throws java.sql.SQLException
      */
     protected void readfromSqlFile(String filepath) throws IOException, SQLException {
-        getConnection();
+        getConnection(true);
         ScriptRunner runner = new ScriptRunner(getConn(), false, false);
         InputStreamReader reader = new InputStreamReader(new FileInputStream(filepath));
         runner.runScript(reader);
@@ -72,7 +72,7 @@ public abstract class Model {
      */
     public PreparedStatement doQuery(String sql) {
         try {
-            getConnection();
+            getConnection(false);
             getConn();
             sqlStatement = getConn().prepareStatement(sql);
 
@@ -87,7 +87,7 @@ public abstract class Model {
     public boolean testConnection() {
         try {
 
-            getConnection();
+            getConnection(false);
 
             if (getConn().isValid(5)) //5 seconds
                 return true;
@@ -100,7 +100,7 @@ public abstract class Model {
     }
 
     public int doUpdate(String update) throws SQLException {
-        getConnection();
+        getConnection(false);
         int temp = 0;
 
         try {
@@ -150,8 +150,12 @@ public abstract class Model {
      *
      * @throws java.sql.SQLException
      */
-    public void getConnection() throws SQLException {
-        setConn(DriverManager.getConnection(sqlUrl+"/"+dbName, sqlUser, sqlPasswd));
+    public void getConnection(Boolean init) throws SQLException {
+    	if(init) {
+    		setConn(DriverManager.getConnection(sqlUrl, sqlUser, sqlPasswd));
+    	}else{
+    		setConn(DriverManager.getConnection(sqlUrl+"/"+dbName, sqlUser, sqlPasswd));
+    	}
     }
 
     /**

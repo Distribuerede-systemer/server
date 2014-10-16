@@ -64,7 +64,7 @@ public class Execute extends Model {
         if (isGetAll()) {
             sql = SELECT + getQueryBuilder().getSelectValue() + FROM + getQueryBuilder().getTableName() + ";";
             try {
-                getConnection();
+                getConnection(false);
                 getConn();
                 sqlStatement = getConn().prepareStatement(sql);
 
@@ -76,7 +76,7 @@ public class Execute extends Model {
                     FROM + getQueryBuilder().getTableName() +
                     WHERE + getWhere().getWhereKey() + " " + getWhere().getWhereOperator() + " ?;";
             try {
-                getConnection();
+                getConnection(false);
                 getConn();
                 sqlStatement = getConn().prepareStatement(sql);
                 sqlStatement.setString(1, getWhere().getWhereValue());
