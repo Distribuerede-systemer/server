@@ -20,11 +20,16 @@ import java.awt.Color;
 import javax.swing.JLabel;
 
 import java.awt.Font;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.border.MatteBorder;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+
+import model.QueryBuild.QueryBuilder;
+
+import com.mysql.jdbc.ResultSetImpl;
  
 public class UserList extends JPanel {
     /**
@@ -37,52 +42,35 @@ public class UserList extends JPanel {
 	private JButton btnDelete;
 	private JButton btnLogout;
 	private JButton btnMainMenu;
+	private ResultSet rs;
 	
     public UserList() {
     	setSize(new Dimension(1366, 768));
  
-        String[] columnNames = {"First Name",
-                                "Last Name",
-                                "Email"};
+        String[] columnNames = {"UserID",
+                                "Email",
+                                "Active",
+                                "Created datetime",
+                                "Password"};
  
-//        Object[][] data = {
-//        		
-//        {"Kathy", "Smith", new Integer(5), new Boolean(false)},
-//        {"John", "Doe", new Integer(3), new Boolean(true)},
-//        {"Sue", "Black", new Integer(2), new Boolean(false)},
-//        {"Jane", "White", new Integer(20), new Boolean(true)},
-//        {"Joe", "Brown", new Integer(10), new Boolean(false)}
-//        };
-        
-//        Object[][] data = {
-//        		
-//<<<<<<< HEAD
-//=======
-//        {"Kathy", "Smith", new Integer(10), new Boolean(false)},
-//        {"John", "Doe", new Integer(7), new Boolean(true)},
-//        {"Sue", "Black", new Integer(2), new Boolean(false)},
-//        {"Jane", "White", new Integer(20), new Boolean(true)},
-//        {"Joe", "Brown", new Integer(10), new Boolean(false)}
-//>>>>>>> origin/master
-//        };
-        
 
-      
+
 Object[][] data = {
         		
         };
         
 	
-   
+    
         try {
-			rs = db.doQuery("SELECT * FROM users'");
+			QueryBuilder qb = new QueryBuilder();
+			rs = qb.selectFrom("users").all().ExecuteQuery();
 			
 	        int count = 0;
 	        while (rs.next()) {
 	        	data[count][0] = rs.getString("userid");
 	        	data[count][1] = rs.getString("email");
 	        	data[count][2] = rs.getString("active");
-	        	data[count][3] = rs.getString("created");
+	        	data[count][3] = rs.getString("created datetime");
 	        	data[count][4] = rs.getString("password");
 
 	        	count++;
@@ -127,9 +115,10 @@ Object[][] data = {
         btnAdd.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
 
-          String firstName = JOptionPane.showInputDialog(null, "First Name", null);
-          String lastName = JOptionPane.showInputDialog(null, "Last Name", null);
-          String eMail = JOptionPane.showInputDialog(null, "Email", null);
+          String firstName = JOptionPane.showInputDialog(null, "UserID", null);
+          String lastName = JOptionPane.showInputDialog(null, "Email", null);
+          String eMail = JOptionPane.showInputDialog(null, "Date", null);
+          String password = JOptionPane.showInputDialog(null, "Write your password", null);
           
         	}
         });
@@ -260,10 +249,3 @@ Object[][] data = {
 	public JButton getBtnMainMenu() {
 		return btnMainMenu;
 	}
-
-	public JButton getBtnLogout() {
-		return btnLogout;
-	}
-    //777
-    
-}
