@@ -15,10 +15,12 @@ public class Configurations {
 
 	// FFkey is used in Encryption.java 
 	private String ffcryptkey;
-	
 
 	// Weather variables
-
+	private String weather_expiration_time;
+	private String weather_lat;
+	private String weather_lon;
+	private String weather_future_in_days;
 
 
 	public String getHost() {
@@ -61,13 +63,47 @@ public class Configurations {
 		this.ffcryptkey = ffcryptkey;
 	}
 
-		public String getWeather_expiration_date() {
-		return weather_expiration_date;
+
+
+// Weather settrs and getters.
+	
+	public String getWeather_expiration_time() {
+return weather_expiration_time;
+}
+
+public void setWeather_expiration_time(String weather_expiration_time) {
+this.weather_expiration_time = weather_expiration_time;
+}
+
+
+		public String getWeather_lat() {
+		return weather_lat;
 	}
 	
-	public void setWeather_expiratoin_date(String weather_expiration_date) {
-		this.weather_expiration_date = weather_expiration_date;
+	public void setWeather_lat(String weather_lat) {
+		this.weather_lat = weather_lat;
 	}
+	
+	
+	public String getWeather_lon() {
+	return weather_lon;
+}
+
+public void setWeather_lon(String weather_lon) {
+	this.weather_lon = weather_lon;
+}
+
+public String getWeather_future_in_days() {
+return weather_future_in_days;
+}
+
+public void setWeather_future_in_days(String weather_future_in_days) {
+this.weather_future_in_days = weather_future_in_days;
+}
+	
+	
+
+
 
 	// Method to read files from jSON file
     
@@ -91,8 +127,12 @@ public class Configurations {
 			setFfcryptkey((String) jsonObject.get("ffcryptkey"));
 
 			// Getting json values for weather variables
-			setWeather_expiratoin_date((String) jsonObject.get("weather_expiration_date"));
 			
+			setWeather_expiration_time((String) jsonObject.get("weather_expiration_date"));
+			
+			setWeather_lat((String) jsonObject.get("weather_lat"));
+			setWeather_lon((String) jsonObject.get("weather_lon"));
+			setWeather_future_in_days((String) jsonObject.get("weather_future_in_days"));
 
 
 
