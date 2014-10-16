@@ -26,6 +26,7 @@ public class Screen extends JFrame {
 	private final UserList userlist = new UserList();
 	CardLayout c;
 	private final EventList eventList = new EventList();
+	private final AddCourse addCourse = new AddCourse();
 
 	/**
 	 * Launch the application.
@@ -49,7 +50,7 @@ public class Screen extends JFrame {
 	public Screen() {
 		setTitle("Doek4life");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1366, 768);
+		setBounds(100, 100, 1386, 813);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		setContentPane(contentPane);
@@ -69,6 +70,8 @@ public class Screen extends JFrame {
 		
 		contentPane.add(userlist, "name_280161954000083");
 		c = (CardLayout) getContentPane().getLayout();
+		
+		contentPane.add(addCourse, "name_539626250466157");
 	}
 	
 	public Login getLogin() {
@@ -94,5 +97,4 @@ public class Screen extends JFrame {
 	public EventList getEventlist() {
 		return eventList;
 	}
-	
 }

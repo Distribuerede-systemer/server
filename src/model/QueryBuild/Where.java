@@ -44,10 +44,22 @@ public class Where {
 
     }
 
+    /**
+     * Select all columns from table in DB (SELECT * ...)
+     * @return
+     */
     public Execute all(){
         return new Execute(getQueryBuilder(), false);
     }
 
+
+    /**
+     * WHERE key operate value, ex. WHERE id = 5
+     * @param key
+     * @param operator
+     * @param value
+     * @return
+     */
     public Execute where(String key, String operator, String value){
 
         Where where = new Where();
@@ -59,6 +71,5 @@ public class Where {
         //System.out.print("SELECT " + getSelectParameters() + " FROM " + getTableName() + " WHERE " + getWherekey() + " = " + getWherePlaceholders());
 
     }
-
 
 }
