@@ -114,9 +114,6 @@ this.weather_future_in_days = weather_future_in_days;
 }
 	
 	
-
-
-
 	// Method to read files from jSON file
     
 	public void ReadFile() {
@@ -145,8 +142,6 @@ this.weather_future_in_days = weather_future_in_days;
 			setWeather_lon((String) jsonObject.get("weather_lon"));
 			setWeather_future_in_days((String) jsonObject.get("weather_future_in_days"));
 
-
-
 		} catch (ParseException ex) {
 			ex.printStackTrace();
 		} catch (NullPointerException ex) {
@@ -157,6 +152,8 @@ this.weather_future_in_days = weather_future_in_days;
 			e.printStackTrace();
 		}
 	}
+
+
   
  
   
