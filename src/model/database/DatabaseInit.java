@@ -23,8 +23,8 @@ public class DatabaseInit extends Model {
         String[] keys = {"firstKey", "secondKey"};
         String[] wheremparamters = {"alder", "hat"};
         QueryBuilder qb = new QueryBuilder();
-        resultSet = qb.selectFrom("users").all().getResultSet();
-        resultSet = qb.selectFrom("events").where("id", "=", "123").getResultSet();
+        resultSet = qb.selectFrom("users").all().ExecuteQuery();
+        resultSet = qb.selectFrom("events").where("id", "=", "123").ExecuteQuery();
 
         while (resultSet.next()){
             System.out.println(resultSet.getString("email"));

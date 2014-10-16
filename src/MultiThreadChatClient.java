@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 //Rigbolt: "Hvad er dette??!
 //"<<<<<<< HEAD
 //
@@ -5,6 +6,16 @@
 //
 //
 //>>>>>>> fa590344e8288f58d80a7386998009ea7dfe78ae"
+=======
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+
+=======
+>>>>>>> FETCH_HEAD
+=======
+>>>>>>> Stashed changes
+
+>>>>>>> Stashed changes
 import java.io.DataInputStream;
 import java.io.PrintStream;
 import java.io.BufferedReader;
