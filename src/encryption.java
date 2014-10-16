@@ -12,6 +12,8 @@ public class encryption {
 		//String crypKey = CF.getFfcryptkey();
 		//System.out.println(crypKey);
 		//double gladKo = Double.parseDouble(crypKey);
+		CF.ReadFile();
+		System.out.println(CF.getFfcryptkey());
 		byte ff = (byte) 3.1470;
 //		Generates for loop containing decryption value
 		for(int i = 0 ; i<b.length ; i++)

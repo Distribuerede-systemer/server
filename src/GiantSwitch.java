@@ -58,7 +58,14 @@ public class GiantSwitch {
 			System.out.println(CI1.getCalenderName()+ "Den har lagt det nye ind i klassen");
 			answer = SW.createNewCalender(CI1.getUserName(), CI1.getCalenderName(), CI1.getPublicOrPrivate());
 			break;
-			
+		
+		case "deleteCalender":
+			System.out.println("Recieved deleteCalender");
+			CalendarInfo CI2 = (CalendarInfo)gson.fromJson(jsonString, CalendarInfo.class);
+			System.out.println(CI2.getCalenderName()+ "Den har lagt det nye ind i klassen");
+			answer = "";
+			break;
+		
 		case "getCalender":
 			System.out.println("Recieved getCalender");
 			break;
@@ -131,7 +138,9 @@ public class GiantSwitch {
 			return "getNote";
 		} else if (ID.contains("deleteNote")){
 			return "deleteNote";
-		} else if (ID.contains("editNote")){
+		}else if  (ID.contains("deleteCalender")){
+			return "deleteCalender";
+		}else if (ID.contains("editNote")){
 			return "editNote";
 		} else if (ID.contains("getClientForecast")) {
 			return "getClientForecast";
