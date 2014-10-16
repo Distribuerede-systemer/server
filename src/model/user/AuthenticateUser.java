@@ -13,12 +13,15 @@ public class AuthenticateUser {
 	private String encryptionKey = "cdc63491uAf24938"; // Krypteringsnøgle
 
 	private ResultSet resultSet;
+	
+	private QueryBuilder qb;
 
+	// Metoden får email og password fra switchen (udtrukket fra en json) samt en boolean der skal sættes til true hvis det er serveren der logger på, og false hvis det er en klient
 	public boolean authenticate(String email, String password, boolean isAdmin) throws Exception {
 
 		String[] keys = {"userid", "email", "active", "password"};
 
-		QueryBuilder qb = new QueryBuilder();
+		qb = new QueryBuilder();
 
 		// Henter info om bruger fra database via querybuilder
 		resultSet = qb.selectFrom(keys, "users").where("email", "=", email).ExecuteQuery();
@@ -27,30 +30,30 @@ public class AuthenticateUser {
 		if (resultSet.next()){
 
 			// Hvis brugeren er aktiv
-			if(resultSet.getBoolean("active"))
+			if(resultSet.getInt("active")==1)
 			{					
 				// Hvis passwords matcher
 				if(resultSet.getString("password").equals(decrypt(password)))
 				{
 					int userID = resultSet.getInt("userid");
-
-					resultSet.qb.selectFrom("userrole", "userroles").where("userid", "=", userID).ExecuteQuery();
+					
+					String[] key = {"type"};
+					
+					resultSet = qb.selectFrom(key, "roles").where("userid", "=", new Integer(userID).toString()).ExecuteQuery();
 
 					// Hvis brugeren både logger ind og er registreret som admin, eller hvis brugeren både logger ind og er registreret som bruger
-					if((resultSet.getString("userrole").equals("admin") && isAdmin) || (resultSet.getString("userrole").equals("user") && !isAdmin))
+					if((resultSet.getString("type").equals("admin") && isAdmin) || (resultSet.getString("type").equals("user") && !isAdmin))
 					{
 						return true;
 					} else {
 						return false;
 					}
-
 				} else {
 					return false;
 				}
 			} else {
 				return false;
 			}
-
 		} else {
 			return false;
 		}
