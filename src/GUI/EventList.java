@@ -1,66 +1,44 @@
 package GUI;
-import java.awt.Dimension;
 
-import javax.swing.JScrollPane;
-
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.event.ActionListener;
-
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JScrollBar;
-import javax.swing.JTable;
+import java.awt.Dimension;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.JTextField;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JButton;
 
-public class EventList extends JFrame {
-
-	private JPanel contentPane;
-	private JTable table;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					EventList frame = new EventList();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+public class EventList extends JPanel {
 
 	/**
-	 * Create the frame.
+	 * Create the panel.
 	 */
 	public EventList() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		setSize(new Dimension(320, 468));
+		setSize(new Dimension(1366, 768));
+		setLayout(null);
 		
-		//JScrollPane
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 0, 320, 468);
-		getContentPane().add(scrollPane);
+		JLabel lblEvents = new JLabel("Events");
+		lblEvents.setFont(new Font("Tahoma", Font.BOLD, 30));
+		lblEvents.setBounds(658, 90, 128, 52);
+		add(lblEvents);
 		
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		JButton btnDeleteEvent = new JButton("Delete Event");
+		btnDeleteEvent.setBounds(1138, 672, 213, 41);
+		add(btnDeleteEvent);
 		
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setBounds(305, 0, 15, 440);
-		contentPane.add(scrollBar);
+		JButton btnCreateEvent = new JButton("Create Event");
+		btnCreateEvent.setBounds(1138, 615, 213, 41);
+		add(btnCreateEvent);
 		
-		table = new JTable();
-		table.setBounds(0, 0, 305, 446);
-		contentPane.add(table);
+		JLabel lblUpcomingEvent = new JLabel("Upcoming Event");
+		lblUpcomingEvent.setBounds(164, 177, 309, 33);
+		add(lblUpcomingEvent);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(EventList.class.getResource("/Images/MetalBackground.jpg")));
+		label.setBounds(38, 11, 1366, 768);
+		add(label);
+
 	}
-	public void addActionListener(ActionListener l) {
-		
-}
 }

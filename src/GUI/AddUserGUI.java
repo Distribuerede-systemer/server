@@ -6,6 +6,9 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import javax.swing.JPasswordField;
 
 public class AddUserGUI extends JPanel {
 	private JLabel lblAddUser;
@@ -15,13 +18,14 @@ public class AddUserGUI extends JPanel {
 	private JLabel lblPhonenumber;
 	private JLabel lblClass;
 	private JTextField UsernameTextField;
-	private JTextField PasswordTextField;
 	private JTextField EmailTextField;
-	private JTextField PhonenumberTextField;
 	private JTextField ClassTextField;
 	private JButton btnAddUser;
 	private JButton btnLogOut;
 	private JButton btnMainMenu;
+	private final JLabel lblNewLabel = new JLabel("");
+	private JTextField PhonenumberTextField;
+	private JPasswordField PasswordTextField;
 
 	/**
 	 * Create the panel.
@@ -29,66 +33,76 @@ public class AddUserGUI extends JPanel {
 	public AddUserGUI() {
 		setLayout(null);
 		
+		PasswordTextField = new JPasswordField();
+		PasswordTextField.setBounds(268, 168, 168, 39);
+		add(PasswordTextField);
+		
+		PhonenumberTextField = new JTextField();
+		PhonenumberTextField.setColumns(10);
+		PhonenumberTextField.setBounds(268, 281, 167, 39);
+		add(PhonenumberTextField);
+		
 		lblAddUser = new JLabel("Add user");
-		lblAddUser.setBounds(184, 11, 43, 14);
+		lblAddUser.setBounds(287, 8, 134, 78);
 		add(lblAddUser);
 		
 		lblUsername = new JLabel("Username");
-		lblUsername.setBounds(27, 37, 48, 14);
+		lblUsername.setBounds(59, 117, 142, 32);
 		add(lblUsername);
 		
 		lblPassword = new JLabel("Password");
-		lblPassword.setBounds(27, 70, 46, 14);
+		lblPassword.setBounds(59, 168, 168, 39);
 		add(lblPassword);
 		
 		lblEmail = new JLabel("Email");
-		lblEmail.setBounds(27, 107, 46, 14);
+		lblEmail.setBounds(59, 227, 179, 39);
 		add(lblEmail);
 		
 		lblPhonenumber = new JLabel("Phonenumber");
-		lblPhonenumber.setBounds(27, 146, 66, 14);
+		lblPhonenumber.setBounds(59, 284, 200, 33);
 		add(lblPhonenumber);
 		
 		lblClass = new JLabel("Class");
-		lblClass.setBounds(27, 182, 46, 14);
+		lblClass.setBounds(59, 333, 163, 33);
 		add(lblClass);
 		
 		UsernameTextField = new JTextField();
-		UsernameTextField.setBounds(110, 36, 86, 20);
+		UsernameTextField.setBounds(268, 114, 167, 40);
 		add(UsernameTextField);
 		UsernameTextField.setColumns(10);
 		
-		PasswordTextField = new JTextField();
-		PasswordTextField.setBounds(110, 67, 86, 20);
-		add(PasswordTextField);
-		PasswordTextField.setColumns(10);
-		
 		EmailTextField = new JTextField();
-		EmailTextField.setBounds(110, 104, 86, 20);
+		EmailTextField.setBounds(268, 227, 167, 39);
 		add(EmailTextField);
 		EmailTextField.setColumns(10);
 		
-		PhonenumberTextField = new JTextField();
-		PhonenumberTextField.setBounds(110, 143, 86, 20);
-		add(PhonenumberTextField);
-		PhonenumberTextField.setColumns(10);
-		
 		ClassTextField = new JTextField();
-		ClassTextField.setBounds(110, 179, 86, 20);
+		ClassTextField.setBounds(268, 333, 167, 40);
 		add(ClassTextField);
 		ClassTextField.setColumns(10);
 		
 		btnAddUser = new JButton("Add User");
-		btnAddUser.setBounds(87, 266, 89, 23);
+		btnAddUser.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnAddUser.setBounds(33, 416, 194, 23);
 		add(btnAddUser);
 		
 		btnLogOut = new JButton("Log out");
-		btnLogOut.setBounds(285, 266, 89, 23);
+		btnLogOut.setBounds(540, 416, 161, 23);
 		add(btnLogOut);
 		
 		btnMainMenu = new JButton("Main menu");
-		btnMainMenu.setBounds(186, 266, 89, 23);
+		btnMainMenu.setBounds(248, 416, 266, 23);
+		btnMainMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		add(btnMainMenu);
+		lblNewLabel.setIcon(new ImageIcon(AddUserGUI.class.getResource("/Images/MetalBackground.jpg")));
+		lblNewLabel.setBounds(0, 0, 754, 553);
+		add(lblNewLabel);
 
 	}
 	public void addActionListener(ActionListener l) {
@@ -121,5 +135,4 @@ public class AddUserGUI extends JPanel {
 	public JButton getBtnMainMenu() {
 		return btnMainMenu;
 	}
-	
 }
