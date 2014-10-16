@@ -34,7 +34,6 @@ public class Execute extends Model {
     public Execute(QueryBuilder queryBuilder, boolean getAll){
         this.queryBuilder = queryBuilder;
         this.getAll = getAll;
-
     }
     public Execute(QueryBuilder queryBuilder, Where where){
         this.queryBuilder = queryBuilder;
@@ -94,8 +93,10 @@ public class Execute extends Model {
             getConnection();
             getConn();
             sqlStatement = getConn().prepareStatement(sql);
-            for(int i = 1; i < getValues().getValues().length+1; i++){
-                sqlStatement.setString(i, getValues().getValues()[i]);
+            int x = 0;
+            for(int i = 0; i < getValues().getValues().length; i++){
+                x = i;
+                sqlStatement.setString(x+1, getValues().getValues()[i]);
             }
 
         } catch (SQLException e) {
