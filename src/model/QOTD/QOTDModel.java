@@ -51,7 +51,7 @@ public class QOTDModel {
  
     }
     
-     	public void getQuote() {
+     	public void saveQuote() {
 
             /**
              * getting text from website and putiing into string
@@ -85,7 +85,7 @@ public class QOTDModel {
     			
     }
      	
-  	public void fetchQuote(){
+  	public void getQuote(){
   		String q = "";
   		String[] key = {"qotd"};
   		try {
@@ -99,7 +99,7 @@ public class QOTDModel {
 		}
 		System.out.println(q);
   	}
-  	 public QOTD updateQOTD(){
+  	 public QOTD updateQuote(){
 	     	Date date = new Date(); // Current date & time
 	     	long maxTimeNoUpdate = 86400; // Maximum one day with no update
 	     	
@@ -111,7 +111,7 @@ public class QOTDModel {
 	     	// if more than 1 hour ago, do update
 	     	if(timeSinceUpdate > 864000){
 	     		// return fresh weather data
-	     		return updateQOTD();
+	     		return updateQuote();
 	     	} else {
 	     		// Query database and fetch existing weather data from db
 	     		return null; //return data from database
