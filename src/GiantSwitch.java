@@ -5,6 +5,7 @@ import model.calendar.Event;
 import model.note.Note;
 import JsonClasses.CalendarInfo;
 import JsonClasses.CreateCalender;
+import JsonClasses.DeleteCalender;
 
 import com.google.gson.*;
 
@@ -55,7 +56,7 @@ public class GiantSwitch {
 			break;
 		
 		case "deleteCalender":
-			CalendarInfo DC = (CalendarInfo)gson.fromJson(jsonString, CalendarInfo.class);
+			DeleteCalender DC = (DeleteCalender)gson.fromJson(jsonString, DeleteCalender.class);
 			System.out.println(DC.getCalenderName()+ "Den har lagt det nye ind i klassen");
 			answer = SW.deleteCalender(DC.getUserName(), DC.getCalenderName());
 			break;
