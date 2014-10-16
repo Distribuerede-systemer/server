@@ -249,4 +249,9 @@ Object[][] data = {
 	public JButton getBtnMainMenu() {
 		return btnMainMenu;
 	}
+
+	public JButton getBtnLogout() {
+		return btnLogout;
+	}
+	
 }
