@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Created by jesperbruun on 10/10/14.
- * Til hver specifik event af events
+ * Til hver specifik event bliver de defineret saaledes.
  */
 public class Event {
     private String activityid;

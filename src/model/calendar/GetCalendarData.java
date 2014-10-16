@@ -13,8 +13,6 @@ public class GetCalendarData {
 	
 	EncryptUserID e = new EncryptUserID();
 
-
-    //Read URL
 	//henter data fra URL og læser ind til en string
     private static String readUrl(String urlString) throws Exception {
         BufferedReader reader = null;
