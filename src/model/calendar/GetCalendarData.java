@@ -32,10 +32,7 @@ public class GetCalendarData {
             if (reader != null)
                 reader.close();
         }
-
     }
-
-
     //Nu har vi alle data liggende i en string (JSON). 
     //Så bruger vi Google's udviklede library Json string. den kan lave det om til java objekter
     //Events laver en arraylist af Event
@@ -57,7 +54,5 @@ public class GetCalendarData {
         for (int i = 0; i < events.getEvents().size(); i++){
             System.out.println(events.getEvents().get(i).getActivityid());
         }
-
     }
-
 }
