@@ -1,5 +1,4 @@
 
-
 package GUI;
 
 import java.awt.Dimension;
@@ -48,33 +47,14 @@ public class UserList extends JPanel {
     public UserList() {
     	setSize(new Dimension(1366, 768));
  
-        String[] columnNames = {"First Name",
-                                "Last Name",
-                                "Email"};
+        String[] columnNames = {"UserID",
+                                "Email",
+                                "Active",
+                                "Created datetime",
+                                "Password"};
  
-//        Object[][] data = {
-//        		
-//        {"Kathy", "Smith", new Integer(5), new Boolean(false)},
-//        {"John", "Doe", new Integer(3), new Boolean(true)},
-//        {"Sue", "Black", new Integer(2), new Boolean(false)},
-//        {"Jane", "White", new Integer(20), new Boolean(true)},
-//        {"Joe", "Brown", new Integer(10), new Boolean(false)}
-//        };
-        
-//        Object[][] data = {
-//        		
-//<<<<<<< HEAD
-//=======
-//        {"Kathy", "Smith", new Integer(10), new Boolean(false)},
-//        {"John", "Doe", new Integer(7), new Boolean(true)},
-//        {"Sue", "Black", new Integer(2), new Boolean(false)},
-//        {"Jane", "White", new Integer(20), new Boolean(true)},
-//        {"Joe", "Brown", new Integer(10), new Boolean(false)}
-//>>>>>>> origin/master
-//        };
-        
 
-      
+
 Object[][] data = {
         		
         };
@@ -135,9 +115,10 @@ Object[][] data = {
         btnAdd.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
 
-          String firstName = JOptionPane.showInputDialog(null, "First Name", null);
-          String lastName = JOptionPane.showInputDialog(null, "Last Name", null);
-          String eMail = JOptionPane.showInputDialog(null, "Email", null);
+          String firstName = JOptionPane.showInputDialog(null, "UserID", null);
+          String lastName = JOptionPane.showInputDialog(null, "Email", null);
+          String eMail = JOptionPane.showInputDialog(null, "Date", null);
+          String password = JOptionPane.showInputDialog(null, "Write your password", null);
           
         	}
         });
@@ -272,6 +253,5 @@ Object[][] data = {
 	public JButton getBtnLogout() {
 		return btnLogout;
 	}
-   
-    
+	
 }

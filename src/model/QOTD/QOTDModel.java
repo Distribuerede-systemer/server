@@ -3,11 +3,18 @@ package model.QOTD;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 
 
 
+
+
+import java.util.Date;
+
+import model.Forecast.Forecast;
 import model.QueryBuild.QueryBuilder;
 
 import org.json.simple.JSONObject;
@@ -19,6 +26,8 @@ public class QOTDModel {
 	
 	QOTD qotdlist2 = new QOTD(null, null, null);
     QueryBuilder qb = new QueryBuilder();
+    
+    private ResultSet resultSet;
     
     /**
      *
@@ -59,21 +68,54 @@ public class QOTDModel {
     			String quote = (String) jsonObject.get("quote");
     			String author = (String) jsonObject.get("author");
     			String topic = (String) jsonObject.get("topic");
-    			qotdlist2 = new QOTD(quote, author, topic);
+
+    			
+    			String[] keys = {"qotd"};
+    			String[] keys2 = {quote};
+    			
+    			
+    			qb.update("dailyupdate", keys, keys2).where("ID", "=", "1").Execute();
+    			
     	
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
     			
     }
-    //Gemme i database
-     	public void saveQuote() {
-			getQuote();
-			
-			String[] keys = {"date","apparentTemperature","summary","windspeed","qotd"};
-			String[] keys2 = {"'2014-01-01 23:22:01'", "21", "'hej'", "12", "'hej'"};
-
-			qb.insertInto("dailyupdates",keys).values(keys2);
-     	}
+     	
+  	public void fetchQuote(){
+  		String q = "";
+  		String[] key = {"qotd"};
+  		try {
+  			resultSet = qb.selectFrom("dailyupdate").all().ExecuteQuery();
+			while(resultSet.next()) {
+				q = resultSet.getString("qotd");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(q);
+  	}
+  	 public QOTD updateQOTD(){
+	     	Date date = new Date(); // Current date & time
+	     	long maxTimeNoUpdate = 86400; // Maximum one day with no update
+	     	
+	     	long date1 = date.getTime();
+	     	long date2 = date.getTime() - maxTimeNoUpdate; // minus 1 hour -- should be fetched from database
+	     	
+	     	long timeSinceUpdate = date1 - date2; 
+	     	
+	     	// if more than 1 hour ago, do update
+	     	if(timeSinceUpdate > 864000){
+	     		// return fresh weather data
+	     		return updateQOTD();
+	     	} else {
+	     		// Query database and fetch existing weather data from db
+	     		return null; //return data from database
+	     	}
+	     }
+  	
 }

@@ -15,5 +15,6 @@
 	<classpathentry kind="lib" path="libs/commons-io-2.4.jar"/>
 	<classpathentry kind="lib" path="libs/json-simple-1.1.1.jar"/>
 	<classpathentry kind="lib" path="libs/ibatis-2.3.0.677.jar"/>
+	<classpathentry kind="lib" path="src/config.json"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

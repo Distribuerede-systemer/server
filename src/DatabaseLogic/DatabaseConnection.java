@@ -24,7 +24,7 @@ public class DatabaseConnection
     		
     		if(conn.isValid(5000))
 	    	{
-	    		JOptionPane.showMessageDialog(null, "You have succesfully connected to database!");
+	    		System.out.println("Oprettet forbindelse til databasen!");
 	    		
 	    	}
     	}

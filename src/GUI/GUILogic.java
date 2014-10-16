@@ -2,15 +2,20 @@ package GUI;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.SQLException;
+
 import GUI.UserInformation;
 import GUI.AuthUser;
+
 import javax.swing.JOptionPane;
 
+import model.QueryBuild.*;
 import GUI.Screen;
 
 public class GUILogic {
 	private Screen screen;
 	private boolean u;
+	private boolean full = false;
 	
 	AuthUser a = new AuthUser();
 	
@@ -25,6 +30,10 @@ public class GUILogic {
 		screen.getNoteList().addActionListener(new NoteListActionListener());
 		screen.getUserList().addActionListener(new UserListActionListener());
 		screen.getEventlist().addActionListener(new EventListActionListener());
+		screen.getAddEventGUI().addActionListener(new AddEventGUIActionListener());
+		screen.getAddUser().addActionListener(new AddUserActionListener());
+
+		
 		
 	}
 	public void run() {
@@ -76,6 +85,85 @@ public class GUILogic {
 			}
 			
 
+		}
+	}
+	private class AddEventGUIActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == screen.getAddEventGUI().getBtnLogout()){
+				screen.show(Screen.LOGIN);
+			}
+			if (e.getSource() == screen.getAddEventGUI().getBtnMainMenu()){
+				screen.show(Screen.MAINMENU);
+			}
+			if (e.getSource() == screen.getAddEventGUI().getBtnSubmit()){
+				String Type = screen.getAddEventGUI().getTextField_Type().getText();
+				String Location = screen.getAddEventGUI().getTextField_Location().getText();
+				String Createdby = screen.getAddEventGUI().getTextField_Createdby().getText();
+				String start = screen.getAddEventGUI().getTextField_Start().getText();
+				String end = screen.getAddEventGUI().getTextField_End().getText();
+				String name = screen.getAddEventGUI().getTextField_Name().getText();
+				String text = screen.getAddEventGUI().getTextField_Text().getText();
+
+				if (Type.equals("")|| Location.equals("")|| Createdby.equals("")|| start.equals("")|| end.equals("")|| name.equals("")|| text.equals(""))
+				{
+					JOptionPane.showMessageDialog(null, "\nPlease fill out all the fields"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+				}
+				else
+				{
+				QueryBuilder qb = new QueryBuilder();
+				
+				String[] kolonner = { "eventid", "type", "location", "createdby", "start", "end", "name", "text"};
+				String[] Values = { Type, Location, Createdby, start, end, name, text};
+				try {
+					qb.insertInto("events", kolonner ).values(Values).ExecuteQuery();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				}
+				
+				
+			}
+		}
+	}
+	private class AddUserActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == screen.getAddUser().getBtnLogout()){
+				screen.show(Screen.LOGIN);
+			}
+			if (e.getSource() == screen.getAddUser().getBtnMainMenu()){
+				screen.show(Screen.MAINMENU);
+			}
+			if (e.getSource() == screen.getAddUser().getBtnSubmit()){
+				String Email = screen.getAddEventGUI().getTextField_Eventtid().getText();
+				String Type = screen.getAddEventGUI().getTextField_Type().getText();
+				String Password = screen.getAddEventGUI().getTextField_Location().getText();
+				
+				if (Email.equals("")|| Type.equals("")|| Password.equals(""))
+				{
+					JOptionPane.showMessageDialog(null, "\nPlease fill out all the fields"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+				}
+				else
+				{
+				QueryBuilder qb = new QueryBuilder();
+				
+				String[] kolonner = { "email", "password"};
+				String[] Values = { Email, Password};
+				String[] kolonner2 = { "types"};
+				String[] Values2 = { Type};
+				try {
+					qb.insertInto("users", kolonner ).values(Values).ExecuteQuery();
+					qb.insertInto("roles", kolonner ).values(Values).ExecuteQuery();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				}
+				
+				
+			}
 		}
 	}
 	private class UserInfoActionListener implements ActionListener {

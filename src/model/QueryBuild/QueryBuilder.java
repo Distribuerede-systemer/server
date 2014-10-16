@@ -1,6 +1,6 @@
 package model.QueryBuild;
 
-import java.util.Arrays;
+import org.apache.commons.lang.StringEscapeUtils;
 
 /**
  * Created by jesperbruun on 15/10/14.
