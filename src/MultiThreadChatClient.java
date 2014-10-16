@@ -1,5 +1,10 @@
-
-
+//Rigbolt: "Hvad er dette??!
+//"<<<<<<< HEAD
+//
+//=======
+//
+//
+//>>>>>>> fa590344e8288f58d80a7386998009ea7dfe78ae"
 import java.io.DataInputStream;
 import java.io.PrintStream;
 import java.io.BufferedReader;
