@@ -13,7 +13,7 @@ public class GetCalendarData {
 	
 	EncryptUserID e = new EncryptUserID();
 
-	//henter data fra URL og læser ind til en string
+	//henter data fra URL og lï¿½ser ind til en string
     private static String readUrl(String urlString) throws Exception {
         BufferedReader reader = null;
         try {
@@ -32,7 +32,7 @@ public class GetCalendarData {
         }
     }
     //Nu har vi alle data liggende i en string (JSON). 
-    //Så bruger vi Google's udviklede library Json string. den kan lave det om til java objekter
+    //Sï¿½ bruger vi Google's udviklede library Json string. den kan lave det om til java objekter
     //Events laver en arraylist af Event
     public void getDataFromCalendar() throws Exception {
 
@@ -41,7 +41,7 @@ public class GetCalendarData {
          * Encrypt hash from
          */
     	String userID = "1234";
-        String json = readUrl("http://calendar.cbs.dk/events.php/"+userID+" /"+e.getKey()+".json");
+        String json = readUrl("http://calendar.cbs.dk/events.php/"+userID+"/"+e.getKey()+".json");
 //        String json = readUrl("http://calendar.cbs.dk/events.php/caha13ag/02a24d4e002e6e3571227c39e2f63784.json");
         
 

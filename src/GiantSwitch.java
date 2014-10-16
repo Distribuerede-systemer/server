@@ -1,8 +1,10 @@
+import java.sql.SQLException;
+
 import model.QOTD.QOTDModel;
 import model.calendar.Event;
-import model.event.Events;
+//import model.event.Events;
 import model.note.Note;
-import model.vejrservice.ForecastModel;
+//import model.vejrservice.ForecastModel;
 import JsonClasses.CalendarInfo;
 
 import com.google.gson.*;
@@ -10,12 +12,12 @@ import com.google.gson.*;
 import databaseMethods.SwitchMethods;
 
 public class GiantSwitch {
-	public String GiantSwitchMethod(String jsonString) {
+	public String GiantSwitchMethod(String jsonString) throws SQLException {
 		//klasser der kaldes
 		Event eventKlasse = new Event();
-		Events eventsKlasse = new Events(0, 0, 0, jsonString, jsonString, jsonString, jsonString, jsonString);
+		//Events eventsKlasse = new Events(0, 0, 0, jsonString, jsonString, jsonString, jsonString, jsonString);
 		Note noteKlasse = new Note();
-		ForecastModel forecastKlasse = new ForecastModel();
+		//ForecastModel forecastKlasse = new ForecastModel();
 		QOTDModel QOTDKlasse = new QOTDModel();
 		SwitchMethods SW = new SwitchMethods();
 		
@@ -30,7 +32,6 @@ public class GiantSwitch {
 		/************
 		 ** COURSES **
 		 ************/
-		
 		
 		
 		case "createCourse":
@@ -71,14 +72,16 @@ public class GiantSwitch {
 			System.out.println("Recieved getEvents");
 			break;
 
-		case "saveEvent":
+		case "createEvent":
 			System.out.println("Recieved saveEvent");
 			break;
 
 		case "getEventInfo":
 			System.out.println("Recieved getEventInfo");
 			break;
-
+			
+		case "deleteEvent":
+			System.out.println("Recieved deleteEvent");
 		case "saveNote":
 			
 			System.out.println("Recieved saveNote");
@@ -151,8 +154,10 @@ public class GiantSwitch {
 			return "logOut";
 		} else if (ID.contains("getCalender")) {
 			return "getCalender";
-		} else if (ID.contains("saveEvent")) {
-			return "saveEvent";
+		} else if (ID.contains("createEvent")) {
+			return "createEvent";
+		} else if (ID.contains("deleteEvent")) {
+			return "deleteEvent"; 
 		} else if (ID.contains("createCalender")) {
 			return "createCalender";
 		}

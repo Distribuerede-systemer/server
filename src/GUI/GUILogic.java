@@ -2,15 +2,20 @@ package GUI;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.SQLException;
+
 import GUI.UserInformation;
 import GUI.AuthUser;
+
 import javax.swing.JOptionPane;
 
+import model.QueryBuild.*;
 import GUI.Screen;
 
 public class GUILogic {
 	private Screen screen;
 	private boolean u;
+	private boolean full = false;
 	
 	AuthUser a = new AuthUser();
 	
@@ -25,6 +30,7 @@ public class GUILogic {
 		screen.getNoteList().addActionListener(new NoteListActionListener());
 		screen.getUserList().addActionListener(new UserListActionListener());
 		screen.getEventlist().addActionListener(new EventListActionListener());
+		screen.getAddEventGUI().addActionListener(new AddEventGUIActionListener());
 		
 	}
 	public void run() {
@@ -76,6 +82,49 @@ public class GUILogic {
 			}
 			
 
+		}
+	}
+	private class AddEventGUIActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == screen.getAddEventGUI().getBtnLogout()){
+				screen.show(Screen.LOGIN);
+			}
+			if (e.getSource() == screen.getAddEventGUI().getBtnMainMenu()){
+				screen.show(Screen.MAINMENU);
+			}
+			if (e.getSource() == screen.getAddEventGUI().getBtnSubmit()){
+				String Eventid = screen.getAddEventGUI().getTextField_Eventtid().getText();
+				String Type = screen.getAddEventGUI().getTextField_Type().getText();
+				String Location = screen.getAddEventGUI().getTextField_Location().getText();
+				String Createdby = screen.getAddEventGUI().getTextField_Createdby().getText();
+				String start = screen.getAddEventGUI().getTextField_Start().getText();
+				String end = screen.getAddEventGUI().getTextField_End().getText();
+				String name = screen.getAddEventGUI().getTextField_Name().getText();
+				String text = screen.getAddEventGUI().getTextField_Text().getText();
+
+				if (Eventid.equals("")|| Type.equals("")|| Location.equals("")|| Createdby.equals("")|| start.equals("")|| end.equals("")|| name.equals("")|| text.equals(""))
+				{
+					JOptionPane.showMessageDialog(null, "\nPlease fill out all the fields"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+				}
+				else
+				{
+					
+				
+				QueryBuilder qb = new QueryBuilder();
+				
+				String[] kolonner = { "eventid", "type", "location", "createdby", "start", "end", "name", "text"};
+				String[] Values = { Eventid, Type, Location, Createdby, start, end, name, text};
+				try {
+					qb.insertInto("events", kolonner ).values(Values).ExecuteQuery();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				}
+				
+				
+			}
 		}
 	}
 	private class UserInfoActionListener implements ActionListener {

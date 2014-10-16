@@ -1,6 +1,5 @@
 import java.io.*;
 import java.net.*;
-
 import JsonClasses.CalendarInfo;
 
 import com.google.gson.stream.JsonReader;
@@ -10,6 +9,7 @@ class TCPServer {
 		CalendarInfo CI = new CalendarInfo();
 		GiantSwitch GS = new GiantSwitch();
 		encryption cryp = new encryption();
+		
 		//Creates a socket to send and recieve messages in port 8888
 		ServerSocket welcomeSocket = new ServerSocket(8888);
 		//Creates 2 string to hold random stuff

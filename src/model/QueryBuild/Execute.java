@@ -1,6 +1,7 @@
 package model.QueryBuild;
 
 import model.Model;
+import org.apache.commons.lang.StringEscapeUtils;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -41,7 +42,6 @@ public class Execute extends Model {
     public Execute(QueryBuilder queryBuilder, boolean getAll) {
         this.queryBuilder = queryBuilder;
         this.getAll = getAll;
-
     }
 
     public Execute(QueryBuilder queryBuilder, Where where) {
@@ -56,7 +56,7 @@ public class Execute extends Model {
 
     /**
      * Execute SQL and returns ResultSet.
-     * @return
+     * @return ResultSet
      * @throws SQLException
      */
     public ResultSet ExecuteQuery() throws SQLException {
@@ -122,6 +122,7 @@ public class Execute extends Model {
             }
         } else {
             System.out.println(sql);
+            
             sql = INSERTINTO + getQueryBuilder().getTableName() + " (" + getQueryBuilder().getFields() + ")" + VALUES + "(";
             StringBuilder sb = new StringBuilder();
             for (String n : getValues().getValues()) {
