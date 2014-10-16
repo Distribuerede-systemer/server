@@ -15,6 +15,7 @@ public class GiantSwitch {
 		Note noteKlasse = new Note();
 		ForecastModel forecastKlasse = new ForecastModel();
 		QOTDModel QOTDKlasse = new QOTDModel();
+		CalendarInfo CI1 = new CalendarInfo();
 		
 		Gson gson = new GsonBuilder().create();
 		String Svar = "";			
@@ -31,7 +32,7 @@ public class GiantSwitch {
 		
 		
 		case "createCourse":
-			CalendarInfo CI1 = (CalendarInfo)gson.fromJson(jsonString, CalendarInfo.class);
+			CI1 = (CalendarInfo)gson.fromJson(jsonString, CalendarInfo.class);
 			System.out.println(CI1.getDescription());
 			System.out.println(CI1.getEnd());
 			System.out.println(CI1.getEventID());
