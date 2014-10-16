@@ -12,6 +12,9 @@ import java.util.ArrayList;
 
 
 
+import java.util.Date;
+
+import model.Forecast.Forecast;
 import model.QueryBuild.QueryBuilder;
 
 import org.json.simple.JSONObject;
@@ -70,6 +73,7 @@ public class QOTDModel {
     			String[] keys = {"qotd"};
     			String[] keys2 = {quote};
     			
+    			
     			qb.update("dailyupdate", keys, keys2).where("ID", "=", "1").Execute();
     			
     	
@@ -95,4 +99,23 @@ public class QOTDModel {
 		}
 		System.out.println(q);
   	}
+  	 public QOTD updateQOTD(){
+	     	Date date = new Date(); // Current date & time
+	     	long maxTimeNoUpdate = 86400; // Maximum one day with no update
+	     	
+	     	long date1 = date.getTime();
+	     	long date2 = date.getTime() - maxTimeNoUpdate; // minus 1 hour -- should be fetched from database
+	     	
+	     	long timeSinceUpdate = date1 - date2; 
+	     	
+	     	// if more than 1 hour ago, do update
+	     	if(timeSinceUpdate > 864000){
+	     		// return fresh weather data
+	     		return updateQOTD();
+	     	} else {
+	     		// Query database and fetch existing weather data from db
+	     		return null; //return data from database
+	     	}
+	     }
+  	
 }
