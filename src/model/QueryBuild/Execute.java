@@ -42,7 +42,6 @@ public class Execute extends Model {
     public Execute(QueryBuilder queryBuilder, boolean getAll) {
         this.queryBuilder = queryBuilder;
         this.getAll = getAll;
-
     }
 
     public Execute(QueryBuilder queryBuilder, Where where) {
@@ -57,7 +56,7 @@ public class Execute extends Model {
 
     /**
      * Execute SQL and returns ResultSet.
-     * @return
+     * @return ResultSet
      * @throws SQLException
      */
     public ResultSet ExecuteQuery() throws SQLException {
