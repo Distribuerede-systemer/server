@@ -51,9 +51,13 @@ public class QOTD {
     			JSONObject jsonObject = (JSONObject) jsonParser.parse(json);
     			
     			System.out.println(jsonObject.get("quote"));
+    			String quote = (String) jsonObject.get("quote");
     			System.out.println(jsonObject.get("author"));
     			System.out.println(jsonObject.get("topic"));
     	
     }
     //Gemme i database
+     	public void saveQuote() {
+     		
+     	}
 }
