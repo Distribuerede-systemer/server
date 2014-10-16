@@ -102,13 +102,16 @@ public class GiantSwitch {
 			System.out.println("Recieved getQuote");
 			break;
 
-		case "requestQuote":
+			/**
+			 * 	
+			case "requestQuote":
 			System.out.println("Recieved requestQuote");
 			break;
 
-		case "saveQuote":
+			case "saveQuote":
 			System.out.println("Recieved saveQuote");
 			break;
+			 */
 
 		/************
 		 ** WEATHER **
