@@ -9,7 +9,7 @@ import model.QueryBuild.QueryBuilder;
 
 public class AuthenticateUser extends Model {
 	
-	private String encryptionKey = "cdc63491uAf24938"; // Denne nøgle er fundet på nettet. Den fylder 128 bit
+	private String encryptionKey = "cdc63491uAf24938";
 
 	public boolean authenticate(String email, String password) throws Exception {
 
