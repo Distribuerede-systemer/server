@@ -1,4 +1,3 @@
-
 import model.QOTD.QOTDModel;
 import model.calendar.Event;
 import model.event.Events;
