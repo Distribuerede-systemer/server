@@ -88,11 +88,16 @@ public class GiantSwitch {
 			break;
 
 		case "saveNote":
+			
 			System.out.println("Recieved saveNote");
 			break;
 
 		case "getNote":
 			System.out.println("Recieved getNote");
+			break;
+			
+		case "deleteNote":
+			System.out.println("Recieved deleteNote");
 			break;
 
 		/**********
@@ -152,6 +157,8 @@ public class GiantSwitch {
 			return "saveNote";
 		} else if (ID.contains("getNote")) {
 			return "getNote";
+		} else if (ID.contains("deleteNote")){
+			return "deleteNote";
 		} else if (ID.contains("requestForecast")) {
 			return "requestForecast";
 		} else if (ID.contains("getForecast")) {
