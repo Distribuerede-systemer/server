@@ -103,7 +103,7 @@ public class Execute extends Model {
             sql = UPDATE + getQueryBuilder().getTableName() + " SET active = 0" +
                     WHERE + getWhere().getWhereKey() + " " + getWhere().getWhereOperator() + " " + getWhere().getWhereValue() + ";  ";
             try {
-                getConnection();
+                getConnection(false);
                 getConn();
                 String cleanSql = StringEscapeUtils.escapeSql(sql);
                 sqlStatement = getConn().prepareStatement(cleanSql);
@@ -115,7 +115,7 @@ public class Execute extends Model {
         } else if(getQueryBuilder().isUpdate()) {
             sql = UPDATE + getQueryBuilder().getTableName() + " SET " + getQueryBuilder().getFields() + "" + WHERE + getWhere().getWhereKey() + " " + getWhere().getWhereOperator() + " ?;";
             try {
-                getConnection();
+                getConnection(false);
                 getConn();
                 String cleanSql = StringEscapeUtils.escapeSql(sql);
                 sqlStatement = getConn().prepareStatement(cleanSql);
@@ -136,7 +136,7 @@ public class Execute extends Model {
             sql += sb.toString();
             sql += " );";
             try {
-                getConnection();
+                getConnection(false);
                 getConn();
                 String cleanSql = StringEscapeUtils.escapeSql(sql);
                 sqlStatement = getConn().prepareStatement(cleanSql);
