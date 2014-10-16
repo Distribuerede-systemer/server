@@ -117,15 +117,12 @@ public class AddUser extends JPanel {
 				lblUserInfo.setFont(new Font("Arial", Font.BOLD, 78));
 				lblUserInfo.setBounds(451, 90, 464, 90);
 				add(lblUserInfo);
-						//=======
-						
-						//>>>>>>> FETCH_HEAD
 								
-								JLabel lblBackground = new JLabel("");
-								lblBackground.setSize(new Dimension(1366, 768));
-								lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/MetalBackground.jpg")));
-								lblBackground.setBounds(0, 0, 1366, 768);
-								add(lblBackground);
+				JLabel lblBackground = new JLabel("");
+				lblBackground.setSize(new Dimension(1366, 768));
+				lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/MetalBackground.jpg")));
+				lblBackground.setBounds(0, 0, 1366, 768);
+				add(lblBackground);
 		
 		
 
