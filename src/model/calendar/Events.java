@@ -33,19 +33,12 @@ public class Events {
 				Time startTime = rs.getTime("start");
 				Date endDate = rs.getDate("end");
 				Time endTime = rs.getTime("end");
-				varchar(0) nameEvent = rs.getVarchar("name");
-				"	name varchar(0) NOT NULL,\n" + 
-				"	text text NOT NULL,\n" + 
-				"	PRIMARY KEY (eventid)\n" + 
-				
+				String nameEvent = rs.getString("name");
+				String text = rs.getString("text");
+//				int primaryKey = rs.getInt("eventid");	Skal denne med?!
 				events.add(new Event());
+				
 			}
-			
-			
-			
-			
-			
-			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
