@@ -84,8 +84,8 @@ public class GiantSwitch {
 			
 		case "deleteEvent":
 			System.out.println("Recieved deleteEvent");
+		
 		case "saveNote":
-			
 			System.out.println("Recieved saveNote");
 			break;
 
@@ -95,10 +95,6 @@ public class GiantSwitch {
 			
 		case "deleteNote":
 			System.out.println("Recieved deleteNote");
-			break;
-			
-		case "editNote":
-			System.out.println("Recieved editNote");
 			break;
 
 
@@ -140,8 +136,6 @@ public class GiantSwitch {
 			return "deleteNote";
 		}else if  (ID.contains("deleteCalender")){
 			return "deleteCalender";
-		}else if (ID.contains("editNote")){
-			return "editNote";
 		} else if (ID.contains("getClientForecast")) {
 			return "getClientForecast";
 		} else if (ID.contains("importCourse")) {

@@ -64,7 +64,7 @@ public class Execute extends Model {
         if (isGetAll()) {
             sql = SELECT + getQueryBuilder().getSelectValue() + FROM + getQueryBuilder().getTableName() + ";";
             try {
-                getConnection();
+                getConnection(false);
                 getConn();
                 String cleanSql = StringEscapeUtils.escapeSql(sql);
                 sqlStatement = getConn().prepareStatement(cleanSql);
@@ -77,7 +77,7 @@ public class Execute extends Model {
                     FROM + getQueryBuilder().getTableName() +
                     WHERE + getWhere().getWhereKey() + " " + getWhere().getWhereOperator() + " ?;";
             try {
-                getConnection();
+                getConnection(false);
                 getConn();
                 String cleanSql = StringEscapeUtils.escapeSql(sql);
                 sqlStatement = getConn().prepareStatement(cleanSql);

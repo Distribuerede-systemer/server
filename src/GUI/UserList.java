@@ -1,12 +1,11 @@
-
 package GUI;
+
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -14,22 +13,15 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.BevelBorder;
-
 import java.awt.Color;
-
 import javax.swing.JLabel;
-
 import java.awt.Font;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import javax.swing.border.MatteBorder;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
-
 import model.QueryBuild.QueryBuilder;
-
-import com.mysql.jdbc.ResultSetImpl;
  
 public class UserList extends JPanel {
     /**
@@ -55,7 +47,7 @@ public class UserList extends JPanel {
  
 
 
-Object[][] data = {
+        	Object[][] data = {
         		
         };
         

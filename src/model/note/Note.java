@@ -10,6 +10,15 @@ public class Note extends Model{
 	NoteModel notes;
 	QueryBuilder qb;
 	
+	/**
+	 * Allows you to create a note
+	 * @param noteID
+	 * @param text
+	 * @param dateTime
+	 * @param createdBy
+	 * @param isActive
+	 * @param eventID
+	 */
 		public void CreateNote(
 			int noteID, 
 			String text, 
@@ -32,6 +41,11 @@ public class Note extends Model{
 			}
 		}
 
+		/**
+		 * Allows you to delete a note by using NoteID.
+		 * @param noteID
+		 * @throws SQLException
+		 */
 		public void DeleteNote (int noteID) throws SQLException {
 			
 					notes = GetNote(noteID);
@@ -40,7 +54,12 @@ public class Note extends Model{
 					
 				}
 
-			
+		/**
+		 * returns note
+		 * @param noteID
+		 * @return notes
+		 * @throws SQLException
+		 */
 		public NoteModel GetNote (int noteID) throws SQLException{
 			
 			try {
@@ -60,9 +79,12 @@ public class Note extends Model{
 				}
 					return notes;
 				
-			
-		
 		}
+		
+		/**
+		 * Allows you to save a note
+		 * @param note
+		 */
 		public void SaveNote (NoteModel note){
 			
 			String text = note.getText();

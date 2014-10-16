@@ -54,7 +54,7 @@ public class AddEventGUI extends JPanel {
 		btnLogout.setForeground(new Color(255, 255, 255));
 		btnLogout.setFont(new Font("Arial", Font.BOLD, 30));
 		btnLogout.setContentAreaFilled(false);
-		btnLogout.setBounds(622, 668, 117, 43);
+		btnLogout.setBounds(599, 637, 143, 59);
 		add(btnLogout);
 
 		textField_Location = new JTextField();
@@ -75,10 +75,10 @@ public class AddEventGUI extends JPanel {
 		textField_Createdby.setBounds(755, 238, 120, 34);
 		add(textField_Createdby);
 
-		JLabel lblTeam = new JLabel("Createdby");
+		JLabel lblTeam = new JLabel("Created by");
 		lblTeam.setFont(new Font("Arial", Font.BOLD, 26));
 		lblTeam.setForeground(new Color(255, 255, 255));
-		lblTeam.setBounds(483, 242, 127, 30);
+		lblTeam.setBounds(483, 242, 133, 31);
 		add(lblTeam);
 
 		textField_Start = new JTextField();
@@ -106,7 +106,7 @@ public class AddEventGUI extends JPanel {
 			}
 		}
 		);
-		btnSubmit.setBounds(561, 534, 239, 43);
+		btnSubmit.setBounds(553, 544, 239, 43);
 		add(btnSubmit);
 
 		
@@ -116,13 +116,13 @@ public class AddEventGUI extends JPanel {
 				btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
 				btnMainMenu.setContentAreaFilled(false);
 				btnMainMenu.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-				btnMainMenu.setBounds(599, 588, 163, 43);
+				btnMainMenu.setBounds(586, 591, 164, 44);
 				add(btnMainMenu);
 				
 				lblUserInfo = new JLabel("Create event");
 				lblUserInfo.setForeground(Color.WHITE);
 				lblUserInfo.setFont(new Font("Arial", Font.BOLD, 78));
-				lblUserInfo.setBounds(451, 90, 464, 90);
+				lblUserInfo.setBounds(451, 90, 466, 91);
 				add(lblUserInfo);
 						
 						lblEnd = new JLabel("End");

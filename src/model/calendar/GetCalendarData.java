@@ -13,7 +13,7 @@ public class GetCalendarData {
 	
 	EncryptUserID e = new EncryptUserID();
 
-	//henter data fra URL og l�ser ind til en string
+	//henter data fra URL og l??er ind til en string
     private static String readUrl(String urlString) throws Exception {
         BufferedReader reader = null;
         try {
@@ -32,8 +32,13 @@ public class GetCalendarData {
         }
     }
     //Nu har vi alle data liggende i en string (JSON). 
-    //S� bruger vi Google's udviklede library Json string. den kan lave det om til java objekter
+    //Saa bruger vi Google's udviklede library Json string. den kan lave det om til java objekter
     //Events laver en arraylist af Event
+    
+    /**
+     * Allows client to retrieve CBS's calendar and then access it.
+     * @throws Exception
+     */
     public void getDataFromCalendar() throws Exception {
 
         /**

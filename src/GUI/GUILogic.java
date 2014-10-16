@@ -136,9 +136,9 @@ public class GUILogic {
 				screen.show(Screen.MAINMENU);
 			}
 			if (e.getSource() == screen.getAddUser().getBtnSubmit()){
-				String Email = screen.getAddEventGUI().getTextField_Eventtid().getText();
-				String Type = screen.getAddEventGUI().getTextField_Type().getText();
-				String Password = screen.getAddEventGUI().getTextField_Location().getText();
+				String Email = screen.getAddUser().getTextField_Email().getText();
+				String Type = screen.getAddUser().getTextField_Type().getText();
+				String Password = screen.getAddUser().getTextField_Password().getText();
 				
 				if (Email.equals("")|| Type.equals("")|| Password.equals(""))
 				{
