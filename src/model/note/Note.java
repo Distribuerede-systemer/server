@@ -10,17 +10,8 @@ public class Note extends Model{
 	NoteModel notes;
 	QueryBuilder qb;
 	
-	/**
-	 * Allows you to create a note
-	 * @param noteID
-	 * @param text
-	 * @param dateTime
-	 * @param createdBy
-	 * @param isActive
-	 * @param eventID
-	 */
 		public void CreateNote(
-			int noteID, 
+			int noteID,
 			String text, 
 			String dateTime, 
 			String createdBy, 
@@ -31,21 +22,17 @@ public class Note extends Model{
 			if (isActive)
 				activeStatus = "1";
 			
-			String[] fields = {"eventID", "createdBy", "text", "dateTime", "isActive"};
+			String[] fields = {"noteID", "eventID", "createdBy", "text", "dateTime", "Active"};
 			String[] values = {String.valueOf(noteID), text, dateTime, createdBy, activeStatus};
 			try {
 				qb.insertInto("notes", fields).values(values).Execute();
+				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 
-		/**
-		 * Allows you to delete a note by using NoteID.
-		 * @param noteID
-		 * @throws SQLException
-		 */
 		public void DeleteNote (int noteID) throws SQLException {
 			
 					notes = GetNote(noteID);
@@ -54,12 +41,6 @@ public class Note extends Model{
 					
 				}
 
-		/**
-		 * returns note
-		 * @param noteID
-		 * @return notes
-		 * @throws SQLException
-		 */
 		public NoteModel GetNote (int noteID) throws SQLException{
 			
 			try {
@@ -79,12 +60,10 @@ public class Note extends Model{
 				}
 					return notes;
 				
+			
+		
 		}
 		
-		/**
-		 * Allows you to save a note
-		 * @param note
-		 */
 		public void SaveNote (NoteModel note){
 			
 			String text = note.getText();
