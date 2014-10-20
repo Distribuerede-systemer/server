@@ -1,4 +1,5 @@
 import GUI.GUILogic;
+import config.Configurations;
 
 public class Main {
 	//Starts public main method.
@@ -10,7 +11,7 @@ public class Main {
 		
 		System.out.println(cf.getPassword());
 		
-		//new GUILogic().run();
+		new GUILogic().run();
 	}
 
 }
