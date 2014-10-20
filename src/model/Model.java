@@ -1,6 +1,7 @@
 package model;
 
 import com.ibatis.common.jdbc.ScriptRunner;
+import config.Configurations;
 
 import java.io.*;
 import java.sql.*;
@@ -10,11 +11,12 @@ import java.sql.*;
  * model.Model superclass, never instansiated. All child model classes inherits its properties, classes and methods */
 public abstract class Model {
 
+    private static Configurations cf = new Configurations();
+
     private static String sqlUrl = "jdbc:mysql://" + cf.getHost() + ":" + cf.getPort() + "/";
     private static String sqlUser = cf.getUsername();
     private static String sqlPasswd = cf.getPassword();
     private static String dbName = cf.getDbname();
-
     
     private Statement stmt;
     protected Connection conn = null;
