@@ -10,6 +10,8 @@ class TCPServer {
 		GiantSwitch GS = new GiantSwitch();
 		encryption cryp = new encryption();
 		
+
+		
 		//Creates a socket to send and recieve messages in port 8888
 		ServerSocket welcomeSocket = new ServerSocket(8888);
 		//Creates 2 string to hold random stuff
@@ -42,5 +44,6 @@ class TCPServer {
 			System.out.println("svar sendt");
 			//BufferedWriter writer = new BufferedWriter(arg0)
 			}
-		}       
+		}
+	
 		} 

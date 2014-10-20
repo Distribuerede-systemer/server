@@ -89,7 +89,7 @@ public class QOTDModel {
      * Retrieve Quote from a website and put it into a String, 
      * Afterwards we will make it into a json object so it can be printed out to the client.
      */
-  	public void getQuote(){
+  	public String getQuote(){
   		String q = "";
   		String[] key = {"qotd"};
   		try {
@@ -101,9 +101,11 @@ public class QOTDModel {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(q);
+		return q;
   	}
-  	 public QOTD updateQuote(){
+  	
+  	
+  	 public void updateQuote(){
 	     	Date date = new Date(); // Current date & time
 	     	long maxTimeNoUpdate = 86400; // Maximum one day with no update
 	     	
@@ -112,14 +114,12 @@ public class QOTDModel {
 	     	
 	     	long timeSinceUpdate = date1 - date2; 
 	     	
+	     	
 	     	// if more than 1 hour ago, do update
 	     	if(timeSinceUpdate > 864000){
 	     		// return fresh weather data
-	     		return updateQuote();
-	     	} else {
-	     		// Query database and fetch existing weather data from db
-	     		return null; //return data from database
-	     	}
+	     		saveQuote();	
+	     	} 
 	     }
   	
 }

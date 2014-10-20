@@ -12,6 +12,9 @@ import com.google.gson.*;
 import databaseMethods.SwitchMethods;
 
 public class GiantSwitch {
+	
+	
+	
 	public String GiantSwitchMethod(String jsonString) throws SQLException {
 
 		//Events eventsKlasse = new Events(0, 0, 0, jsonString, jsonString, jsonString, jsonString, jsonString);
@@ -22,7 +25,7 @@ public class GiantSwitch {
 		SwitchMethods SW = new SwitchMethods();
 		
 		Gson gson = new GsonBuilder().create();
-		String answer = "";			
+		String answer = "";	
 		//Creates a switch which determines which method should be used. Methods will be applied later on
 		switch (Determine(jsonString)) {
 		//If the Json String contains one of the keywords below, run the relevant method.
@@ -101,7 +104,10 @@ public class GiantSwitch {
 		 ** QUOTE **
 		 **********/
 		case "getQuote":
-			System.out.println("Recieved getQuote");
+
+		answer = QOTDKlasse.getQuote();
+			System.out.println(answer);
+			
 			break;
 
 		/************
@@ -117,6 +123,7 @@ public class GiantSwitch {
 			break;
 		}
 		return answer;
+		
 	}
 
 	//Creates a loooong else if statement, which checks the JSon string which keyword it contains, and returns the following 
@@ -162,5 +169,6 @@ public class GiantSwitch {
 		else
 			return "error";
 	}
+	
 
 }
