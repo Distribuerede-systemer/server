@@ -26,7 +26,7 @@ public class ForecastModel {
 	     QueryBuilder qb = new QueryBuilder();
 	     
 	     // 
-	     public ArrayList<Forecast> requestForecast() throws SQLException {
+	     public ArrayList<Forecast> requestForecast() {
 	         URL url;
 	         HttpURLConnection conn;
 	         BufferedReader rd;
@@ -70,7 +70,7 @@ public class ForecastModel {
 	                 
 	                 JSONObject temp = (JSONObject) innerObj.get("temp");
 	                 double celsius = (Double) temp.get("day");
-
+	                 
 	                 String temperatur = String.valueOf(celsius);
 	                 JSONArray subList = (JSONArray) innerObj.get("weather");
 
@@ -84,10 +84,6 @@ public class ForecastModel {
 	                 }
 	                 
 	                 forecastList.add(new Forecast(string_date, temperatur, weatherDescription));
-	                 String [] fields = {"date", "apparentTemperature", "summary"};
-	                 String [] values = {string_date, temperatur, weatherDescription};
-	                 qb.update("dailyupdate", fields, values).where("date", "!=", null).Execute();
-	                 // Method to write these values to database needs to be created
 	                 
 	             }
 	         } catch (ParseException ex) {

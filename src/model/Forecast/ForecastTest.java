@@ -9,17 +9,13 @@ public class ForecastTest {
     public static void main(String[] args) throws SQLException {
 
         ForecastModel fm = new ForecastModel();
-        ArrayList<Forecast> al = new ArrayList<Forecast>();
-       
-        for (Forecast f : fm.getForecast()){
-        	System.out.println(f.getCelsius());
-        	System.out.println(f.getDate());
-        	System.out.println(f.getForecast());
-        	System.out.println(f.getDesc());
-        }
-        	
         
-
+        ArrayList<Forecast> forecastList = fm.requestForecast();
+        
+        for (int i = 0; i < forecastList.size(); i++) {
+        	System.out.println(forecastList.get(i).toString());
+		}
+       
     }
 
 }
