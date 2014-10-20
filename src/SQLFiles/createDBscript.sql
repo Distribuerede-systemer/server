@@ -92,10 +92,21 @@ CREATE TABLE IF NOT EXISTS users
 	userid int NOT NULL AUTO_INCREMENT,
 	email varchar(40) NOT NULL,
 	active boolean,
-	created datetime,
+	created datetime NOT NULL DEFAULT NOW(),
 	password varchar(200) NOT NULL,
 	PRIMARY KEY (userid)
 );
+
+/* Create Dummy Account */
+
+INSERT INTO `cbscalendar`.`users`
+(`email`,
+`active`,
+`password`)
+VALUES
+("admin@admin.dk",
+true,
+"d6YSr320JnLXlp8YYxUcNQ==");
 
 
 
@@ -157,7 +168,6 @@ ALTER TABLE notes
 ;
 
 
-=======
 CREATE DATABASE IF NOT EXISTS cbscalendar;
 use cbscalendar;
 SET SESSION FOREIGN_KEY_CHECKS=0;
