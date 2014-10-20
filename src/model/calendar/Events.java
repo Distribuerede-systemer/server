@@ -75,4 +75,11 @@ public class Events {
     public String toString() {
         return Arrays.toString(events.toArray());
     }
+    
+    public static void main(String []args){
+    	Events Hej = new Events();
+    	
+    	Hej.getEvents();
+    	System.out.println(Hej.toString());
+    }
 }
