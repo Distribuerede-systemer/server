@@ -1,93 +1,97 @@
 package fileUpload;
 
-import java.io.BufferedOutputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.ServerSocket;
-import java.net.Socket;
+import java.io.*;
+import java.net.*;
 
-public class Server {
-
-/**
- * @param args the command line arguments
- */
-public static void main(String[] args) throws IOException {
-    ServerSocket serverSocket = null;
-
-    try {
-        serverSocket = new ServerSocket(4444);
-    } catch (IOException ex) {
-        System.out.println("Can't setup server on this port number. ");
-    }
-
-    Socket socket = null;
-    InputStream is = null;
-    FileOutputStream fos = null;
-    BufferedOutputStream bos = null;
-    int bufferSize = 0;
-
-    try {
-        socket = serverSocket.accept();
-    } catch (IOException ex) {
-        System.out.println("Can't accept client connection. ");
-    }
-
-    try {
-        is = socket.getInputStream();
-
-        bufferSize = socket.getReceiveBufferSize();
-        System.out.println("Buffer size: " + bufferSize);
-    } catch (IOException ex) {
-        System.out.println("Can't get socket input stream. ");
-    }
-
-    try {
-    	
-    	String file = (String.valueOf(Math.ceil(Math.random()))); 		
-    	
-        fos = new FileOutputStream("res\\Uploads\\"+file);
+ 
+class Server
+{
+    public void serverUpload () throws IOException
+    {
+    	//til at flytte filen fra project folder
+    	InputStream inStream = null;
+    	OutputStream outStream = null;
+    
+        // Listen on port 5555 
+		ServerSocket server = new ServerSocket(5555);
+		
+		//accepter socket
+        Socket sk = server.accept();
        
+        InputStream input = sk.getInputStream();
+        BufferedReader inReader = new BufferedReader(new InputStreamReader(sk.getInputStream()));
+        BufferedWriter outReader = new BufferedWriter(new OutputStreamWriter(sk.getOutputStream()));
+ 
+        //læser filnavnet som vi vil upload
+        String filename = inReader.readLine();
+ 
+        if ( !filename.equals(""))
+        {
+            outReader.write("READY\n");
+            outReader.flush();
+        }
+ 
+        //String af directory
+        String current = System.getProperty("user.dir");
         
-       // ..\\..\\..\\..\\..\\..\\..\\..\\Uploads\\hmmmm 
-        //den gemmer i hukommelsen. Den gemmer loebende biderne i filen i hukommelsen. bum
-        bos = new BufferedOutputStream(fos);
-
-    } catch (FileNotFoundException ex) {
-    	
-    	//hvis den ikke kan arbejde med filen
-        System.out.println("File not found. ");
+        //ny fil
+	 	File xy = new File(current + "/" + filename);
+	 	
+	 	//til at undgaa for store filer
+	    long size = xy.length(); 
+	    if (size > 20480000) {
+	        System.out.println("File is too large. 20mb is max. styr dig selv");
+	    }
+	    
+	    //streamer til project folder
+		FileOutputStream wr = new FileOutputStream(xy);
+        byte[] buffer = new byte[sk.getReceiveBufferSize()];
+        int bytesReceived = 0;
+ 
+        //laeser bytes
+        while((bytesReceived = input.read(buffer))>0)
+        {
+        
+        //Skriver filen
+        wr.write(buffer,0,bytesReceived);
+          
+        }
+       
+       //nu er filen skrevet til project folder. Vi skal nu flytte/kopiere den til upload folder i res\\Uploads\\ 
+        try{
+        	    
+    	    File File1 =new File(current + "/" + filename);
+    	    File File2 =new File("res\\Uploads\\"+filename);
+  	       
+    	    //original filen
+    	    inStream = new FileInputStream(File1);
+    	    //ny 
+    	    outStream = new FileOutputStream(File2);
+    	    
+    	    byte[] buff = new byte[1024];
+ 
+    	    int length;
+    	  
+    	    while ((length = inStream.read(buff)) > 0){
+    	    	outStream.write(buffer, 0, length);
+    	    }
+    	    //Vi lukker hele biksen, foer vi kan slette den gamle fil
+    	    inStream.close();
+    	    outStream.close();
+    	    wr.flush();  	    
+    	    //lukker forbindelsen
+    	    wr.close();    	    
+    	    //input stream lukker. den som skriver filen
+    	    input.close();    	    
+    	    //luk socket
+    	    sk.close();   	    
+    	    //luk serversocket
+    	    server.close();
+    	    //sletter originalen så vi ikke har 2
+    	    File1.delete();
+    	    
+    	}catch(IOException e){
+    	    e.printStackTrace();
+    	}
     }
-
-    
-    //vi allokerer et bytearray, som har den stoerrelse vi har faaet at vide at filen er.
-    byte[] bytes = new byte[bufferSize];
-
-    
-    int count;
-
-    //saa laenge input stream modtager data, saa skal vi laese bytes...
-    while ((count = is.read(bytes)) >= 0) {
-    
-    	//...og gemme dem i vores buffered output stream! 
-    	bos.write(bytes, 0, count);
-    	//start ved sted 0 og skriv i det naeste sted der er plads i output streamen
-    }
-
-    //vi lukker // skylder ud igen og goer rent. garbage collection. saa vi frigiver hukommelse
-    bos.flush();
-    
-    //lukker forbindelsen
-    bos.close();
-    
-    //input stream lukker. den som skriver filen
-    is.close();
-    
-    //luk socket
-    socket.close();
-    
-    //luk serversocket
-    serverSocket.close();
-}
-}
+  }
