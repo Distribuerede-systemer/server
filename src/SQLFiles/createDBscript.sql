@@ -60,13 +60,15 @@ CREATE TABLE IF NOT EXISTS locationdata
 
 CREATE TABLE IF NOT EXISTS notes
 (
-	noteid int NOT NULL AUTO_INCREMENT,
-	eventid int NOT NULL,
-	createdby int NOT NULL,
+	noteId int NOT NULL AUTO_INCREMENT,
+	eventId int NOT NULL,
+	createdBy varchar(255) NOT NULL,
 	text text,
-	created datetime NOT NULL,
+	dateTime datetime NOT NULL,
+	active bit,
 	PRIMARY KEY (noteid)
 );
+
 
 
 CREATE TABLE IF NOT EXISTS roles

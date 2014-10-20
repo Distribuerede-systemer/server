@@ -18,10 +18,10 @@ public class NoteModel {
 	private String text;
 	private String dateTime;
 	private String createdBy;
-	private boolean isActive;
+	private int isActive;
 	private int eventID;
 	
-	public NoteModel(int noteID, String text, String dateTime, String createdBy, boolean isActive, int eventID) {
+	public NoteModel(int noteID, String text, String dateTime, String createdBy, int isActive, int eventID) {
 		super();
 		this.noteID = noteID;
 		this.text = text;
@@ -43,12 +43,12 @@ public class NoteModel {
 	}
 
 
-	public boolean isActive() {
+	public int isActive() {
 		return isActive;
 	}
 
 
-	public void setActive(boolean isActive) {
+	public void setActive(int isActive) {
 		this.isActive = isActive;
 	}
 
