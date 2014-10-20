@@ -26,7 +26,7 @@ public class ForecastModel {
 	     QueryBuilder qb = new QueryBuilder();
 	     
 	     // 
-	     public ArrayList<Forecast> requestForecast() {
+	     public ArrayList<Forecast> requestForecast() throws SQLException {
 	         URL url;
 	         HttpURLConnection conn;
 	         BufferedReader rd;
@@ -86,7 +86,7 @@ public class ForecastModel {
 	                 forecastList.add(new Forecast(string_date, temperatur, weatherDescription));
 	                 String [] fields = {"date", "apparentTemperature", "summary"};
 	                 String [] values = {string_date, temperatur, weatherDescription};
-	                 qb.update("dailyupdate", fields, values).where(string_date, =, value);
+	                 qb.update("dailyupdate", fields, values).where("date", "!=", null).Execute();
 	                 // Method to write these values to database needs to be created
 	                 
 	             }
@@ -99,7 +99,7 @@ public class ForecastModel {
 	     }
 	     
 	     // Henter vejrudsigten og gemmer de hentede data i en ArrayList
-	     public ArrayList<Forecast> getForecast(){
+	     public ArrayList<Forecast> getForecast() throws SQLException{
 	     	QueryBuilder qb = new QueryBuilder();
 	     	Date date = new Date(); // Current date & time
 	     	long maxTimeNoUpdate = 3600; // Maximum one hour with no update

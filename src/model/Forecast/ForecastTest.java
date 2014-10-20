@@ -1,11 +1,12 @@
 package model.Forecast;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ForecastTest {
 
 	// Main metode til at koere en test af vejrudsigt funktionen
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         ForecastModel fm = new ForecastModel();
         ArrayList<Forecast> al = new ArrayList<Forecast>();

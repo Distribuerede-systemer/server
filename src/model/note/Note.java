@@ -78,7 +78,7 @@ public class Note extends Model{
 			
 			String[] fields = {"eventID", "createdBy", "text", "dateTime", "isActive"};
 			String[] values = {String.valueOf(noteID), text, dateTime, createdBy, activeStatus};
-			qb.update("notes", fields, values).all();
+			qb.update("notes", fields, values).where("noteID", "=", String.valueOf(noteID));
 				
 		}
 }
