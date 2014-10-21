@@ -1,8 +1,11 @@
 import java.sql.SQLException;
 
+import model.Forecast.ForecastModel;
 import model.QOTD.QOTDModel;
 import model.calendar.Event;
+import model.calendar.Events;
 import model.note.Note;
+import model.user.AuthenticateUser;
 import JsonClasses.CalendarInfo;
 import JsonClasses.CreateCalender;
 import JsonClasses.DeleteCalender;
@@ -13,16 +16,16 @@ import databaseMethods.SwitchMethods;
 
 public class GiantSwitch {
 	
-	
+	Note noteKlasse = new Note();
+	ForecastModel fm = new ForecastModel();
+	QOTDModel QOTDKlasse = new QOTDModel();
+	SwitchMethods SW = new SwitchMethods();
+	Events eventsklasse = new Events();
+	AuthenticateUser auUser = new AuthenticateUser();
 	
 	public String GiantSwitchMethod(String jsonString) throws SQLException {
 
 		//Events eventsKlasse = new Events(0, 0, 0, jsonString, jsonString, jsonString, jsonString, jsonString);
-
-		Note noteKlasse = new Note();
-		//ForecastModel forecastKlasse = new ForecastModel();
-		QOTDModel QOTDKlasse = new QOTDModel();
-		SwitchMethods SW = new SwitchMethods();
 		
 		Gson gson = new GsonBuilder().create();
 		String answer = "";	
@@ -42,6 +45,8 @@ public class GiantSwitch {
 		 ** LOGIN **
 		 **********/
 		case "logIn":
+			
+			auUser.authenticate(email, password, isAdmin);
 			System.out.println("Recieved logIn");
 			break;
 
@@ -75,6 +80,7 @@ public class GiantSwitch {
 
 		case "getEvents":
 			System.out.println("Recieved getEvents");
+			answer = eventsklasse.toString();
 			break;
 
 		case "createEvent":
@@ -90,14 +96,18 @@ public class GiantSwitch {
 		
 		case "saveNote":
 			System.out.println("Recieved saveNote");
+			answer = noteKlasse.SaveNote(note);
 			break;
 
 		case "getNote":
 			System.out.println("Recieved getNote");
+//			Metoden skal bruge noteID. Hvor får man det?
+			answer = noteKlasse.GetNote(noteID);
 			break;
 			
 		case "deleteNote":
 			System.out.println("Recieved deleteNote");
+			answer = noteKlasse.DeleteNote(noteID);
 			break;
 
 		/**********
@@ -115,6 +125,8 @@ public class GiantSwitch {
 		 ************/
 
 		case "getClientForecast":
+			//case skal returnere answer som en String, men .getForecaset er en array
+			answer = fm.getForecast();
 			System.out.println("Recieved getClientForecast");
 			break;
 		

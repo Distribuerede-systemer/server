@@ -2,13 +2,11 @@ package databaseMethods;
 import java.sql.SQLException;
 
 import model.Model;
-import model.QOTD.QOTDModel;
 import model.QueryBuild.QueryBuilder;
 
 public class SwitchMethods extends Model
 {
 	QueryBuilder qb = new QueryBuilder();
-	QOTDModel qm = new QOTDModel();
 	
 
 	

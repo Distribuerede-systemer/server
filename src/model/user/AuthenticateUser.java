@@ -1,7 +1,9 @@
 package model.user;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
+import GUI.UserInformation;
 import model.QueryBuild.QueryBuilder;
 
 public class AuthenticateUser {
@@ -60,4 +62,36 @@ public class AuthenticateUser {
 			return 1; // returnerer fejlkoden "1" hvis email ikke findes
 		}
 	}
+	
+	public UserInformation getUser(String email) {
+		ResultSet rs = null;
+		UserInformation user = null;
+
+		// tries to execute the query from selectUser
+		try {
+			
+			rs = qb.selectFrom("users").where(email, "=", email).ExecuteQuery();
+
+			// runs through the rows in the table and gets information needed
+			while (rs.next()) {
+				int userid = rs.getInt("userid");
+				String name = rs.getString("email");
+				String pass = rs.getString("password");
+				int active = rs.getInt("active");
+				String created = rs.getString("created");
+				int type = rs.getInt("type");
+
+				user = new UserInformation(userid, name, pass, active, created, type);
+
+			}// end while
+
+		}// end try
+
+		// catches potential SQL errors and closes the connection
+		catch (SQLException e) {
+
+			e.printStackTrace();
+		}// end catch
+		return user;
+}
 }

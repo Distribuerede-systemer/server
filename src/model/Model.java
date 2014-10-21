@@ -1,6 +1,7 @@
 package model;
 
 import com.ibatis.common.jdbc.ScriptRunner;
+
 import config.Configurations;
 
 import java.io.*;
@@ -146,6 +147,14 @@ public abstract class Model {
         return "";
     }
 
+    public void close() {
+		try {
+			conn.close();
+		} // end try
+		catch (SQLException sqlException) {
+			sqlException.printStackTrace();
+		} // end catch
+	} // end method close
     /**
      * Getter-method for Connection-class
      *
