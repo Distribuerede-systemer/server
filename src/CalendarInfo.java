@@ -10,7 +10,7 @@ public class CalendarInfo implements java.io.Serializable {
 		private  String end;
 		private  String location;
 		
-		
+		//dnawdn
 		//Getters and setters
 		public String getActivityID() {
 			return activityID;
